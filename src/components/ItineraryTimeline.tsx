@@ -11,7 +11,7 @@ export const ItineraryTimeline: React.FC<HowItWorksProps> = ({ t, lang }) => {
   const stepIcons = [Compass, MessageCircle, ShieldCheck, Key];
 
   return (
-    <section id="how-it-works" className="py-16 sm:py-24 bg-white border-y border-stone-200/60">
+    <section id="how-it-works" className="py-16 sm:py-24 bg-white border-y border-stone-200/60 scroll-mt-20 sm:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header matching exact design */}

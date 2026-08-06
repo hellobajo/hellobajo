@@ -148,6 +148,7 @@ export const Header: React.FC<HeaderProps> = ({ lang, onLanguageChange, t }) => 
         </div>
       </div>
 
+
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div className="md:hidden bg-white border-b border-stone-200 px-4 pt-2 pb-6 space-y-2">

@@ -35,7 +35,7 @@ export const PricingCard: React.FC<PricingCardProps> = ({ t, lang, onSelectScoot
   };
 
   return (
-    <section id="fleet" className="py-20 bg-[#faf8f5]">
+    <section id="fleet" className="py-20 bg-[#faf8f5] scroll-mt-20 sm:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

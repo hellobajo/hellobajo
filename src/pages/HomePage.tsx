@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import { Language, TranslationContent } from '../data/translations';
 import { SEOHead } from '../components/SEOHead';
 import { Hero } from '../components/Hero';
-import { QuickSearchWidget } from '../components/QuickSearchWidget';
 import { ItineraryTimeline } from '../components/ItineraryTimeline';
 import { PricingCard } from '../components/PricingCard';
 import { WhyChooseUs } from '../components/WhyChooseUs';
@@ -92,9 +91,40 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, t }) => {
       {/* Hero Section */}
       <Hero t={t} lang={lang} />
 
-      {/* Quick Search & Calculator Widget */}
-      <div className="px-4 sm:px-6 lg:px-8">
-        <QuickSearchWidget lang={lang} />
+      {/* Sub-Header Section Navigation Bar for Scooter Page */}
+      <div className="bg-white border-b border-stone-200/80 sticky top-16 sm:top-20 z-40 backdrop-blur-md bg-white/95 shadow-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-start sm:justify-center h-12 overflow-x-auto no-scrollbar text-xs sm:text-sm font-bold text-slate-600 space-x-6 sm:space-x-10">
+          <a
+            href="#how-it-works"
+            className="hover:text-teal-600 transition-colors whitespace-nowrap py-1"
+          >
+            {lang === 'EN' ? 'How It Works' : lang === 'ZH' ? '使用流程' : 'How It Works'}
+          </a>
+          <a
+            href="#fleet"
+            className="hover:text-teal-600 transition-colors whitespace-nowrap py-1"
+          >
+            {lang === 'EN' ? 'Our Fleet' : lang === 'ZH' ? '车队选择' : 'Our Fleet'}
+          </a>
+          <a
+            href="#why-us"
+            className="hover:text-teal-600 transition-colors whitespace-nowrap py-1"
+          >
+            {lang === 'EN' ? 'Why Us' : lang === 'ZH' ? '为什么选择我们' : 'Why Us'}
+          </a>
+          <a
+            href="#reserve"
+            className="text-teal-600 hover:text-teal-700 font-extrabold transition-colors whitespace-nowrap py-1"
+          >
+            {lang === 'EN' ? 'Book Scooter' : lang === 'ZH' ? '预订摩托车' : 'Book Scooter'}
+          </a>
+          <a
+            href="#faq"
+            className="hover:text-teal-600 transition-colors whitespace-nowrap py-1"
+          >
+            FAQ
+          </a>
+        </div>
       </div>
 
       {/* How It Works Timeline */}

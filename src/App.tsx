@@ -16,7 +16,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col bg-[#faf8f5] selection:bg-teal-500 selection:text-white font-sans text-slate-800 overflow-x-hidden">
+      <div className="min-h-screen flex flex-col bg-[#faf8f5] selection:bg-teal-500 selection:text-white font-sans text-slate-800 overflow-x-clip">
         {/* 1. Global Header Navigation */}
         <Header lang={lang} onLanguageChange={setLang} t={t} />
 

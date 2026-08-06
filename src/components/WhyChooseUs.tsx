@@ -27,7 +27,7 @@ export const WhyChooseUs: React.FC<WhyChooseUsProps> = ({ t }) => {
   };
 
   return (
-    <section id="why-us" className="py-20 bg-white border-t border-stone-200/60">
+    <section id="why-us" className="py-20 bg-white border-t border-stone-200/60 scroll-mt-20 sm:scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

@@ -14,7 +14,7 @@ export const FaqAccordion: React.FC<FaqAccordionProps> = ({ t }) => {
   };
 
   return (
-    <section id="faq" className="py-20 bg-[#faf8f5]">
+    <section id="faq" className="py-20 bg-[#faf8f5] scroll-mt-20 sm:scroll-mt-24">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
