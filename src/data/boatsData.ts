@@ -1,4 +1,4 @@
-import { SPEEDBOAT_BANNER } from './images';
+import { BOAT_FLEET_IMAGES } from './images';
 
 export interface PriceTier {
   minPax: number;
@@ -71,7 +71,7 @@ export const BOAT_CHARTERS: BoatCharterOption[] = [
       { minPax: 1, maxPax: 4, price: 8000000, label: '1-4 Person: Rp 8.000.000' },
       { minPax: 5, maxPax: 8, price: 9000000, label: '5-8 Person: Rp 9.000.000' },
     ],
-    image: 'https://images.unsplash.com/photo-1567899378494-47b22a2ae96a?auto=format&fit=crop&w=800&q=80',
+    image: BOAT_FLEET_IMAGES.athena,
     badge: 'Popular',
     destinations: [
       'Padar Island (Trekking & Summit View)',
@@ -111,7 +111,7 @@ export const BOAT_CHARTERS: BoatCharterOption[] = [
       { minPax: 1, maxPax: 4, price: 11000000, label: '1-4 Person: Rp 11.000.000' },
       { minPax: 5, maxPax: 8, price: 12000000, label: '5-8 Person: Rp 12.000.000' },
     ],
-    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80',
+    image: BOAT_FLEET_IMAGES.shining,
     badge: 'Full AC Deck',
     destinations: [
       'Padar Island (Trekking & Summit View)',
@@ -153,7 +153,7 @@ export const BOAT_CHARTERS: BoatCharterOption[] = [
       { minPax: 10, maxPax: 12, price: 15000000, label: '10-12 Person: Rp 15.000.000' },
     ],
     extraPaxPrice: 1000000,
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+    image: BOAT_FLEET_IMAGES.arsiva,
     badge: 'Spacious Group',
     destinations: [
       'Padar Island',
@@ -196,7 +196,7 @@ export const BOAT_CHARTERS: BoatCharterOption[] = [
       { minPax: 10, maxPax: 12, price: 15000000, label: '10-12 Person: Rp 15.000.000' },
     ],
     extraPaxPrice: 1000000,
-    image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80',
+    image: BOAT_FLEET_IMAGES.seaZaydan,
     badge: 'Premium Fleet',
     destinations: [
       'Padar Island',
@@ -233,7 +233,7 @@ export const BOAT_CHARTERS: BoatCharterOption[] = [
     isPerPerson: false,
     priceFormatted: 'Coming Soon',
     priceNote: 'Coming Soon',
-    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80',
+    image: BOAT_FLEET_IMAGES.phinisi,
     badge: 'Coming Soon',
     isUnderDevelopment: true,
     destinations: [

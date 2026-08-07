@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { TranslationContent, Language } from '../data/translations';
 import { CAR_CHARTER_BANNER, SPEEDBOAT_BANNER, RIDING_DESTINATIONS } from '../data/images';
 import { SITE_CONFIG } from '../data/siteConfig';
-import { MessageCircle, MapPin, Sparkles, Car, Shield, ChevronLeft, ChevronRight, ExternalLink, FileText, ArrowRight } from 'lucide-react';
+import { MessageCircle, MapPin, Sparkles, Car, Shield, ChevronLeft, ChevronRight, ExternalLink, FileText, ArrowRight, Ship, Bike } from 'lucide-react';
 
 interface AlternativeDestinationsProps {
   t: TranslationContent;
@@ -11,6 +12,8 @@ interface AlternativeDestinationsProps {
 
 export const AlternativeDestinations: React.FC<AlternativeDestinationsProps> = ({ t, lang }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
 
   const carouselSlides = [
     {
@@ -25,9 +28,9 @@ export const AlternativeDestinations: React.FC<AlternativeDestinationsProps> = (
         ? '无论是风景漫游还是团队出行，我们都能为您提供完美的车辆。安全可靠，由本地专业司机驾驶。'
         : 'Pilihan mobil MPV/SUV AC bersih dan HiAce Commuter rombongan. Pengemudi lokal ramah, profesional, dan berpengalaman.',
       badge: lang === 'EN' ? 'Private City Tour' : lang === 'ZH' ? '私人包车 / 城市游' : 'Private City Tour',
-      buttonText: lang === 'EN' ? 'Visit car.hellobajo.com' : lang === 'ZH' ? '访问 car.hellobajo.com' : 'Kunjungi car.hellobajo.com',
-      buttonType: 'external',
-      url: 'https://car.hellobajo.com',
+      buttonText: lang === 'EN' ? 'Private City Tour' : lang === 'ZH' ? '私人包车 / 城市游' : 'Sewa Mobil & City Tour',
+      buttonType: 'internal',
+      path: '/cars',
     },
     {
       id: 2,
@@ -41,9 +44,9 @@ export const AlternativeDestinations: React.FC<AlternativeDestinationsProps> = (
         ? '一天打卡帕达尔岛、粉红沙滩、科莫多巨蜥岛、塔卡麦加萨、魔鬼鱼点及卡纳瓦岛。含午餐便当、浮潜装备及本地导游。'
         : 'Jelajah Pulau Padar, Pink Beach, Pulau Komodo, Taka Makassar, Manta Point & Kanawa. Lengkap dengan lunch box, alat snorkeling & guide.',
       badge: lang === 'EN' ? 'Island Hopping & Boats' : lang === 'ZH' ? '跳岛游与船只' : 'Island Hopping & Boats',
-      buttonText: lang === 'EN' ? 'Visit speedboat.hellobajo.com' : lang === 'ZH' ? '访问 speedboat.hellobajo.com' : 'Kunjungi speedboat.hellobajo.com',
-      buttonType: 'external',
-      url: 'https://speedboat.hellobajo.com',
+      buttonText: lang === 'EN' ? 'Island Hopping & Boats' : lang === 'ZH' ? '跳岛游与快艇预订' : 'Sewa Speedboat & Island Hopping',
+      buttonType: 'internal',
+      path: '/boats',
     },
     {
       id: 3,
@@ -57,7 +60,7 @@ export const AlternativeDestinations: React.FC<AlternativeDestinationsProps> = (
         ? '深入弗洛勒斯腹地，探秘瓦埃雷博特色圆锥形传统高脚屋。套餐含空调接送、传统圆屋住宿、餐食及本地导游。'
         : 'Nikmati keindahan Wae Rebo & rumah adat Mbaru Niang. Paket komplit termasuk transport AC, makan, tiket masuk, inap & guide.',
       badge: lang === 'EN' ? 'Wae Rebo 2D1N Package' : lang === 'ZH' ? '瓦埃雷博 2天1夜 套餐' : 'Paket Wae Rebo 2H1M',
-      buttonText: lang === 'EN' ? 'See Package' : lang === 'ZH' ? '查看行程详情' : 'Lihat Paket',
+      buttonText: lang === 'EN' ? 'Inquire Wae Rebo Package' : lang === 'ZH' ? '咨询 2天1夜 套餐' : 'Tanya Paket Wae Rebo',
       buttonType: 'pdf_package',
       waMsg: lang === 'EN'
         ? 'Hi HelloBajo! Please send me the Wae Rebo 2D1N Tour Package details and PDF document.'
@@ -68,7 +71,7 @@ export const AlternativeDestinations: React.FC<AlternativeDestinationsProps> = (
     {
       id: 4,
       image: RIDING_DESTINATIONS.goloMori,
-      tag: lang === 'EN' ? 'MORE ROADS, MORE STORIES, MORE BAJO' : lang === 'ZH' ? '骑行探秘弗洛勒斯' : 'RIDE & EXPLORE FLORES',
+      tag: lang === 'EN' ? 'SCOOTER RENTAL' : lang === 'ZH' ? '摩托车/踏板车租赁' : 'RIDE & EXPLORE FLORES',
       title: lang === 'EN' ? 'A Journey Worth Exploring' : lang === 'ZH' ? '开启值得期待的骑行之旅' : 'Sensasi Berkendara Jelajah Bajo',
       subtitle: lang === 'EN' ? 'Discover Labuan Bajo Beyond the Sea' : lang === 'ZH' ? '探索拉布安巴佐陆地之美' : 'Jelajah Labuan Bajo Lebih Dari Sekadar Laut',
       caption: lang === 'EN'
@@ -76,21 +79,23 @@ export const AlternativeDestinations: React.FC<AlternativeDestinationsProps> = (
         : lang === 'ZH'
         ? '拉布安巴佐不仅有大海。骑上品质踏板车，穿梭戈洛莫里景观大道与落日山丘，体验独特本地风情。'
         : 'Rasakan kebebasan riding menyusuri jalanan mulus Golo Mori, bukit sunset, & pantai rahasia dengan motor matic prima.',
-      badge: lang === 'EN' ? 'Scooter Land Adventures' : lang === 'ZH' ? '踏板车陆地探索' : 'Jelajah Motor Matic',
-      buttonText: lang === 'EN' ? 'Book a Scooter' : lang === 'ZH' ? '立即预订摩托车' : 'Sewa Motor Sekarang',
+      badge: lang === 'EN' ? 'Scooter Rental' : lang === 'ZH' ? '踏板车陆地探索' : 'Jelajah Motor Matic',
+      buttonText: lang === 'EN' ? 'Book a Scooter' : lang === 'ZH' ? '预订摩托车' : 'Sewa Motor Sekarang',
       buttonType: 'scroll_reserve',
     },
   ];
 
   const handleSlideCtaClick = (slide: typeof carouselSlides[0]) => {
-    if (slide.buttonType === 'external' && slide.url) {
-      window.open(slide.url, '_blank', 'noopener,noreferrer');
+    if (slide.buttonType === 'internal' && slide.path) {
+      navigate(slide.path);
     } else if (slide.buttonType === 'scroll_reserve') {
       const reserveElement = document.getElementById('reserve');
       if (reserveElement) {
         reserveElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        navigate('/#reserve');
       }
-    } else if (slide.buttonType === 'pdf_package' && slide.waMsg) {
+    } else if (slide.buttonType === 'pdf_package' && 'waMsg' in slide && slide.waMsg) {
       window.open(`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(slide.waMsg)}`, '_blank', 'noopener,noreferrer');
     }
   };
@@ -111,13 +116,10 @@ export const AlternativeDestinations: React.FC<AlternativeDestinationsProps> = (
     const deltaX = touchEndX - touchStartX;
     const deltaY = touchEndY - touchStartY;
 
-    // Minimum distance threshold of 35px for horizontal swipe
     if (Math.abs(deltaX) > 35 && Math.abs(deltaX) > Math.abs(deltaY)) {
       if (deltaX < 0) {
-        // Swiped Left -> Next slide
         setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
       } else {
-        // Swiped Right -> Previous slide
         setCurrentSlide((prev) => (prev === 0 ? carouselSlides.length - 1 : prev - 1));
       }
     }
@@ -126,13 +128,14 @@ export const AlternativeDestinations: React.FC<AlternativeDestinationsProps> = (
     setTouchStartY(null);
   };
 
-  // Auto-advance carousel every 6 seconds (6000ms)
+  // Auto-advance carousel every 6 seconds, paused on hover
   useEffect(() => {
+    if (isHovered) return;
     const timer = setInterval(() => {
       setCurrentSlide((prev) => (prev + 1) % carouselSlides.length);
     }, 6000);
     return () => clearInterval(timer);
-  }, [carouselSlides.length]);
+  }, [isHovered, carouselSlides.length]);
 
   const carWhatsappUrl = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
     lang === 'EN'
@@ -182,6 +185,8 @@ export const AlternativeDestinations: React.FC<AlternativeDestinationsProps> = (
         <div 
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
+          onMouseEnter={() => setIsHovered(true)}
+          onMouseLeave={() => setIsHovered(false)}
           className="relative rounded-3xl overflow-hidden shadow-2xl border border-stone-200/80 bg-slate-950 mb-14 max-w-5xl mx-auto group select-none touch-pan-y"
         >
           {/* Landscape Image Container (16:9 on mobile, 21:9 on desktop) */}
@@ -230,8 +235,12 @@ export const AlternativeDestinations: React.FC<AlternativeDestinationsProps> = (
                       onClick={() => handleSlideCtaClick(slide)}
                       className="inline-flex items-center gap-2 px-5 sm:px-6 py-2.5 sm:py-3 bg-teal-500 hover:bg-teal-400 text-slate-950 font-extrabold text-xs sm:text-sm rounded-full shadow-lg shadow-teal-500/30 transition-all active:scale-95 cursor-pointer"
                     >
-                      {slide.buttonType === 'external' ? (
-                        <ExternalLink className="w-4 h-4" />
+                      {slide.id === 1 ? (
+                        <Car className="w-4 h-4" />
+                      ) : slide.id === 2 ? (
+                        <Ship className="w-4 h-4" />
+                      ) : slide.id === 4 ? (
+                        <Bike className="w-4 h-4" />
                       ) : slide.buttonType === 'pdf_package' ? (
                         <FileText className="w-4 h-4" />
                       ) : (
@@ -241,7 +250,15 @@ export const AlternativeDestinations: React.FC<AlternativeDestinationsProps> = (
                     </button>
 
                     <div className="hidden sm:flex items-center gap-2 px-3.5 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-xs font-semibold text-stone-200">
-                      <Car className="w-4 h-4 text-teal-300" />
+                      {slide.id === 1 ? (
+                        <Car className="w-4 h-4 text-teal-300" />
+                      ) : slide.id === 2 ? (
+                        <Ship className="w-4 h-4 text-teal-300" />
+                      ) : slide.id === 4 ? (
+                        <Bike className="w-4 h-4 text-teal-300" />
+                      ) : (
+                        <Sparkles className="w-4 h-4 text-teal-300" />
+                      )}
                       <span>{slide.badge}</span>
                     </div>
                   </div>

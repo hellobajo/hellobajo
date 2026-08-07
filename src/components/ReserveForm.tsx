@@ -24,9 +24,9 @@ const HOURLY_TIMES = [
 ];
 
 const BIKES = [
-  { id: 'beat', name: 'Honda Beat (or similar)', rate: 100000, labelEN: 'Honda Beat (or similar) – Rp 100k/day', labelZH: 'Honda Beat (或同级车型) – Rp 100k/天', labelID: 'Honda Beat (atau sejenis) – Rp 100rb/hari' },
-  { id: 'scoopy', name: 'Honda Scoopy (or similar)', rate: 120000, labelEN: 'Honda Scoopy (or similar) – Rp 120k/day', labelZH: 'Honda Scoopy (或同级车型) – Rp 120k/天', labelID: 'Honda Scoopy (atau sejenis) – Rp 120rb/hari' },
-  { id: 'nmax', name: 'Yamaha NMAX (or similar)', rate: 175000, labelEN: 'Yamaha NMAX (or similar) – Rp 175k/day', labelZH: 'Yamaha NMAX (或同级车型) – Rp 175k/天', labelID: 'Yamaha NMAX (atau sejenis) – Rp 175rb/hari' },
+  { id: 'nmax', name: 'Yamaha NMAX (or similar)', rate: 175000, labelEN: 'Yamaha NMAX (Maxi Scooter - Most Popular) – Rp 175k/day', labelZH: 'Yamaha NMAX (豪华踏板 - 最受欢迎) – Rp 175k/天', labelID: 'Yamaha NMAX (Maxi Scooter - Paling Populer) – Rp 175rb/hari' },
+  { id: 'scoopy', name: 'Honda Scoopy (or similar)', rate: 120000, labelEN: 'Honda Scoopy (Classic Style Scooter) – Rp 120k/day', labelZH: 'Honda Scoopy (复古风踏板) – Rp 120k/天', labelID: 'Honda Scoopy (Classic Style Scooter) – Rp 120rb/hari' },
+  { id: 'beat', name: 'Honda Beat (or similar)', rate: 100000, labelEN: 'Honda Beat (Standard / Compact Scooter) – Rp 100k/day', labelZH: 'Honda Beat (标准经济型踏板) – Rp 100k/天', labelID: 'Honda Beat (Standard / Compact Scooter) – Rp 100rb/hari' },
 ];
 
 const LOCATION_OPTIONS_EN = [
@@ -95,6 +95,7 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
 
   // State
   const [selectedBikeId, setSelectedBikeId] = useState(propSelectedBikeId || '');
+  const [quantity, setQuantity] = useState<number>(1);
 
   useEffect(() => {
     if (propSelectedBikeId) {
@@ -114,7 +115,7 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
   const [customReturnText, setCustomReturnText] = useState('');
 
   const [socialHandle, setSocialHandle] = useState('');
-  const [ageConfirmed, setAgeConfirmed] = useState(false);
+  const [ageConfirmed, setAgeConfirmed] = useState(true);
 
   // Helper to parse time string to hour number (0 - 23)
   const parseHour = (timeStr: string): number => {
@@ -180,10 +181,10 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
       return {
         fullDays: 1,
         overtimeHours: 0,
-        basePrice: dailyRate,
+        basePrice: dailyRate * quantity,
         overtimePrice: 0,
-        deliveryFee: 40000,
-        totalEstimate: dailyRate + 40000,
+        deliveryFee: 40000 * quantity,
+        totalEstimate: (dailyRate + 40000) * quantity,
       };
     }
 
@@ -205,16 +206,15 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
     let fullDays = Math.floor(totalHours / 24);
     let overtimeHours = totalHours % 24;
 
-    // Overtime logic: Rp 15,000 / hour, up to 4 hours max.
-    // If overtime is 5+ hours, automatically count as +1 full additional day rental.
+    // Overtime logic: Rp 15,000 / hour per bike, up to 4 hours max.
     if (overtimeHours >= 5) {
       fullDays += 1;
       overtimeHours = 0;
     }
 
-    const basePrice = fullDays * dailyRate;
-    const overtimePrice = overtimeHours * 15000;
-    const deliveryFee = 40000; // Rp 20,000 for pickup + Rp 20,000 for drop-off
+    const basePrice = fullDays * dailyRate * quantity;
+    const overtimePrice = overtimeHours * 15000 * quantity;
+    const deliveryFee = 40000 * quantity; // Rp 20,000 for pickup + Rp 20,000 for drop-off per unit
     const totalEstimate = basePrice + overtimePrice + deliveryFee;
 
     return {
@@ -225,7 +225,7 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
       deliveryFee,
       totalEstimate,
     };
-  }, [selectedBikeId, pickupDate, pickupTime, dropoffDate, dropoffTime]);
+  }, [selectedBikeId, quantity, pickupDate, pickupTime, dropoffDate, dropoffTime]);
 
   // Form Submission
   const handleSubmit = (e: React.FormEvent) => {
@@ -243,11 +243,6 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
 
     if (!returnAreaOption) {
       alert(lang === 'EN' ? 'Please select a return / drop-off location area.' : lang === 'ZH' ? '请选择还车地点。' : 'Harap pilih area lokasi pengembalian motor.');
-      return;
-    }
-
-    if (!ageConfirmed) {
-      alert(lang === 'EN' ? 'Please confirm rider age (20 - 65 years).' : lang === 'ZH' ? '请确认骑行者年龄在 20 - 65 岁之间。' : 'Harap konfirmasi usia pengendara (20 - 65 tahun).');
       return;
     }
 
@@ -272,48 +267,51 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
       lang === 'EN'
         ? `Hi HelloBajo! I would like to book a scooter:\n\n` +
           `🛵 *SCOOTER BOOKING REQUEST*\n` +
-          `• *Bike:* ${selectedBike.name}\n` +
+          `• *Bike Model:* ${selectedBike.name}\n` +
+          `• *Quantity Units:* ${quantity} Scooter${quantity > 1 ? 's' : ''}\n` +
           `• *Pick-up Date & Time:* ${pickupDate} at ${pickupTime}\n` +
           `• *Drop-off Date & Time:* ${dropoffDate} at ${dropoffTime}\n` +
           `• *Pickup Location:* ${finalPickupLocation}\n` +
           `• *Return Location:* ${finalReturnLocation}\n` +
           `• *Social Handle:* ${socialHandle || 'Will provide in chat'}\n` +
-          `• *Rider Age Verified:* Yes (20-65 yrs)\n\n` +
+          `• *Rider Age (20-65 yrs):* ${ageConfirmed ? 'Confirmed' : 'Optional'}\n\n` +
           `💰 *PRICE ESTIMATE BREAKDOWN*\n` +
-          `• Base Rental (${calculation.fullDays} day${calculation.fullDays > 1 ? 's' : ''}): Rp ${calculation.basePrice.toLocaleString('id-ID')}\n` +
-          (calculation.overtimeHours > 0 ? `• Overtime (${calculation.overtimeHours} hrs @ Rp 15k/hr): + Rp ${calculation.overtimePrice.toLocaleString('id-ID')}\n` : '') +
-          `• Delivery & Pickup Fee: + Rp ${calculation.deliveryFee.toLocaleString('id-ID')} (Rp 20k/trip)\n` +
+          `• Base Rental (${calculation.fullDays} day${calculation.fullDays > 1 ? 's' : ''} × ${quantity} unit${quantity > 1 ? 's' : ''}): Rp ${calculation.basePrice.toLocaleString('id-ID')}\n` +
+          (calculation.overtimeHours > 0 ? `• Overtime (${calculation.overtimeHours} hrs × ${quantity} unit${quantity > 1 ? 's' : ''} @ Rp 15k/hr): + Rp ${calculation.overtimePrice.toLocaleString('id-ID')}\n` : '') +
+          `• Delivery & Pickup Fee (${quantity} unit${quantity > 1 ? 's' : ''}): + Rp ${calculation.deliveryFee.toLocaleString('id-ID')} (Rp 20k/trip/unit)\n` +
           `• *TOTAL ESTIMATE:* *Rp ${calculation.totalEstimate.toLocaleString('id-ID')}*\n\n` +
           `Please confirm availability. Thank you!`
         : lang === 'ZH'
         ? `你好 HelloBajo！我想预订摩托车：\n\n` +
           `🛵 *摩托车预订请求*\n` +
           `• *车型:* ${selectedBike.name}\n` +
+          `• *数量:* ${quantity} 辆\n` +
           `• *取车日期与时间:* ${pickupDate} ${pickupTime}\n` +
           `• *还车日期与时间:* ${dropoffDate} ${dropoffTime}\n` +
           `• *送车地点:* ${finalPickupLocation}\n` +
           `• *还车地点:* ${finalReturnLocation}\n` +
           `• *社交账号:* ${socialHandle || '稍后在聊天中提供'}\n` +
-          `• *骑行者年龄核验:* 已确认 (20-65岁)\n\n` +
+          `• *骑行者年龄核验 (20-65岁):* ${ageConfirmed ? '已确认' : '可选'}\n\n` +
           `💰 *预估费用明细*\n` +
-          `• 基础租金 (${calculation.fullDays} 天): Rp ${calculation.basePrice.toLocaleString('id-ID')}\n` +
-          (calculation.overtimeHours > 0 ? `• 超时费 (${calculation.overtimeHours} 小时 @ Rp 15k/小时): + Rp ${calculation.overtimePrice.toLocaleString('id-ID')}\n` : '') +
-          `• 接送服务费: + Rp ${calculation.deliveryFee.toLocaleString('id-ID')} (Rp 20k/单程)\n` +
+          `• 基础租金 (${calculation.fullDays} 天 × ${quantity} 辆): Rp ${calculation.basePrice.toLocaleString('id-ID')}\n` +
+          (calculation.overtimeHours > 0 ? `• 超时费 (${calculation.overtimeHours} 小时 × ${quantity} 辆 @ Rp 15k/小时): + Rp ${calculation.overtimePrice.toLocaleString('id-ID')}\n` : '') +
+          `• 接送服务费 (${quantity} 辆): + Rp ${calculation.deliveryFee.toLocaleString('id-ID')} (Rp 20k/单程/辆)\n` +
           `• *预估总额:* *Rp ${calculation.totalEstimate.toLocaleString('id-ID')}*\n\n` +
           `请确认是否有车。谢谢！`
         : `Halo HelloBajo! Saya mau reservasi sewa motor:\n\n` +
           `🛵 *PEMESANAN SEWA MOTOR*\n` +
           `• *Pilihan Motor:* ${selectedBike.name}\n` +
+          `• *Jumlah Unit:* ${quantity} Unit Motor\n` +
           `• *Tanggal & Jam Ambil:* ${pickupDate} jam ${pickupTime}\n` +
           `• *Tanggal & Jam Kembali:* ${dropoffDate} jam ${dropoffTime}\n` +
           `• *Lokasi Antar / Hotel:* ${finalPickupLocation}\n` +
           `• *Lokasi Pengembalian:* ${finalReturnLocation}\n` +
           `• *Social Media:* ${socialHandle || 'Akan dikirim di chat'}\n` +
-          `• *Pengendara 20-65 Thn:* Ya\n\n` +
+          `• *Pengendara 20-65 Thn:* ${ageConfirmed ? 'Ya' : 'Opsional'}\n\n` +
           `💰 *RINCIAN ESTIMASI HARGA*\n` +
-          `• Sewa Pokok (${calculation.fullDays} hari): Rp ${calculation.basePrice.toLocaleString('id-ID')}\n` +
-          (calculation.overtimeHours > 0 ? `• Overtime (${calculation.overtimeHours} jam @ Rp 15rb/jam): + Rp ${calculation.overtimePrice.toLocaleString('id-ID')}\n` : '') +
-          `• Ongkir Antar & Jemput: + Rp ${calculation.deliveryFee.toLocaleString('id-ID')} (Rp 20rb/trip)\n` +
+          `• Sewa Pokok (${calculation.fullDays} hari × ${quantity} unit): Rp ${calculation.basePrice.toLocaleString('id-ID')}\n` +
+          (calculation.overtimeHours > 0 ? `• Overtime (${calculation.overtimeHours} jam × ${quantity} unit @ Rp 15rb/jam): + Rp ${calculation.overtimePrice.toLocaleString('id-ID')}\n` : '') +
+          `• Ongkir Antar & Jemput (${quantity} unit): + Rp ${calculation.deliveryFee.toLocaleString('id-ID')} (Rp 20rb/trip/unit)\n` +
           `• *TOTAL ESTIMASI:* *Rp ${calculation.totalEstimate.toLocaleString('id-ID')}*\n\n` +
           `Mohon konfirmasi ketersediaan unit. Terima kasih!`;
 
@@ -341,28 +339,49 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
         <div className="bg-white rounded-3xl shadow-xl shadow-stone-200/60 border border-stone-200/80 p-5 sm:p-8">
           <form onSubmit={handleSubmit} className="space-y-4">
             
-            {/* 1. BIKE SELECT */}
-            <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                {t.reserve.labels.bike} *
-              </label>
-              <select
-                required
-                value={selectedBikeId}
-                onChange={(e) => setSelectedBikeId(e.target.value)}
-                className={`w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all cursor-pointer font-medium ${
-                  !selectedBikeId ? 'text-slate-400' : 'text-slate-900'
-                }`}
-              >
-                <option value="" disabled>
-                  {lang === 'EN' ? '-- Select Scooter Model --' : lang === 'ZH' ? '-- 选择摩托车型号 --' : '-- Pilih Model Motor --'}
-                </option>
-                {BIKES.map((bike) => (
-                  <option key={bike.id} value={bike.id} className="text-slate-800">
-                    {lang === 'EN' ? bike.labelEN : lang === 'ZH' ? bike.labelZH : bike.labelID}
+            {/* 1. BIKE SELECT & QUANTITY */}
+            <div className="grid grid-cols-1 sm:grid-cols-12 gap-3">
+              {/* Bike Model (Col 8) */}
+              <div className="sm:col-span-8">
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  {t.reserve.labels.bike} *
+                </label>
+                <select
+                  required
+                  value={selectedBikeId}
+                  onChange={(e) => setSelectedBikeId(e.target.value)}
+                  className={`w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all cursor-pointer font-medium ${
+                    !selectedBikeId ? 'text-slate-400' : 'text-slate-900'
+                  }`}
+                >
+                  <option value="" disabled>
+                    {lang === 'EN' ? '-- Select Scooter Model --' : lang === 'ZH' ? '-- 选择摩托车型号 --' : '-- Pilih Model Motor --'}
                   </option>
-                ))}
-              </select>
+                  {BIKES.map((bike) => (
+                    <option key={bike.id} value={bike.id} className="text-slate-800">
+                      {lang === 'EN' ? bike.labelEN : lang === 'ZH' ? bike.labelZH : bike.labelID}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {/* Quantity Units (Col 4) */}
+              <div className="sm:col-span-4">
+                <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
+                  {lang === 'EN' ? 'QUANTITY UNITS' : lang === 'ZH' ? '车辆数量' : 'JUMLAH UNIT'} *
+                </label>
+                <select
+                  value={quantity}
+                  onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+                  className="w-full px-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all cursor-pointer font-extrabold"
+                >
+                  {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+                    <option key={num} value={num}>
+                      {num} {lang === 'EN' ? (num > 1 ? 'Units' : 'Unit') : lang === 'ZH' ? '辆' : 'Unit'}
+                    </option>
+                  ))}
+                </select>
+              </div>
             </div>
 
             {/* 2. PICK-UP DATE & TIME */}
@@ -538,36 +557,40 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
               )}
             </div>
 
-            {/* 6. SOCIAL HANDLE */}
+            {/* 6. SOCIAL HANDLE (OPTIONAL) */}
             <div>
-              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5">
-                {t.reserve.labels.social} *
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1.5 flex items-center justify-between">
+                <span>{t.reserve.labels.social}</span>
+                <span className="text-[10px] text-slate-400 font-semibold lowercase">
+                  ({lang === 'EN' ? 'optional' : lang === 'ZH' ? '选填' : 'opsional'})
+                </span>
               </label>
               <div className="relative">
                 <AtSign className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2 pointer-events-none" />
                 <input
                   type="text"
-                  required
                   value={socialHandle}
                   onChange={(e) => setSocialHandle(e.target.value)}
-                  placeholder={lang === 'EN' ? '@username (Instagram / TikTok / Facebook)' : lang === 'ZH' ? '@社交账号 (用于核验的 Instagram / TikTok / 脸书账号)' : '@username (Nama Instagram / TikTok / Facebook)'}
+                  placeholder={lang === 'EN' ? '@username (Instagram / TikTok / Facebook - optional)' : lang === 'ZH' ? '@社交账号 (Instagram / TikTok / 脸书 - 选填)' : '@username (Instagram / TikTok / Facebook - opsional)'}
                   className="w-full pl-10 pr-3.5 py-2.5 bg-stone-50 border border-stone-200 rounded-xl text-xs sm:text-sm text-slate-900 focus:outline-none focus:ring-2 focus:ring-teal-500/20 focus:border-teal-500 transition-all font-medium"
                 />
               </div>
             </div>
 
-            {/* 7. AGE CONFIRMATION CHECKBOX */}
+            {/* 7. AGE CONFIRMATION CHECKBOX (OPTIONAL) */}
             <div className="p-3.5 rounded-xl bg-teal-50/60 border border-teal-200/70 flex items-center gap-2.5">
               <input
                 type="checkbox"
                 id="ageCheck"
-                required
                 checked={ageConfirmed}
                 onChange={(e) => setAgeConfirmed(e.target.checked)}
                 className="w-4 h-4 text-teal-600 rounded focus:ring-teal-500 border-stone-300 cursor-pointer shrink-0"
               />
-              <label htmlFor="ageCheck" className="text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer select-none">
-                {t.reserve.labels.ageCheckbox} *
+              <label htmlFor="ageCheck" className="text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer select-none flex items-center gap-1.5 flex-wrap">
+                <span>{t.reserve.labels.ageCheckbox}</span>
+                <span className="text-[10px] text-teal-700 font-bold bg-teal-100 px-1.5 py-0.5 rounded uppercase">
+                  ({lang === 'EN' ? 'optional' : lang === 'ZH' ? '选填' : 'opsional'})
+                </span>
               </label>
             </div>
 
@@ -575,7 +598,11 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
             <div className="p-5 rounded-2xl bg-sky-50/80 border border-sky-200 text-slate-800 space-y-2.5 shadow-sm">
               <div className="flex justify-between items-center text-xs sm:text-sm font-semibold text-slate-700">
                 <span>
-                  {lang === 'EN' ? `Base Rental (${calculation.fullDays} day${calculation.fullDays > 1 ? 's' : ''})` : lang === 'ZH' ? `基础租金 (${calculation.fullDays} 天)` : `Sewa Pokok (${calculation.fullDays} hari)`}
+                  {lang === 'EN'
+                    ? `Base Rental (${calculation.fullDays} day${calculation.fullDays > 1 ? 's' : ''} × ${quantity} unit${quantity > 1 ? 's' : ''})`
+                    : lang === 'ZH'
+                    ? `基础租金 (${calculation.fullDays} 天 × ${quantity} 辆)`
+                    : `Sewa Pokok (${calculation.fullDays} hari × ${quantity} unit)`}
                 </span>
                 <span className="font-bold text-slate-900">
                   Rp {calculation.basePrice.toLocaleString('id-ID')}
@@ -586,10 +613,10 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
                 <div className="flex justify-between items-center text-xs sm:text-sm font-semibold text-sky-800">
                   <span>
                     {lang === 'EN'
-                      ? `Overtime (${calculation.overtimeHours} hrs @ Rp 15,000/hr)`
+                      ? `Overtime (${calculation.overtimeHours} hrs × ${quantity} unit${quantity > 1 ? 's' : ''} @ Rp 15k/hr)`
                       : lang === 'ZH'
-                      ? `超时费 (${calculation.overtimeHours} 小时 @ Rp 15k/小时)`
-                      : `Overtime (${calculation.overtimeHours} jam @ Rp 15rb/jam)`}
+                      ? `超时费 (${calculation.overtimeHours} 小时 × ${quantity} 辆 @ Rp 15k/小时)`
+                      : `Overtime (${calculation.overtimeHours} jam × ${quantity} unit @ Rp 15rb/jam)`}
                   </span>
                   <span className="font-bold">
                     + Rp {calculation.overtimePrice.toLocaleString('id-ID')}
@@ -599,7 +626,11 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
 
               <div className="flex justify-between items-center text-xs sm:text-sm font-semibold text-slate-700">
                 <span>
-                  {lang === 'EN' ? 'Delivery & Pickup Fee (Rp 20k / trip)' : lang === 'ZH' ? '接送服务费 (Rp 20k / 单程)' : 'Ongkir Antar & Jemput (Rp 20rb / trip)'}
+                  {lang === 'EN'
+                    ? `Delivery & Pickup Fee (${quantity} unit${quantity > 1 ? 's' : ''} @ Rp 40k/unit)`
+                    : lang === 'ZH'
+                    ? `接送服务费 (${quantity} 辆 @ Rp 40k/辆)`
+                    : `Ongkir Antar & Jemput (${quantity} unit @ Rp 40rb/unit)`}
                 </span>
                 <span className="font-bold text-slate-900">
                   + Rp {calculation.deliveryFee.toLocaleString('id-ID')}

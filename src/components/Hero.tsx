@@ -3,13 +3,15 @@ import { TranslationContent, Language } from '../data/translations';
 import { MessageCircle, Check, ShieldCheck, Truck, Clock, Key } from 'lucide-react';
 import { HERO_IMAGE, SCOOTER_IMAGES } from '../data/images';
 import { SITE_CONFIG } from '../data/siteConfig';
+import { InstantBookWidget } from './InstantBookWidget';
 
 interface HeroProps {
   t: TranslationContent;
   lang: Language;
+  onSelectScooter?: (bikeId: string) => void;
 }
 
-export const Hero: React.FC<HeroProps> = ({ t, lang }) => {
+export const Hero: React.FC<HeroProps> = ({ t, lang, onSelectScooter }) => {
   const whatsappUrl = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
     lang === 'EN'
       ? 'Hi HelloBajo! I am interested in renting a scooter in Labuan Bajo.'
@@ -17,10 +19,11 @@ export const Hero: React.FC<HeroProps> = ({ t, lang }) => {
   )}`;
 
   return (
-    <section id="scooter-rental" className="relative bg-[#faf8f5] text-slate-900 pt-10 pb-16 sm:py-20 overflow-hidden border-b border-stone-200/60 scroll-mt-20 sm:scroll-mt-24">
+    <section id="scooter-rental" className="relative bg-[#faf8f5] text-slate-900 pt-8 pb-14 sm:pt-12 sm:pb-20 overflow-hidden border-b border-stone-200/60 scroll-mt-20 sm:scroll-mt-24">
       {/* Decorative background glow */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-teal-100/60 rounded-full blur-3xl pointer-events-none -z-0" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-100/50 rounded-full blur-3xl pointer-events-none -z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-teal-50/40 rounded-full blur-3xl pointer-events-none -z-0" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -43,11 +46,7 @@ export const Hero: React.FC<HeroProps> = ({ t, lang }) => {
 
             {/* Subtitle */}
             <p className="text-slate-600 text-sm sm:text-base lg:text-lg leading-relaxed max-w-2xl">
-              {lang === 'EN'
-                ? 'Explore Labuan Bajo on your own terms. We deliver well-maintained scooters directly to Komodo Airport (LBJ), your hotel, or villa (Rp 20k staff fee). Zero deposit, free helmets, and fast WhatsApp response.'
-                : lang === 'ZH'
-                ? '随心探索拉布安巴佐。专人送车至科莫多机场 (LBJ)、酒店或度假村 (Rp 20k/次)。零押金，赠免费头盔，WhatsApp 快速回复。'
-                : 'Jelajahi Labuan Bajo dengan fleksibel. Motor siap antar ke Bandara Komodo (LBJ), hotel, atau villa Anda (biaya petugas Rp 20rb). Bebas deposit, helm gratis, dan respon cepat via WhatsApp.'}
+              {t.hero.subtitle}
             </p>
           </div>
 
@@ -74,7 +73,7 @@ export const Hero: React.FC<HeroProps> = ({ t, lang }) => {
           {/* ITEM 3: Key Value Props Pill Grid (3rd position on Mobile, below image) */}
           <div className="w-full lg:col-span-7 lg:col-start-1 order-3">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 max-w-xl antialiased">
-              <div className="flex items-center gap-3 bg-white p-3.5 rounded-2xl border border-stone-200/90 shadow-sm">
+              <div className="flex items-center gap-3 bg-white/90 backdrop-blur-xs p-3.5 rounded-2xl border border-stone-200/90 shadow-xs">
                 <div className="w-9 h-9 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
                   <ShieldCheck className="w-5 h-5" />
                 </div>
@@ -88,7 +87,7 @@ export const Hero: React.FC<HeroProps> = ({ t, lang }) => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 bg-white p-3.5 rounded-2xl border border-stone-200/90 shadow-sm">
+              <div className="flex items-center gap-3 bg-white/90 backdrop-blur-xs p-3.5 rounded-2xl border border-stone-200/90 shadow-xs">
                 <div className="w-9 h-9 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center shrink-0">
                   <Truck className="w-5 h-5" />
                 </div>
@@ -102,7 +101,7 @@ export const Hero: React.FC<HeroProps> = ({ t, lang }) => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 bg-white p-3.5 rounded-2xl border border-stone-200/90 shadow-sm">
+              <div className="flex items-center gap-3 bg-white/90 backdrop-blur-xs p-3.5 rounded-2xl border border-stone-200/90 shadow-xs">
                 <div className="w-9 h-9 rounded-xl bg-teal-50 text-teal-600 flex items-center justify-center shrink-0">
                   <Clock className="w-5 h-5" />
                 </div>
@@ -116,7 +115,7 @@ export const Hero: React.FC<HeroProps> = ({ t, lang }) => {
                 </div>
               </div>
 
-              <div className="flex items-center gap-3 bg-white p-3.5 rounded-2xl border border-stone-200/90 shadow-sm">
+              <div className="flex items-center gap-3 bg-white/90 backdrop-blur-xs p-3.5 rounded-2xl border border-stone-200/90 shadow-xs">
                 <div className="w-9 h-9 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0">
                   <Key className="w-5 h-5" />
                 </div>
@@ -145,14 +144,21 @@ export const Hero: React.FC<HeroProps> = ({ t, lang }) => {
 
               <a
                 href="#reserve"
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white hover:bg-stone-100 text-slate-800 font-extrabold text-sm rounded-full border border-stone-300 shadow-sm transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white hover:bg-stone-100 text-slate-800 font-extrabold text-sm rounded-full border border-stone-300 shadow-xs transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer"
               >
-                <span>{lang === 'EN' ? 'Calculate Cost & Book' : lang === 'ZH' ? '计算费用与预订' : 'Hitung Estimasi & Sewa'}</span>
+                <span>⚡</span>
+                <span>{lang === 'EN' ? 'Reserve Now' : lang === 'ZH' ? '立即预订' : 'Pesan Sekarang'}</span>
               </a>
             </div>
           </div>
 
         </div>
+
+        {/* Integrated Instant Scooter Booking Widget - Unified with Hero Background */}
+        <div id="instant-booking" className="mt-10 lg:mt-12 pt-6 scroll-mt-24">
+          <InstantBookWidget t={t} lang={lang} onSelectScooter={onSelectScooter} />
+        </div>
+
       </div>
     </section>
   );

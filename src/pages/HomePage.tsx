@@ -6,6 +6,7 @@ import { ItineraryTimeline } from '../components/ItineraryTimeline';
 import { PricingCard } from '../components/PricingCard';
 import { WhyChooseUs } from '../components/WhyChooseUs';
 import { ReserveForm } from '../components/ReserveForm';
+import { InstantBookWidget } from '../components/InstantBookWidget';
 import { AlternativeDestinations } from '../components/AlternativeDestinations';
 import { FaqAccordion } from '../components/FaqAccordion';
 import { Bike } from 'lucide-react';
@@ -132,8 +133,8 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, t }) => {
         </div>
       </div>
 
-      {/* Hero Section */}
-      <Hero t={t} lang={lang} />
+      {/* Hero Section with Unified Instant Scooter Booking Widget */}
+      <Hero t={t} lang={lang} onSelectScooter={handleSelectScooter} />
 
       {/* How It Works Timeline */}
       <ItineraryTimeline t={t} lang={lang} />

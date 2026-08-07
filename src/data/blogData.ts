@@ -1,4 +1,4 @@
-import { RIDING_DESTINATIONS, HERO_IMAGE, SPEEDBOAT_BANNER, CAR_CHARTER_BANNER } from './images';
+import { BLOG_IMAGES, DESTINATION_IMAGES, RIDING_DESTINATIONS, HERO_IMAGE, SCOOTER_IMAGES, SPEEDBOAT_BANNER, CAR_CHARTER_BANNER } from './images';
 
 export interface BlogSectionItem {
   subtitle?: string;
@@ -71,6 +71,824 @@ export interface BlogPost {
 }
 
 export const BLOG_POSTS: BlogPost[] = [
+  // Ultimate First-Timer Travel Guide for Labuan Bajo
+  {
+    id: 'post-what-to-do-labuan-bajo-first-timers',
+    slug: 'what-to-do-in-labuan-bajo-ultimate-travel-guide-first-timers',
+    category: 'Travel Tips',
+    author: 'By HelloBajo Team',
+    publishDate: 'August 7, 2026',
+    readTime: '7 min read',
+    coverImage: BLOG_IMAGES.firstTimerGuide.cover,
+    galleryImages: BLOG_IMAGES.firstTimerGuide.gallery,
+    tags: ['Labuan Bajo', 'Komodo National Park', 'Travel Guide', 'Padar Island', 'Pink Beach', 'Gua Rangko', 'Scooter Rental', 'First-Timers'],
+    isFeatured: true,
+    microCta: {
+      label: {
+        EN: 'Book Scooter & Explore Bajo',
+        ID: 'Sewa Motor & Jelajah Labuan Bajo',
+        ZH: '预订摩托车畅游拉布安巴佐',
+      },
+      link: '/#reserve',
+      btnClass: 'bg-teal-600 hover:bg-teal-700 text-white',
+    },
+    title: {
+      EN: 'What to Do in Labuan Bajo: The Ultimate Travel Guide for First-Timers',
+      ID: 'Panduan Wisata Labuan Bajo untuk Pemula: Destinasi, Tips & Transportasi',
+      ZH: '拉布安巴佐初次旅行终极指南：必去景点、游玩路线与交通攻略',
+    },
+    excerpt: {
+      EN: 'Planning your very first trip to Labuan Bajo and Komodo National Park? Ground-level travel guide covering Padar Island, Komodo dragons, Pink Beach, Gua Rangko, and local scooter rentals.',
+      ID: 'Merencanakan liburan pertama ke Labuan Bajo & Taman Nasional Komodo? Panduan lengkap meliputi Pulau Padar, Komodo, Pink Beach, Gua Rangko, dan sewa motor praktis.',
+      ZH: '第一次去拉布安巴佐与科莫多国家公园？涵盖帕达尔岛、科莫多巨蜥、粉红沙滩、蓝洞与摩托车租赁的终极指南。',
+    },
+    content: {
+      EN: {
+        toc: [
+          'Hike to the Iconic Summit of Padar Island',
+          'Sail Komodo National Park on a Phinisi or Speedboat',
+          'Walk with Dragons on Komodo or Rinca Island',
+          'Relax on Pink Beach & Snorkel at Manta Point',
+          'Explore Hidden Mainland Caves & Coastal Highways',
+          'Catch Sunset & Eat Fresh Catch at Kampung Ujung',
+          'How to Get Around Labuan Bajo (Scooter vs. Private Car)',
+        ],
+        introParagraph:
+          'A decade ago, Labuan Bajo was little more than a sleepy fishing harbor on the western tip of Flores. Today, it has transformed into Indonesia’s premier adventure hub—the gateway to prehistoric dragons, vibrant coral reefs, and dramatic pink sand beaches. If you are planning your very first trip to Flores, navigating the mix of boat tours, island trekking, and mainland exploration can feel a bit overwhelming. How many days do you actually need? Should you stay on a boat or in a hotel? And how do you get around town without overpaying? Here is a practical, ground-level travel guide to help you build the perfect first-timer itinerary in Labuan Bajo.',
+        paragraphs: [],
+        sections: [
+          {
+            heading: '1. Hike to the Iconic Summit of Padar Island',
+            intro:
+              'If there is one image that defines Labuan Bajo, it is the panoramic view from the top of Padar Island. The trail leads you up a jagged volcanic ridge flanked by three distinct natural bays—one with white sand, one with black volcanic sand, and one with soft pink sand.',
+            image: DESTINATION_IMAGES.padarIsland,
+            imageCaption: 'Panoramic View from Padar Island Summit in Komodo National Park',
+            items: [
+              {
+                subtitle: 'The Hike',
+                text: 'It takes about 800 paved stone steps to reach the top. It looks intimidating, but with a steady pace, most travelers complete the climb in 20 to 30 minutes.',
+              },
+              {
+                subtitle: 'Pro Tip',
+                text: 'Start early. Most day boats anchor around 6:00 AM so visitors can tackle the stairs before the intense equatorial heat kicks in. Bring sturdy shoes, a hat, and plenty of water.',
+              },
+            ],
+          },
+          {
+            heading: '2. Sail Komodo National Park on a Phinisi or Speedboat',
+            intro:
+              'The waters surrounding Labuan Bajo are dotted with over 20 islands, meaning your trip isn’t complete without spending time on the ocean. You have two main ways to explore the park:',
+            image: SPEEDBOAT_BANNER,
+            imageCaption: 'Explore Komodo National Park via Speedboat or Phinisi Liveaboard',
+            items: [
+              {
+                subtitle: 'Speedboat Day Trips',
+                text: 'Ideal if you have limited time or prefer sleeping in a hotel room on land every night. Speedboats move fast, allowing you to hit all 6 major Komodo highlights in a single action-packed day.',
+              },
+              {
+                subtitle: 'Phinisi Liveaboards (2D1N or 3D2N)',
+                text: 'Perfect if you want a classic, relaxed sailing experience. You sleep in comfortable private cabins, watch thousands of flying fox bats migrate at sunset near Kalong Island, and wake up right in the middle of the ocean.',
+              },
+            ],
+          },
+          {
+            heading: '3. Walk with Dragons on Komodo or Rinca Island',
+            intro:
+              'Seeing the world’s largest living lizard in its natural habitat is an incredible experience. Growing up to 3 meters in length, these prehistoric apex predators have called Flores home for millions of years. To see them safely, you will trek along marked trails accompanied by official National Park rangers equipped with traditional wooden safety forks.',
+            image: DESTINATION_IMAGES.komodoDragon,
+            imageCaption: 'Encounter Prehistoric Komodo Dragons up close with official park rangers',
+            items: [
+              {
+                subtitle: 'Komodo Island',
+                text: 'Features wilder, denser terrain and classic island views with expansive savanna.',
+              },
+              {
+                subtitle: 'Rinca Island',
+                text: 'Offers elevated wooden boardwalks and shorter walking loops, making it very accessible for families or travelers wanting an easier walk.',
+              },
+            ],
+          },
+          {
+            heading: '4. Relax on Pink Beach & Snorkel at Manta Point',
+            intro:
+              'The marine world around Flores is just as impressive as the landscapes above water.',
+            image: DESTINATION_IMAGES.pinkBeach,
+            imageCaption: 'Soft Pink Sand & Crystal-Clear Reefs at Pantai Merah (Pink Beach)',
+            items: [
+              {
+                subtitle: 'Pink Beach (Pantai Merah)',
+                text: 'The sand gets its striking pink color from microscopic red organisms (Foraminifera) mixing with white crushed coral. The shallow waters right off the shore are packed with vibrant coral gardens, making it a dream spot for casual snorkeling.',
+              },
+              {
+                subtitle: 'Manta Point (Makassar Reef)',
+                text: 'A long, shallow drift-dive area where reef manta rays gather at cleaning stations. Swimmers and snorkelers can float gently on the surface while these gentle ocean giants glide gracefully just meters below.',
+              },
+            ],
+          },
+          {
+            heading: '5. Explore Hidden Mainland Caves & Coastal Highways',
+            intro:
+              'Don’t make the mistake of spending all your time out on the water—mainland Flores has plenty to offer.',
+            image: DESTINATION_IMAGES.guaRangko,
+            imageCaption: 'Natural Saltwater Cave Pool at Gua Rangko',
+            items: [
+              {
+                subtitle: 'Gua Rangko (Rangko Cave)',
+                text: 'A hidden saltwater cave located 45 minutes northeast of town. Between 12:00 PM and 2:30 PM, sunlight beams straight into the cave mouth, illuminating a crystal-clear turquoise swimming pool inside.',
+              },
+              {
+                subtitle: 'Golo Mori Highway',
+                text: 'A brand-new 25-kilometer coastal road running south of town. With smooth asphalt, gentle curves, and zero traffic, it offers one of the best coastal drives in eastern Indonesia.',
+              },
+            ],
+          },
+          {
+            heading: '6. Catch Sunset & Eat Fresh Catch at Kampung Ujung',
+            intro:
+              'After a long day of hiking or snorkeling, head down to the main harbor area as the sun begins to dip.',
+            image: DESTINATION_IMAGES.seafoodMarket,
+            imageCaption: 'Fresh Seafood Night Market at Kampung Ujung Harbor',
+            items: [
+              {
+                subtitle: 'Kampung Ujung Night Seafood Market',
+                text: 'Rows of local stalls display freshly caught red snapper, grouper, giant tiger prawns, and squid on ice. You pick your exact catch by weight, choose your marinade (sweet soy chili, turmeric garlic, or spicy rica-rica), and watch it grilled over coconut-shell charcoal. Pair your grilled fish with fresh coconut water and warm rice for the ultimate local feast.',
+              },
+            ],
+          },
+          {
+            heading: '7. How to Get Around Labuan Bajo (Scooter vs. Private Car)',
+            intro:
+              'Labuan Bajo is built along steep coastal hills, and attractions are spread out across town. Taxis can be expensive and hard to hail from quiet beaches, so planning your transport ahead of time is key.',
+            image: HERO_IMAGE,
+            imageCaption: 'Rent a Scooter in Labuan Bajo with Free Airport Delivery & Helmets Included',
+            items: [
+              {
+                subtitle: 'Option A: Zip Around on an Automatic Scooter',
+                text: 'Renting a scooter is hands-down the most popular and budget-friendly way to explore town. It gives you complete freedom to pop into local cafes, visit sunset lookouts like Bukit Cinta, and ride down to Waecicu Beach on your own schedule. HelloBajo offers clean automatic scooters with free airport delivery, zero deposit, and clean helmets included.',
+              },
+              {
+                subtitle: 'Option B: Book a Private Car Charter with Driver',
+                text: 'If you are traveling with family, small children, or carrying heavy dive luggage, a private car charter is the most comfortable choice. You get a spacious, modern SUV/MPV with full air-conditioning and an experienced local driver to handle winding mountain roads while your group relaxes.',
+              },
+            ],
+          },
+        ],
+        calloutNote:
+          'First-Timer Travel Summary: Book a 1-day speedboat tour or 3D2N Phinisi liveaboard for Komodo National Park. Set aside 1 or 2 days for mainland Gua Rangko, Golo Mori, and Kampung Ujung. Reserve your HelloBajo scooter rental for effortless town exploration!',
+      },
+      ID: {
+        toc: [
+          'Trekking ke Puncak Ikonik Pulau Padar',
+          'Sailing Taman Nasional Komodo dengan Phinisi / Speedboat',
+          'Berjalan Bersama Komodo di Pulau Komodo atau Rinca',
+          'Bersantai di Pink Beach & Snorkeling di Manta Point',
+          'Jelajah Gua Garam Rangko & Jalan Pesisir Golo Mori',
+          'Nikmati Sunset & Wisata Kuliner Seafood Kampung Ujung',
+          'Pilihan Transportasi di Labuan Bajo (Motor vs Mobil)',
+        ],
+        introParagraph:
+          'Sebelas tahun lalu, Labuan Bajo hanyalah kota pelabuhan kecil di ujung barat Pulau Flores. Kini, kota ini telah bertransformasi menjadi pusat petualangan terdepan di Indonesia—pintu gerbang menuju komodo purba, terumbu karang indah, dan pantai pasir merah muda yang menakjubkan. Bagi Anda yang pertama kali berlibur ke Flores, memadukan tur kapal, trekking pulau, dan jelajah darat bisa cukup membingungkan. Berapa hari waktu terbaik yang dibutuhkan? Haruskah menginap di kapal atau hotel? Dan bagaimana cara berkeliling kota secara hemat? Berikut panduan wisata praktis bagi Anda pemula di Labuan Bajo.',
+        paragraphs: [],
+        sections: [
+          {
+            heading: '1. Trekking ke Puncak Ikonik Pulau Padar',
+            intro:
+              'Pemandangan ikonik dari puncak Pulau Padar adalah simbol keindahan Labuan Bajo. Jalur tangga membawa Anda ke bukit vulkanik yang diapit tiga teluk unik—satu berpasir putih, satu berpasir hitam vulkanik, dan satu berpasir merah muda.',
+            image: DESTINATION_IMAGES.padarIsland,
+            imageCaption: 'Pemandangan Spektakuler dari Puncak Pulau Padar',
+            items: [
+              {
+                subtitle: 'Trek Tangga',
+                text: 'Terdapat sekitar 800 anak tangga semen menuju puncak. Meski terlihat tinggi, dengan kecepatan santai Anda dapat mencapainya dalam 20 hingga 30 menit.',
+              },
+              {
+                subtitle: 'Tips Penting',
+                text: 'Mulailah pagi-pagi sekali. Sebagian besar kapal berlabuh sekitar pukul 06.00 agar pengunjung dapat mendaki sebelum terik matahari tropis menyengat.',
+              },
+            ],
+          },
+          {
+            heading: '2. Sailing Taman Nasional Komodo dengan Phinisi / Speedboat',
+            intro:
+              'Kawasan laut Labuan Bajo dihiasi lebih dari 20 pulau indah. Ada dua cara utama untuk menjelajahi kawan ini:',
+            image: SPEEDBOAT_BANNER,
+            imageCaption: 'Jelajah Taman Nasional Komodo dengan Kapal Speedboat atau Phinisi',
+            items: [
+              {
+                subtitle: 'Speedboat Tour (Open/Private Day Trip)',
+                text: 'Sangat cocok jika waktu Anda terbatas atau ingin menginap di hotel setiap malam. Speedboat melaju cepat mengunjungi 6 destinasi utama Komodo dalam 1 hari penuh.',
+              },
+              {
+                subtitle: 'Phinisi Liveaboard (2D1N / 3D2N)',
+                text: 'Pilihan tepat untuk pengalaman berlayar santai klasik. Anda menginap di kabin nyaman, menyaksikan ribuan kelelawar di Pulau Kalong saat sunset, dan bangun di tengah laut.',
+              },
+            ],
+          },
+          {
+            heading: '3. Berjalan Bersama Komodo di Pulau Komodo atau Rinca',
+            intro:
+              'Melihat kadal terbesar di dunia langsung di habitat aslinya adalah pengalaman tak terlupakan. Panjangnya dapat mencapai 3 meter dan telah menghuni Flores selama jutaan tahun. Anda akan didampingi ranger resmi berbekal tongkat kayu keselamatan.',
+            image: DESTINATION_IMAGES.komodoDragon,
+            imageCaption: 'Bertemu Komodo Purba Secara Dekat Didampingi Ranger Resmi',
+            items: [
+              {
+                subtitle: 'Pulau Komodo',
+                text: 'Menawarkan lanskap lebih liar dan vegetasi sabana yang luas.',
+              },
+              {
+                subtitle: 'Pulau Rinca',
+                text: 'Memiliki dermaga dan jalur boardwalk kayu yang tertata, sangat ramah untuk keluarga dan lansia.',
+              },
+            ],
+          },
+          {
+            heading: '4. Bersantai di Pink Beach & Snorkeling di Manta Point',
+            intro:
+              'Keindahan bawah laut Flores tidak kalah spektakuler dari panorama daratnya.',
+            image: DESTINATION_IMAGES.pinkBeach,
+            imageCaption: 'Pasir Pink Merah Muda nan Cantik di Pink Beach (Pantai Merah)',
+            items: [
+              {
+                subtitle: 'Pink Beach (Pantai Merah)',
+                text: 'Warna pink berasal dari organisme mikro merah (Foraminifera) yang bercampur dengan serpihan karang putih. Perairan dangkal di tepi pantai kaya akan taman karang warna-warni.',
+              },
+              {
+                subtitle: 'Manta Point',
+                text: 'Lokasi drift snorkeling tempat berkumpulnya pari manta raksasa. Anda dapat berenang santai di permukaan saat pari manta melintas tepat di bawah Anda.',
+              },
+            ],
+          },
+          {
+            heading: '5. Jelajah Gua Garam Rangko & Jalan Pesisir Golo Mori',
+            intro:
+              'Jangan lewatkan keindahan daratan Flores yang tidak kalah menawan.',
+            image: DESTINATION_IMAGES.guaRangko,
+            imageCaption: 'Kolam Air Asin Alami di Dalam Gua Rangko',
+            items: [
+              {
+                subtitle: 'Gua Rangko',
+                text: 'Gua air asin tersembunyi berjarak 45 menit dari kota. Antara jam 12.00 - 14.30 siang, sinar matahari masuk menyinari kolam renang alami berwarna biru jernih di dalam gua.',
+              },
+              {
+                subtitle: 'Jalan Pesisir Golo Mori',
+                text: 'Jalan mulus 25 km di selatan kota. Dengan aspal halus, kelok santai, dan pemandangan laut, ini adalah rute turing favorit para pengendara motor.',
+              },
+            ],
+          },
+          {
+            heading: '6. Nikmati Sunset & Wisata Kuliner Seafood Kampung Ujung',
+            intro:
+              'Setelah seharian berpetualang, nikmati suasana sore di sekitar pelabuhan utama.',
+            image: DESTINATION_IMAGES.seafoodMarket,
+            imageCaption: 'Pusat Kuliner Seafood Segar Kampung Ujung Labuan Bajo',
+            items: [
+              {
+                subtitle: 'Wisata Kuliner Malam Kampung Ujung',
+                text: 'Pusat kuliner seafood segar. Anda dapat memilih ikan kakap merah, kerapu, udang gala, atau cumi-cumi segar, lalu memilih bumbu bakar (bumbu kecap, bakar rica, atau tawar kuah) yang dibakar di atas arang batok kelapa.',
+              },
+            ],
+          },
+          {
+            heading: '7. Pilihan Transportasi di Labuan Bajo (Motor vs Mobil)',
+            intro:
+              'Topografi Labuan Bajo berbukit dan tempat wisata tersebar. Memilih transportasi yang tepat sangat penting.',
+            image: HERO_IMAGE,
+            imageCaption: 'Sewa Motor Hemat & Praktis di Labuan Bajo Bersama HelloBajo',
+            items: [
+              {
+                subtitle: 'Opsi A: Sewa Motor Matic (Paling Populer)',
+                text: 'Sewa motor adalah cara paling hemat dan fleksibel untuk menjelajahi kota. Bebas mengunjungi cafe, bukit sunset seperti Bukit Cinta, dan pantai Waecicu. HelloBajo menyediakan sewa motor matic prima dengan layanan antar gratis ke bandara dan tanpa tahan paspor asli.',
+              },
+              {
+                subtitle: 'Opsi B: Sewa Mobil + Driver Private',
+                text: 'Sangat cocok untuk rombongan keluarga, anak-anak, atau yang membawa banyak bagasi selam. Mobil ber-AC dingin dan driver lokal berpengalaman akan mengantar Anda dengan nyaman.',
+              },
+            ],
+          },
+        ],
+        calloutNote:
+          'Rangkuman Panduan Pemula: Ambil sewa motor HelloBajo untuk transportasi harian di darat, pesan tur speedboat / phinisi untuk jelajah pulau, dan sempatkan berkunjung ke Gua Rangko & Kuliner Seafood Kampung Ujung!',
+      },
+      ZH: {
+        toc: [
+          '徒步攀登帕达尔岛 (Padar Island) 经典山顶',
+          '乘坐双体船或快艇游览科莫多国家公园',
+          '在科莫多岛或林查岛近距离寻找科莫多巨蜥',
+          '打卡粉红沙滩 (Pink Beach) 与魔鬼鱼点 (Manta Point)',
+          '探索陆地秘境蓝洞 (Gua Rangko) 与海滨公路',
+          '在 Ujung 夜市品尝现烤海鲜与欣赏日落',
+          '拉布安巴佐交通指南（摩托车 vs 租车带司机）',
+        ],
+        introParagraph:
+          '十年前，拉布安巴佐只是弗洛雷斯岛西端的一个安静小渔村。如今，它已蜕变为印尼顶级冒险枢纽——通往远古巨蜥、色彩斑斓珊瑚礁与奇幻粉红沙滩的门廊。如果您正计划第一次前往拉布安巴佐，面对众多的出海船巡、岛屿徒步与陆地游玩可能会感到迷茫。玩几天最合适？住船上还是住酒店？如何便利地出行？这是一份实用的拉布安巴佐初次旅行终极指南。',
+        paragraphs: [],
+        sections: [
+          {
+            heading: '1. 徒步攀登帕达尔岛 (Padar Island) 经典山顶',
+            intro:
+              '如果说有一幅画面能代表拉布安巴佐，那就是帕达尔岛山顶的全景。沿着火山脊线修建的台阶将您带往山顶，俯瞰三个自然海湾——一个呈白色沙滩，一个呈黑色火山沙，一个呈梦幻粉红沙。',
+            image: DESTINATION_IMAGES.padarIsland,
+            imageCaption: '科莫多国家公园帕达尔岛山顶俯瞰三色海湾',
+            items: [
+              {
+                subtitle: '徒步路线',
+                text: '登顶约有 800 级铺设石阶。虽然看似陡峭，但保持匀速，大多数游客在 20 至 30 分钟内即可轻松登顶。',
+              },
+              {
+                subtitle: '实用建议',
+                text: '尽早出发。多数出海船只在早上 6:00 左右锚泊，方便游客在赤道酷热前攀登。建议穿舒适的运动鞋并携带防晒帽与饮用水。',
+              },
+            ],
+          },
+          {
+            heading: '2. 乘坐双体船或快艇游览科莫多国家公园',
+            intro:
+              '拉布安巴佐周边海域散落着 20 多个岛屿，出海是必体验项目。主要有两类游船形式：',
+            image: SPEEDBOAT_BANNER,
+            imageCaption: '选择快艇一日游或帆船船宿 (Phinisi Liveaboard)',
+            items: [
+              {
+                subtitle: '快艇一日游 (Speedboat Day Trips)',
+                text: '适合时间紧张或喜欢每晚住在陆地酒店的游客。快艇速度极快，一天内可高效打卡科莫多 6 大经典景点。',
+              },
+              {
+                subtitle: '木质帆船船宿 (Phinisi 2D1N / 3D2N)',
+                text: '适合追求复古优雅航海体验的游客。住在独立空调船舱内，傍晚在 Kalong 岛欣赏万只蝙蝠出巢，体验海上日出。',
+              },
+            ],
+          },
+          {
+            heading: '3. 在科莫多岛或林查岛近距离寻找科莫多巨蜥',
+            intro:
+              '在自然栖息地亲眼目睹世界上体型最大的巨蜥是一种震撼体验。科莫多巨蜥体长可达 3 米，在弗洛雷斯生存了数百万年。在国家公园护林员的陪同下，您将安全地沿着指定步道徒步观赏。',
+            image: DESTINATION_IMAGES.komodoDragon,
+            imageCaption: '在国家公园护林员陪同下近距离寻找科莫多巨蜥',
+            items: [
+              {
+                subtitle: '科莫多岛 (Komodo Island)',
+                text: '拥有更原始的灌木与萨瓦纳稀树草原景观。',
+              },
+              {
+                subtitle: '林查岛 (Rinca Island)',
+                text: '建有高架木栈道与较短的环形徒步道，非常适合家庭或希望轻松步行的游客。',
+              },
+            ],
+          },
+          {
+            heading: '4. 打卡粉红沙滩 (Pink Beach) 与魔鬼鱼点 (Manta Point)',
+            intro:
+              '弗洛雷斯海域的水下世界与陆地景观一样令人叹为观止。',
+            image: DESTINATION_IMAGES.pinkBeach,
+            imageCaption: '粉红沙滩 (Pink Beach) 梦幻沙滩与清澈浮潜海域',
+            items: [
+              {
+                subtitle: '粉红沙滩 (Pantai Merah / Pink Beach)',
+                text: '沙滩的粉红色来自微小的红珊瑚虫残骸 (Foraminifera) 与白沙混合。近岸浅水区布满色彩斑斓的珊瑚花园，是浮潜天堂。',
+              },
+              {
+                subtitle: '魔鬼鱼点 (Manta Point)',
+                text: '这是一个浅水漂流浮潜区，鬼蝠魟 (Manta Rays) 常在此聚集。游客浮在水面上即可近距离观察这些温柔的海中巨物划过水面。',
+              },
+            ],
+          },
+          {
+            heading: '5. 探索陆地秘境蓝洞 (Gua Rangko) 与海滨公路',
+            intro:
+              '切勿把所有时间都放在海上，拉布安巴佐陆地同样风光无限。',
+            image: DESTINATION_IMAGES.guaRangko,
+            imageCaption: '蓝洞 Gua Rangko 天然海水溶洞泳池',
+            items: [
+              {
+                subtitle: '蓝洞 (Gua Rangko)',
+                text: '位于镇区东北部 45 分钟车程的隐秘咸水溶洞。中午 12:00 至 14:30 之间，阳光直射洞口，将洞内清澈的海水照亮成梦幻的水蓝色泳池。',
+              },
+              {
+                subtitle: '戈洛莫里海滨公路 (Golo Mori)',
+                text: '镇区南部新建的 25 公里海滨公路，柏油路面平整，沿途山海风光无限，是骑行爱好者的绝佳路线。',
+              },
+            ],
+          },
+          {
+            heading: '6. 在 Ujung 夜市品尝现烤海鲜与欣赏日落',
+            intro:
+              '结束一天的浮潜或徒步后，傍晚前往主码头区感受巴佐的烟火气。',
+            image: DESTINATION_IMAGES.seafoodMarket,
+            imageCaption: 'Kampung Ujung 现烤海鲜夜市',
+            items: [
+              {
+                subtitle: 'Kampung Ujung 海鲜夜市',
+                text: '摊位上摆满了新鲜捕捞的红石斑、石斑鱼、大虎虾和鱿鱼。按重量挑选海鲜，选择喜欢酱料（印尼甜辣酱、蒜香黄姜或香辣 Sauce），现场用椰壳炭火现烤，十分美味。',
+              },
+            ],
+          },
+          {
+            heading: '7. 拉布安巴佐交通指南（摩托车 vs 租车带司机）',
+            intro:
+              '拉布安巴佐依山而建，景点较为分散。出租车价格较高，提前规划好交通至关重要。',
+            image: HERO_IMAGE,
+            imageCaption: 'HelloBajo 摩托车租赁：免费机场送车、头盔雨衣齐全',
+            items: [
+              {
+                subtitle: '方案 A：租踏板摩托车自由行（最受欢迎）',
+                text: '租摩托车是探索巴佐镇区最经济灵活的方式。方便打卡网红咖啡馆、Bukit Cinta 日落观景台及 Waecicu 沙滩。HelloBajo 提供优质踏板车，支持科莫多机场免费送车、免扣押护照原件。',
+              },
+              {
+                subtitle: '方案 B：包车（SUV / 商务车带本地司机）',
+                text: '如果是家庭出行、带老人小孩或携带有重型潜水装备，包车是最舒适的选择。空调车况良好，本地经验丰富的司机安全驾驶山路。',
+              },
+            ],
+          },
+        ],
+        calloutNote:
+          '初次旅行攻略总结：预订 1 天快艇或 3D2N 船宿游览科莫多国家公园；预留 1-2 天游览蓝洞 Gua Rangko 与海鲜夜市；提前预订 HelloBajo 摩托车畅游拉布安巴佐！',
+      },
+    },
+  },
+  // Airport Scooter Rental Guide
+  {
+    id: 'post-airport-scooter-rental',
+    slug: 'can-you-rent-scooter-komodo-airport-lbj-how-it-works',
+    category: 'Scooter Guide',
+    author: 'By HelloBajo Team',
+    publishDate: 'August 7, 2026',
+    readTime: '5 min read',
+    coverImage: BLOG_IMAGES.airportScooter.cover,
+    galleryImages: BLOG_IMAGES.airportScooter.gallery,
+    tags: ['Komodo Airport', 'Scooter Rental', 'LBJ Airport', 'Labuan Bajo', 'Airport Pickup', 'Travel Tips'],
+    isFeatured: true,
+    microCta: {
+      label: {
+        EN: 'Book Scooter Airport Delivery',
+        ID: 'Sewa Motor Antar Ke Bandara',
+        ZH: '预订科莫多机场免费送车',
+      },
+      link: '/#reserve',
+      btnClass: 'bg-teal-600 hover:bg-teal-700 text-white',
+    },
+    title: {
+      EN: 'Can You Rent a Scooter at Komodo Airport (LBJ)? Here’s How It Works',
+      ID: 'Sewa Motor di Bandara Komodo (LBJ): Cara Kerja & Panduan Lengkap',
+      ZH: '科莫多机场 (LBJ) 可以租摩托车吗？预订与送车全攻略',
+    },
+    excerpt: {
+      EN: 'Flying into Komodo Airport (LBJ) in Labuan Bajo? Learn how pre-booked airport scooter delivery works, included gear, bike choices, and safety tips for landing and riding.',
+      ID: 'Terbang ke Bandara Komodo (LBJ) Labuan Bajo? Pelajari cara kerja sewa motor antar bandara, fasilitas helm & jas hujan gratis, pilihan unit, dan tips berkendara aman.',
+      ZH: '准备飞抵拉布安巴佐科莫多机场 (LBJ)？了解预订机场免费送车流程、赠送头盔雨衣装备、车型选择与骑行安全指南。',
+    },
+    content: {
+      EN: {
+        toc: [
+          'Can You Rent a Bike Spot-On at the Terminal?',
+          'How Pre-Booked Airport Scooter Delivery Works',
+          'What Is Included with Your Airport Rental',
+          'Choosing the Right Scooter for Your Trip',
+          'Tips for Riding Away from Komodo Airport Safely',
+        ],
+        introParagraph:
+          'If you are flying into Komodo International Airport (LBJ) in Labuan Bajo, your very first challenge begins the moment you step out of the terminal: getting to your hotel or the harbor. Local airport taxis can be surprisingly expensive for short distance rides, and public transport options are virtually non-existent. For solo travelers, couples, and backpackers, the smartest, most seamless solution is having a fresh automatic scooter waiting for you right outside the arrival gate the second your plane touches down. So, can you rent a scooter directly at Komodo Airport? Yes, absolutely—if you arrange it ahead of time. Here is everything you need to know about how airport scooter pickups work in Labuan Bajo.',
+        paragraphs: [],
+        sections: [
+          {
+            heading: '1. Can You Rent a Bike Spot-On at the Terminal?',
+            intro:
+              'Unlike massive international hubs with physical rental desks lined up in the arrival hall, Komodo Airport does not have brick-and-mortar rental counters inside the terminal. Walking out of the doors expecting to find a traditional rental booth can lead to confusion or getting swarmed by local taxi drivers offering overpriced rides.',
+            image: HERO_IMAGE,
+            imageCaption: 'HelloBajo Scooter Airport Delivery Service at Komodo Airport (LBJ) Arrival Gate',
+            items: [
+              {
+                subtitle: 'Pre-Booked Delivery Standard',
+                text: 'Scooter delivery directly to the airport is the standard service in Labuan Bajo. Reliable local rental companies operate via online pre-bookings, sending a staff member to meet you right outside the gate with your reserved bike, ready to ride.',
+              },
+            ],
+          },
+          {
+            heading: '2. How Pre-Booked Airport Scooter Delivery Works',
+            intro:
+              'Arranging an airport pickup is surprisingly fast and stress-free. Here is the step-by-step process when you book ahead:',
+            image: SCOOTER_IMAGES.nmax,
+            imageCaption: 'Clean and Well-Maintained Automatic Scooters Delivered Right to You',
+            items: [
+              {
+                subtitle: '1. Reserve via WhatsApp Before You Fly',
+                text: 'Lock in your travel dates, choose your preferred scooter model, and share your flight details (airline and flight number) with the rental team.',
+              },
+              {
+                subtitle: '2. Flight Tracking',
+                text: 'Your rental provider monitors your flight status in real time. Whether your plane lands early or gets delayed, a staff member will be timed to match your actual arrival.',
+              },
+              {
+                subtitle: '3. The Airport Handover',
+                text: 'Once you grab your luggage and step out of the arrival hall, the delivery staff will meet you at the designated waiting area holding your keys.',
+              },
+              {
+                subtitle: '4. Quick Inspection & Go',
+                text: 'You do a quick 2-minute check of the bike (tires, brakes, gas gauge), sign the rental agreement digitally or on paper, strap on your helmet, and ride straight to your hotel. No shuttle buses, no waiting in long office queues, and zero taxi haggling.',
+              },
+            ],
+          },
+          {
+            heading: '3. What Is Included with Your Airport Rental',
+            intro:
+              'When you book a professional airport scooter service in Labuan Bajo, your rental should come fully equipped for your trip. A quality service includes:',
+            items: [
+              {
+                subtitle: 'Clean, SNI-Certified Helmets',
+                text: 'Usually 2 sanitized helmets with clear visors provided for rider and passenger.',
+              },
+              {
+                subtitle: 'Raincoats / Ponchos',
+                text: 'Stashed under the seat so a sudden tropical shower never catches you off guard.',
+              },
+              {
+                subtitle: 'Phone Holder',
+                text: 'Mounted on the handlebars for easy Google Maps navigation around Labuan Bajo and Flores.',
+              },
+              {
+                subtitle: 'Zero Security Deposit Options',
+                text: 'Reputable providers for international tourists do not require keeping your physical passport or massive cash deposits.',
+              },
+            ],
+          },
+          {
+            heading: '4. Choosing the Right Scooter for Your Trip',
+            intro:
+              'Selecting the right bike depends on your luggage situation and where you plan to ride around Flores:',
+            image: SCOOTER_IMAGES.scoopy,
+            imageCaption: 'Choose between nimble 110cc city scooters or spacious 155cc maxi scooters',
+            items: [
+              {
+                subtitle: 'Honda Scoopy (110cc) / Honda Beat (110cc)',
+                text: 'Lightweight, nimble, and extremely fuel-efficient. Perfect if you are traveling light with small carry-on backpacks and plan to stay mostly around town, harbor cafes, and local beaches.',
+              },
+              {
+                subtitle: 'Yamaha NMAX (155cc) / Honda PCX (160cc)',
+                text: 'Larger, more powerful maxi-scooters. Ideal if you are riding two-up (with a passenger), carrying larger backpacks, or planning longer day trips along steep mountain curves like the route to Golo Mori or Cunca Wulang Waterfall.',
+              },
+            ],
+          },
+          {
+            heading: '5. Tips for Riding Away from Komodo Airport Safely',
+            intro:
+              'Riding straight off the plane into Labuan Bajo is an incredible feeling, but keep these practical tips in mind for your first few kilometers:',
+            items: [
+              {
+                subtitle: 'Check the Exit Road',
+                text: 'The exit road out of Komodo Airport leads directly onto the main town bypass. The road is smooth asphalt, but traffic can include taxis and tour vans. Take it easy on the throttle for the first few minutes until you get a feel for local traffic flow.',
+              },
+              {
+                subtitle: 'Mind the Hill Climbs',
+                text: 'Labuan Bajo is built on steep coastal terrain. If your hotel sits high on the hill overlooking the bay, keep a steady hand on the throttle and use both front and rear brakes when descending.',
+              },
+              {
+                subtitle: 'Keep Your License Handy',
+                text: "Ensure you have your national driver's license and an International Driving Permit (IDP) accessible in your bag.",
+              },
+              {
+                subtitle: 'Check the Fuel Gauge',
+                text: 'Airport delivery bikes usually come with enough fuel to get you safely into town. Top up your tank at the main Pertamina station along the bypass road before embarking on long rides.',
+              },
+            ],
+          },
+        ],
+        calloutNote:
+          'Ready to Land and Ride in Labuan Bajo? Skip the taxi lines and start your Flores adventure the exact second your feet touch the ground. HelloBajo offers hassle-free scooter rentals with zero deposit, clean helmets, raincoats, and free airport delivery directly to the arrival gate.',
+      },
+      ID: {
+        toc: [
+          'Bisakah Menyewa Motor Langsung di Terminal Bandara?',
+          'Cara Kerja Layanan Antar Motor Bandara Komodo',
+          'Fasilitas & Perlengkapan Gratis dalam Sewa Motor',
+          'Memilih Motor yang Tepat Sesuai Kebutuhan',
+          'Tips Berkendara Aman dari Bandara Komodo',
+        ],
+        introParagraph:
+          'Saat Anda mendarat di Bandara Internasional Komodo (LBJ) Labuan Bajo, tantangan pertama langsung menanti begitu keluar terminal: bagaimana menuju hotel atau pelabuhan. Taksi bandara lokal bisa sangat mahal untuk jarak pendek, dan opsi transportasi umum hampir tidak ada. Bagi traveler solo, pasangan, maupun backpacker, solusi paling cerdas dan praktis adalah memiliki motor matic yang sudah siap menunggu di depan pintu kedatangan. Jadi, bisakah Anda menyewa motor langsung di Bandara Komodo? Ya, sangat bisa—asalkan memesannya terlebih dahulu. Berikut panduan lengkap cara kerja sewa motor bandara di Labuan Bajo.',
+        paragraphs: [],
+        sections: [
+          {
+            heading: '1. Bisakah Menyewa Motor Langsung di Terminal Bandara?',
+            intro:
+              'Berbeda dengan bandara internasional besar yang memiliki konter rental fisik di ruang kedatangan, Bandara Komodo tidak memiliki konter sewa motor fisik di dalam terminal. Berharap menemukan loket rental secara mendadak dapat membuat bingung atau dihampiri pengemudi taksi lokal.',
+            image: HERO_IMAGE,
+            imageCaption: 'Layanan Antar Jemput Motor Gratis di Pintu Kedatangan Bandara Komodo (LBJ)',
+            items: [
+              {
+                subtitle: 'Standar Antar Pemesanan Awal',
+                text: 'Layanan antar motor langsung ke bandara adalah standar layanan di Labuan Bajo. Penyedia sewa motor terpercaya beroperasi melalui pemesanan online awal, lalu mengutus staf untuk menemui Anda di pintu keluar bandara membawa motor siap pakai.',
+              },
+            ],
+          },
+          {
+            heading: '2. Cara Kerja Layanan Antar Motor Bandara Komodo',
+            intro:
+              'Proses serah terima motor di bandara sangat cepat dan bebas stres. Berikut tahapan langkah saat Anda memesan terlebih dahulu:',
+            image: SCOOTER_IMAGES.nmax,
+            imageCaption: 'Unit Motor Matic Prima Siap Diantar Langsung ke Bandara',
+            items: [
+              {
+                subtitle: '1. Pesan via WhatsApp Sebelum Terbang',
+                text: 'Tentukan tanggal sewa, pilih tipe motor favorit, dan bagikan detail penerbangan (maskapai & nomor penerbangan) kepada tim sewa.',
+              },
+              {
+                subtitle: '2. Pemantauan Status Penerbangan',
+                text: 'Tim rental memantau jadwal penerbangan Anda secara real-time. Baik pesawat mendarat lebih awal atau mengalami delay, staf akan menyesuaikan waktu kedatangan Anda.',
+              },
+              {
+                subtitle: '3. Serah Terima Kunci di Bandara',
+                text: 'Begitu Anda mengambil bagasi dan keluar dari area kedatangan, staf kami akan menyapa Anda di titik temu yang disepakati sambil membawa kunci motor.',
+              },
+              {
+                subtitle: '4. Cek Cepat & Langsung Jalan',
+                text: 'Lakukan pemeriksaan singkat 2 menit (rem, ban, bensin), tanda tangan kesepakatan sewa digital/kertas, gunakan helm, dan langsung berkendara ke hotel. Tanpa shuttle bus, tanpa antre lama, dan tanpa tawar-menawar taksi.',
+              },
+            ],
+          },
+          {
+            heading: '3. Fasilitas & Perlengkapan Gratis dalam Sewa Motor',
+            intro:
+              'Ketika memesan sewa motor profesional di Labuan Bajo, unit Anda sudah dilengkapi perlengkapan standar perjalanan:',
+            items: [
+              {
+                subtitle: '2 Helm Standar SNI Bersih',
+                text: 'Disediakan helm higienis dan terawat dengan kaca pelindung bersih.',
+              },
+              {
+                subtitle: 'Jas Hujan / Poncho',
+                text: 'Tersedia di bawah jok agar Anda tidak kebasahan saat hujan tropis mendadak.',
+              },
+              {
+                subtitle: 'Holder HP Stang Motor',
+                text: 'Terpasang di stang motor memudahkan navigasi Google Maps selama menjelajah Labuan Bajo.',
+              },
+              {
+                subtitle: 'Tanpa Tahanan Paspor Asli',
+                text: 'Penyedia terpercaya untuk wisatawan tidak menahan paspor fisik asli atau deposit uang tunai besar.',
+              },
+            ],
+          },
+          {
+            heading: '4. Memilih Motor yang Tepat Sesuai Kebutuhan',
+            intro:
+              'Pilihan tipe motor tergantung pada jumlah bagasi dan rute yang akan Anda tempuh di Flores:',
+            image: SCOOTER_IMAGES.beat,
+            imageCaption: 'Pilih Motor Lincah 110cc atau NMAX / PCX 155cc Nyaman untuk Tanjakan',
+            items: [
+              {
+                subtitle: 'Honda Scoopy (110cc) / Honda Beat (110cc)',
+                text: 'Ringan, lincah, dan sangat irit bensin. Sangat cocok untuk perjalanan santai mengelilingi pusat kota, cafe pelabuhan, dan pantai terdekat dengan ransel kabin.',
+              },
+              {
+                subtitle: 'Yamaha NMAX (155cc) / Honda PCX (160cc)',
+                text: 'Bodi lebih besar, mesin bertenaga. Sangat ideal jika berboncengan, membawa bagasi lebih berat, atau merencanakan touring jauh seperti ke Golo Mori dan Air Terjun Cunca Wulang.',
+              },
+            ],
+          },
+          {
+            heading: '5. Tips Berkendara Aman dari Bandara Komodo',
+            intro:
+              'Mulai perjalanan begitu turun pesawat adalah pengalaman menyenangkan, namun perhatikan tips keselamatan ini untuk beberapa kilometer pertama:',
+            items: [
+              {
+                subtitle: 'Perhatikan Jalan Keluar Bandara',
+                text: 'Jalan keluar Bandara Komodo langsung terhubung dengan jalan bypass utama. Jalannya halus namun lalu lintas diisi taksi dan mobil travel. Berkendaralah dengan tenang di awal penerbangan.',
+              },
+              {
+                subtitle: 'Waspadai Tanjakan & Turunan Bukit',
+                text: 'Karakter lanskap Labuan Bajo berbukit curam. Gunakan rem depan dan belakang secara seimbang saat menuruni bukit menuju hotel.',
+              },
+              {
+                subtitle: 'Siapkan SIM & Identitas',
+                text: 'Pastikan SIM C aktif dan dokumen identitas mudah diakses dalam tas Anda.',
+              },
+              {
+                subtitle: 'Cek Bensin Saat Berangkat',
+                text: 'Motor diantar dengan bensin cukup untuk menuju kota. Isi penuh tangki di SPBU Pertamina bypass sebelum memulai perjalanan jauh.',
+              },
+            ],
+          },
+        ],
+        calloutNote:
+          'Siap Mendarat dan Jelajah Labuan Bajo? Bebas dari antrean taksi dan mulai petualangan Flores detik ini juga. HelloBajo siap melayani sewa motor tanpa deposit, helm bersih, jas hujan, dan antar gratis langsung ke kedatangan Bandara Komodo (LBJ).',
+      },
+      ZH: {
+        toc: [
+          '能在航站楼内直接现场租车吗？',
+          '科莫多机场预订送车服务流程',
+          '摩托车租赁包含的免费装备与服务',
+          '根据行程与行李选择合适车型',
+          '从科莫多机场骑行出发的安全建议',
+        ],
+        introParagraph:
+          '当您飞抵拉布安巴佐的科莫多国际机场 (LBJ) 时，走出到达大厅面临的第一个挑战就是：如何前往酒店或码头。当地机场出租车对于短途距离来说价格偏高，且几乎没有公共交通。对于自由行、情侣及背包客来说，最明智方便的解决方案就是让一辆保养完好的自动档踏板车在到达出口等候您。那么，可以在科莫多机场直接租摩托车吗？答案是肯定的——前提是提前预订。以下是关于巴佐机场送车租赁的完整攻略。',
+        paragraphs: [],
+        sections: [
+          {
+            heading: '1. 能在航站楼内直接现场租车吗？',
+            intro:
+              '与拥有众多租车柜台的大型国际机场不同，科莫多机场到达大厅内没有实体摩托车租赁柜台。如果不提前预订直接走出来，可能会对现场环境感到困惑或面临高价出租车的拉客。',
+            image: HERO_IMAGE,
+            imageCaption: 'HelloBajo 科莫多机场 (LBJ) 出达口免费送车服务',
+            items: [
+              {
+                subtitle: '提前线上预订送车标准',
+                text: '直接送车至机场是拉布安巴佐的标准服务模式。优质的本地租车公司通过线上预订运营，派专人在您降落时携带钥匙在到达口接机。',
+              },
+            ],
+          },
+          {
+            heading: '2. 科莫多机场预订送车服务流程',
+            intro:
+              '安排机场接机送车非常快速省心，提前预订流程如下：',
+            image: SCOOTER_IMAGES.nmax,
+            imageCaption: '专人清洁保养的踏板车直接送达机场到达口',
+            items: [
+              {
+                subtitle: '1. 出发前通过 WhatsApp 预订',
+                text: '锁定出行日期，选择喜爱的车型，并将航班信息（航空公司与航班号）发送给客服。',
+              },
+              {
+                subtitle: '2. 实时航班动态追踪',
+                text: '租车团队实时监控您的航班动态。无论航班提前降落还是延误，专人都会按您实际到达时间准时等候。',
+              },
+              {
+                subtitle: '3. 机场现场交接钥匙',
+                text: '取完行李走出到达大厅后，送车人员将在指定等候区交接车钥匙与装备。',
+              },
+              {
+                subtitle: '4. 快速验车即刻骑行',
+                text: '花费 2 分钟检查车况（轮胎、刹车、油量），完成电子/纸质协议，戴上头盔即可直接骑车前往酒店。无需等候接驳车或排队办理手续。',
+              },
+            ],
+          },
+          {
+            heading: '3. 摩托车租赁包含的免费装备与服务',
+            intro:
+              '在拉布安巴佐预订专业机场送车服务，您的车辆将配备齐全的骑行装备：',
+            items: [
+              {
+                subtitle: '清洁干净的 SNI 认证头盔',
+                text: '提供 2 顶消毒杀菌、带清晰挡风镜片的安全头盔。',
+              },
+              {
+                subtitle: '雨衣 / 披风',
+                text: '座桶内备有雨衣，应对突如其来的热带阵雨。',
+              },
+              {
+                subtitle: '车把手机支架',
+                text: '安装于车把上的支架，方便骑行时使用 Google Maps 导航。',
+              },
+              {
+                subtitle: '无押金免扣押护照',
+                text: '针对国际游客的合规服务，无需扣押护照原件或支付昂贵现金押金。',
+              },
+            ],
+          },
+          {
+            heading: '4. 根据行程与行李选择合适车型',
+            intro:
+              '选择车型取决于您的行李情况以及在弗洛雷斯岛的骑行路线：',
+            image: SCOOTER_IMAGES.scoopy,
+            imageCaption: '可选轻便 110cc 城市踏板车或强劲 155cc 大踏板车',
+            items: [
+              {
+                subtitle: '本田 Scoopy (110cc) / 本田 Beat (110cc)',
+                text: '轻巧灵活且极度省油。非常适合轻装简行、携带小背包在镇区、码头咖啡馆及周边海滩漫游。',
+              },
+              {
+                subtitle: '雅马哈 NMAX (155cc) / 本田 PCX (160cc)',
+                text: '车身更大、动力更强劲。非常适合双载（带乘客）、携带大背包或计划远途骑行前往戈洛莫里 (Golo Mori) 景观公路及昆卡乌朗瀑布的陡峭山路。',
+              },
+            ],
+          },
+          {
+            heading: '5. 从科莫多机场骑行出发的安全建议',
+            intro:
+              '下飞机直接骑上摩托车开启巴佐之旅令人兴奋，但在最初几公里请注意以下安全提示：',
+            items: [
+              {
+                subtitle: '注意机场出口主干道',
+                text: '科莫多机场出口直接连接镇区主干道，路面平整但有出租车及旅游大巴。最初几分钟请平稳控制油门，适应当地车流。',
+              },
+              {
+                subtitle: '注意巴佐陡峭山路',
+                text: '拉布安巴佐依山傍海，地形陡峭。如果酒店位于山顶俯瞰海湾，下坡时请平稳控制油门并前后刹车配合。',
+              },
+              {
+                subtitle: '随身携带驾驶证件',
+                text: '请确保随身携带本国驾照及国际驾照 (IDP) 备查。',
+              },
+              {
+                subtitle: '检查并加满油箱',
+                text: '送达车辆配有保障驶入镇区的油量。在前往远途景点前，建议在主干道加油站加满油。',
+              },
+            ],
+          },
+        ],
+        calloutNote:
+          '准备好飞抵巴佐即刻出发了吗？告别出租车排队，脚踏科莫多土地的瞬间开启弗洛雷斯探险。HelloBajo 提供免押金、赠头盔雨衣及科莫多机场 (LBJ) 免费送车服务。',
+      },
+    },
+  },
   // Kelimutu Travel Guide
   {
     id: 'post-kelimutu',
@@ -79,12 +897,8 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'August 6, 2026',
     readTime: '7 min read',
-    coverImage: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=800&q=80',
-    ],
+    coverImage: BLOG_IMAGES.kelimutuLakes.cover,
+    galleryImages: BLOG_IMAGES.kelimutuLakes.gallery,
     tags: ['Kelimutu', 'Crater Lakes', 'Sunrise Trekking', 'Flores Overland', 'Car Charter', 'Moni Village'],
     microCta: {
       label: {
@@ -455,13 +1269,8 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'August 5, 2026',
     readTime: '6 min read',
-    coverImage: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80',
-    ],
+    coverImage: BLOG_IMAGES.culinarySeafood.cover,
+    galleryImages: BLOG_IMAGES.culinarySeafood.gallery,
     tags: ['Seafood', 'Kampung Ujung', 'Pondok Mai Cenggo', 'Made Banana Flour', 'Atlantis On The Rock', 'Scooter Rental'],
     isFeatured: true,
     title: {
@@ -815,13 +1624,8 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'August 4, 2026',
     readTime: '7 min read',
-    coverImage: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1682687220063-4742bd7fd538?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80',
-    ],
+    coverImage: BLOG_IMAGES.divingManta.cover,
+    galleryImages: BLOG_IMAGES.divingManta.gallery,
     tags: ['Scuba Diving', 'Manta Point', 'Batu Bolong', 'Snorkeling', 'Komodo Reefs', 'Komodo Speedboat'],
     isFeatured: true,
     title: {
@@ -1197,13 +2001,8 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'August 3, 2026',
     readTime: '6 min read',
-    coverImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1527631746610-bca00a040d60?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1501555088652-021faa106b9b?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1512100356356-de1b84283e18?auto=format&fit=crop&w=800&q=80',
-    ],
+    coverImage: BLOG_IMAGES.packingSailing.cover,
+    galleryImages: BLOG_IMAGES.packingSailing.gallery,
     tags: ['Packing List', 'Phinisi Sailing', 'Island Hopping', 'Travel Essentials', 'Komodo Speedboat'],
     title: {
       EN: 'The Ultimate Packing List: What to Bring for a Phinisi Sailing & Island Hopping Trip',
@@ -1677,13 +2476,8 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'August 6, 2026',
     readTime: '6 min read',
-    coverImage: CAR_CHARTER_BANNER,
-    galleryImages: [
-      CAR_CHARTER_BANNER,
-      'https://images.unsplash.com/photo-1549399542-7e3f8b79c341?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?auto=format&fit=crop&w=800&q=80',
-    ],
+    coverImage: BLOG_IMAGES.carCharter.cover,
+    galleryImages: BLOG_IMAGES.carCharter.gallery,
     tags: ['Car Charter', 'Private Driver', 'Toyota Rush', 'Toyota Calya', 'Toyota HiAce', 'Family Travel', 'Batu Cermin'],
     title: {
       EN: 'Private Car Charter in Labuan Bajo: Complete Family & Group Travel Guide',
@@ -2025,11 +2819,8 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'August 1, 2026',
     readTime: '6 min read',
-    coverImage: HERO_IMAGE,
-    galleryImages: [
-      'https://images.unsplash.com/photo-1558981806-ec527fa84c39?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-    ],
+    coverImage: BLOG_IMAGES.safetyGuide.cover,
+    galleryImages: BLOG_IMAGES.safetyGuide.gallery,
     tags: ['Scooter Rental', 'Labuan Bajo', 'Airport Pickup', 'No Deposit'],
     title: {
       EN: 'Scooter Rental in Labuan Bajo: Essential Guide to Fleet, Airport Delivery & Routes',
@@ -2326,12 +3117,8 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'July 28, 2026',
     readTime: '5 min read',
-    coverImage: RIDING_DESTINATIONS.goloMori,
-    galleryImages: [
-      RIDING_DESTINATIONS.goloMori,
-      RIDING_DESTINATIONS.guaRangko,
-      RIDING_DESTINATIONS.bukitCinta,
-    ],
+    coverImage: BLOG_IMAGES.guaRangko.cover,
+    galleryImages: BLOG_IMAGES.guaRangko.gallery,
     tags: ['Golo Mori', 'Gua Rangko', 'Bukit Cinta', 'Day Trips'],
     title: {
       EN: 'Top 3 Scenic Scooter Routes in Labuan Bajo: Coastal Drives, Caves & Sunsets',
@@ -2616,12 +3403,8 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'July 20, 2026',
     readTime: '7 min read',
-    coverImage: SPEEDBOAT_BANNER,
-    galleryImages: [
-      SPEEDBOAT_BANNER,
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=800&q=80',
-    ],
+    coverImage: BLOG_IMAGES.goloMori.cover,
+    galleryImages: BLOG_IMAGES.goloMori.gallery,
     tags: ['Sailing Komodo', 'Speedboat Day Trip', 'Phinisi Liveaboard', 'Komodo Boat Tour', 'Scooter Rental'],
     title: {
       EN: 'Speedboat Day Trip vs. Phinisi Liveaboard: Which Komodo Boat Tour Should You Choose?',
@@ -2945,11 +3728,8 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'August 6, 2026',
     readTime: '6 min read',
-    coverImage: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
-    galleryImages: [
-      'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80',
-    ],
+    coverImage: BLOG_IMAGES.sunsetSpots.cover,
+    galleryImages: BLOG_IMAGES.sunsetSpots.gallery,
     tags: ['Hidden Beaches', 'Waecicu Beach', 'Pantai Pede', 'Silvia Hill', 'Snorkeling', 'Scooter Rental', 'Labuan Bajo'],
     microCta: {
       label: {
@@ -3327,12 +4107,8 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'August 6, 2026',
     readTime: '8 min read',
-    coverImage: RIDING_DESTINATIONS.waeRebo,
-    galleryImages: [
-      'https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=800&q=80',
-      'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80',
-    ],
+    coverImage: BLOG_IMAGES.waeRebo.cover,
+    galleryImages: BLOG_IMAGES.waeRebo.gallery,
     tags: ['Wae Rebo', 'Manggarai Culture', 'Trekking', 'Mbaru Niang', 'Flores Overland', 'Car Charter', 'Scooter Rental'],
     microCta: {
       label: {
@@ -3652,4 +4428,369 @@ export const BLOG_POSTS: BlogPost[] = [
       },
     },
   },
+  // Scooter Rental vs. Private Car Charter Guide
+  {
+    id: 'post-get-around-labuan-bajo',
+    slug: 'how-to-get-around-labuan-bajo-scooter-rental-vs-private-car-charter',
+    category: 'Travel Tips',
+    author: 'By HelloBajo Team',
+    publishDate: 'August 6, 2026',
+    readTime: '6 min read',
+    coverImage: BLOG_IMAGES.gettingAround.cover,
+    galleryImages: BLOG_IMAGES.gettingAround.gallery,
+    tags: ['Labuan Bajo Transport', 'Scooter Rental', 'Private Car Charter', 'Travel Tips', 'Flores Road Trip'],
+    isFeatured: true,
+    microCta: {
+      label: {
+        EN: 'Book Scooter or Private Car Charter',
+        ID: 'Sewa Motor atau Mobil Private',
+        ZH: '预订摩托车或私人包车',
+      },
+      link: '/#scooter-calculator',
+      btnClass: 'bg-teal-700 hover:bg-teal-800 text-white',
+    },
+    title: {
+      EN: 'How to Get Around Labuan Bajo: Scooter Rental vs. Private Car Charter',
+      ID: 'Cara Keliling Labuan Bajo: Sewa Motor vs. Sewa Mobil Private',
+      ZH: '拉布安巴佐交通指南：租摩托车 vs 私人包车',
+    },
+    excerpt: {
+      EN: 'How to get around Labuan Bajo safely. Compare scooter rentals and private car charters for your Flores trip. Tips, vehicle options, and booking info.',
+      ID: 'Panduan lengkap keliling Labuan Bajo dengan aman. Komparasi sewa motor dan sewa mobil private untuk liburan Anda di Flores. Tips, pilihan armada, dan cara sewa.',
+      ZH: '拉布安巴佐安全出行指南。对比弗洛雷斯之旅中的摩托车租赁与私人包车服务。实用建议、车型选择与预订信息。',
+    },
+    content: {
+      EN: {
+        toc: [
+          '1. Renting a Scooter: The Ultimate Freedom Choice',
+          '2. Booking a Private Car Charter: Maximum Comfort & Safety',
+          '3. Side-by-Side Comparison: Which Should You Choose?',
+          '4. The Smart Hybrid Approach: Combining Both Options',
+          '5. How to Book Your Labuan Bajo Transport Seamlessly',
+        ],
+        introParagraph:
+          'When planning a trip to Flores, most travelers spend weeks researching the perfect Komodo boat tour, but completely forget to plan their land transportation.\n\nHere is the reality of Labuan Bajo: the town is built on the side of steep coastal cliffs. The main harbor, your hilltop hotel, the best seafood markets, and the most spectacular sunset lounges are all spread out across winding, hilly roads. Walking everywhere under the intense tropical sun is not just exhausting—it is often impractical due to narrow shoulders and steep inclines.\n\nTo make the most of your time on the mainland, you need reliable transport. The two best options are renting an automatic scooter or booking a private car charter. But which one is right for your travel style? Here is a practical breakdown to help you decide how to get around Labuan Bajo effortlessly.',
+        paragraphs: [],
+        sections: [
+          {
+            heading: '1. Renting a Scooter: The Ultimate Freedom Choice',
+            intro:
+              'For solo travelers, couples, and backpackers, renting an automatic scooter is hands-down the most popular way to explore Labuan Bajo. It transforms a simple point-A-to-point-B commute into an adventure.',
+            items: [
+              {
+                subtitle: 'Total Flexibility',
+                text: 'You operate entirely on your own schedule. Want to grab a quick coffee at a local cafe, chase the sunset at Wae Cicu beach, or run down to the night market? Just grab your helmet and go.',
+              },
+              {
+                subtitle: 'Easy Parking',
+                text: 'The streets around the main Marina and Kampung Ujung seafood market can get congested in the evening. A scooter allows you to bypass slow-moving traffic and park right in front of your destination.',
+              },
+              {
+                subtitle: 'Budget-Friendly',
+                text: 'Scooter rentals are incredibly affordable compared to paying for multiple taxi drops throughout the day.',
+              },
+              {
+                subtitle: 'Scenic Riding',
+                text: 'Riding along the coast with the ocean breeze, especially on routes like the new Golo Mori highway, is an unforgettable experience.',
+              },
+            ],
+            paragraphs: [
+              'Things to Consider:\nRiding in Flores requires confidence. The roads feature sharp curves and steep elevation changes. If you have never ridden a motorbike before, the hilly terrain of Labuan Bajo is not the best place to learn. Always wear a helmet and check your brakes before heading down steep steep coastal drops.',
+              'Local Tip: Choose the right bike! A lightweight Honda Scoopy (110cc) is perfect for zipping around town, while a heavier Yamaha NMAX (155cc) provides the extra power and dual-disc braking needed for steep mountain day trips.',
+            ],
+          },
+          {
+            heading: '2. Booking a Private Car Charter: Maximum Comfort & Safety',
+            intro:
+              'If you are traveling with a family, carrying heavy diving equipment, or simply prefer to stay out of the tropical heat, a private car charter with a local driver is your best option.',
+            items: [
+              {
+                subtitle: 'Air-Conditioned Relief',
+                text: 'The midday sun in Flores is intense. Stepping into a cool, spacious SUV after a sweaty hike or a long boat trip is a game-changer for your energy levels.',
+              },
+              {
+                subtitle: 'Group & Family Friendly',
+                text: 'Modern MPVs and SUVs comfortably seat 5 to 7 passengers. Keeping your entire group together in one vehicle is far easier than trying to coordinate multiple taxis or riding tandem on several scooters.',
+              },
+              {
+                subtitle: 'Zero Navigation Stress',
+                text: 'You don\'t need to worry about downloading offline maps or dealing with steep, unfamiliar mountain roads. A professional local driver knows the safest routes, the best photo stops, and where to park.',
+              },
+              {
+                subtitle: 'Luggage Capacity',
+                text: 'Moving from Komodo International Airport (LBJ) to your hotel, and then to the harbor for your liveaboard cruise, requires ample trunk space.',
+              },
+            ],
+            paragraphs: [
+              'Things to Consider:\nWhile a private car offers unmatched comfort, it does require a slightly higher budget than a scooter. Additionally, navigating narrow town streets during peak evening hours might take a bit longer in a larger vehicle.',
+            ],
+          },
+          {
+            heading: '3. Side-by-Side Comparison: Which Should You Choose?',
+            intro:
+              'Still on the fence? Here is a quick breakdown to help match your transport to your travel style:',
+            items: [
+              {
+                subtitle: 'Solo Travelers, Couples & Budget Travelers',
+                text: 'Best Option: Scooter Rental | Vibe: Adventurous, flexible, wind-in-your-hair | Luggage: Backpacks and day bags only | Weather: Exposed to tropical sun and sudden rain | Cost: Very affordable (Daily rate).',
+              },
+              {
+                subtitle: 'Families, Large Groups & Senior Travelers',
+                text: 'Best Option: Private Car Charter | Vibe: Relaxed, safe, premium comfort | Luggage: Large suitcases and dive gear | Weather: Climate-controlled AC and dry interiors | Cost: Moderate to Premium (Daily flat rate).',
+              },
+            ],
+          },
+          {
+            heading: '4. The Smart Hybrid Approach: Combining Both Options',
+            intro:
+              'Experienced travelers to Flores know a secret: you don\'t have to choose just one. The smartest way to handle your Labuan Bajo itinerary is to use a hybrid approach.',
+            items: [
+              {
+                subtitle: 'Use a Private Car Charter for Transit Days',
+                text: 'Book a comfortable SUV for your arrival day to handle heavy luggage, airport transfers, and maybe a long family day trip to inland waterfalls or the Gua Rangko cave.',
+              },
+              {
+                subtitle: 'Use a Scooter for Town Days',
+                text: 'Once your luggage is safely at the hotel or on your boat, grab a scooter for the rest of your stay. It is the perfect tool for zipping between dive shops, sunset lounges, and local warungs without the hassle of waiting for a driver.',
+              },
+            ],
+          },
+          {
+            heading: '5. How to Book Your Labuan Bajo Transport Seamlessly',
+            intro:
+              'Whether you want the two-wheeled freedom of a scooter or the plush comfort of a modern SUV, sorting out your transport before you land saves you from aggressive taxi haggling at the airport.',
+            paragraphs: [
+              'At HelloBajo, we provide both premium transportation solutions tailored for international travelers:',
+              '• For Riders: Secure a pristine, fully serviced bike with our [HelloBajo Scooter Rental Labuan Bajo](/). We offer zero security deposit, clean SNI helmets, and free delivery straight to the airport arrival gate or your hotel.',
+              '• For Groups: Book our [Private Car Charter](/cars) service. We provide modern, sanitized 5-to-7 seater SUVs and MPVs, complete with an experienced, English-speaking local driver and full fuel included in the daily rate.',
+              'Don\'t let the steep hills of Flores slow you down. Contact the HelloBajo team via WhatsApp today to lock in your ride and explore Labuan Bajo exactly the way you want to!',
+            ],
+          },
+        ],
+        calloutNote:
+          'Pro Tip: Pre-book your HelloBajo scooter rental or private car charter for free delivery directly to Komodo International Airport (LBJ) upon landing, bypassing airport taxi hassle!',
+      },
+      ID: {
+        toc: [
+          '1. Sewa Motor: Pilihan Kebebasan Utama',
+          '2. Sewa Mobil Private + Supir: Kenyamanan & Keamanan Maksimal',
+          '3. Komparasi Langsung: Mana Yang Harus Anda Pilih?',
+          '4. Pendekatan Hibrida Cerdas: Menggabungkan Kedua Pilihan',
+          '5. Cara Sewa Transportasi Labuan Bajo Tanpa Ribet',
+        ],
+        introParagraph:
+          'Saat merencanakan liburan ke Flores, sebagian besar wisatawan menghabiskan waktu berminggu-minggu mencari tur kapal Komodo terbaik, tetapi lupa merencanakan transportasi darat mereka.\n\nRealita di Labuan Bajo: kota ini dibangun di lereng tebing pesisir yang terjal. Pelabuhan utama, hotel di atas bukit, pasar night seafood, dan resto sunset terpopuler tersebar di sepanjang jalanan berbukit yang berkelok. Berjalan kaki di bawah terik matahari tropis tidak hanya melelahkan—tetapi sering kali tidak praktis karena trotoar yang sempit dan tanjakan curam.\n\nUntuk memaksimalkan waktu Anda di daratan, Anda membutuhkan transportasi yang andal. Dua pilihan terbaik adalah menyewa motor matic atau memesan sewa mobil private. Mana yang paling sesuai dengan gaya perjalanan Anda? Berikut adalah panduan praktis untuk membantu Anda menentukan pilihan.',
+        paragraphs: [],
+        sections: [
+          {
+            heading: '1. Sewa Motor: Pilihan Kebebasan Utama',
+            intro:
+              'Bagi solo traveler, pasangan, dan backpacker, menyewa motor matic adalah cara paling populer untuk menjelajahi Labuan Bajo. Mengubah perjalanan antar titik menjadi sebuah petualangan seru.',
+            items: [
+              {
+                subtitle: 'Fleksibilitas Total',
+                text: 'Anda menentukan jadwal sepenuhnya. Ingin ngopi santai di kafe lokal, berburu sunset di Pantai Waecicu, atau kulineran di pasar malam? Tinggal pakai helm dan langsung jalan.',
+              },
+              {
+                subtitle: 'Kemudahan Parkir',
+                text: 'Jalanan di sekitar Marina utama dan pasar malam Kampung Ujung bisa padat saat malam hari. Mengendarai motor membuat Anda mudah menghindari kemacetan dan parkir persis di depan tujuan.',
+              },
+              {
+                subtitle: 'Hemat Anggaran',
+                text: 'Harga sewa motor sangat terjangkau dibandingkan membayar taksi berkali-kali sepanjang hari.',
+              },
+              {
+                subtitle: 'Rute Pemandangan Indah',
+                text: 'Berkendara menyusuri garis pantai dengan angin sepoi-sepoi, terutama di jalan baru Golo Mori, memberikan pengalaman yang tak terlupakan.',
+              },
+            ],
+            paragraphs: [
+              'Hal Yang Perlu Diperhatikan:\nBerkendara di Flores membutuhkan rasa percaya diri. Jalanan memiliki tikungan tajam dan tanjakan/turunan curam. Jika Anda belum pernah naik motor, jalanan Labuan Bajo bukan tempat yang ideal untuk belajar. Selalu gunakan helm dan periksa rem sebelum menuruni turunan bukit.',
+              'Tips Lokal: Pilih motor yang tepat! Honda Scoopy (110cc) yang ringan sangat pas untuk keliling kota, sedangkan Yamaha NMAX (155cc) yang lebih bertenaga dan ber-rem ganda sangat cocok untuk perjalanan bukit dan luar kota.',
+            ],
+          },
+          {
+            heading: '2. Sewa Mobil Private + Supir: Kenyamanan & Keamanan Maksimal',
+            intro:
+              'Jika Anda bepergian bersama keluarga, membawa perlengkapan diving yang berat, atau lebih menyukai kenyamanan bebas panas tropis, sewa mobil private dengan supir lokal adalah pilihan terbaik.',
+            items: [
+              {
+                subtitle: 'Sejuk Bebas Panas (Full AC)',
+                text: 'Terik matahari siang di Flores cukup menyengat. Masuk ke dalam mobil SUV ber-AC sejuk setelah trekking atau tur kapal akan menjaga stamina liburan Anda.',
+              },
+              {
+                subtitle: 'Ideal untuk Keluarga & Rombongan',
+                text: 'Mobil MPV/SUV modern muat 5 hingga 7 penumpang. Menjaga rombongan tetap dalam satu kendaraan jauh lebih praktis daripada mengoordinasikan beberapa taksi atau motor.',
+              },
+              {
+                subtitle: 'Tanpa Stres Navigasi',
+                text: 'Anda tidak perlu khawatir mengunduh peta offline atau menghadapi jalanan pegunungan terjal. Supir lokal profesional tahu rute aman, spot foto terbaik, dan tempat parkir.',
+              },
+              {
+                subtitle: 'Kapasitas Bagasi Luas',
+                text: 'Perjalanan dari Bandara Komodo (LBJ) ke hotel, lalu ke pelabuhan untuk kapal liveaboard membutuhkan ruang bagasi koper yang cukup luas.',
+              },
+            ],
+            paragraphs: [
+              'Hal Yang Perlu Diperhatikan:\nMeskipun sewa mobil private menawarkan kenyamanan tiada tanding, anggarannya sedikit lebih tinggi dibanding sewa motor. Selain itu, melintasi jalanan kota yang sempit saat jam sibuk malam hari mungkin butuh waktu sedikit lebih lama.',
+            ],
+          },
+          {
+            heading: '3. Komparasi Langsung: Mana Yang Harus Anda Pilih?',
+            intro:
+              'Masih bingung menentukan pilihan? Berikut perbandingan singkat untuk menyesuaikan kebutuhan Anda:',
+            items: [
+              {
+                subtitle: 'Solo Traveler, Pasangan & Backpacker',
+                text: 'Pilihan Terbaik: Sewa Motor | Suasana: Petualangan, bebas, santai | Bagasi: Ransel / tas harian | Cuaca: Terpapar matahari & hujan tropis | Biaya: Sangat terjangkau (Tarif harian).',
+              },
+              {
+                subtitle: 'Keluarga, Rombongan Besar & Orang Tua',
+                text: 'Pilihan Terbaik: Sewa Mobil Private | Suasana: Santai, aman, nyaman premium | Bagasi: Koper besar & alat diving | Cuaca: Sejuk ber-AC & kering | Biaya: Moderat hingga Premium (Tarif flat harian).',
+              },
+            ],
+          },
+          {
+            heading: '4. Pendekatan Hibrida Cerdas: Menggabungkan Kedua Pilihan',
+            intro:
+              'Wisatawan berpengalaman di Flores punya rahasia: Anda tidak harus memilih salah satu saja. Cara terpandai mengelola itinerary Labuan Bajo adalah kombinasi hibrida.',
+            items: [
+              {
+                subtitle: 'Gunakan Mobil Private Saat Hari Transit',
+                text: 'Pesan mobil SUV nyaman untuk hari kedatangan saat membawa koper berat, antar-jemput bandara, atau perjalanan keluarga ke air terjun inland & Gua Rangko.',
+              },
+              {
+                subtitle: 'Gunakan Motor Saat Hari Santai di Kota',
+                text: 'Setelah koper tersimpan aman di hotel atau kapal, sewa motor untuk sisa hari Anda. Pilihan tepat untuk keliling kafe, resto sunset, dive shop, dan warung lokal tanpa perlu menunggu supir.',
+              },
+            ],
+          },
+          {
+            heading: '5. Cara Sewa Transportasi Labuan Bajo Tanpa Ribet',
+            intro:
+              'Baik Anda menginginkan kebebasan berkendara motor atau kenyamanan sejuk mobil SUV, memesan transportasi sebelum mendarat akan menghindarkan Anda dari tawar-menawar taksi di bandara.',
+            paragraphs: [
+              'Di HelloBajo, kami menyediakan kedua solusi transportasi premium untuk wisatawan:',
+              '• Untuk Pengendara Motor: Dapatkan motor terawat dan siap pakai via [Sewa Motor HelloBajo Labuan Bajo](/). Tanpa deposit tunai, gratis helm SNI, dan antar gratis langsung ke pintu bandara atau hotel.',
+              '• Untuk Rombongan: Pesan layanan [Sewa Mobil Private](/cars) kami. Kami menyediakan armada SUV/MPV 5-7 seat yang bersih, supir lokal berbahasa Inggris, dan sudah termasuk BBM harian.',
+              'Jangan biarkan bukit terjal Flores memperlambat liburan Anda. Hubungi tim HelloBajo via WhatsApp hari ini untuk mengamankan kendaraan Anda!',
+            ],
+          },
+        ],
+        calloutNote:
+          'Tips Lokal: Pesan sewa motor atau mobil private HelloBajo sebelum mendarat untuk fasilitas gratis antar langsung ke Pintu Kedatangan Bandara Komodo (LBJ)!',
+      },
+      ZH: {
+        toc: [
+          '1. 租用摩托车：极致自由的灵动之选',
+          '2. 预订私人包车：最大程度的舒适与安全',
+          '3. 侧重对比：您应该选择哪种？',
+          '4. 聪明的中和方案：结合两种交通方式',
+          '5. 如何无缝预订拉布安巴佐交通',
+        ],
+        introParagraph:
+          '在规划去弗洛雷斯岛的旅程时，大多数游客会花费数周研究科莫多跳岛跳船游，却完全忽略了陆地交通的安排。\n\n拉布安巴佐的真实路况是：整座小镇依沿海陡峭悬浮山崖而建。主码头、山顶酒店、海鲜夜市和落日酒吧散落在起伏弯曲的山路上。在炽热的热带阳光下全程步行不仅非常消耗体力，而且由于路边狭窄且坡度陡峭，往往并不现实。\n\n为了充分利用在主岛的时间，您需要可靠的交通工具。两种最佳选择是租用自动挡摩托车或预订私人包车。哪一种最适合您的出行风格？以下是为您精心整理的出行指南。',
+        paragraphs: [],
+        sections: [
+          {
+            heading: '1. 租用摩托车：极致自由的灵动之选',
+            intro:
+              '对于单人游客、情侣和背包客来说，租用自动挡摩托车无疑是探索拉布安巴佐最受欢迎的方式。它将简单的日常出行变为了趣味盎然的冒险之旅。',
+            items: [
+              {
+                subtitle: '完全自由掌控',
+                text: '行程完全由您安排。想去当地咖啡馆喝杯咖啡、去 Waecicu 海滩追落日，或是去夜市吃海鲜？戴上头盔随时出发。',
+              },
+              {
+                subtitle: '停车轻松快捷',
+                text: '主码头和 Kampung Ujung 海鲜夜市周边道路在傍晚时分容易拥堵。骑摩托车可以避开缓慢车流，直接停在目的地门口。',
+              },
+              {
+                subtitle: '经济实惠',
+                text: '与全天多次打车相比，租用摩托车的费用极其划算。',
+              },
+              {
+                subtitle: '风景如画的骑行',
+                text: '沿着海岸线迎着海风骑行，尤其是在全新的 Golo Mori 海岸公路上，是一段令人难忘的独特体验。',
+              },
+            ],
+            paragraphs: [
+              '注意事项：\n在弗洛雷斯骑车需要良好的驾驶信心。道路多急弯与陡坡。如果您从未骑过摩托车，拉布安巴佐的山路并不适合新手练习。下陡坡前请务必戴好头盔并检查刹车。',
+              '本地贴士：选择合适的车型！轻便的 Honda Scoopy (110cc) 非常适合在镇上穿梭，而动力更强的 Yamaha NMAX (155cc) 配备双盘刹，适合山路与陡坡一日游。',
+            ],
+          },
+          {
+            heading: '2. 预订私人包车：最大程度的舒适与安全',
+            intro:
+              '如果您与家人同行、携带沉重的潜水装备，或者偏好舒适凉爽避开酷热，带本地司机的私人包车是您的最佳选择。',
+            items: [
+              {
+                subtitle: '全冷气舒适体验',
+                text: '弗洛雷斯正午的阳光非常烈。在徒步或出海后步入凉爽宽敞的 SUV 中，能极大提升旅行的舒适度。',
+              },
+              {
+                subtitle: '适合家庭与团体',
+                text: '现代 MPV 和 SUV 可舒适容纳 5 至 7 名乘客。让全家/同行伙伴在同一辆车内比协调多辆出租车或骑多辆摩托车要方便得多。',
+              },
+              {
+                subtitle: '零导航压力',
+                text: '您无需担心下载离线地图或应对陡峭陌生的山路。专业的本地司机熟悉安全路线、最佳摄影点与停车位。',
+              },
+              {
+                subtitle: '充裕的行李空间',
+                text: '从科莫多国际机场 (LBJ) 往返酒店以及前往码头登船船宿，需要充裕的大号行李箱空间。',
+              },
+            ],
+            paragraphs: [
+              '注意事项：\n私人包车虽然提供无与伦比的舒适度，但预算略高于租摩托车。此外在傍晚高峰期通过小镇狭窄街道时，大型车辆的行驶时间可能会稍长一些。',
+            ],
+          },
+          {
+            heading: '3. 侧重对比：您应该选择哪种？',
+            intro:
+              '还在犹豫不决？以下是匹配您出行风格的简明对比：',
+            items: [
+              {
+                subtitle: '单人游客、情侣 & 背包客',
+                text: '推荐选择：租用摩托车 | 体验风格：充满冒险、灵活自由 | 行李：仅限双肩包/随身包 | 天气 factor：受日晒雨淋影响 | 费用：非常划算 (日租金)。',
+              },
+              {
+                subtitle: '家庭、大型团体 & 长者',
+                text: '推荐选择：私人包车 | 体验风格：轻松、安全、尊享舒适 | 行李：适合大号行李箱与潜水装备 | 天气 factor：全天冷气空调、干爽舒适 | 费用：适中至高端 (日包车固定价)。',
+              },
+            ],
+          },
+          {
+            heading: '4. 聪明的中和方案：结合两种交通方式',
+            intro:
+              '富有经验的弗洛雷斯旅行者知道一个秘诀：您不必二选一。处理拉布安巴佐行程最聪明的方法是采用“混合搭配”策略。',
+            items: [
+              {
+                subtitle: '转运日使用私人包车',
+                text: '在抵达当天预订舒适的 SUV，轻松应对重型行李、机场接送，以及前往内陆瀑布或 Gua Rangko 溶洞的家庭一日游。',
+              },
+              {
+                subtitle: '镇上游玩日租用摩托车',
+                text: '当您的行李安全存放在酒店或船上后，租用一辆摩托车度过余下几天。在潜水店、落日酒吧与本地餐厅之间无缝穿梭，无需等待司机。',
+              },
+            ],
+          },
+          {
+            heading: '5. 如何无缝预订拉布安巴佐交通',
+            intro:
+              '无论您想要摩托车的两轮自由，还是现代 SUV 的奢享舒适，在落地前安排好交通工具，都能避免在机场遭遇拉客砍价的烦恼。',
+            paragraphs: [
+              '在 HelloBajo，我们为国际游客提供两种优质交通解决方案：',
+              '• 骑士首选：通过 [HelloBajo 摩托车租赁](/ ) 预订性能优秀的车辆。免现金押金，免费提供 SNI 头盔，并可免费送车至机场到达口或酒店。',
+              '• 团体首选：预订我们的 [私人包车服务](/cars)。我们提供干净消毒的 5-7 座 SUV/MPV 车辆，包含经验丰富的英语本地司机与全天燃油。',
+              '不要让弗洛雷斯的陡坡阻挡您的脚步。今天就通过 WhatsApp 联系 HelloBajo 团队，锁定您的专属座驾！',
+            ],
+          },
+        ],
+        calloutNote:
+          '本地贴士：提前预订 HelloBajo 摩托车或私人包车，落地科莫多国际机场 (LBJ) 即可享受免费送车/接机服务！',
+      },
+    },
+  },
 ];
+

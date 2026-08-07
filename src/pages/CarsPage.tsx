@@ -2,7 +2,13 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { Language } from '../data/translations';
 import { SEOHead } from '../components/SEOHead';
 import { SITE_CONFIG } from '../data/siteConfig';
-import { CAR_CHARTER_BANNER, RIDING_DESTINATIONS } from '../data/images';
+import {
+  CAR_CHARTER_BANNER,
+  RIDING_DESTINATIONS,
+  CITY_TOUR_ITINERARY_IMAGES,
+  CITY_TOUR_OPTIONAL_IMAGES,
+  OVERLAND_DESTINATION_IMAGES
+} from '../data/images';
 import {
   Car,
   UserCheck,
@@ -52,7 +58,7 @@ const ITINERARY_STEPS = [
       ID: 'Gratis antar-jemput di area kota Labuan Bajo',
       ZH: '拉布安巴佐市区及机场范围免费接送',
     },
-    image: 'https://images.unsplash.com/photo-1542296332-2e4473faf563?auto=format&fit=crop&w=1200&q=80',
+    image: CITY_TOUR_ITINERARY_IMAGES.step1Pickup,
   },
   {
     step: '02',
@@ -74,7 +80,7 @@ const ITINERARY_STEPS = [
       ID: 'Sinar matahari pagi terbaik & suasana gua yang sejuk',
       ZH: '晨光折射最佳拍摄时刻，清凉惬意',
     },
-    image: 'https://images.unsplash.com/photo-1518709268805-4e9042af9f23?auto=format&fit=crop&w=1200&q=80',
+    image: CITY_TOUR_ITINERARY_IMAGES.step2BatuCermin,
   },
   {
     step: '03',
@@ -96,7 +102,7 @@ const ITINERARY_STEPS = [
       ID: 'Spot foto panorama 360° spektakuler',
       ZH: '360° 绝美海岛全景摄影打卡点',
     },
-    image: RIDING_DESTINATIONS.bukitCinta,
+    image: CITY_TOUR_ITINERARY_IMAGES.step3BukitCinta,
   },
   {
     step: '04',
@@ -118,7 +124,7 @@ const ITINERARY_STEPS = [
       ID: 'Seafood segar lokal & tempat makan ber-AC nyaman',
       ZH: '新鲜海鲜与舒适用餐休整体验',
     },
-    image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1200&q=80',
+    image: CITY_TOUR_ITINERARY_IMAGES.step4Lunch,
   },
   {
     step: '05',
@@ -140,7 +146,7 @@ const ITINERARY_STEPS = [
       ID: 'Oleh-oleh autentik & kain tenun buatan tangan',
       ZH: '地道手工艺品与传统手工编织织锦',
     },
-    image: 'https://images.unsplash.com/photo-1606744837616-56c9a5c6a6eb?auto=format&fit=crop&w=1200&q=80',
+    image: CITY_TOUR_ITINERARY_IMAGES.step5Souvenir,
   },
   {
     step: '06',
@@ -162,7 +168,7 @@ const ITINERARY_STEPS = [
       ID: 'Panorama sunset pelabuhan paling ikonik',
       ZH: '港湾帆船落日绝美晚霞全景',
     },
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80',
+    image: CITY_TOUR_ITINERARY_IMAGES.step6Sunset,
   },
   {
     step: '07',
@@ -184,7 +190,7 @@ const ITINERARY_STEPS = [
       ID: 'Termasuk stop makan malam & pengantaran hingga 20:00 WITA',
       ZH: '包含晚餐途经与最迟 20:00 前的酒店送回服务',
     },
-    image: 'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1200&q=80',
+    image: CITY_TOUR_ITINERARY_IMAGES.step7Dinner,
   },
 ];
 
@@ -201,7 +207,7 @@ const OPTIONAL_SPOTS = [
       ZH: '沿全新的戈洛莫里沿海景观公路驰骋，途经壮观的海岸线曲线、蔚蓝海景与现代化场馆。',
     },
     badge: { EN: 'Spectacular coastal driving experience', ID: 'Pengalaman berkendara pesisir spektakuler', ZH: '壮丽的沿海驾驶与风光体验' },
-    image: RIDING_DESTINATIONS.goloMori,
+    image: CITY_TOUR_OPTIONAL_IMAGES.goloMori,
   },
   {
     id: 'gua-rangko',
@@ -214,7 +220,7 @@ const OPTIONAL_SPOTS = [
       ZH: '隐秘的咸水岩洞，正午阳光透过洞顶洒入，在晶莹剔透的蓝色洞穴泳池中惬意畅游。',
     },
     badge: { EN: 'Unique subterranean saltwater pool', ID: 'Kolam renang alam gua air asin unik', ZH: '独特的地下洞穴海水畅游' },
-    image: RIDING_DESTINATIONS.guaRangko,
+    image: CITY_TOUR_OPTIONAL_IMAGES.guaRangko,
   },
   {
     id: 'desa-melo',
@@ -227,7 +233,7 @@ const OPTIONAL_SPOTS = [
       ZH: '体验地道的芒加莱部落文化，品尝弗洛雷斯传统高山咖啡，观赏村民表演的卡西 (Caci) 鞭舞。',
     },
     badge: { EN: 'Authentic traditional Flores culture micro-experience', ID: 'Pengalaman budaya adat Manggarai autentik', ZH: '体验地道芒加莱传统文化' },
-    image: 'https://images.unsplash.com/photo-1516483638261-f4dbaf036963?auto=format&fit=crop&w=1200&q=80',
+    image: CITY_TOUR_OPTIONAL_IMAGES.desaMelo,
   },
 ];
 
@@ -242,7 +248,7 @@ const OVERLAND_DESTINATIONS = [
       ZH: '位于云端之上的芒加莱传统古村落，拥有标志性的圆锥形 Mbaru Niang 传统建筑。',
     },
     badge: { EN: 'Overnight in traditional Mbaru Niang house in clouds', ID: 'Menginap di rumah Mbaru Niang di atas awan', ZH: '在云端传统的 Mbaru Niang 木屋过夜' },
-    image: RIDING_DESTINATIONS.waeRebo,
+    image: OVERLAND_DESTINATION_IMAGES.waeRebo,
   },
   {
     title: { EN: 'Ruteng & Cancar', ID: 'Ruteng & Sawah Cancar', ZH: '卢腾 (Ruteng) 与蜘蛛网梯田' },
@@ -253,7 +259,7 @@ const OVERLAND_DESTINATIONS = [
       ZH: '亲眼目睹独特的蜘蛛网状 Lingko 水稻梯田，感受弗洛雷斯中部的高山清爽空气。',
     },
     badge: { EN: 'World-famous spider-web rice field panorama', ID: 'Panorama sawah jaring laba-laba terkenal dunia', ZH: '世界闻名的蜘蛛网水稻梯田全景' },
-    image: 'https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1200&q=80',
+    image: OVERLAND_DESTINATION_IMAGES.ruteng,
   },
   {
     title: { EN: 'Bajawa & Bena Village', ID: 'Bajawa & Desa Bena', ZH: '巴扎瓦 (Bajawa) 与贝纳巨石村' },
@@ -264,7 +270,7 @@ const OVERLAND_DESTINATIONS = [
       ZH: '背靠阿内里 (Inerie) 火山的古老石器部落村落，拥有天然火山温泉。',
     },
     badge: { EN: 'Megalithic culture & Malanage hot springs', ID: 'Budaya megalitikum & air panas Malanage', ZH: '巨石文化与 Malanage 火山温泉' },
-    image: 'https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80',
+    image: OVERLAND_DESTINATION_IMAGES.bajawa,
   },
   {
     title: { EN: 'Kelimutu Tri-Color Lakes', ID: 'Danau 3 Warna Kelimutu', ZH: '克里穆图 (Kelimutu) 三色火山湖' },
@@ -275,7 +281,7 @@ const OVERLAND_DESTINATIONS = [
       ZH: '在克里穆图火山顶观赏日出，震撼于神圣变色的三色火山湖奇景（拉布安巴佐往返）。',
     },
     badge: { EN: 'Magical tri-color volcanic crater lake sunrise', ID: 'Sunrise mistis di danau kawah tiga warna', ZH: '三色火山湖晨曦日出奇观' },
-    image: 'https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80',
+    image: OVERLAND_DESTINATION_IMAGES.kelimutu,
   },
 ];
 

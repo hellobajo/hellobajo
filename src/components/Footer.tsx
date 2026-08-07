@@ -157,44 +157,34 @@ export const Footer: React.FC<FooterProps> = ({ t, lang }) => {
             <h3 className="text-xs font-bold text-slate-100 uppercase tracking-widest mb-4">
               {lang === 'EN' ? 'Guarantees & Payment' : lang === 'ZH' ? '服务保障与支付' : 'Jaminan & Pembayaran'}
             </h3>
-            <div className="space-y-3">
-              {/* Payment & Deposit Policy Card */}
-              <div className="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/80 space-y-2">
+            <div className="space-y-3.5">
+              {/* Clean, minimalist summary card */}
+              <div className="bg-slate-800/80 p-3.5 rounded-xl border border-slate-700/80 space-y-1.5">
                 <div className="flex items-center gap-1.5 text-emerald-400 font-bold text-xs">
                   <ShieldCheck className="w-4 h-4 shrink-0 text-emerald-400" />
-                  <span>{lang === 'EN' ? 'Payment & Deposit Policy' : lang === 'ZH' ? '押金与订金政策' : 'Ketentuan Pembayaran & DP'}</span>
+                  <span>{lang === 'EN' ? 'Secure Booking Guarantee' : lang === 'ZH' ? '安全便捷预订保障' : 'Jaminan Transaksi Aman'}</span>
                 </div>
-                
-                <div className="space-y-1.5 text-[11px] leading-snug">
-                  {/* Scooter Rental No Deposit */}
-                  <div className="bg-slate-900/60 p-2 rounded-lg border border-emerald-900/40">
-                    <span className="font-semibold text-emerald-400 block text-[11px]">
-                      {lang === 'EN' ? '🛵 Scooter Rental:' : lang === 'ZH' ? '🛵 摩托车租赁：' : '🛵 Sewa Motor:'}
-                    </span>
-                    <span className="text-slate-300 text-[10px]">
-                      {lang === 'EN' ? 'No Deposit Required. Pay daily rate on delivery.' : lang === 'ZH' ? '无需押金，取车交付时结清租金。' : 'Bebas Uang Jaminan. Bayar saat motor diantar.'}
-                    </span>
-                  </div>
-
-                  {/* Speedboat & Car Charter DP 10% */}
-                  <div className="bg-slate-900/60 p-2 rounded-lg border border-teal-900/40">
-                    <span className="font-semibold text-teal-300 block text-[11px]">
-                      {lang === 'EN' ? '🚐 Speedboat & Car Charter:' : lang === 'ZH' ? '🚐 快艇与包车：' : '🚐 Speedboat & Car Charter:'}
-                    </span>
-                    <span className="text-slate-300 text-[10px]">
-                      {lang === 'EN' ? 'Requires 10% DP to lock & confirm schedule.' : lang === 'ZH' ? '需付 10% 订金以锁定与确认行程。' : 'Memerlukan DP 10% untuk mengamankan jadwal.'}
-                    </span>
-                  </div>
-                </div>
+                <p className="text-slate-300 text-xs leading-relaxed font-normal">
+                  {lang === 'EN'
+                    ? 'No hidden fees. Zero deposit for scooters & transparent terms for all services.'
+                    : lang === 'ZH'
+                    ? '无隐性费用。摩托车免押金，所有服务透明合规。'
+                    : 'Tanpa biaya tersembunyi. Bebas deposit sewa motor & ketentuan transparan.'}
+                </p>
               </div>
 
               {/* Payment badges */}
-              <div className="flex flex-wrap gap-1.5 text-[10px] font-semibold text-slate-300">
-                {SITE_CONFIG.paymentBadges.map((badge) => (
-                  <span key={badge} className="bg-slate-800 px-2.5 py-1 rounded-md border border-slate-700">
-                    {badge}
-                  </span>
-                ))}
+              <div className="space-y-1.5">
+                <span className="text-[10px] uppercase tracking-wider font-bold text-slate-400 block">
+                  {lang === 'EN' ? 'Accepted Payment Methods:' : lang === 'ZH' ? '支持的支付方式：' : 'Metode Pembayaran:'}
+                </span>
+                <div className="flex flex-wrap gap-1.5 text-[10px] font-semibold text-slate-300">
+                  {SITE_CONFIG.paymentBadges.map((badge) => (
+                    <span key={badge} className="bg-slate-800 px-2.5 py-1 rounded-md border border-slate-700">
+                      {badge}
+                    </span>
+                  ))}
+                </div>
               </div>
             </div>
           </div>

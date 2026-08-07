@@ -137,12 +137,12 @@ export const translations: Record<Language, TranslationContent> = {
       estTag: 'LABUAN BAJO · EST. 2022',
       titleLine1: 'Hassle-Free Scooter Rental',
       titleLine2: 'in Labuan Bajo',
-      subtitle: 'Delivery to Komodo airport, hotel, or anywhere in town (Rp 20k staff fee). No deposit. Just pick a bike, chat us on WhatsApp, and we handle the rest.',
+      subtitle: 'Explore Labuan Bajo on your own terms. Well-maintained scooters ready for delivery to Komodo Airport, your hotel, or villa.',
       badges: [
-        'No deposit required',
-        'Helmets included free',
-        'Delivery by staff (Rp 20k)',
-        'Quick WhatsApp response',
+        'Zero Cash Deposit',
+        'Helmets, phone holder & fuel',
+        'Delivery to Hotel / Airport',
+        'Instant WhatsApp Confirmation',
       ],
       ctaFleet: 'Explore Fleet',
       ctaWhatsapp: 'Book via WhatsApp',
@@ -177,7 +177,7 @@ export const translations: Record<Language, TranslationContent> = {
     fleet: {
       tag: 'OUR FLEET',
       title: 'Choose your ride',
-      subtitle: 'Clean helmets included with every bike. Delivery by staff (Rp 20k/trip). Photos are examples — exact color may vary.',
+      subtitle: 'Clean helmets, phone holder, and initial fuel included with every bike. Delivery by staff (Rp 20k/trip). Photos are examples — exact color may vary.',
       bookBtn: 'Book This',
       items: [
         {
@@ -329,12 +329,12 @@ export const translations: Record<Language, TranslationContent> = {
       estTag: 'LABUAN BAJO · EST. 2022',
       titleLine1: 'Sewa Motor / Scooter Praktis',
       titleLine2: 'di Labuan Bajo',
-      subtitle: 'Antar jemput ke Bandara Komodo, hotel, atau lokasi mana saja di kota (biaya petugas Rp 20rb). Tanpa deposit. Pilih motor, chat via WhatsApp, dan kami siap layani.',
+      subtitle: 'Explore Labuan Bajo on your own terms. Motor terawat siap antar ke Bandara Komodo, hotel, atau villa Anda.',
       badges: [
-        'Tanpa jaminan deposit',
-        'Helm bersih gratis',
-        'Antar jemput via petugas (Rp 20rb)',
-        'Respon cepat WhatsApp',
+        'Zero Cash Deposit',
+        'Helm, phone holder & bensin',
+        'Antar s.d Hotel / Bandara',
+        'Respon Cepat WhatsApp',
       ],
       ctaFleet: 'Lihat Motor',
       ctaWhatsapp: 'Sewa via WhatsApp',
@@ -369,7 +369,7 @@ export const translations: Record<Language, TranslationContent> = {
     fleet: {
       tag: 'PILIHAN MOTOR',
       title: 'Pilih Motor Favorit Anda',
-      subtitle: 'Sudah termasuk helm bersih. Antar jemput via petugas (Rp 20rb/antar) untuk semua motor. Warna menyesuaikan ketersediaan.',
+      subtitle: 'Sudah termasuk helm bersih, phone holder, dan bensin awal. Antar jemput via petugas (Rp 20rb/antar) untuk semua motor. Warna menyesuaikan ketersediaan.',
       bookBtn: 'Pesan Motor Ini',
       items: [
         {
@@ -521,10 +521,10 @@ export const translations: Record<Language, TranslationContent> = {
       estTag: '拉布安巴佐 · 始于 2022',
       titleLine1: '拉布安巴佐轻松便捷',
       titleLine2: '摩托车 / 踏板车租赁',
-      subtitle: '专人送车至科莫多机场、酒店或市区任意地点 (Rp 20k/次)。无需押金。挑选车型，通过 WhatsApp 联系我们即可。',
+      subtitle: 'Explore Labuan Bajo on your own terms. 优质维护的摩托车，随时送达科莫多机场、您的酒店或度假村。',
       badges: [
-        '无需押金',
-        '免费提供清洁头盔',
+        '零现金押金',
+        '赠头盔、支架与燃油',
         '专人送车上门 (Rp 20k/次)',
         'WhatsApp 快速回复',
       ],
@@ -561,7 +561,7 @@ export const translations: Record<Language, TranslationContent> = {
     fleet: {
       tag: '车型选择',
       title: '挑选您的专属坐骑',
-      subtitle: '所有车型均包含免费头盔。专人送车服务 (Rp 20k/次)。图片仅供参考，具体颜色以实车为准。',
+      subtitle: '所有车型均免费包含洁净头盔、手机支架及初始燃油。专人送车服务 (Rp 20k/次)。图片仅供参考，具体颜色以实车为准。',
       bookBtn: '预订此款',
       items: [
         {

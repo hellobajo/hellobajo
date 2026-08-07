@@ -520,11 +520,11 @@ export const BoatsPage: React.FC<BoatsPageProps> = ({ lang }) => {
             </div>
 
             {/* RIGHT COLUMN: ELEGANT LARGE DESTINATION GALLERY SHOWCASE */}
-            <div className="lg:col-span-6">
-              <div className="relative rounded-[28px] sm:rounded-[36px] border border-white/40 bg-white/15 shadow-2xl p-2 sm:p-3 backdrop-blur-xl">
+            <div className="lg:col-span-6 w-full">
+              <div className="relative w-full rounded-2xl sm:rounded-3xl border border-white/40 bg-white/15 shadow-2xl p-2 sm:p-3 backdrop-blur-xl overflow-hidden">
                 
-                {/* Featured Active Destination Photo Card (Enlarged Frame) */}
-                <div className="relative aspect-[4/3] sm:aspect-[16/10] lg:aspect-[16/11] min-h-[360px] sm:min-h-[440px] lg:min-h-[480px] rounded-2xl sm:rounded-3xl overflow-hidden bg-sky-950/30 shadow-xl group">
+                {/* Featured Active Destination Photo Card */}
+                <div className="relative w-full aspect-[4/3] sm:aspect-[16/10] rounded-xl sm:rounded-2xl overflow-hidden bg-sky-950/30 shadow-xl group">
                   <motion.img
                     key={selectedDestIdx}
                     initial={{ opacity: 0.88, scale: 1.03 }}
