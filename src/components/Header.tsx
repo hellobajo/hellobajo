@@ -22,10 +22,10 @@ export const Header: React.FC<HeaderProps> = ({ lang, onLanguageChange, t }) => 
       : 'Halo HelloBajo! Saya mau tanya sewa motor di Labuan Bajo.'
   )}`;
 
-  const navItems = [
+  const commercialNavItems = [
     {
       path: '/',
-      label: lang === 'EN' ? 'Scooters' : lang === 'ZH' ? '摩托车' : 'Sewa Motor',
+      label: lang === 'EN' ? 'Scooter Rental' : lang === 'ZH' ? '摩托车租赁' : 'Sewa Motor',
       icon: Bike,
     },
     {
@@ -38,12 +38,13 @@ export const Header: React.FC<HeaderProps> = ({ lang, onLanguageChange, t }) => 
       label: lang === 'EN' ? 'Island Hopping & Boats' : lang === 'ZH' ? '跳岛游与船只' : 'Island Hopping & Boats',
       icon: Ship,
     },
-    {
-      path: '/blog',
-      label: lang === 'EN' ? 'Travel Guides' : lang === 'ZH' ? '攻略指南' : 'Panduan Wisata',
-      icon: BookOpen,
-    },
   ];
+
+  const guideNavItem = {
+    path: '/blog',
+    label: lang === 'EN' ? 'Travel Guides' : lang === 'ZH' ? '攻略指南' : 'Panduan Wisata',
+    icon: BookOpen,
+  };
 
   const isActive = (path: string) => {
     if (path === '/') return location.pathname === '/';
@@ -68,24 +69,49 @@ export const Header: React.FC<HeaderProps> = ({ lang, onLanguageChange, t }) => 
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-medium">
-            {navItems.map((item) => {
-              const Icon = item.icon;
-              const active = isActive(item.path);
+            {/* Commercial Service Pill Buttons */}
+            <div className="flex items-center gap-1.5 lg:gap-2">
+              {commercialNavItems.map((item) => {
+                const Icon = item.icon;
+                const active = isActive(item.path);
+                return (
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={`flex items-center gap-1.5 lg:gap-2 px-3.5 py-2 rounded-full transition-all duration-200 text-xs lg:text-sm font-extrabold ${
+                      active
+                        ? 'bg-teal-600 text-white shadow-sm shadow-teal-600/20 border border-teal-600'
+                        : 'bg-stone-100/90 text-slate-700 hover:text-teal-700 hover:bg-teal-50 border border-stone-200/80'
+                    }`}
+                  >
+                    <Icon className={`w-4 h-4 ${active ? 'text-white' : 'text-teal-600'}`} />
+                    <span>{item.label}</span>
+                  </Link>
+                );
+              })}
+            </div>
+
+            {/* Subtle Vertical Divider */}
+            <div className="h-5 w-px bg-slate-200/80 mx-1 lg:mx-2" aria-hidden="true" />
+
+            {/* Informational Travel Guides Text Link */}
+            {(() => {
+              const Icon = guideNavItem.icon;
+              const active = isActive(guideNavItem.path);
               return (
                 <Link
-                  key={item.path}
-                  to={item.path}
-                  className={`flex items-center gap-2 px-3.5 py-2 rounded-full transition-all duration-200 ${
+                  to={guideNavItem.path}
+                  className={`flex items-center gap-1.5 px-3 py-1.5 transition-all text-xs lg:text-sm rounded-md ${
                     active
-                      ? 'bg-teal-50 text-teal-700 font-extrabold border border-teal-200/70 shadow-sm'
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-stone-100/80'
+                      ? 'text-teal-700 font-extrabold underline decoration-teal-600 decoration-2 underline-offset-4'
+                      : 'text-slate-600 hover:text-slate-900 font-semibold hover:bg-stone-100/70'
                   }`}
                 >
                   <Icon className={`w-4 h-4 ${active ? 'text-teal-600' : 'text-slate-400'}`} />
-                  <span>{item.label}</span>
+                  <span>{guideNavItem.label}</span>
                 </Link>
               );
-            })}
+            })()}
           </nav>
 
           {/* Right Action Controls (Lang Toggle & WhatsApp CTA) */}
@@ -151,24 +177,53 @@ export const Header: React.FC<HeaderProps> = ({ lang, onLanguageChange, t }) => 
 
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
-        <div className="md:hidden bg-white border-b border-stone-200 px-4 pt-2 pb-6 space-y-2">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            const active = isActive(item.path);
-            return (
-              <Link
-                key={item.path}
-                to={item.path}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-bold ${
-                  active ? 'bg-teal-50 text-teal-700 border border-teal-200' : 'text-slate-700 hover:bg-stone-100'
-                }`}
-              >
-                <Icon className={`w-5 h-5 ${active ? 'text-teal-600' : 'text-slate-400'}`} />
-                <span>{item.label}</span>
-              </Link>
-            );
-          })}
+        <div className="md:hidden bg-white border-b border-stone-200 px-4 pt-3 pb-6 space-y-3">
+          <div className="text-[11px] font-bold tracking-wider text-slate-400 uppercase px-1">
+            {lang === 'EN' ? 'Services & Rentals' : lang === 'ZH' ? '预订服务' : 'Layanan Utama'}
+          </div>
+          <div className="space-y-1.5">
+            {commercialNavItems.map((item) => {
+              const Icon = item.icon;
+              const active = isActive(item.path);
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center gap-3 px-4 py-2.5 rounded-full text-sm font-extrabold transition-all ${
+                    active
+                      ? 'bg-teal-600 text-white shadow-sm'
+                      : 'bg-stone-100 text-slate-700 hover:bg-stone-200'
+                  }`}
+                >
+                  <Icon className={`w-4 h-4 ${active ? 'text-white' : 'text-teal-600'}`} />
+                  <span>{item.label}</span>
+                </Link>
+              );
+            })}
+          </div>
+
+          <div className="pt-2 border-t border-stone-200/80">
+            <div className="text-[11px] font-bold tracking-wider text-slate-400 uppercase px-1 mb-1.5">
+              {lang === 'EN' ? 'Articles & Guides' : lang === 'ZH' ? '攻略与文章' : 'Artikel & Panduan'}
+            </div>
+            {(() => {
+              const Icon = guideNavItem.icon;
+              const active = isActive(guideNavItem.path);
+              return (
+                <Link
+                  to={guideNavItem.path}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className={`flex items-center gap-3 px-3 py-2 text-sm font-semibold transition-colors ${
+                    active ? 'text-teal-700 font-extrabold underline underline-offset-4 decoration-teal-600' : 'text-slate-600 hover:text-slate-900'
+                  }`}
+                >
+                  <Icon className={`w-4 h-4 ${active ? 'text-teal-600' : 'text-slate-400'}`} />
+                  <span>{guideNavItem.label}</span>
+                </Link>
+              );
+            })()}
+          </div>
           
           <div className="pt-2">
             <a

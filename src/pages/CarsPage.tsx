@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { Language } from '../data/translations';
 import { SEOHead } from '../components/SEOHead';
 import { SITE_CONFIG } from '../data/siteConfig';
@@ -324,9 +324,9 @@ const FAQS = [
       ZH: '一辆车最多可以乘坐多少人？',
     },
     a: {
-      EN: 'Our standard 7-seater vehicles (Toyota Innova Zenix / Avanza / Veloz / Rush) comfortably accommodate 1 to 6 passengers with light day bags. For larger groups (7 to 14 passengers), we recommend our spacious Toyota HiAce Commuter.',
-      ID: 'Mobil MPV 7-seater standar kami (Innova Zenix / Avanza / Veloz / Rush) sangat nyaman untuk 1 hingga 6 penumpang. Untuk rombongan 7-14 orang, kami menyediakan Toyota HiAce Commuter.',
-      ZH: '标准 7 座商务/SUV 车型 (Innova Zenix / Avanza / Rush) 适合 1-6 名乘客舒适乘坐。如果是 7-14 人的团队，我们提供宽敞的丰田 HiAce 商务车。',
+      EN: 'Our standard 7-seater vehicles (Toyota Rush / Calya / Avanza) comfortably accommodate 1 to 6 passengers with light day bags. For larger groups (up to 14 passengers), we recommend our spacious Toyota HiAce Commuter.',
+      ID: 'Mobil MPV / SUV 7-seater standar kami (Toyota Rush / Calya / Avanza) sangat nyaman untuk 1 hingga 6 penumpang. Untuk rombongan besar (maksimal 14 orang), kami menyediakan Toyota HiAce Commuter.',
+      ZH: '标准 7 座 MPV/SUV 车型 (Toyota Rush / Calya / Avanza) 适合 1-6 名乘客舒适乘坐。如果是大型团队 (最多 14 人)，我们提供宽敞的丰田 HiAce 商务车。',
     },
   },
   {
@@ -362,11 +362,27 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(0);
 
   // Form State
+  const minTourDate = useMemo(() => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const year = tomorrow.getFullYear();
+    const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    const day = String(tomorrow.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  }, []);
+
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
   const [passengerCount, setPassengerCount] = useState('5 - 6 Passengers (Standard MPV - Rp 1.300.000)');
-  const [tourDate, setTourDate] = useState(() => new Date().toISOString().split('T')[0]);
+  const [tourDate, setTourDate] = useState(() => {
+    const tomorrow = new Date();
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    const year = tomorrow.getFullYear();
+    const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
+    const day = String(tomorrow.getDate()).padStart(2, '0');
+    return `${year}-${month}-${day}`;
+  });
   const [pickupTime, setPickupTime] = useState('08:30 AM');
   const [pickupLocation, setPickupLocation] = useState('');
   const [specialRequests, setSpecialRequests] = useState('');
@@ -405,7 +421,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
       ? 'Discover Labuan Bajo: Land & Culture Private Tour | HelloBajo'
       : lang === 'ZH'
       ? '拉布安巴佐私人包车与城市陆地一日游 | HelloBajo'
-      : 'Sewa Mobil & Private City Tour Labuan Bajo — Innova & Avanza ber-AC';
+      : 'Sewa Mobil & Private City Tour Labuan Bajo — Rush, Calya & HiAce ber-AC';
 
   const pageDescription =
     lang === 'EN'
@@ -421,129 +437,288 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
       <SEOHead title={pageTitle} description={pageDescription} canonicalUrl="https://hellobajo.com/cars" />
 
       {/* Sub-Header Section Navigation Bar */}
-      <div className="bg-white border-b border-stone-200/80 sticky top-16 sm:top-20 z-40 backdrop-blur-md bg-white/90 shadow-xs">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-12 overflow-x-auto no-scrollbar text-xs font-bold text-slate-600 space-x-6">
-          <div className="flex items-center space-x-6 whitespace-nowrap">
-            <a href="#city-tour" className="hover:text-teal-600 transition-colors flex items-center gap-1.5">
-              <Compass className="w-3.5 h-3.5 text-teal-500" />
-              <span>{lang === 'EN' ? 'City Tour' : lang === 'ZH' ? '一日游行程' : 'City Tour'}</span>
-            </a>
-            <a href="#pricing" className="hover:text-teal-600 transition-colors">
-              {lang === 'EN' ? 'Pricing' : lang === 'ZH' ? '价格与服务' : 'Harga'}
-            </a>
-            <a href="#overland-custom" className="hover:text-teal-600 transition-colors">
-              {lang === 'EN' ? 'Overland & Custom' : lang === 'ZH' ? '长途与定制' : 'Overland & Custom'}
-            </a>
-            <a href="#reserve-now" className="text-teal-600 hover:text-teal-700 font-extrabold">
-              {lang === 'EN' ? 'Reserve Now' : lang === 'ZH' ? '立即预订' : 'Pesan Sekarang'}
-            </a>
-            <a href="#faq" className="hover:text-teal-600 transition-colors">
-              FAQ
-            </a>
-          </div>
+      <div className="bg-white border-b border-stone-200/80 sticky top-16 sm:top-20 z-40 backdrop-blur-md bg-white/95 shadow-xs">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-start sm:justify-center h-12 overflow-x-auto no-scrollbar text-xs sm:text-sm font-bold text-slate-600 space-x-6 sm:space-x-10">
           <a
-            href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent('Hi HelloBajo! I want to inquire about Private City Tour.')}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1.5 text-teal-600 font-extrabold hover:underline"
+            href="#city-tour"
+            className="hover:text-teal-600 transition-colors whitespace-nowrap py-1 flex items-center gap-1.5"
           >
-            <MessageCircle className="w-3.5 h-3.5 fill-teal-600 text-white" />
-            <span>+62 817-0788-181</span>
+            <Compass className="w-3.5 h-3.5 text-teal-600" />
+            <span>{lang === 'EN' ? 'Private City Tour' : lang === 'ZH' ? '城市一日游' : 'Private City Tour'}</span>
+          </a>
+          <a
+            href="#pricing"
+            className="hover:text-teal-600 transition-colors whitespace-nowrap py-1"
+          >
+            {lang === 'EN' ? 'Rates & Inclusions' : lang === 'ZH' ? '包车价格与包含' : 'Harga & Fasilitas'}
+          </a>
+          <a
+            href="#city-tour-itinerary"
+            className="hover:text-teal-600 transition-colors whitespace-nowrap py-1"
+          >
+            {lang === 'EN' ? '1-Day Itinerary' : lang === 'ZH' ? '7 步游览路线' : 'Jadwal Tour 1 Hari'}
+          </a>
+          <a
+            href="#overland-custom"
+            className="hover:text-teal-600 transition-colors whitespace-nowrap py-1"
+          >
+            {lang === 'EN' ? 'Overland & Custom' : lang === 'ZH' ? '长途与定制' : 'Overland & Custom'}
+          </a>
+          <a
+            href="#reserve-now"
+            className="text-teal-600 hover:text-teal-700 font-extrabold transition-colors whitespace-nowrap py-1"
+          >
+            {lang === 'EN' ? 'Book Private Car' : lang === 'ZH' ? '预订包车' : 'Pesan Mobil'}
+          </a>
+          <a
+            href="#faq"
+            className="hover:text-teal-600 transition-colors whitespace-nowrap py-1"
+          >
+            FAQ
           </a>
         </div>
       </div>
 
-      {/* 1. HERO BANNER SECTION */}
-      <section id="city-tour" className="relative bg-slate-950 text-white py-16 sm:py-24 overflow-hidden">
-        <div className="absolute inset-0">
-          <img src={CAR_CHARTER_BANNER} alt="Private Tour Labuan Bajo" className="w-full h-full object-cover brightness-105 contrast-105 scale-102" />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/40 to-slate-950/50" />
+      {/* 1. HERO BANNER SECTION WITH CLEAN LIGHT MODE & PUZZLE VISUAL */}
+      <section id="city-tour" className="relative bg-[#faf8f5] text-slate-900 py-12 sm:py-16 lg:py-20 overflow-hidden border-b border-stone-200/80 scroll-mt-20 sm:scroll-mt-24">
+        {/* Soft Warm Background Radial Glows */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute -top-32 -left-32 w-96 h-96 bg-amber-200/30 rounded-full blur-3xl" />
+          <div className="absolute -bottom-32 -right-32 w-96 h-96 bg-teal-200/30 rounded-full blur-3xl" />
+          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-stone-100/40 to-stone-100/80" />
         </div>
-        <div className="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-teal-500/20 border border-teal-400/40 text-teal-300 text-xs font-bold uppercase tracking-wider">
-            <span className="w-2 h-2 rounded-full bg-teal-400 animate-pulse"></span>
-            <span>LABUAN BAJO CAR CHARTER & CITY TOUR • PRIVATE & FLEXIBLE</span>
-          </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight text-white leading-tight">
-            {lang === 'EN'
-              ? 'Discover Labuan Bajo: Land & Culture Private Tour'
-              : lang === 'ZH'
-              ? '探索拉布安巴佐：陆地风光与文化私人包车一日游'
-              : 'Discover Labuan Bajo: Land & Culture Private Tour'}
-          </h1>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
-          <p className="text-slate-300 text-sm sm:text-base lg:text-lg max-w-3xl mx-auto leading-relaxed">
-            {lang === 'EN'
-              ? "Labuan Bajo's premier travel hub & private charter service. Explore land viewpoints, cultural spots, and hidden gems in your own private 7-seater AC car with a professional local driver."
-              : lang === 'ZH'
-              ? '拉布安巴佐首选私人包车与出游中心。搭乘专属双重冷气 7 座 MPV/SUV，由熟练本地司机带您打卡经典观景台、文化遗迹与隐秘景点。'
-              : 'Layanan private car charter & tur kota terbaik di Labuan Bajo. Jelajahi keindahan bukit, tempat budaya, & destinasi tersembunyi dengan mobil AC 7-seater bersih & driver berpengalaman.'}
-          </p>
+            {/* LEFT COLUMN: SQUARE PUZZLE GRID VISUAL WITH "BAJO" MASKED PHOTO */}
+            <div className="lg:col-span-6 flex justify-center order-1">
+              <div className="relative w-full max-w-md sm:max-w-lg aspect-square p-3 sm:p-4 bg-white border border-stone-200/90 rounded-3xl shadow-xl flex flex-col justify-between overflow-hidden group">
 
-          <div className="flex flex-wrap justify-center gap-2.5 pt-2 text-xs font-semibold text-slate-200">
-            <span className="flex items-center gap-1.5 bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700/80 backdrop-blur-xs">
-              <Car className="w-3.5 h-3.5 text-teal-400" />
-              Clean 7-Seater AC Fleet
-            </span>
-            <span className="flex items-center gap-1.5 bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700/80 backdrop-blur-xs">
-              <UserCheck className="w-3.5 h-3.5 text-teal-400" />
-              Private Driver & Fuel Included
-            </span>
-            <span className="flex items-center gap-1.5 bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700/80 backdrop-blur-xs">
-              <Compass className="w-3.5 h-3.5 text-teal-400" />
-              Flexible Route & Schedule
-            </span>
-            <span className="flex items-center gap-1.5 bg-slate-800/80 px-3.5 py-1.5 rounded-full border border-slate-700/80 backdrop-blur-xs">
-              <MapPin className="w-3.5 h-3.5 text-teal-400" />
-              Hotel & LBJ Airport Transfer
-            </span>
-          </div>
+                {/* Top-Left Casual Floating Badge */}
+                <div className="absolute top-5 left-5 z-30 -rotate-2 transition-transform duration-300 group-hover:rotate-0 group-hover:scale-105 pointer-events-none">
+                  <div className="bg-amber-500 text-slate-950 font-black text-xs sm:text-sm px-4 py-2 rounded-2xl shadow-md border border-amber-300/80 uppercase tracking-wider flex items-center gap-1.5">
+                    <Sparkles className="w-4 h-4 text-slate-950 fill-slate-950 animate-pulse" />
+                    <span>{lang === 'EN' ? 'LABUAN BAJO • EST. 2022' : lang === 'ZH' ? '拉布安巴佐 • 本地口碑' : 'LABUAN BAJO • EST. 2022'}</span>
+                  </div>
+                </div>
 
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-            <a
-              href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
-                'Hi HelloBajo! I want to book the Private City Tour (Rp 1.300.000).'
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full sm:w-auto px-8 py-3.5 bg-teal-600 hover:bg-teal-500 text-white font-black text-sm rounded-full shadow-lg shadow-teal-600/30 transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <MessageCircle className="w-4 h-4 fill-white text-teal-600" />
-              <span>Book via WhatsApp</span>
-            </a>
-            <a
-              href="#city-tour-itinerary"
-              className="w-full sm:w-auto px-8 py-3.5 bg-slate-800/90 hover:bg-slate-800 text-slate-100 border border-slate-700 font-bold text-sm rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <Compass className="w-4 h-4 text-teal-400" />
-              <span>Explore Itinerary</span>
-            </a>
-          </div>
+                {/* Top-Right Price Floating Badge */}
+                <div className="absolute top-5 right-5 z-30 pointer-events-none">
+                  <span className="bg-white/95 text-teal-800 border border-teal-300 text-[11px] sm:text-xs font-black px-3.5 py-1.5 rounded-full shadow-md backdrop-blur-md">
+                    Rp 1.300.000 / Car
+                  </span>
+                </div>
 
-          <div className="pt-8 border-t border-slate-800/90 flex flex-wrap items-center justify-center gap-x-8 gap-y-2 text-xs text-slate-400 font-medium">
-            <span className="flex items-center gap-1.5">
-              <CheckCircle className="w-4 h-4 text-teal-400" />
-              Fixed Rate: Rp 1.300.000 (~$82 USD)
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle className="w-4 h-4 text-teal-400" />
-              Clean AC vehicle & fuel included
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle className="w-4 h-4 text-teal-400" />
-              Free hotel & airport pickup
-            </span>
-            <span className="flex items-center gap-1.5">
-              <CheckCircle className="w-4 h-4 text-teal-400" />
-              Instant response in minutes
-            </span>
+                {/* 2x2 Integrated Puzzle Grid (Continuous Photo & Giant "BAJO" Letters) */}
+                <div className="w-full h-full grid grid-cols-2 grid-rows-2 gap-3 sm:gap-3.5 relative z-10 pt-10 pb-8">
+
+                  {/* Tile 1: Top-Left (Quadrant 1 + Letter B) */}
+                  <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/50 shadow-md group/tile bg-slate-900 flex items-center justify-center">
+                    <img
+                      src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80"
+                      alt="Labuan Bajo Padar Island"
+                      className="absolute w-[200%] h-[200%] max-w-none top-0 left-0 object-cover brightness-105 contrast-105 group-hover/tile:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-br from-slate-950/30 via-transparent to-slate-950/50" />
+                    <span className="relative text-7xl sm:text-9xl font-black text-white/95 drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] tracking-tighter select-none font-sans">
+                      B
+                    </span>
+                  </div>
+
+                  {/* Tile 2: Top-Right (Quadrant 2 + Letter A) */}
+                  <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/50 shadow-md group/tile bg-slate-900 flex items-center justify-center">
+                    <img
+                      src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80"
+                      alt="Labuan Bajo Ocean"
+                      className="absolute w-[200%] h-[200%] max-w-none top-0 left-[-100%] object-cover brightness-105 contrast-105 group-hover/tile:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-bl from-slate-950/30 via-transparent to-slate-950/50" />
+                    <span className="relative text-7xl sm:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-slate-100 to-amber-200 drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] tracking-tighter select-none font-sans">
+                      A
+                    </span>
+                  </div>
+
+                  {/* Tile 3: Bottom-Left (Quadrant 3 + Letter J) */}
+                  <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/50 shadow-md group/tile bg-slate-950 flex items-center justify-center">
+                    <img
+                      src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80"
+                      alt="Labuan Bajo Landscape"
+                      className="absolute w-[200%] h-[200%] max-w-none top-[-100%] left-0 object-cover brightness-105 contrast-105 group-hover/tile:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/40 via-transparent to-slate-950/50" />
+                    <span className="relative text-7xl sm:text-9xl font-black text-white/95 drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] tracking-tighter select-none font-sans">
+                      J
+                    </span>
+                  </div>
+
+                  {/* Tile 4: Bottom-Right (Quadrant 4 + Letter O) */}
+                  <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/50 shadow-md group/tile bg-slate-950 flex items-center justify-center">
+                    <img
+                      src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80"
+                      alt="Labuan Bajo Fleet"
+                      className="absolute w-[200%] h-[200%] max-w-none top-[-100%] left-[-100%] object-cover brightness-105 contrast-105 group-hover/tile:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-tl from-slate-950/40 via-transparent to-slate-950/50" />
+                    <span className="relative text-7xl sm:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-br from-white via-amber-100 to-amber-300 drop-shadow-[0_10px_20px_rgba(0,0,0,0.8)] tracking-tighter select-none font-sans">
+                      O
+                    </span>
+                  </div>
+
+                </div>
+
+                {/* Bottom Footer Overlay Bar */}
+                <div className="pt-2 flex items-center justify-between text-[11px] font-extrabold text-slate-600 border-t border-stone-100 relative z-10">
+                  <span className="text-teal-700 flex items-center gap-1">
+                    <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
+                    {lang === 'EN' ? 'Low Deposit Rp 200k' : lang === 'ZH' ? '仅需 Rp 200k 定金' : 'Deposit Rp 200rb'}
+                  </span>
+                  <span className="text-slate-500">
+                    {lang === 'EN' ? 'Flexibility Up to 20:00' : lang === 'ZH' ? '全天服务至晚 20:00' : 'Operasional s/d 20:00 WITA'}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN: COPYWRITING & ACTION BUTTONS */}
+            <div className="lg:col-span-6 space-y-6 text-left order-2">
+              {/* Top Badge */}
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-amber-500/15 border border-amber-300/60 text-amber-900 text-xs font-black uppercase tracking-wider">
+                <Car className="w-4 h-4 text-amber-700" />
+                <span>
+                  {lang === 'EN'
+                    ? 'BEST VALUE PRIVATE CAR • LABUAN BAJO'
+                    : lang === 'ZH'
+                    ? '拉布安巴佐高性价比包车 • 自由行首选'
+                    : 'BEST VALUE PRIVATE CAR • LABUAN BAJO'}
+                </span>
+              </div>
+
+              {/* Main Headline */}
+              <h1 className="text-3xl sm:text-5xl font-black tracking-tight text-slate-900 leading-tight">
+                {lang === 'EN'
+                  ? 'Private Labuan Bajo City Tour & Car Charter'
+                  : lang === 'ZH'
+                  ? '拉布安巴佐私人包车与城市景观一日游'
+                  : 'Sewa Mobil Private & City Tour Labuan Bajo'}
+              </h1>
+
+              {/* Subtitle / Description */}
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-medium">
+                {lang === 'EN'
+                  ? "Explore Labuan Bajo's iconic hills, mirror limestone caves, and Puncak Waringin sunset vistas in a clean, private 7-seater AC car. Includes friendly local driver, full fuel, and free hotel or airport transfers."
+                  : lang === 'ZH'
+                  ? '乘坐专属双重冷气 7 座 MPV/SUV，由专业熟路本地司机为您服务（已含全程汽油与接送）。100% 自由安排行程，轻松游览镜石洞、爱之丘与瓦林金顶落日。'
+                  : 'Jelajahi keindahan bukit, gua alam Gua Batu Cermin, & sunset Puncak Waringin dengan mobil 7-seater AC bersih. Sudah termasuk driver ramah, BBM penuh, & gratis antar-jemput hotel/bandara.'}
+              </p>
+
+              {/* Feature Highlights Grid */}
+              <div className="grid grid-cols-2 gap-3 pt-1">
+                <div className="bg-white border border-stone-200/90 shadow-xs p-3.5 rounded-2xl flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-teal-500/15 flex items-center justify-center text-teal-700 shrink-0">
+                    <Car className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="block text-[10px] text-slate-500 uppercase font-extrabold">
+                      {lang === 'EN' ? 'Fixed Daily Rate' : lang === 'ZH' ? '全天一口价' : 'Tarif Tetap / Hari'}
+                    </span>
+                    <strong className="text-xs sm:text-sm text-slate-900 font-black">Rp 1.300.000 / Car</strong>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-stone-200/90 shadow-xs p-3.5 rounded-2xl flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-amber-500/15 flex items-center justify-center text-amber-700 shrink-0">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="block text-[10px] text-slate-500 uppercase font-extrabold">
+                      {lang === 'EN' ? 'Lock Booking' : lang === 'ZH' ? '定金锁定' : 'Garansi Deposit'}
+                    </span>
+                    <strong className="text-xs sm:text-sm text-amber-700 font-black">
+                      {lang === 'EN' ? 'Deposit Rp 200k' : lang === 'ZH' ? '定金仅 Rp 200k' : 'Deposit Rp 200rb'}
+                    </strong>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-stone-200/90 shadow-xs p-3.5 rounded-2xl flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-emerald-500/15 flex items-center justify-center text-emerald-700 shrink-0">
+                    <Fuel className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="block text-[10px] text-slate-500 uppercase font-extrabold">
+                      {lang === 'EN' ? 'All-Inclusive' : lang === 'ZH' ? '费用全包' : 'All-Inclusive'}
+                    </span>
+                    <strong className="text-xs sm:text-sm text-slate-900 font-black">
+                      {lang === 'EN' ? 'Car + Driver + Fuel' : lang === 'ZH' ? '专车 + 司机 + 汽油' : 'Mobil + Driver + BBM'}
+                    </strong>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-stone-200/90 shadow-xs p-3.5 rounded-2xl flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-sky-500/15 flex items-center justify-center text-sky-700 shrink-0">
+                    <UserCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="block text-[10px] text-slate-500 uppercase font-extrabold">
+                      {lang === 'EN' ? 'Free Transfers' : lang === 'ZH' ? '免费接送' : 'Bebas Antar-Jemput'}
+                    </span>
+                    <strong className="text-xs sm:text-sm text-slate-900 font-black">
+                      {lang === 'EN' ? 'Hotel & Airport LBJ' : lang === 'ZH' ? '市区酒店与科莫多机场' : 'Hotel & Bandara LBJ'}
+                    </strong>
+                  </div>
+                </div>
+              </div>
+
+              {/* Call-to-Action Buttons */}
+              <div className="pt-3 flex flex-wrap items-center gap-3">
+                <a
+                  href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
+                    lang === 'EN'
+                      ? 'Hi HelloBajo! I want to book the Private City Tour & Car Charter (Rp 1,300,000).'
+                      : lang === 'ZH'
+                      ? '你好 HelloBajo！我想预订拉布安巴佐私人包车与城市一日游（Rp 1,300,000）。'
+                      : 'Halo HelloBajo! Saya mau pesan Private City Tour & Car Charter (Rp 1.300.000).'
+                  )}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-7 py-3.5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-amber-500/20 transition-all duration-200 flex items-center gap-2 cursor-pointer"
+                >
+                  <MessageCircle className="w-4 h-4 fill-slate-950 text-amber-500" />
+                  <span>{lang === 'EN' ? 'Book via WhatsApp' : lang === 'ZH' ? '通过 WhatsApp 预订' : 'Pesan via WhatsApp'}</span>
+                </a>
+
+                <a
+                  href="#city-tour-itinerary"
+                  className="px-5 py-3.5 rounded-2xl bg-white hover:bg-stone-50 text-slate-800 font-extrabold text-xs sm:text-sm border border-stone-300 shadow-xs transition-all duration-200 flex items-center gap-2 cursor-pointer"
+                >
+                  <Compass className="w-4 h-4 text-teal-600" />
+                  <span>{lang === 'EN' ? 'Explore Itinerary' : lang === 'ZH' ? '查看 7 步行程' : 'Lihat Jadwal Tour'}</span>
+                </a>
+              </div>
+
+              {/* Trust Badges */}
+              <div className="pt-4 border-t border-stone-200 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-600 font-semibold">
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle className="w-4 h-4 text-teal-600 shrink-0" />
+                  {lang === 'EN' ? '1-6 Persons / Car' : lang === 'ZH' ? '每车可乘 1-6 人' : 'Kapasitas 1-6 Orang / Mobil'}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle className="w-4 h-4 text-teal-600 shrink-0" />
+                  {lang === 'EN' ? 'Instant WhatsApp Reply' : lang === 'ZH' ? 'WhatsApp 快速响应' : 'Respon Instan via WA'}
+                </span>
+                <span className="flex items-center gap-1.5">
+                  <CheckCircle className="w-4 h-4 text-teal-600 shrink-0" />
+                  {lang === 'EN' ? '100% Flexible Route' : lang === 'ZH' ? '路线 100% 自由定制' : 'Rute 100% Fleksibel'}
+                </span>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
 
       {/* 2. PRICING SECTION */}
-      <section id="pricing" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section id="pricing" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 scroll-mt-20 sm:scroll-mt-24">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="inline-block px-3 py-1 rounded-full bg-teal-50 text-teal-700 font-extrabold text-xs uppercase tracking-widest border border-teal-200">
             PRICING
@@ -581,16 +756,16 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                 <div className="flex items-start gap-2.5">
                   <Users className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-white font-bold">1–6 Pax (Standard 7-Seater)</strong>
-                    <span className="text-slate-300">Clean Toyota Innova / Avanza / Rush with AC & Driver</span>
+                    <strong className="block text-white font-bold">1–6 Pax (Standard 7-Seater) / Max 14 Pax (HiAce)</strong>
+                    <span className="text-slate-300">Clean Toyota Rush / Calya / Avanza / HiAce with AC & Driver</span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-2.5">
                   <Car className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-white font-bold">Innova / Avanza / Rush Fleet</strong>
-                    <span className="text-slate-300">Clean & modern 7-Seater MPV/SUV with AC & Driver</span>
+                    <strong className="block text-white font-bold">Rush / Calya / HiAce Fleet</strong>
+                    <span className="text-slate-300">Clean & modern MPV/SUV & Minibus (Maks 14 orang) with AC & Driver</span>
                   </div>
                 </div>
 
@@ -606,14 +781,24 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
 
             <a
               href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
-                'Hi HelloBajo! I want to book the Private Car Charter (Rp 1.300.000).'
+                lang === 'EN'
+                  ? 'Hi HelloBajo! I want to book the Private Car Charter (Rp 1.300.000).'
+                  : lang === 'ZH'
+                  ? '你好 HelloBajo！我想预订拉布安巴佐私人包车 (Rp 1.300.000)。'
+                  : 'Halo HelloBajo! Saya mau pesan Private Car Charter (Rp 1.300.000).'
               )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="w-full py-3.5 bg-teal-600 hover:bg-teal-500 text-white text-xs sm:text-sm font-black rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 fill-white text-teal-600" />
-              <span>Book Private Car Charter via WhatsApp</span>
+              <span>
+                {lang === 'EN'
+                  ? 'Book Private Car Charter via WhatsApp'
+                  : lang === 'ZH'
+                  ? '通过 WhatsApp 预订包车'
+                  : 'Pesan Private Car Charter via WhatsApp'}
+              </span>
             </a>
           </div>
 
@@ -628,7 +813,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                 <ul className="space-y-2 text-xs sm:text-sm text-slate-700 font-medium">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
-                    <span>Clean modern 7-seater vehicle (Toyota Innova / Avanza / Rush)</span>
+                    <span>Clean modern vehicle (Toyota Rush / Calya / Avanza / HiAce)</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
@@ -693,76 +878,140 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
       </section>
 
       {/* 3. FLEET FEATURES SHOWCASE */}
-      <section className="bg-stone-100/80 py-16 border-y border-stone-200/80">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-white rounded-3xl border border-stone-200/90 p-6 sm:p-10 shadow-sm space-y-8">
-            <div className="text-center max-w-2xl mx-auto">
-              <span className="inline-block px-3 py-1 rounded-full bg-teal-50 text-teal-700 font-extrabold text-xs uppercase tracking-widest border border-teal-200">
-                PRIVATE FLEET FEATURES
+      <section className="bg-stone-50 py-12 sm:py-16 border-y border-stone-200/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
+          
+          {/* Header */}
+          <div className="text-center max-w-2xl mx-auto space-y-2">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-teal-100/90 text-teal-900 font-black text-xs uppercase tracking-wider border border-teal-200">
+              <Car className="w-3.5 h-3.5 text-teal-700" />
+              <span>
+                {lang === 'EN'
+                  ? 'PRIVATE FLEET FEATURES'
+                  : lang === 'ZH'
+                  ? '专属车队配置'
+                  : 'FASILITAS ARMADA PRIVAT'}
               </span>
-              <h2 className="text-2xl sm:text-4xl font-black text-slate-900 mt-2">
-                Clean, Air-Conditioned & Well-Maintained
-              </h2>
-              <p className="mt-2 text-slate-600 text-xs sm:text-sm">
-                All city & day tours use clean, modern 7-seater vehicles equipped with double-blower AC to ensure maximum comfort under the tropical sun.
-              </p>
+            </span>
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900 tracking-tight">
+              {lang === 'EN'
+                ? 'Clean, Air-Conditioned & Well-Maintained'
+                : lang === 'ZH'
+                ? '干净舒适 • 双重冷气 • 良好保养车队'
+                : 'Mobil Bersih, AC Dingin & Terawat'}
+            </h2>
+            <p className="text-slate-700 text-xs sm:text-sm max-w-xl mx-auto font-medium leading-relaxed">
+              {lang === 'EN'
+                ? 'All city & day tours use clean, modern 7-seater vehicles equipped with double-blower AC to ensure maximum comfort under the tropical sun.'
+                : lang === 'ZH'
+                ? '所有拉布安巴佐包车一日游均采用双重冷气 7 座 MPV/SUV，车况良好，确保热带出行舒适无忧。'
+                : 'Semua unit mobil private city tour menggunakan armada 7-seater modern ber-AC dingin untuk kenyamanan maksimal perjalanan Anda.'}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+            {/* Left Photo Card */}
+            <div className="lg:col-span-6 relative rounded-3xl overflow-hidden bg-slate-900 border border-stone-200/90 shadow-md min-h-[260px] sm:min-h-[320px] flex flex-col justify-between group">
+              <img
+                src={CAR_CHARTER_BANNER}
+                alt="Toyota Rush / Calya / Avanza / HiAce"
+                className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent" />
+              
+              <div className="relative z-10 p-4">
+                <span className="inline-block bg-teal-600 text-white text-[10px] sm:text-xs font-black px-3 py-1 rounded-xl uppercase tracking-wider shadow-sm border border-teal-400/40">
+                  {lang === 'EN' ? 'ACTUAL TOUR VEHICLE UNIT' : lang === 'ZH' ? '真实包车出航实拍' : 'UNIT MOBIL TUR ASLI'}
+                </span>
+              </div>
+
+              <div className="relative z-10 p-5 sm:p-6 text-white space-y-1">
+                <strong className="block text-base sm:text-lg font-black text-white leading-snug">
+                  Toyota Rush / Calya / HiAce Fleet
+                </strong>
+                <p className="text-xs sm:text-sm text-slate-200 font-semibold">
+                  {lang === 'EN'
+                    ? 'Ready for Labuan Bajo Coastal & City Sightseeing Routes'
+                    : lang === 'ZH'
+                    ? '拉布安巴佐沿海与城市观光线路首选'
+                    : 'Siap untuk Rute City Tour & Pesisir Labuan Bajo'}
+                </p>
+              </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-              <div className="lg:col-span-6 relative rounded-2xl overflow-hidden aspect-[16/10] bg-slate-100 shadow-md">
-                <img
-                  src={CAR_CHARTER_BANNER}
-                  alt="Toyota Rush / Avanza / Veloz / Innova"
-                  className="w-full h-full object-cover"
-                />
-                <span className="absolute top-3 left-3 bg-teal-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
-                  ACTUAL TOUR VEHICLE UNIT
-                </span>
-                <div className="absolute bottom-0 inset-x-0 bg-gradient-to-t from-slate-950/90 to-transparent p-4 text-white">
-                  <strong className="block text-sm font-bold">Toyota Rush / Avanza / Veloz / Innova</strong>
-                  <span className="text-xs text-slate-300">Ready for Labuan Bajo Coastal & City Sightseeing Routes</span>
+            {/* Right Feature Cards & Group Info */}
+            <div className="lg:col-span-6 flex flex-col justify-between space-y-4">
+              <div className="grid grid-cols-2 gap-3.5">
+                {/* Feature 1 */}
+                <div className="p-4 bg-white border border-stone-200/90 rounded-2xl shadow-2xs hover:border-teal-400/80 transition-all">
+                  <div className="w-8 h-8 rounded-xl bg-teal-50 border border-teal-200/80 flex items-center justify-center text-teal-700 mb-2">
+                    <Users className="w-4 h-4" />
+                  </div>
+                  <strong className="block text-xs sm:text-sm font-black text-slate-900">
+                    {lang === 'EN' ? '5–6 Passengers' : lang === 'ZH' ? '1–6 位乘客' : '5–6 Penumpang'}
+                  </strong>
+                  <p className="text-xs text-slate-700 font-medium mt-0.5">
+                    {lang === 'EN' ? 'Comfortable 7-seater capacity' : lang === 'ZH' ? '舒适 7 座宽敞空间' : 'Kapasitas muat 7-seater'}
+                  </p>
+                </div>
+
+                {/* Feature 2 */}
+                <div className="p-4 bg-white border border-stone-200/90 rounded-2xl shadow-2xs hover:border-teal-400/80 transition-all">
+                  <div className="w-8 h-8 rounded-xl bg-teal-50 border border-teal-200/80 flex items-center justify-center text-teal-700 mb-2">
+                    <Car className="w-4 h-4" />
+                  </div>
+                  <strong className="block text-xs sm:text-sm font-black text-slate-900">
+                    {lang === 'EN' ? 'Double Blower AC' : lang === 'ZH' ? '双重强劲冷气' : 'Double Blower AC'}
+                  </strong>
+                  <p className="text-xs text-slate-700 font-medium mt-0.5">
+                    {lang === 'EN' ? 'Cool tropical climate control' : lang === 'ZH' ? '轻松应对热带气候' : 'Sejuk sepanjang perjalanan'}
+                  </p>
+                </div>
+
+                {/* Feature 3 */}
+                <div className="p-4 bg-white border border-stone-200/90 rounded-2xl shadow-2xs hover:border-teal-400/80 transition-all">
+                  <div className="w-8 h-8 rounded-xl bg-teal-50 border border-teal-200/80 flex items-center justify-center text-teal-700 mb-2">
+                    <UserCheck className="w-4 h-4" />
+                  </div>
+                  <strong className="block text-xs sm:text-sm font-black text-slate-900">
+                    {lang === 'EN' ? 'Driver + Fuel' : lang === 'ZH' ? '司机 + 全程汽油' : 'Driver + BBM'}
+                  </strong>
+                  <p className="text-xs text-slate-700 font-medium mt-0.5">
+                    {lang === 'EN' ? 'Fully inclusive, zero extra cost' : lang === 'ZH' ? '一口全包，绝无隐藏额外费' : 'Sudah termasuk biaya BBM'}
+                  </p>
+                </div>
+
+                {/* Feature 4 */}
+                <div className="p-4 bg-white border border-stone-200/90 rounded-2xl shadow-2xs hover:border-teal-400/80 transition-all">
+                  <div className="w-8 h-8 rounded-xl bg-teal-50 border border-teal-200/80 flex items-center justify-center text-teal-700 mb-2">
+                    <MapPin className="w-4 h-4" />
+                  </div>
+                  <strong className="block text-xs sm:text-sm font-black text-slate-900">
+                    {lang === 'EN' ? 'Door-to-Door' : lang === 'ZH' ? '门到门接送' : 'Antar-Jemput'}
+                  </strong>
+                  <p className="text-xs text-slate-700 font-medium mt-0.5">
+                    {lang === 'EN' ? 'Free hotel & airport LBJ pickup' : lang === 'ZH' ? '酒店与科莫多机场免费接送' : 'Bebas antar-jemput hotel/bandara'}
+                  </p>
                 </div>
               </div>
 
-              <div className="lg:col-span-6 space-y-4">
-                <div className="grid grid-cols-2 gap-3">
-                  <div className="p-4 bg-slate-50 border border-stone-200/80 rounded-2xl">
-                    <Users className="w-5 h-5 text-teal-600 mb-1" />
-                    <strong className="block text-xs font-bold text-slate-900">5–6 Passengers</strong>
-                    <span className="text-[11px] text-slate-500">Comfortable capacity</span>
-                  </div>
-
-                  <div className="p-4 bg-slate-50 border border-stone-200/80 rounded-2xl">
-                    <Car className="w-5 h-5 text-teal-600 mb-1" />
-                    <strong className="block text-xs font-bold text-slate-900">Double Blower AC</strong>
-                    <span className="text-[11px] text-slate-500">Cool tropical ride</span>
-                  </div>
-
-                  <div className="p-4 bg-slate-50 border border-stone-200/80 rounded-2xl">
-                    <UserCheck className="w-5 h-5 text-teal-600 mb-1" />
-                    <strong className="block text-xs font-bold text-slate-900">Driver + Fuel</strong>
-                    <span className="text-[11px] text-slate-500">Included in price</span>
-                  </div>
-
-                  <div className="p-4 bg-slate-50 border border-stone-200/80 rounded-2xl">
-                    <MapPin className="w-5 h-5 text-teal-600 mb-1" />
-                    <strong className="block text-xs font-bold text-slate-900">Door-to-Door</strong>
-                    <span className="text-[11px] text-slate-500">Free LBJ pickup</span>
-                  </div>
-                </div>
-
-                <div className="p-4 bg-teal-50/70 border border-teal-200/80 rounded-2xl flex items-start gap-3">
-                  <Info className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
-                  <div className="text-xs text-slate-700 leading-relaxed">
-                    <strong className="block text-teal-900 font-bold mb-0.5">
-                      Group Tour (7–14 Passengers)?
-                    </strong>
-                    Toyota HiAce Commuter/Premio is available! Rate differs from standard 7-seater — consult directly on WhatsApp for special group pricing.
-                  </div>
+              {/* Group Info Box */}
+              <div className="p-4 bg-teal-50/80 border border-teal-200/90 rounded-2xl flex items-start gap-3">
+                <Info className="w-5 h-5 text-teal-700 shrink-0 mt-0.5" />
+                <div className="text-xs sm:text-sm text-slate-800 leading-relaxed">
+                  <strong className="block text-teal-950 font-black mb-0.5">
+                    {lang === 'EN' ? 'Group Tour (7–14 Passengers)?' : lang === 'ZH' ? '大容量团体出行 (7–14 人)？' : 'Rombongan Besar (7–14 Orang)?'}
+                  </strong>
+                  {lang === 'EN'
+                    ? 'Toyota HiAce Commuter/Premio is available! Consult directly on WhatsApp for special group rates.'
+                    : lang === 'ZH'
+                    ? '提供 Toyota HiAce (最多 14 人)！价格与 7 座车不同，欢迎通过 WhatsApp 咨询优惠费率。'
+                    : 'Tersedia Toyota HiAce Commuter/Premio (Maks 14 orang)! Hubungi WhatsApp kami untuk penawaran harga rombongan.'}
                 </div>
               </div>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -798,7 +1047,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start relative">
           
           {/* Left Column: List of Itinerary Steps (6 Columns) */}
-          <div className="lg:col-span-6 space-y-4">
+          <div className="lg:col-span-6 space-y-3.5">
             {ITINERARY_STEPS.map((item, idx) => {
               const isActive = activeStepIndex === idx;
 
@@ -806,10 +1055,10 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                 <div
                   key={item.step}
                   onClick={() => setActiveStepIndex(idx)}
-                  className={`rounded-2xl transition-all duration-300 cursor-pointer overflow-hidden ${
+                  className={`rounded-2xl transition-all duration-300 ease-out cursor-pointer overflow-hidden ${
                     isActive
-                      ? 'bg-slate-900 text-white ring-2 ring-teal-500/50 shadow-xl p-5 sm:p-6'
-                      : 'bg-white hover:bg-slate-50 text-slate-800 border border-stone-200/90 p-5 sm:p-6 shadow-xs hover:border-teal-300'
+                      ? 'bg-white border-2 border-teal-600 shadow-lg p-5 sm:p-6 transform scale-[1.01]'
+                      : 'bg-white hover:bg-stone-50/80 text-slate-800 border border-stone-200/90 p-5 sm:p-6 shadow-2xs hover:border-teal-300'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-3">
@@ -817,8 +1066,8 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                       <span
                         className={`w-10 h-10 rounded-xl flex items-center justify-center text-sm font-black shrink-0 transition-colors ${
                           isActive
-                            ? 'bg-teal-500 text-slate-950 font-black'
-                            : 'bg-stone-100 text-slate-800'
+                            ? 'bg-teal-600 text-white shadow-xs'
+                            : 'bg-stone-100 text-slate-700'
                         }`}
                       >
                         {item.step}
@@ -826,8 +1075,10 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                       <div>
                         <div className="flex items-center gap-2 flex-wrap">
                           <span
-                            className={`text-xs sm:text-sm font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded ${
-                              isActive ? 'text-teal-300 bg-teal-950/80' : 'text-teal-800 bg-teal-50 border border-teal-200/60'
+                            className={`text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-lg border ${
+                              isActive
+                                ? 'text-teal-900 bg-teal-50 border-teal-200'
+                                : 'text-slate-600 bg-stone-100 border-stone-200'
                             }`}
                           >
                             {item.time} • {item.category[lang]}
@@ -835,7 +1086,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                         </div>
                         <h3
                           className={`text-lg sm:text-xl font-black mt-1.5 transition-colors leading-snug ${
-                            isActive ? 'text-white' : 'text-slate-900'
+                            isActive ? 'text-teal-950' : 'text-slate-900'
                           }`}
                         >
                           {item.title[lang]}
@@ -845,56 +1096,58 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
 
                     <div className="flex items-center gap-2 shrink-0">
                       <span
-                        className={`text-xs sm:text-sm font-bold px-3 py-1 rounded-full ${
-                          isActive ? 'bg-slate-800 text-slate-200 border border-slate-700' : 'bg-stone-100 text-slate-700'
+                        className={`text-xs font-bold px-3 py-1 rounded-full border ${
+                          isActive
+                            ? 'bg-teal-50 text-teal-800 border-teal-200'
+                            : 'bg-stone-100 text-slate-600 border-stone-200/60'
                         }`}
                       >
                         {item.duration[lang]}
                       </span>
                       <ChevronRight
                         className={`w-5 h-5 transition-transform duration-300 ${
-                          isActive ? 'text-teal-400 translate-x-1' : 'text-slate-400'
+                          isActive ? 'text-teal-600 translate-x-1' : 'text-slate-400'
                         }`}
                       />
                     </div>
                   </div>
 
                   {/* Concise Description Line */}
-                  <p
-                    className={`mt-3.5 text-sm sm:text-base leading-relaxed ${
-                      isActive ? 'text-slate-200 font-medium' : 'text-slate-700 font-medium'
-                    }`}
-                  >
+                  <p className="mt-3 text-sm sm:text-base leading-relaxed text-slate-700 font-normal">
                     {item.description[lang]}
                   </p>
 
                   <div
-                    className={`mt-3.5 pt-3.5 flex items-center gap-2 text-xs sm:text-sm font-bold ${
-                      isActive ? 'border-t border-slate-800 text-teal-300' : 'border-t border-stone-100 text-teal-700'
+                    className={`mt-3.5 pt-3 flex items-center gap-2 text-xs sm:text-sm font-semibold ${
+                      isActive
+                        ? 'bg-teal-50/80 border border-teal-200/70 p-3 rounded-xl text-teal-950 mt-3.5'
+                        : 'border-t border-stone-100 text-teal-700'
                     }`}
                   >
-                    <Sparkles className="w-4 h-4 shrink-0 text-teal-400" />
+                    <Sparkles className="w-4 h-4 shrink-0 text-amber-500 fill-amber-500" />
                     <span>{item.highlight[lang]}</span>
                   </div>
 
                   {/* Mobile Accordion Inline View (`lg:hidden`) */}
                   {isActive && (
-                    <div className="lg:hidden mt-4 pt-4 border-t border-slate-800 space-y-3">
-                      <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-950">
+                    <div className="lg:hidden mt-4 pt-4 border-t border-stone-200 space-y-3">
+                      <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-900">
                         <img
                           src={item.image}
                           alt={item.title[lang]}
                           className="w-full h-full object-cover"
                         />
-                        <div className="absolute top-2 left-2 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-md text-xs font-bold text-teal-300">
+                        <div className="absolute top-2 left-2 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-md text-xs font-bold text-white">
                           {item.time}
                         </div>
                       </div>
 
-                      <div className="bg-teal-500/10 border border-teal-500/30 rounded-xl p-3.5 text-xs sm:text-sm text-teal-200 flex items-start gap-2.5 font-semibold">
-                        <Camera className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
+                      <div className="bg-teal-50 border border-teal-200 rounded-xl p-3.5 text-xs sm:text-sm text-teal-950 flex items-start gap-2.5 font-semibold">
+                        <Camera className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
                         <div>
-                          <strong className="block text-teal-300 font-extrabold mb-0.5 uppercase tracking-wider">TOUR HIGHLIGHT</strong>
+                          <strong className="block text-teal-900 font-black mb-0.5 uppercase tracking-wider text-[11px]">
+                            TOUR HIGHLIGHT
+                          </strong>
                           {item.highlight[lang]}
                         </div>
                       </div>
@@ -905,12 +1158,12 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
             })}
           </div>
 
-          {/* Right Column: Floating / Sticky Preview Card (`lg:block hidden sticky top-28`) */}
-          <div className="lg:col-span-6 hidden lg:block sticky top-28">
-            <div className="bg-white rounded-3xl border border-stone-200/90 shadow-xl overflow-hidden transition-all duration-300 space-y-0">
+          {/* Right Column: Floating / Sticky Preview Card (`lg:block hidden sticky top-36`) */}
+          <div className="lg:col-span-6 hidden lg:block sticky top-36 sm:top-40 z-30">
+            <div className="bg-white rounded-3xl border border-stone-200/90 shadow-2xl overflow-hidden transition-all duration-300 space-y-0">
               
               {/* Destination Image with Badge Overlays */}
-              <div className="relative aspect-[16/10] bg-slate-950 overflow-hidden">
+              <div className="relative aspect-[16/10] bg-slate-900 overflow-hidden">
                 <img
                   key={activeStep.step}
                   src={activeStep.image}
@@ -920,14 +1173,14 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
 
                 <div className="absolute top-4 left-4 flex items-center gap-2">
-                  <span className="bg-slate-900/80 backdrop-blur-md text-teal-300 text-xs sm:text-sm font-black px-3.5 py-1.5 rounded-lg border border-slate-700">
-                    <Clock className="w-4 h-4 inline mr-1" />
-                    {activeStep.time}
+                  <span className="bg-slate-950/80 backdrop-blur-md text-white text-xs sm:text-sm font-black px-3.5 py-1.5 rounded-xl border border-white/20 shadow-md flex items-center gap-1.5">
+                    <Clock className="w-4 h-4 text-amber-400" />
+                    <span>{activeStep.time}</span>
                   </span>
                 </div>
 
                 <div className="absolute bottom-4 left-4 right-4 text-white">
-                  <span className="inline-block bg-teal-600 text-white text-xs font-black px-3 py-1 rounded uppercase tracking-wider mb-1.5">
+                  <span className="inline-block bg-teal-600 text-white text-xs font-extrabold px-3 py-1 rounded-lg uppercase tracking-wider mb-1.5 shadow-xs">
                     {activeStep.category[lang]}
                   </span>
                   <h3 className="text-2xl font-black text-white leading-tight">
@@ -938,17 +1191,17 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
 
               {/* Step Detail Content */}
               <div className="p-6 sm:p-7 space-y-5">
-                <p className="text-slate-700 text-sm sm:text-base font-medium leading-relaxed">
+                <p className="text-slate-700 text-sm sm:text-base font-normal leading-relaxed">
                   {activeStep.description[lang]}
                 </p>
 
                 {/* Spot Photo Highlight Box */}
-                <div className="bg-teal-50 border border-teal-200 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5">
-                  <div className="p-2.5 rounded-xl bg-teal-600 text-white shrink-0">
+                <div className="bg-teal-50/80 border border-teal-200/80 rounded-2xl p-4 sm:p-5 flex items-start gap-3.5 shadow-2xs">
+                  <div className="p-2.5 rounded-xl bg-teal-600 text-white shrink-0 shadow-xs">
                     <Camera className="w-5 h-5" />
                   </div>
                   <div className="text-xs sm:text-sm text-teal-950 leading-relaxed font-semibold">
-                    <strong className="block text-teal-950 font-black uppercase tracking-wider mb-1 text-xs">
+                    <strong className="block text-teal-900 font-black uppercase tracking-wider mb-1 text-[11px]">
                       TOUR HIGHLIGHT
                     </strong>
                     {activeStep.highlight[lang]}
@@ -970,92 +1223,85 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
         </div>
       </section>
 
-      {/* 5. SWAP OR ADD SPOTS (OPTIONAL 1-DAY DESTINATIONS) */}
+      {/* 5. INSPIRASI RUTE & DESTINASI FLEKSIBEL (OPTIONAL 1-DAY DESTINATIONS) */}
       <section className="bg-stone-100/80 py-16 border-y border-stone-200/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
           
-          <div className="bg-white rounded-3xl border border-stone-200/90 p-6 sm:p-8 shadow-xs flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div>
-              <span className="inline-block px-3 py-1 rounded-full bg-teal-50 text-teal-700 font-extrabold text-xs uppercase tracking-widest border border-teal-200 mb-2">
-                1-DAY OPTIONAL SPOTS
+          {/* Minimalist Section Header */}
+          <div className="text-center max-w-2xl mx-auto space-y-2.5">
+            <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-100/90 text-amber-900 font-black text-xs uppercase tracking-wider border border-amber-200">
+              <Sparkles className="w-3.5 h-3.5 text-amber-600" />
+              <span>
+                {lang === 'EN'
+                  ? 'FLEXIBLE ROUTE INSPIRATION'
+                  : lang === 'ZH'
+                  ? '灵感路线与自由定制'
+                  : 'INSPIRASI RUTE & DESTINASI FLEKSIBEL'}
               </span>
-              <h2 className="text-2xl sm:text-3xl font-black text-slate-900">
-                Swap or Add Spots to Your Single-Day Charter
-              </h2>
-              <p className="text-slate-600 text-xs sm:text-sm mt-1">
-                Golo Mori Coastal Highway, Gua Rangko, or Desa Melo cultural village options.
-              </p>
-            </div>
-
-            <button
-              onClick={() => setShowOptionalSpots(!showOptionalSpots)}
-              className="px-5 py-2.5 bg-slate-900 hover:bg-slate-800 text-white font-extrabold text-xs rounded-xl transition-all flex items-center gap-2 shrink-0 cursor-pointer"
-            >
-              {showOptionalSpots ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-              <span>{showOptionalSpots ? 'Hide 1-Day Options' : 'Show 1-Day Options'}</span>
-            </button>
+            </span>
+            <h2 className="text-xl sm:text-2xl lg:text-3xl font-black text-slate-900 tracking-tight">
+              {lang === 'EN'
+                ? 'Alternative Spots for Your Single-Day Charter'
+                : lang === 'ZH'
+                ? '可灵活切换/加选的景点路线'
+                : 'Pilihan Destinasi Tambahan yang Fleksibel'}
+            </h2>
+            <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto font-medium leading-relaxed">
+              {lang === 'EN'
+                ? 'Want to visit Golo Mori Coastal Highway, Gua Rangko, or Melo Cultural Village? You can freely adjust your route on tour day with your private driver.'
+                : lang === 'ZH'
+                ? '想去 Golo Mori 沿海公路、Gua Rangko 蓝洞或 Melo 文化村？行程当天均可与您的专属司机灵活调整。'
+                : 'Mau tukar atau tambah destinasi ke Golo Mori, Gua Rangko, atau Desa Melo? Bebas diskusikan dengan supir kami saat penjemputan.'}
+            </p>
           </div>
 
-          {showOptionalSpots && (
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              {OPTIONAL_SPOTS.map((spot) => (
-                <div
-                  key={spot.id}
-                  className="bg-white rounded-3xl border border-stone-200/90 shadow-sm overflow-hidden flex flex-col justify-between hover:shadow-lg transition-all group"
-                >
-                  <div>
-                    <div className="relative aspect-[16/10] bg-slate-100 overflow-hidden">
-                      <img
-                        src={spot.image}
-                        alt={spot.title[lang]}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                      <span className="absolute top-3 left-3 bg-teal-600 text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider shadow-md">
-                        {spot.tag[lang]}
-                      </span>
-                      <span className="absolute bottom-3 right-3 bg-slate-900/80 backdrop-blur-md text-white text-[10px] font-bold px-2.5 py-1 rounded-lg flex items-center gap-1">
-                        <Clock className="w-3 h-3 text-teal-400" />
-                        <span>{spot.timeCost[lang]}</span>
-                      </span>
-                    </div>
-
-                    <div className="p-5 space-y-2">
-                      <h3 className="text-base font-extrabold text-slate-900 group-hover:text-teal-600 transition-colors">
-                        {spot.title[lang]}
-                      </h3>
-                      <p className="text-xs text-slate-600 leading-relaxed">
-                        {spot.desc[lang]}
-                      </p>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {OPTIONAL_SPOTS.map((spot) => (
+              <div
+                key={spot.id}
+                className="bg-white rounded-3xl border border-stone-200/90 shadow-xs overflow-hidden flex flex-col justify-between hover:shadow-md transition-all group"
+              >
+                <div>
+                  <div className="relative aspect-[16/10] bg-slate-100 overflow-hidden">
+                    <img
+                      src={spot.image}
+                      alt={spot.title[lang]}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <span className="absolute top-3 left-3 bg-teal-700 text-white text-xs font-black px-3 py-1 rounded-lg uppercase tracking-wider shadow-md">
+                      {spot.tag[lang]}
+                    </span>
+                    <span className="absolute bottom-3 right-3 bg-slate-950/90 backdrop-blur-md text-white text-xs font-bold px-3 py-1 rounded-lg flex items-center gap-1.5 shadow-md border border-white/20">
+                      <Clock className="w-3.5 h-3.5 text-amber-400" />
+                      <span>{spot.timeCost[lang]}</span>
+                    </span>
                   </div>
 
-                  <div className="p-5 pt-0 space-y-3">
-                    <div className="text-[11px] text-teal-800 font-semibold bg-teal-50 p-2.5 rounded-xl border border-teal-200/80 flex items-center gap-1.5">
-                      <CheckCircle className="w-3.5 h-3.5 text-teal-600 shrink-0" />
-                      <span>{spot.badge[lang]}</span>
-                    </div>
-
-                    <a
-                      href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
-                        `Hi HelloBajo! I want to add/swap ${spot.title.EN} to my 1-day car charter.`
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="w-full py-2.5 bg-stone-100 hover:bg-stone-200 text-slate-800 font-bold text-xs rounded-xl transition-all flex items-center justify-center gap-1 cursor-pointer"
-                    >
-                      <span>+ Select Spot for Day Tour</span>
-                    </a>
+                  <div className="p-6 space-y-2.5">
+                    <h3 className="text-lg font-black text-slate-900 group-hover:text-teal-600 transition-colors">
+                      {spot.title[lang]}
+                    </h3>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
+                      {spot.desc[lang]}
+                    </p>
                   </div>
                 </div>
-              ))}
-            </div>
-          )}
+
+                <div className="p-6 pt-0">
+                  <div className="text-xs text-teal-950 font-bold bg-teal-50 p-3 rounded-xl border border-teal-200/80 flex items-center gap-2">
+                    <CheckCircle className="w-4 h-4 text-teal-600 shrink-0" />
+                    <span>{spot.badge[lang]}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
 
         </div>
       </section>
 
       {/* 6. MULTI-DAY OVERLAND FLORES SECTION */}
-      <section id="overland-custom" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20">
+      <section id="overland-custom" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 scroll-mt-20 sm:scroll-mt-24">
         <div className="bg-slate-900 text-white p-8 sm:p-12 rounded-3xl space-y-8 shadow-2xl relative overflow-hidden">
           
           <div className="relative z-10 max-w-3xl space-y-3">
@@ -1066,7 +1312,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
             <h2 className="text-3xl sm:text-4xl font-black text-white">
               Planning a Longer Trip across Flores Island?
             </h2>
-            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed">
+            <p className="text-slate-300 text-xs sm:text-sm leading-relaxed font-normal">
               For far-distance overland destinations like Wae Rebo Traditional Village, Ruteng Spider-Web Fields, Bajawa, or Kelimutu Tri-Color Lakes, contact us for custom multi-day overland packages (2D1N to 5D4N round trip).
             </p>
           </div>
@@ -1075,27 +1321,27 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
             {OVERLAND_DESTINATIONS.map((dest, idx) => (
               <div
                 key={idx}
-                className="bg-slate-800/80 border border-slate-700 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-teal-500/50 transition-all"
+                className="bg-slate-800/90 border border-slate-700/90 rounded-2xl overflow-hidden flex flex-col justify-between hover:border-teal-500/50 transition-all shadow-md"
               >
                 <div>
                   <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
                     <img src={dest.image} alt={dest.title[lang]} className="w-full h-full object-cover" />
-                    <span className="absolute top-2.5 left-2.5 bg-teal-600 text-white text-[9px] font-black px-2 py-0.5 rounded uppercase">
+                    <span className="absolute top-2.5 left-2.5 bg-teal-600 text-white text-xs font-black px-2.5 py-1 rounded-md uppercase tracking-wider shadow-md">
                       {dest.tag[lang]}
                     </span>
                   </div>
 
-                  <div className="p-4 space-y-2">
-                    <h3 className="text-sm font-bold text-white">{dest.title[lang]}</h3>
-                    <p className="text-xs text-slate-300 line-clamp-3 leading-relaxed">
+                  <div className="p-4 sm:p-5 space-y-2">
+                    <h3 className="text-base font-black text-white">{dest.title[lang]}</h3>
+                    <p className="text-xs sm:text-sm text-slate-300 line-clamp-3 leading-relaxed font-normal">
                       {dest.desc[lang]}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-4 pt-0">
-                  <span className="text-[10px] text-teal-300 font-medium flex items-center gap-1 border-t border-slate-700/80 pt-2.5">
-                    <MapPin className="w-3 h-3 text-teal-400 shrink-0" />
+                <div className="p-4 sm:p-5 pt-0">
+                  <span className="text-xs text-teal-300 font-bold flex items-center gap-1.5 border-t border-slate-700/80 pt-3">
+                    <MapPin className="w-3.5 h-3.5 text-teal-400 shrink-0" />
                     <span className="truncate">{dest.badge[lang]}</span>
                   </span>
                 </div>
@@ -1153,7 +1399,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
       </section>
 
       {/* 7. RESERVATION FORM SECTION */}
-      <section id="reserve-now" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section id="reserve-now" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-20 sm:scroll-mt-24">
         <div className="text-center max-w-xl mx-auto mb-8">
           <span className="inline-block px-3 py-1 rounded-full bg-teal-50 text-teal-700 font-extrabold text-xs uppercase tracking-widest border border-teal-200">
             RESERVE NOW
@@ -1230,15 +1476,28 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
-                  TOUR DATE *
-                </label>
+                <div className="flex items-center justify-between mb-1">
+                  <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider">
+                    TOUR DATE *
+                  </label>
+                  <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/80">
+                    {lang === 'EN' ? 'Min. H+1 (Tomorrow)' : lang === 'ZH' ? '最早 H+1 (明天)' : 'Min. H+1 (Mulai Besok)'}
+                  </span>
+                </div>
                 <input
                   type="date"
                   required
+                  min={minTourDate}
                   value={tourDate}
-                  onChange={(e) => setTourDate(e.target.value)}
-                  className="w-full bg-slate-50 border border-stone-200/90 rounded-xl px-3.5 py-3 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  onChange={(e) => {
+                    const selected = e.target.value;
+                    if (selected && selected < minTourDate) {
+                      setTourDate(minTourDate);
+                    } else {
+                      setTourDate(selected);
+                    }
+                  }}
+                  className="w-full bg-slate-50 border border-stone-200/90 rounded-xl px-3.5 py-3 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer"
                 />
               </div>
 
@@ -1346,7 +1605,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
       </section>
 
       {/* 8. COMMON QUESTIONS (FAQ) */}
-      <section id="faq" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <section id="faq" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-20 sm:scroll-mt-24">
         <div className="text-center max-w-xl mx-auto mb-10">
           <span className="inline-block px-3 py-1 rounded-full bg-teal-50 text-teal-700 font-extrabold text-xs uppercase tracking-widest border border-teal-200">
             FAQ

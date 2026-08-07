@@ -311,7 +311,7 @@ export const translations: Record<Language, TranslationContent> = {
       ],
     },
     footer: {
-      tagline: 'Hassle-Free Rental in Labuan Bajo. No deposit. Locals who care.',
+      tagline: 'Hassle-Free Rental in Labuan Bajo. Locals who care.',
       verifiedText: 'Verified Local Bank Transfer Accepted via Wise / Revolut',
       rights: '© 2026 hellobajo.go — All rights reserved.',
     },
@@ -503,7 +503,7 @@ export const translations: Record<Language, TranslationContent> = {
       ],
     },
     footer: {
-      tagline: 'Sewa Praktis di Labuan Bajo. Tanpa deposit. Pelayanan ramah lokal.',
+      tagline: 'Sewa Praktis di Labuan Bajo. Pelayanan ramah lokal.',
       verifiedText: 'Menerima Transfer Bank Lokal, Wise & Revolut',
       rights: '© 2026 hellobajo.go — Hak cipta dilindungi.',
     },
@@ -695,7 +695,7 @@ export const translations: Record<Language, TranslationContent> = {
       ],
     },
     footer: {
-      tagline: '拉布安巴佐轻松便捷租赁。无需押金，本地贴心服务。',
+      tagline: '拉布安巴佐轻松便捷租赁。本地贴心服务。',
       verifiedText: '支持本地银行转账，支持 Wise / Revolut',
       rights: '© 2026 hellobajo.go — 版权所有。',
     },

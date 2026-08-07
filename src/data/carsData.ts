@@ -3,8 +3,8 @@ import { CAR_CHARTER_BANNER } from './images';
 export interface CarFleetItem {
   id: string;
   name: string;
-  category: string; // 'Family MPV' | 'Luxury SUV' | 'Minibus / HiAce' | 'Compact SUV'
-  capacity: string; // '6 Passengers'
+  category: string; // 'Family MPV' | 'Compact SUV' | 'Minibus / HiAce'
+  capacity: string; // '6-7 Passengers'
   transmission: string;
   priceWithDriver: number; // Daily price in IDR with driver & fuel
   priceFormatted: string;
@@ -39,73 +39,56 @@ export interface CarTourPackage {
 
 export const CARS_FLEET: CarFleetItem[] = [
   {
-    id: 'innova-zenix',
-    name: 'Toyota Innova Zenix / Reborn',
-    category: 'Family MPV',
+    id: 'toyota-rush',
+    name: 'Toyota Rush',
+    category: 'Compact SUV',
     capacity: '6-7 Passengers',
-    transmission: 'Automatic',
-    priceWithDriver: 900000,
-    priceFormatted: 'Rp 900k',
-    priceSelfDrive: 650000,
+    transmission: 'Automatic / Manual',
+    priceWithDriver: 800000,
+    priceFormatted: 'Rp 800k',
+    priceSelfDrive: 550000,
     image: CAR_CHARTER_BANNER,
     badge: 'Most Popular',
-    features: ['Captain Seats', 'Rear AC Vents', 'Bluetooth Audio', 'Spacious Trunk'],
+    features: ['High Ground Clearance', 'Dual AC Blower', 'Bluetooth Audio', 'Spacious Trunk'],
     description: {
-      EN: 'The gold standard for comfortable road travel in Flores. Extremely smooth suspension and cold dual AC for family trips, airport transfers, and overland tours.',
-      ID: 'Standar kenyamanan perjalanan darat di Flores. Suspensi sangat empuk, AC dingin, dan kabin senyap untuk liburan keluarga & overland.',
-      ZH: '弗洛雷斯陆地出行的舒适之选。双重独立空调与宽敞独立座椅，非常适合家庭游览和机场接送。',
+      EN: 'The ideal modern SUV for navigating the hilly roads and coastal lookouts of Labuan Bajo. Equipped with high ground clearance, cold AC, and comfortable seating.',
+      ID: 'SUV modern pilihan utama untuk jalanan berbukit dan spot sunset Labuan Bajo. Ground clearance tinggi, AC dingin, dan kabin nyaman.',
+      ZH: '打卡拉布安巴佐山路与日落观景点理想的 SUV 车型。高底盘设计、双重冷气与舒适座舱。',
     },
   },
   {
-    id: 'avanza-veloz',
-    name: 'Toyota Avanza / Veloz',
-    category: 'Compact MPV',
+    id: 'toyota-calya-avanza',
+    name: 'Toyota Calya / Avanza',
+    category: 'Family MPV',
     capacity: '5-6 Passengers',
     transmission: 'Automatic / Manual',
-    priceWithDriver: 700000,
-    priceFormatted: 'Rp 700k',
-    priceSelfDrive: 450000,
+    priceWithDriver: 650000,
+    priceFormatted: 'Rp 650k',
+    priceSelfDrive: 400000,
     image: CAR_CHARTER_BANNER,
     badge: 'Best Value',
-    features: ['Fuel Efficient', 'Double Blower AC', 'Clean Interior', 'Compact Size'],
+    features: ['Fuel Efficient', 'Double Blower AC', 'Clean Interior', 'Agile Handling'],
     description: {
-      EN: 'Economical and agile choice for city tours, airport transfers, and short day trips around Labuan Bajo and Gua Rangko.',
-      ID: 'Pilihan hemat dan lincah untuk city tour Labuan Bajo, jemputan bandara, dan trip harian ke Gua Rangko.',
-      ZH: '性价比极高的小型 MPV，非常适合市区观光、机场接送及短途一日游。',
-    },
-  },
-  {
-    id: 'fortuner-pajero',
-    name: 'Toyota Fortuner 4x4 / Pajero Sport',
-    category: 'Luxury 4x4 SUV',
-    capacity: '6 Passengers',
-    transmission: 'Automatic 4WD',
-    priceWithDriver: 1600000,
-    priceFormatted: 'Rp 1.6M',
-    image: CAR_CHARTER_BANNER,
-    badge: 'Luxury 4x4',
-    features: ['4x4 Terrain Mode', 'Leather Interior', 'High Clearance', 'Premium Sound'],
-    description: {
-      EN: 'Premium 4WD SUV designed for rugged roads, steep mountain hills, and luxury VIP overland excursions to Wae Rebo & Ruteng.',
-      ID: 'SUV 4WD premium tangguh untuk medan menanjak, jalan berbatu, dan wisata VIP overland Wae Rebo & Bajawa.',
-      ZH: '豪华四驱 SUV，轻松应对陡峭山路与复杂地形，适合前往维莱博 (Wae Rebo) 的高端越野之旅。',
+      EN: 'Economical and agile choice for city tours, airport transfers, seafood market trips, and day trips around Labuan Bajo and Gua Rangko.',
+      ID: 'Pilihan hemat dan lincah untuk city tour Labuan Bajo, jemputan bandara, wisata kuliner, dan trip harian ke Gua Rangko.',
+      ZH: '经济实惠且操作灵活的 MPV 车型，适合市区观光、机场接送与短途一日游。',
     },
   },
   {
     id: 'hiace-commuter',
-    name: 'Toyota HiAce Commuter / Premio',
+    name: 'Toyota HiAce Commuter',
     category: 'Minibus / Group Van',
-    capacity: '12-14 Passengers',
+    capacity: 'Maks 14 Passengers',
     transmission: 'Manual / Automatic',
     priceWithDriver: 1400000,
     priceFormatted: 'Rp 1.4M',
     image: CAR_CHARTER_BANNER,
     badge: 'Group Choice',
-    features: ['High Roof Cabin', 'Reclining Seats', 'Individual AC Outlets', 'Large Luggage Space'],
+    features: ['High Roof Cabin', 'Individual AC Outlets', 'Reclining Seats', 'Large Trunk Space'],
     description: {
-      EN: 'Spacious 14-seater van perfect for wedding groups, dive crews, tour groups, and big family reunions exploring Labuan Bajo.',
-      ID: 'Minibus 14 kursi ideal untuk rombongan keluarga besar, grup diving, dan tur overland bersama.',
-      ZH: '14 座宽敞商务车，适合婚嫁团队、潜水剧组、大型家庭与团体出行。',
+      EN: 'Spacious van accommodating up to 14 passengers, ideal for large families, dive groups, corporate teams, and overland tours in Flores.',
+      ID: 'Minibus luas kapasitas maksimal 14 penumpang, sangat ideal untuk rombongan keluarga besar, grup diving, dan tur overland bersama.',
+      ZH: '最多容纳 14 人的宽敞商务车，适合大型家庭团队、潜水剧组与团体出行。',
     },
   },
 ];

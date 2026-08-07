@@ -8,6 +8,7 @@ import { WhyChooseUs } from '../components/WhyChooseUs';
 import { ReserveForm } from '../components/ReserveForm';
 import { AlternativeDestinations } from '../components/AlternativeDestinations';
 import { FaqAccordion } from '../components/FaqAccordion';
+import { Bike } from 'lucide-react';
 
 interface HomePageProps {
   lang: Language;
@@ -88,23 +89,27 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, t }) => {
         schema={localBusinessSchema}
       />
 
-      {/* Hero Section */}
-      <Hero t={t} lang={lang} />
-
       {/* Sub-Header Section Navigation Bar for Scooter Page */}
       <div className="bg-white border-b border-stone-200/80 sticky top-16 sm:top-20 z-40 backdrop-blur-md bg-white/95 shadow-xs">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-start sm:justify-center h-12 overflow-x-auto no-scrollbar text-xs sm:text-sm font-bold text-slate-600 space-x-6 sm:space-x-10">
           <a
-            href="#how-it-works"
-            className="hover:text-teal-600 transition-colors whitespace-nowrap py-1"
+            href="#scooter-rental"
+            className="hover:text-teal-600 transition-colors whitespace-nowrap py-1 flex items-center gap-1.5"
           >
-            {lang === 'EN' ? 'How It Works' : lang === 'ZH' ? '使用流程' : 'How It Works'}
+            <Bike className="w-3.5 h-3.5 text-teal-600" />
+            <span>{lang === 'EN' ? "Let's Ride" : lang === 'ZH' ? '骑行体验' : "Let's Ride"}</span>
           </a>
           <a
             href="#fleet"
             className="hover:text-teal-600 transition-colors whitespace-nowrap py-1"
           >
-            {lang === 'EN' ? 'Our Fleet' : lang === 'ZH' ? '车队选择' : 'Our Fleet'}
+            {lang === 'EN' ? 'Our Fleet & Rates' : lang === 'ZH' ? '车队与价格' : 'Pilihan Motor & Tarif'}
+          </a>
+          <a
+            href="#how-it-works"
+            className="hover:text-teal-600 transition-colors whitespace-nowrap py-1"
+          >
+            {lang === 'EN' ? 'How It Works' : lang === 'ZH' ? '租车流程' : 'Cara Sewa'}
           </a>
           <a
             href="#why-us"
@@ -116,7 +121,7 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, t }) => {
             href="#reserve"
             className="text-teal-600 hover:text-teal-700 font-extrabold transition-colors whitespace-nowrap py-1"
           >
-            {lang === 'EN' ? 'Book Scooter' : lang === 'ZH' ? '预订摩托车' : 'Book Scooter'}
+            {lang === 'EN' ? 'Book a Scooter' : lang === 'ZH' ? '预订摩托车' : 'Pesan Motor'}
           </a>
           <a
             href="#faq"
@@ -126,6 +131,9 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, t }) => {
           </a>
         </div>
       </div>
+
+      {/* Hero Section */}
+      <Hero t={t} lang={lang} />
 
       {/* How It Works Timeline */}
       <ItineraryTimeline t={t} lang={lang} />

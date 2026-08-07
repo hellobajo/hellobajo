@@ -17,7 +17,7 @@ export const Hero: React.FC<HeroProps> = ({ t, lang }) => {
   )}`;
 
   return (
-    <section className="relative bg-[#faf8f5] text-slate-900 pt-10 pb-16 sm:py-20 overflow-hidden border-b border-stone-200/60">
+    <section id="scooter-rental" className="relative bg-[#faf8f5] text-slate-900 pt-10 pb-16 sm:py-20 overflow-hidden border-b border-stone-200/60 scroll-mt-20 sm:scroll-mt-24">
       {/* Decorative background glow */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-teal-100/60 rounded-full blur-3xl pointer-events-none -z-0" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-amber-100/50 rounded-full blur-3xl pointer-events-none -z-0" />

@@ -4,6 +4,7 @@ import { Language, translations } from './data/translations';
 import { Header } from './components/Header';
 import { Footer } from './components/Footer';
 import { FloatingWhatsApp } from './components/FloatingWhatsApp';
+import { ScrollToTop } from './components/ScrollToTop';
 import { HomePage } from './pages/HomePage';
 import { CarsPage } from './pages/CarsPage';
 import { BoatsPage } from './pages/BoatsPage';
@@ -16,6 +17,7 @@ export default function App() {
 
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <div className="min-h-screen flex flex-col bg-[#faf8f5] selection:bg-teal-500 selection:text-white font-sans text-slate-800 overflow-x-clip">
         {/* 1. Global Header Navigation */}
         <Header lang={lang} onLanguageChange={setLang} t={t} />

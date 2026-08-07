@@ -46,5 +46,7 @@ export const RIDING_DESTINATIONS = {
   guaRangko: guaRangkoImg,
   bukitCinta: bukitCintaImg,
   waeRebo: waereboImg,
+  waecicu: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+  bukitSilvia: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=800&q=80',
 };
 
