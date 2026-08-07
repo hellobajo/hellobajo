@@ -62,6 +62,10 @@ export const Header: React.FC<HeaderProps> = ({ lang, onLanguageChange, t }) => 
               <img 
                 src={SITE_CONFIG.logo} 
                 alt={SITE_CONFIG.name} 
+                loading="eager"
+                decoding="async"
+                width="160"
+                height="48"
                 className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
               />
             </div>

@@ -230,6 +230,8 @@ Mohon infokan ketersediaan & petunjuk pembayaran DP. Terima kasih!`;
                             <img
                               src={boat.image}
                               alt={boat.name}
+                              loading="lazy"
+                              decoding="async"
                               className="w-full h-full object-cover"
                             />
                           </div>

@@ -56,6 +56,12 @@ export const Hero: React.FC<HeroProps> = ({ t, lang, onSelectScooter }) => {
               <img
                 src={HERO_IMAGE}
                 alt="Labuan Bajo coastal scenery"
+                loading="eager"
+                decoding="async"
+                // @ts-ignore
+                fetchPriority="high"
+                width="800"
+                height="600"
                 className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent pointer-events-none" />

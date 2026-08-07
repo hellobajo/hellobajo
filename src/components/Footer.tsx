@@ -71,7 +71,7 @@ export const Footer: React.FC<FooterProps> = ({ t, lang }) => {
           {/* Col 1 & 2: Brand & About */}
           <div className="lg:col-span-2 space-y-4">
             <div className="inline-block cursor-default">
-              <img src={SITE_CONFIG.logo} alt={SITE_CONFIG.name} className="h-10 w-auto brightness-200" />
+              <img src={SITE_CONFIG.logo} alt={SITE_CONFIG.name} loading="lazy" decoding="async" className="h-10 w-auto brightness-200" />
             </div>
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
               {t.footer.tagline}

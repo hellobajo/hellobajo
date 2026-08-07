@@ -115,7 +115,7 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
   const [customReturnText, setCustomReturnText] = useState('');
 
   const [socialHandle, setSocialHandle] = useState('');
-  const [ageConfirmed, setAgeConfirmed] = useState(true);
+  const [ageConfirmed, setAgeConfirmed] = useState(false);
 
   // Helper to parse time string to hour number (0 - 23)
   const parseHour = (timeStr: string): number => {
@@ -274,7 +274,7 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
           `• *Pickup Location:* ${finalPickupLocation}\n` +
           `• *Return Location:* ${finalReturnLocation}\n` +
           `• *Social Handle:* ${socialHandle || 'Will provide in chat'}\n` +
-          `• *Rider Age (20-65 yrs):* ${ageConfirmed ? 'Confirmed' : 'Optional'}\n\n` +
+          `• *Rider Age (20-65 yrs):* ${ageConfirmed ? 'Confirmed' : 'Not specified'}\n\n` +
           `💰 *PRICE ESTIMATE BREAKDOWN*\n` +
           `• Base Rental (${calculation.fullDays} day${calculation.fullDays > 1 ? 's' : ''} × ${quantity} unit${quantity > 1 ? 's' : ''}): Rp ${calculation.basePrice.toLocaleString('id-ID')}\n` +
           (calculation.overtimeHours > 0 ? `• Overtime (${calculation.overtimeHours} hrs × ${quantity} unit${quantity > 1 ? 's' : ''} @ Rp 15k/hr): + Rp ${calculation.overtimePrice.toLocaleString('id-ID')}\n` : '') +
@@ -291,7 +291,7 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
           `• *送车地点:* ${finalPickupLocation}\n` +
           `• *还车地点:* ${finalReturnLocation}\n` +
           `• *社交账号:* ${socialHandle || '稍后在聊天中提供'}\n` +
-          `• *骑行者年龄核验 (20-65岁):* ${ageConfirmed ? '已确认' : '可选'}\n\n` +
+          `• *骑行者年龄核验 (20-65岁):* ${ageConfirmed ? '已确认' : '未指定'}\n\n` +
           `💰 *预估费用明细*\n` +
           `• 基础租金 (${calculation.fullDays} 天 × ${quantity} 辆): Rp ${calculation.basePrice.toLocaleString('id-ID')}\n` +
           (calculation.overtimeHours > 0 ? `• 超时费 (${calculation.overtimeHours} 小时 × ${quantity} 辆 @ Rp 15k/小时): + Rp ${calculation.overtimePrice.toLocaleString('id-ID')}\n` : '') +
@@ -307,7 +307,7 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
           `• *Lokasi Antar / Hotel:* ${finalPickupLocation}\n` +
           `• *Lokasi Pengembalian:* ${finalReturnLocation}\n` +
           `• *Social Media:* ${socialHandle || 'Akan dikirim di chat'}\n` +
-          `• *Pengendara 20-65 Thn:* ${ageConfirmed ? 'Ya' : 'Opsional'}\n\n` +
+          `• *Pengendara 20-65 Thn:* ${ageConfirmed ? 'Ya' : 'Belum Dicentang'}\n\n` +
           `💰 *RINCIAN ESTIMASI HARGA*\n` +
           `• Sewa Pokok (${calculation.fullDays} hari × ${quantity} unit): Rp ${calculation.basePrice.toLocaleString('id-ID')}\n` +
           (calculation.overtimeHours > 0 ? `• Overtime (${calculation.overtimeHours} jam × ${quantity} unit @ Rp 15rb/jam): + Rp ${calculation.overtimePrice.toLocaleString('id-ID')}\n` : '') +
@@ -577,7 +577,7 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
               </div>
             </div>
 
-            {/* 7. AGE CONFIRMATION CHECKBOX (OPTIONAL) */}
+            {/* 7. AGE CONFIRMATION CHECKBOX */}
             <div className="p-3.5 rounded-xl bg-teal-50/60 border border-teal-200/70 flex items-center gap-2.5">
               <input
                 type="checkbox"
@@ -586,11 +586,8 @@ export const ReserveForm: React.FC<ReserveFormProps> = ({ t, lang, selectedBikeI
                 onChange={(e) => setAgeConfirmed(e.target.checked)}
                 className="w-4 h-4 text-teal-600 rounded focus:ring-teal-500 border-stone-300 cursor-pointer shrink-0"
               />
-              <label htmlFor="ageCheck" className="text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer select-none flex items-center gap-1.5 flex-wrap">
+              <label htmlFor="ageCheck" className="text-xs sm:text-sm font-semibold text-slate-800 cursor-pointer select-none">
                 <span>{t.reserve.labels.ageCheckbox}</span>
-                <span className="text-[10px] text-teal-700 font-bold bg-teal-100 px-1.5 py-0.5 rounded uppercase">
-                  ({lang === 'EN' ? 'optional' : lang === 'ZH' ? '选填' : 'opsional'})
-                </span>
               </label>
             </div>
 

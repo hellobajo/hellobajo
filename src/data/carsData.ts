@@ -1,4 +1,4 @@
-import { CAR_CHARTER_BANNER } from './images';
+import { CAR_CHARTER_BANNER, CITY_TOUR_ITINERARY_IMAGES, CITY_TOUR_OPTIONAL_IMAGES } from './images';
 
 export interface CarFleetItem {
   id: string;
@@ -65,7 +65,7 @@ export const CARS_FLEET: CarFleetItem[] = [
     priceWithDriver: 650000,
     priceFormatted: 'Rp 650k',
     priceSelfDrive: 400000,
-    image: CAR_CHARTER_BANNER,
+    image: CITY_TOUR_ITINERARY_IMAGES.step1Pickup,
     badge: 'Best Value',
     features: ['Fuel Efficient', 'Double Blower AC', 'Clean Interior', 'Agile Handling'],
     description: {
@@ -82,7 +82,7 @@ export const CARS_FLEET: CarFleetItem[] = [
     transmission: 'Manual / Automatic',
     priceWithDriver: 1400000,
     priceFormatted: 'Rp 1.4M',
-    image: CAR_CHARTER_BANNER,
+    image: CITY_TOUR_OPTIONAL_IMAGES.desaMelo,
     badge: 'Group Choice',
     features: ['High Roof Cabin', 'Individual AC Outlets', 'Reclining Seats', 'Large Trunk Space'],
     description: {

@@ -303,7 +303,7 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ lang }) => {
 
         {/* Hero Cover Image */}
         <div className="rounded-3xl overflow-hidden shadow-xl border border-stone-200/80 bg-slate-900 aspect-[16/9]">
-          <img src={post.coverImage} alt={post.title[lang]} className="w-full h-full object-cover" />
+          <img src={post.coverImage} alt={post.title[lang]} loading="eager" decoding="async" className="w-full h-full object-cover" />
         </div>
 
         {/* Main Single-Column Article Body */}
@@ -338,44 +338,49 @@ export const BlogPostPage: React.FC<BlogPostPageProps> = ({ lang }) => {
           )}
 
           {/* 2-3 Small Activity Photos Layout */}
-          {post.galleryImages && post.galleryImages.length > 0 && (
-            <div className="my-6 space-y-2.5">
-              <div className="flex items-center gap-2 text-xs font-black text-slate-800 uppercase tracking-widest">
-                <Camera className="w-4 h-4 text-teal-600" />
-                <span>
-                  {lang === 'EN'
-                    ? 'Activity & Highlight Photos'
-                    : lang === 'ZH'
-                    ? '行程与活动实拍图集'
-                    : 'Foto Aktivitas & Suasana'}
-                </span>
-              </div>
-              <div
-                className={`grid grid-cols-2 ${
-                  post.galleryImages.slice(0, 3).length >= 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-2'
-                } gap-2.5 sm:gap-3.5`}
-              >
-                {post.galleryImages.slice(0, 3).map((imgUrl, idx) => (
-                  <div
-                    key={idx}
-                    className="group relative rounded-2xl overflow-hidden border border-stone-200/90 bg-stone-100 shadow-2xs aspect-[4/3]"
-                  >
-                    <img
-                      src={imgUrl}
-                      alt={`${post.title[lang]} activity photo ${idx + 1}`}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
-                      <span className="text-[10px] font-bold text-white flex items-center gap-1">
-                        <Camera className="w-3 h-3 text-teal-300" />
-                        <span>Photo #{idx + 1}</span>
-                      </span>
+          {post.galleryImages && post.galleryImages.length > 0 && (() => {
+            const uniqueImages = Array.from(new Set(post.galleryImages)).slice(0, 3);
+            return (
+              <div className="my-6 space-y-2.5">
+                <div className="flex items-center gap-2 text-xs font-black text-slate-800 uppercase tracking-widest">
+                  <Camera className="w-4 h-4 text-teal-600" />
+                  <span>
+                    {lang === 'EN'
+                      ? 'Activity & Highlight Photos'
+                      : lang === 'ZH'
+                      ? '行程与活动实拍图集'
+                      : 'Foto Aktivitas & Suasana'}
+                  </span>
+                </div>
+                <div
+                  className={`grid grid-cols-2 ${
+                    uniqueImages.length >= 3 ? 'sm:grid-cols-3' : 'sm:grid-cols-2'
+                  } gap-2.5 sm:gap-3.5`}
+                >
+                  {uniqueImages.map((imgUrl, idx) => (
+                    <div
+                      key={idx}
+                      className="group relative rounded-2xl overflow-hidden border border-stone-200/90 bg-stone-100 shadow-2xs aspect-[4/3]"
+                    >
+                      <img
+                        src={imgUrl}
+                        alt={`${post.title[lang]} activity photo ${idx + 1}`}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-950/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-2.5">
+                        <span className="text-[10px] font-bold text-white flex items-center gap-1">
+                          <Camera className="w-3 h-3 text-teal-300" />
+                          <span>Photo #{idx + 1}</span>
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
-          )}
+            );
+          })()}
 
           {/* Standard Paragraphs (If no sections provided) */}
           {(!postContent.sections || postContent.sections.length === 0) && (

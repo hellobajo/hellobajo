@@ -3,7 +3,7 @@ import { motion } from 'motion/react';
 import { Language } from '../data/translations';
 import { SEOHead } from '../components/SEOHead';
 import { BOAT_CHARTERS } from '../data/boatsData';
-import { SPEEDBOAT_BANNER } from '../data/images';
+import { SPEEDBOAT_HERO, SPEEDBOAT_BANNER, SPEEDBOAT_DESTINATIONS } from '../data/images';
 import { SpeedboatBookingModal } from '../components/SpeedboatBookingModal';
 import {
   Ship,
@@ -38,7 +38,7 @@ const KOMODO_DESTINATIONS = [
     activity: 'Trek ~818 stairs to summit for iconic 3-color bay panoramic view',
     activityID: 'Trekking ~818 anak tangga ke puncak untuk foto panoramik 3 teluk',
     activityZH: '攀登约818级台阶登顶，俯瞰三大梦幻海湾绝美全景',
-    image: 'https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=800&q=80',
+    image: SPEEDBOAT_DESTINATIONS.padar,
   },
   {
     stop: 'Stop #2',
@@ -50,7 +50,7 @@ const KOMODO_DESTINATIONS = [
     activity: 'Swim, snorkel & take aesthetic photos on natural pink coral sand beach',
     activityID: 'Berenang, snorkeling & foto estetik di pantai pasir pink alami',
     activityZH: '漫步天然粉红珊瑚沙滩，游泳浮潜并拍摄大片',
-    image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80',
+    image: SPEEDBOAT_DESTINATIONS.pinkBeach,
   },
   {
     stop: 'Stop #3',
@@ -62,7 +62,7 @@ const KOMODO_DESTINATIONS = [
     activity: 'Ranger-guided soft trekking to observe ancient Komodo Dragons up close',
     activityID: 'Trekking didampingi Ranger melihat Naga Komodo purba',
     activityZH: '在护林员带领下徒步，近距离观察古老科莫多巨蜥',
-    image: 'https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=800&q=80',
+    image: SPEEDBOAT_DESTINATIONS.komodo,
   },
   {
     stop: 'Stop #4',
@@ -74,7 +74,7 @@ const KOMODO_DESTINATIONS = [
     activity: 'Swim & drone photo on a unique crescent white sandbank in turquoise water',
     activityID: 'Foto drone & berenang di bukit pasir putih bulan sabit di tengah laut',
     activityZH: '在蒂芙尼蓝海央的弯月形白沙洲游泳并拍摄航拍视角',
-    image: 'https://images.unsplash.com/photo-1506953823976-52e1fdc0149a?auto=format&fit=crop&w=800&q=80',
+    image: SPEEDBOAT_DESTINATIONS.takaMakassar,
   },
   {
     stop: 'Stop #5',
@@ -86,7 +86,7 @@ const KOMODO_DESTINATIONS = [
     activity: 'Drift snorkeling in open sea alongside giant wild Manta Rays feeding',
     activityID: 'Snorkeling drift di laut lepas berenang bersama Ikan Manta Pari raksasa',
     activityZH: '开阔海域漂流浮潜，偶遇巨大的野生魔鬼鱼（Manta Rays）',
-    image: 'https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=800&q=80',
+    image: SPEEDBOAT_DESTINATIONS.mantaPoint,
   },
   {
     stop: 'Stop #6',
@@ -98,7 +98,7 @@ const KOMODO_DESTINATIONS = [
     activity: 'Snorkel shallow coral reefs, feed Clownfish (Nemo) & relax at jetty pier',
     activityID: 'Snorkeling taman karang, beri makan ikan Nemo & santai di dermaga kayu',
     activityZH: '在浅水珊瑚花园浮潜喂小丑鱼，并在木质码头度过悠闲时光',
-    image: 'https://images.unsplash.com/photo-1510414842594-a61c69b5ae57?auto=format&fit=crop&w=800&q=80',
+    image: SPEEDBOAT_DESTINATIONS.kanawa,
   },
 ];
 
@@ -437,7 +437,7 @@ export const BoatsPage: React.FC<BoatsPageProps> = ({ lang }) => {
       <section id="hero" className="relative bg-slate-900 text-white py-16 sm:py-24 lg:py-28 overflow-hidden scroll-mt-20 sm:scroll-mt-24">
         {/* Bright Tropical Sea Background Image Overlay & Vibrant Tropical Glows */}
         <div className="absolute inset-0">
-          <img src={SPEEDBOAT_BANNER} alt="Komodo boat charter" className="w-full h-full object-cover brightness-[0.88] contrast-[1.02]" />
+          <img src={SPEEDBOAT_BANNER} alt="Komodo boat charter" loading="eager" decoding="async" className="w-full h-full object-cover brightness-[0.88] contrast-[1.02]" />
           <div className="absolute inset-0 bg-gradient-to-r from-slate-950/70 via-slate-900/35 to-sky-950/20" />
           <div className="absolute -top-32 -left-32 w-96 h-96 bg-teal-300/30 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-sky-200/25 rounded-full blur-3xl pointer-events-none" />
@@ -1071,6 +1071,8 @@ export const BoatsPage: React.FC<BoatsPageProps> = ({ lang }) => {
                     <img
                       src={boat.image}
                       alt={boat.name}
+                      loading="lazy"
+                      decoding="async"
                       className={`w-full h-full object-cover transition-transform duration-500 ${
                         isDev ? 'grayscale-[0.2]' : 'group-hover:scale-105'
                       }`}

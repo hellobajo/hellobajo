@@ -3,6 +3,7 @@ import { Language } from '../data/translations';
 import { SEOHead } from '../components/SEOHead';
 import { SITE_CONFIG } from '../data/siteConfig';
 import {
+  CITY_TOUR_HERO,
   CAR_CHARTER_BANNER,
   RIDING_DESTINATIONS,
   CITY_TOUR_ITINERARY_IMAGES,
@@ -522,8 +523,10 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                   {/* Tile 1: Top-Left (Quadrant 1 + Letter B) */}
                   <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/50 shadow-md group/tile bg-slate-900 flex items-center justify-center">
                     <img
-                      src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80"
+                      src={CITY_TOUR_HERO}
                       alt="Labuan Bajo Padar Island"
+                      loading="eager"
+                      decoding="async"
                       className="absolute w-[200%] h-[200%] max-w-none top-0 left-0 object-cover brightness-105 contrast-105 group-hover/tile:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-950/30 via-transparent to-slate-950/50" />
@@ -535,8 +538,10 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                   {/* Tile 2: Top-Right (Quadrant 2 + Letter A) */}
                   <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/50 shadow-md group/tile bg-slate-900 flex items-center justify-center">
                     <img
-                      src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80"
+                      src={CITY_TOUR_HERO}
                       alt="Labuan Bajo Ocean"
+                      loading="eager"
+                      decoding="async"
                       className="absolute w-[200%] h-[200%] max-w-none top-0 left-[-100%] object-cover brightness-105 contrast-105 group-hover/tile:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-bl from-slate-950/30 via-transparent to-slate-950/50" />
@@ -548,8 +553,10 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                   {/* Tile 3: Bottom-Left (Quadrant 3 + Letter J) */}
                   <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/50 shadow-md group/tile bg-slate-950 flex items-center justify-center">
                     <img
-                      src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80"
+                      src={CITY_TOUR_HERO}
                       alt="Labuan Bajo Landscape"
+                      loading="eager"
+                      decoding="async"
                       className="absolute w-[200%] h-[200%] max-w-none top-[-100%] left-0 object-cover brightness-105 contrast-105 group-hover/tile:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/40 via-transparent to-slate-950/50" />
@@ -561,8 +568,10 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                   {/* Tile 4: Bottom-Right (Quadrant 4 + Letter O) */}
                   <div className="relative rounded-2xl sm:rounded-3xl overflow-hidden border border-white/50 shadow-md group/tile bg-slate-950 flex items-center justify-center">
                     <img
-                      src="https://images.unsplash.com/photo-1518509562904-e7ef99cdcc86?auto=format&fit=crop&w=1200&q=80"
+                      src={CITY_TOUR_HERO}
                       alt="Labuan Bajo Fleet"
+                      loading="eager"
+                      decoding="async"
                       className="absolute w-[200%] h-[200%] max-w-none top-[-100%] left-[-100%] object-cover brightness-105 contrast-105 group-hover/tile:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-tl from-slate-950/40 via-transparent to-slate-950/50" />
@@ -921,6 +930,8 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
               <img
                 src={CAR_CHARTER_BANNER}
                 alt="Toyota Rush / Calya / Avanza / HiAce"
+                loading="lazy"
+                decoding="async"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/95 via-slate-950/30 to-transparent" />
@@ -1141,6 +1152,8 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                         <img
                           src={item.image}
                           alt={item.title[lang]}
+                          loading="lazy"
+                          decoding="async"
                           className="w-full h-full object-cover"
                         />
                         <div className="absolute top-2 left-2 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-md text-xs font-bold text-white">
@@ -1174,6 +1187,8 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                   key={activeStep.step}
                   src={activeStep.image}
                   alt={activeStep.title[lang]}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover transition-all duration-500"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/20 to-transparent"></div>
@@ -1272,6 +1287,8 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                     <img
                       src={spot.image}
                       alt={spot.title[lang]}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <span className="absolute top-3 left-3 bg-teal-700 text-white text-xs font-black px-3 py-1 rounded-lg uppercase tracking-wider shadow-md">
@@ -1331,7 +1348,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
               >
                 <div>
                   <div className="relative aspect-[16/10] overflow-hidden bg-slate-950">
-                    <img src={dest.image} alt={dest.title[lang]} className="w-full h-full object-cover" />
+                    <img src={dest.image} alt={dest.title[lang]} loading="lazy" decoding="async" className="w-full h-full object-cover" />
                     <span className="absolute top-2.5 left-2.5 bg-teal-600 text-white text-xs font-black px-2.5 py-1 rounded-md uppercase tracking-wider shadow-md">
                       {dest.tag[lang]}
                     </span>

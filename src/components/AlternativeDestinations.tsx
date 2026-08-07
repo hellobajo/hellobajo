@@ -202,6 +202,8 @@ export const AlternativeDestinations: React.FC<AlternativeDestinationsProps> = (
                 <img
                   src={slide.image}
                   alt={slide.title}
+                  loading="lazy"
+                  decoding="async"
                   className="w-full h-full object-cover object-center transform group-hover:scale-105 transition-transform duration-1000"
                 />
 
@@ -316,6 +318,8 @@ export const AlternativeDestinations: React.FC<AlternativeDestinationsProps> = (
                   <img 
                     src={route.img} 
                     alt={route.title}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" 
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
