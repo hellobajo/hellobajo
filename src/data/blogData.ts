@@ -724,7 +724,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '4. Memilih Motor yang Tepat Sesuai Kebutuhan',
             intro:
               'Pilihan tipe motor tergantung pada jumlah bagasi dan rute yang akan Anda tempuh di Flores:',
-            image: SCOOTER_IMAGES.beat,
+            image: BLOG_IMAGES.canyourent3.cover,
             imageCaption: 'Pilih Motor Lincah 110cc atau NMAX / PCX 155cc Nyaman untuk Tanjakan',
             items: [
               {
@@ -839,7 +839,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '4. 根据行程与行李选择合适车型',
             intro:
               '选择车型取决于您的行李情况以及在弗洛雷斯岛的骑行路线：',
-            image: SCOOTER_IMAGES.scoopy,
+            image: BLOG_IMAGES.canyourent3.cover,
             imageCaption: '可选轻便 110cc 城市踏板车或强劲 155cc 大踏板车',
             items: [
               {
@@ -928,7 +928,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. The Wonder of Kelimutu: Why the Lakes Change Colors',
             intro:
               'Mount Kelimutu stands at 1,639 meters above sea level in the Ende regency of Flores. Local Lio villagers hold deeply spiritual beliefs about the lakes, believing them to be the final resting place for departed souls:',
-            image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.kelimutu3warna.cover',
             imageCaption: 'Mount Kelimutu Volcanic Tri-Color Crater Lakes Sunrise in Central Flores',
             items: [
               {
@@ -1039,7 +1039,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. Keajaiban Kelimutu: Alasan Danau Berganti Warna',
             intro:
               'Gunung Kelimutu berdiri setinggi 1.639 meter di atas permukaan laut di Kabupaten Ende, Flores. Masyarakat lokal suku Lio memegang kepercayaan spiritual yang mendalam terhadap danau ini, mempercayainya sebagai tempat peristirahatan terakhir jiwa-jiwa yang telah meninggal:',
-            image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.kelimutu3warna.cover,
             imageCaption: 'Danau Tiga Warna Kelimutu Saat Sunrise di Flores',
             items: [
               {
@@ -1153,7 +1153,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. 克里穆图之神奇：三色火山湖为何变换颜色',
             intro:
               '克里穆图火山海拔 1,639 米，位于弗洛雷斯岛的恩德（Ende）行政区。当地 Lio 族村民对其抱有崇高敬畏，认为三座湖泊是逝者灵魂的归宿：',
-            image: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.kelimutu3warna.cover,
             imageCaption: '克里穆图火山三色湖日出景观',
             items: [
               {
