@@ -1355,7 +1355,7 @@ export const BLOG_POSTS: BlogPost[] = [
             intro:
               'For a memorable sunset dinner overlooking the Phinisi fleet and coastal islands, head to these top waterfront venues.',
             image: BLOG_IMAGES.culinaryatlantis.cover,
-            imageCaption: 'Sunset Waterfront Lounge & Ocean Deck Dining at Atlantis On The Rock & Le Bajo',
+            imageCaption: 'Sunset Waterfront Lounge & Ocean Deck Dining at Le Bajo',
             items: [
               {
                 subtitle: 'Atlantis On The Rock by AYANA',
@@ -1465,7 +1465,7 @@ export const BLOG_POSTS: BlogPost[] = [
             intro:
               'Untuk pengalaman makan malam sunset yang mewah dan romantis menghadap deretan kapal Phinisi, kunjungi tempat-tempat waterfront terbaik ini.',
             image: BLOG_IMAGES.culinaryatlantis.cover,
-            imageCaption: 'Lounge Sunset Waterfront di Atlantis On The Rock & Le Bajo Flores',
+            imageCaption: 'Lounge Sunset Waterfront di Le Bajo Flores',
             items: [
               {
                 subtitle: 'Atlantis On The Rock by AYANA',
@@ -1575,7 +1575,7 @@ export const BLOG_POSTS: BlogPost[] = [
             intro:
               '想要在落日余晖中俯瞰帆船与海岛，这几家落日 Lounge 是理想选择。',
             image: BLOG_IMAGES.culinaryatlantis.cover,
-            imageCaption: 'Atlantis On The Rock 与 Le Bajo 海景落日酒吧与海鲜餐',
+            imageCaption: '与 Le Bajo 海景落日酒吧与海鲜餐',
             items: [
               {
                 subtitle: 'Atlantis On The Rock by AYANA',
