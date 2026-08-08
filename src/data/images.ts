@@ -167,6 +167,9 @@ import lejong from '../assets/images/lejong.jpg';
 import atlantis from '../assets/images/atlantis.jpg';
 
 import art5_cover from '../assets/images/art5_diving_manta_cover.jpg';
+import art5_g1 from '../assets/images/divingmanta.jpg';
+import turtle from '../assets/images/turtle.jpg';
+import snorkeling from '../assets/images/snorkeling.jpg';
 
 import art10_cover from '../assets/images/art10_cover.jpg';
 import art10_g1 from '../assets/images/art10_gallery1.jpg';
@@ -200,7 +203,12 @@ export const BLOG_IMAGES = {
   culinarylejong: { cover: lejong },
   culinaryatlantis: { cover: atlantis },
 
-  divingManta: { cover: art5_cover, gallery: [art5_cover, speedboatMantaPoint, speedboatTakaMakassar] },
+  divingManta: { cover: art5_cover, gallery: [art5_g1, speedboatMantaPoint, speedboatTakaMakassar] },
+  divingturtle: { cover: turtleImg },
+  snorkeling: { cover: snorkelingImg },
+
+
+  
   packingSailing: { cover: boatPhinisi, gallery: [boatAthena, boatShining, boatArsiva] },
   carCharter: { cover: tourCarImg },
   safetyGuide: { cover: heroBgLocal },
