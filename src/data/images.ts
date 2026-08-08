@@ -174,7 +174,7 @@ import art12_g2 from '../assets/images/art12_gallery2.jpg';
 import art12_g3 from '../assets/images/art12_gallery3.jpg';
 import art13_g4 from '../assets/images/art13_gallery4.jpg';
 
-GALLERY BLOG ARTICLES (COVER & SELECTED HIGHLIGHT PHOTOS)
+// GALLERY BLOG ARTICLES (COVER & SELECTED HIGHLIGHT PHOTOS)
 import artCanyourent3Img from '../assets/images/art-canyourent3.jpg';
 
 
