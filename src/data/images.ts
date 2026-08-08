@@ -184,6 +184,9 @@ import art13_g4 from '../assets/images/art13_gallery4.jpg';
 
 import boatgearImg from '../assets/images/boatgear.jpg';
 import packinglistImg from '../assets/images/packinglist.jpg';
+import snore1 from '../assets/images/snore1.jpg';
+import snore2 from '../assets/images/snore2.jpg';
+import snore3 from '../assets/images/snore3.jpg';
 
 // GALLERY BLOG ARTICLES (COVER & SELECTED HIGHLIGHT PHOTOS)
 import kampungujungImg from '../assets/images/kampungujung.jpg';
@@ -213,7 +216,7 @@ export const BLOG_IMAGES = {
 
 
   
-  packingSailing: { cover: boatPhinisi, gallery: [boatAthena, boatShining, boatArsiva] },
+  packingSailing: { cover: boatPhinisi, gallery: [snore1, snore2, snore3] },
   boatgear: { cover: boatgearImg },
   packinglist: { cover: packinglistImg },
   carCharter: { cover: tourCarImg },
