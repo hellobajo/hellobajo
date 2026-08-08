@@ -182,6 +182,9 @@ import art12_g2 from '../assets/images/art12_gallery2.jpg';
 import art12_g3 from '../assets/images/art12_gallery3.jpg';
 import art13_g4 from '../assets/images/art13_gallery4.jpg';
 
+import boatgearImg from '../assets/images/boatgear.jpg';
+import packinglistImg from '../assets/images/packinglist.jpg';
+
 // GALLERY BLOG ARTICLES (COVER & SELECTED HIGHLIGHT PHOTOS)
 import kampungujungImg from '../assets/images/kampungujung.jpg';
 import artCanyourent3Img from '../assets/images/art-canyourent3.jpg';
@@ -197,6 +200,7 @@ export const BLOG_IMAGES = {
   kelimutu3warna: { cover: kelimutulakeImg },
   roadkelimutu: { cover: roadkelimutuImg },
   
+  
   culinarySeafood: { cover: art4_cover },
   culinaryhandayani: { cover: handayani },
   seafood: { cover: seafood },
@@ -210,6 +214,8 @@ export const BLOG_IMAGES = {
 
   
   packingSailing: { cover: boatPhinisi, gallery: [boatAthena, boatShining, boatArsiva] },
+  boatgear: { cover: boatgearImg },
+  packinglist: { cover: packinglistImg },
   carCharter: { cover: tourCarImg },
   safetyGuide: { cover: heroBgLocal },
   guaRangko: { cover: cityOptGuaRangko, gallery: [cityOptGuaRangko, cityOptGoloMori, bukitCintaImg] },
