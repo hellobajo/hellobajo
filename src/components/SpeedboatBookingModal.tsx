@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, Calendar, Users, User, Phone, MapPin, MessageCircle, Check, Anchor, Wind, ShieldCheck, Info } from 'lucide-react';
+import { X, Calendar, Users, User, Phone, MapPin, MessageCircle, Check, Anchor, Wind, ShieldCheck, Info, Plus, Minus, AlertTriangle } from 'lucide-react';
 import { Language } from '../data/translations';
 import { BOAT_CHARTERS, BoatCharterOption, calculateBoatCharterPrice } from '../data/boatsData';
 import { SITE_CONFIG } from '../data/siteConfig';
@@ -47,11 +47,24 @@ export const SpeedboatBookingModal: React.FC<SpeedboatBookingModalProps> = ({
   const [whatsapp, setWhatsapp] = useState<string>('');
   const [pickupLocation, setPickupLocation] = useState<string>('');
 
+  // Select boat handler that clamps guest count to boat's max capacity
+  const handleSelectBoat = (boat: BoatCharterOption) => {
+    setSelectedBoat(boat);
+    if (guestCount > boat.maxPaxLimit) {
+      setGuestCount(boat.maxPaxLimit);
+    }
+  };
+
   // Update selected boat when initialBoatId changes
   useEffect(() => {
     if (initialBoatId) {
       const found = BOAT_CHARTERS.find((b) => b.id === initialBoatId && !b.isUnderDevelopment);
-      if (found) setSelectedBoat(found);
+      if (found) {
+        setSelectedBoat(found);
+        if (guestCount > found.maxPaxLimit) {
+          setGuestCount(found.maxPaxLimit);
+        }
+      }
     }
   }, [initialBoatId]);
 
@@ -94,7 +107,7 @@ export const SpeedboatBookingModal: React.FC<SpeedboatBookingModalProps> = ({
     const messageEN = `Hi HelloBajo! I would like to reserve a Private Speedboat Charter:\n
 🚤 *Private Speedboat*: ${selectedBoat.name} (${selectedBoat.maxCapacity} - ${selectedBoat.acStatus})
 📅 *Tour Date*: ${formattedDate}
-👥 *Guests*: ${guestCount} Person(s)
+👥 *Guests*: ${guestCount} Person(s) (Max Cap: ${selectedBoat.maxPaxLimit} Pax)
 👤 *Name*: ${fullName || '-'}
 📱 *WhatsApp*: ${whatsapp || '-'}
 📍 *Pickup Location*: ${pickupLocation || '-'}
@@ -107,7 +120,7 @@ Please confirm availability and booking details. Thank you!`;
     const messageID = `Halo HelloBajo! Saya mau pesan Private Speedboat Charter:\n
 🚤 *Pilihan Speedboat*: ${selectedBoat.name} (${selectedBoat.maxCapacity} - ${selectedBoat.acStatus})
 📅 *Tanggal Tour*: ${formattedDate}
-👥 *Jumlah Tamu*: ${guestCount} Pax (Private Group)
+👥 *Jumlah Tamu*: ${guestCount} Pax (Maks. Kapasitas: ${selectedBoat.maxPaxLimit} Pax)
 👤 *Nama Lengkap*: ${fullName || '-'}
 📱 *No WhatsApp*: ${whatsapp || '-'}
 📍 *Lokasi Penjemputan*: ${pickupLocation || '-'}
@@ -120,7 +133,7 @@ Mohon infokan ketersediaan & petunjuk pembayaran DP. Terima kasih!`;
     const messageZH = `你好 HelloBajo！我想预订科莫多快艇包船出海：\n
 🚤 *出海船型*: ${selectedBoat.name} (${selectedBoat.maxCapacity} - ${selectedBoat.acStatus})
 📅 *出海日期*: ${formattedDate}
-👥 *出行人数*: ${guestCount} 人 (包船私密团)
+👥 *出行人数*: ${guestCount} 人 (最大容量: ${selectedBoat.maxPaxLimit} 人)
 👤 *姓名*: ${fullName || '-'}
 📱 *WhatsApp*: ${whatsapp || '-'}
 📍 *接送地点*: ${pickupLocation || '-'}
@@ -206,7 +219,7 @@ Mohon infokan ketersediaan & petunjuk pembayaran DP. Terima kasih!`;
                     return (
                       <div
                         key={boat.id}
-                        onClick={() => setSelectedBoat(boat)}
+                        onClick={() => handleSelectBoat(boat)}
                         className={`relative rounded-2xl border p-3.5 cursor-pointer transition-all duration-200 flex flex-col justify-between gap-3 ${
                           isSelected
                             ? 'bg-teal-50/70 border-2 border-teal-600 shadow-md ring-2 ring-teal-500/20'
@@ -321,22 +334,67 @@ Mohon infokan ketersediaan & petunjuk pembayaran DP. Terima kasih!`;
                     />
                   </div>
 
-                  {/* Guest Count Input */}
+                  {/* Guest Count Input with Stepper Controls & Dynamic Max Capacity Limit */}
                   <div className="space-y-1.5">
-                    <label className="block text-xs font-bold text-slate-700 flex items-center gap-1.5">
-                      <Users className="w-4 h-4 text-teal-600" />
-                      <span>{lang === 'EN' ? 'Total Guests (Pax)' : lang === 'ZH' ? '团队总人数' : 'Jumlah Tamu (Orang)'}</span>
-                    </label>
-                    <input
-                      type="number"
-                      min={1}
-                      max={30}
-                      required
-                      value={guestCount}
-                      onChange={(e) => setGuestCount(Math.max(1, parseInt(e.target.value) || 1))}
-                      placeholder="contoh: 4"
-                      className="w-full bg-stone-50/80 border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 rounded-xl px-4 py-3 text-sm font-semibold text-slate-900 transition-all outline-hidden"
-                    />
+                    <div className="flex items-center justify-between">
+                      <label className="block text-xs font-bold text-slate-700 flex items-center gap-1.5">
+                        <Users className="w-4 h-4 text-teal-600" />
+                        <span>{lang === 'EN' ? 'Total Guests (Pax)' : lang === 'ZH' ? '团队总人数' : 'Jumlah Tamu (Orang)'}</span>
+                      </label>
+                      <span className="text-[10px] font-extrabold text-teal-800 bg-teal-50 px-2 py-0.5 rounded-md border border-teal-200">
+                        {lang === 'EN'
+                          ? `Max ${selectedBoat.maxPaxLimit} Pax`
+                          : lang === 'ZH'
+                          ? `最多 ${selectedBoat.maxPaxLimit} 人`
+                          : `Maks. ${selectedBoat.maxPaxLimit} Orang`}
+                      </span>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <button
+                        type="button"
+                        onClick={() => setGuestCount((prev) => Math.max(1, prev - 1))}
+                        disabled={guestCount <= 1}
+                        className="w-11 h-11 rounded-xl bg-stone-100 hover:bg-stone-200 active:bg-stone-300 disabled:opacity-40 text-slate-700 font-bold flex items-center justify-center transition-all shrink-0 cursor-pointer disabled:cursor-not-allowed"
+                        aria-label="Decrease guest count"
+                      >
+                        <Minus className="w-4 h-4" />
+                      </button>
+
+                      <input
+                        type="number"
+                        min={1}
+                        max={selectedBoat.maxPaxLimit}
+                        required
+                        value={guestCount}
+                        onChange={(e) => {
+                          const raw = e.target.value;
+                          if (raw === '') {
+                            setGuestCount(1);
+                            return;
+                          }
+                          const val = parseInt(raw, 10);
+                          if (isNaN(val) || val < 1) {
+                            setGuestCount(1);
+                          } else if (val > selectedBoat.maxPaxLimit) {
+                            setGuestCount(selectedBoat.maxPaxLimit);
+                          } else {
+                            setGuestCount(val);
+                          }
+                        }}
+                        className="w-full bg-stone-50/80 border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 rounded-xl px-4 py-3 text-sm font-black text-center text-slate-900 transition-all outline-hidden"
+                      />
+
+                      <button
+                        type="button"
+                        onClick={() => setGuestCount((prev) => Math.min(selectedBoat.maxPaxLimit, prev + 1))}
+                        disabled={guestCount >= selectedBoat.maxPaxLimit}
+                        className="w-11 h-11 rounded-xl bg-teal-600 hover:bg-teal-500 active:bg-teal-700 disabled:opacity-40 text-white font-bold flex items-center justify-center transition-all shrink-0 cursor-pointer disabled:cursor-not-allowed shadow-xs"
+                        aria-label="Increase guest count"
+                      >
+                        <Plus className="w-4 h-4" />
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -356,6 +414,25 @@ Mohon infokan ketersediaan & petunjuk pembayaran DP. Terima kasih!`;
                     </span>
                   </div>
                 </div>
+
+                {/* Max capacity warning alert if guest count reaches boat capacity limit */}
+                {guestCount >= selectedBoat.maxPaxLimit && (
+                  <div className="p-3 bg-amber-50 border border-amber-300/80 rounded-xl flex items-start gap-2.5 text-xs text-amber-950 font-medium">
+                    <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+                    <div>
+                      <span className="font-black text-amber-950">
+                        {lang === 'EN' ? 'Maximum Boat Capacity Reached:' : lang === 'ZH' ? '已达该船型最大容量:' : 'Batas Maksimum Kapasitas Kapal:'}
+                      </span>{' '}
+                      <span>
+                        {lang === 'EN'
+                          ? `${selectedBoat.name} fits up to ${selectedBoat.maxPaxLimit} guests. For groups larger than ${selectedBoat.maxPaxLimit} pax, please contact us to book multiple speedboats.`
+                          : lang === 'ZH'
+                          ? `${selectedBoat.name} 最多承载 ${selectedBoat.maxPaxLimit} 人。若出行人数超过 ${selectedBoat.maxPaxLimit} 人，请联系我们预订多艘快艇。`
+                          : `Kapasitas ${selectedBoat.name} maksimal ${selectedBoat.maxPaxLimit} orang. Untuk rombongan lebih dari ${selectedBoat.maxPaxLimit} orang, silakan hubungi WhatsApp kami untuk sewa 2+ speedboat.`}
+                      </span>
+                    </div>
+                  </div>
+                )}
               </div>
 
               {/* 3. CONTACT DETAILS */}

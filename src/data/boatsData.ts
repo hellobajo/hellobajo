@@ -13,6 +13,7 @@ export interface BoatCharterOption {
   type: 'Private Speedboat' | 'Luxury Phinisi Liveaboard';
   capacity: string;
   maxCapacity: string;
+  maxPaxLimit: number;
   acStatus: string;
   duration: string;
   priceTiers?: PriceTier[];
@@ -37,7 +38,8 @@ export function calculateBoatCharterPrice(boat: BoatCharterOption, guestCount: n
   if (boat.isUnderDevelopment || !boat.priceTiers || boat.priceTiers.length === 0) {
     return boat.priceVal || 0;
   }
-  const count = Math.max(1, guestCount);
+  const maxCap = boat.maxPaxLimit || 12;
+  const count = Math.min(maxCap, Math.max(1, guestCount));
   const matchingTier = boat.priceTiers.find((t) => count >= t.minPax && count <= t.maxPax);
   if (matchingTier) {
     return matchingTier.price;
@@ -61,7 +63,8 @@ export const BOAT_CHARTERS: BoatCharterOption[] = [
     type: 'Private Speedboat',
     capacity: '1 - 8 Person',
     maxCapacity: 'Max 8 Pax',
-    acStatus: 'Cabin AC',
+    maxPaxLimit: 8,
+    acStatus: 'Non-AC & Small Deck',
     duration: 'Full Day (06:00 - 17:00)',
     priceVal: 8000000,
     isPerPerson: false,
@@ -90,9 +93,9 @@ export const BOAT_CHARTERS: BoatCharterOption[] = [
       'Free Hotel & Marina Transfer in Labuan Bajo',
     ],
     description: {
-      EN: 'Compact high-speed private speedboat charter with twin engines and air-conditioned cabin seating. Ideal for families and small groups up to 8 guests.',
-      ID: 'Kapal cepat private charter eksklusif dengan kabin ber-AC dan mesin twin berkecepatan tinggi. Sangat cocok untuk keluarga dan rombongan hingga 8 orang.',
-      ZH: '紧凑型双发高速包船快艇，配备冷气空调船舱，适合最多8人的家庭与小团队专属出海。',
+      EN: 'Compact high-speed private speedboat with twin engines, open-air ventilated cabin seating (non-AC), and a small front bow deck. Best value charter for families and small groups up to 8 guests.',
+      ID: 'Speedboat private charter hemat dengan mesin twin, kabin duduk ventilasi alami (non-AC), dan dek depan ringkas. Pilihan paling terjangkau untuk rombongan hingga 8 orang.',
+      ZH: '性价比高的双发包船快艇，配备自然通风客舱（无空调）与前部小甲板。非常适合最多8人的家庭与小团队。',
     },
   },
   {
@@ -101,6 +104,7 @@ export const BOAT_CHARTERS: BoatCharterOption[] = [
     type: 'Private Speedboat',
     capacity: '1 - 8 Person',
     maxCapacity: 'Max 8 Pax',
+    maxPaxLimit: 8,
     acStatus: 'Full AC & Sun Deck',
     duration: 'Full Day (06:00 - 17:00)',
     priceVal: 11000000,
@@ -140,7 +144,8 @@ export const BOAT_CHARTERS: BoatCharterOption[] = [
     name: 'Arsiva Speedboat',
     type: 'Private Speedboat',
     capacity: '1 - 12+ Person',
-    maxCapacity: 'Max 12+ Pax',
+    maxCapacity: 'Max 14 Pax',
+    maxPaxLimit: 14,
     acStatus: 'Full AC & Wide Lounge',
     duration: 'Full Day (06:00 - 17:00)',
     priceVal: 13000000,
@@ -173,9 +178,9 @@ export const BOAT_CHARTERS: BoatCharterOption[] = [
       'Free Hotel & Port Transfer',
     ],
     description: {
-      EN: 'Spacious high-capacity private speedboat with comfortable sofa seating and wide deck. Perfect for medium to large groups up to 12+ guests.',
-      ID: 'Speedboat private charter berkapasitas besar dengan sofa kabin AC yang luas dan nyaman. Sangat ideal untuk rombongan hingga 12+ orang.',
-      ZH: '宽敞大容量私人快艇，配有沙发卡座与超大活动空间，为多达12人以上的私密团队出海首选。',
+      EN: 'Spacious high-capacity private speedboat with comfortable sofa seating and wide deck. Perfect for medium to large groups up to 14 guests.',
+      ID: 'Speedboat private charter berkapasitas besar dengan sofa kabin AC yang luas dan nyaman. Sangat ideal untuk rombongan hingga 14 orang.',
+      ZH: '宽敞大容量私人快艇，配有沙发卡座与超大活动空间，为多达14人的私密团队出海首选。',
     },
   },
   {
@@ -183,7 +188,8 @@ export const BOAT_CHARTERS: BoatCharterOption[] = [
     name: 'Sea Zaydan',
     type: 'Private Speedboat',
     capacity: '1 - 12+ Person',
-    maxCapacity: 'Max 12+ Pax',
+    maxCapacity: 'Max 14 Pax',
+    maxPaxLimit: 14,
     acStatus: 'Full AC & Sunset Deck',
     duration: 'Full Day (06:00 - 17:00)',
     priceVal: 13000000,
@@ -227,6 +233,7 @@ export const BOAT_CHARTERS: BoatCharterOption[] = [
     type: 'Luxury Phinisi Liveaboard',
     capacity: '8 - 14 Passengers',
     maxCapacity: 'Max 14 Pax',
+    maxPaxLimit: 14,
     acStatus: 'Luxury AC Cabins',
     duration: '2D1N / 3D2N Liveaboard',
     priceVal: 0,

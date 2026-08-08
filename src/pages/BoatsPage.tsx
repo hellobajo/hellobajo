@@ -109,12 +109,12 @@ const ITINERARY_FULLDAY = [
     title: {
       EN: 'Hotel Pick-Up & Pier Briefing',
       ID: 'Penjemputan Hotel & Briefing Dermaga',
-      ZH: '酒店接送与码头讲解',
+      ZH: '酒店专车接送与码头讲解',
     },
     desc: {
-      EN: 'Driver picks up guest from hotel to Labuan Bajo harbor pier, welcome briefing by team',
-      ID: 'Penjemputan dari hotel menuju dermaga Labuan Bajo, briefing singkat bersama tim',
-      ZH: '专车从酒店接您前往码头，团队致欢迎词并做安全与行程讲解',
+      EN: 'Free private pickup from your hotel or resort in Labuan Bajo directly to the harbor pier. Meet your professional tour team & licensed guide for safety briefing and gear check.',
+      ID: 'Penjemputan gratis dari hotel/resort di Labuan Bajo menuju dermaga utama. Briefing keselamatan dan fitting peralatan kelengkapan oleh kapten & guide profesional.',
+      ZH: '专车从酒店或度假村接送至主码头。与专业船长和双语导游会合，进行行前安全讲解并领取浮潜装备。',
     },
   },
   {
@@ -125,9 +125,9 @@ const ITINERARY_FULLDAY = [
       ZH: '高速航行前往帕达尔岛',
     },
     desc: {
-      EN: 'High-speed cruise on speedboat across Komodo ocean (~45-50 mins)',
-      ID: 'Pelayaran cepat dengan speedboat menyeberangi lautan Komodo (~45-50 menit)',
-      ZH: '乘坐双发强劲快艇穿梭于科莫多海域（约 45-50 分钟）',
+      EN: 'High-speed ocean cruise aboard our twin-engine speedboat across the Komodo archipelago (~45–50 mins). Enjoy exotic island panoramas, ocean breeze, and mineral water.',
+      ID: 'Pelayaran cepat menyeberangi lautan Komodo (~45-50 menit) menggunakan speedboat mesin twin. Nikmati pemandangan gugusan pulau eksotis dan udara laut segar.',
+      ZH: '乘坐强劲双发快艇穿梭于科莫多海域（约 45-50 分钟）。沿途尽情领略科莫多群岛壮丽的大海与岛屿风光。',
     },
   },
   {
@@ -135,12 +135,12 @@ const ITINERARY_FULLDAY = [
     title: {
       EN: 'Padar Island Summit Trekking',
       ID: 'Trekking Puncak Pulau Padar',
-      ZH: '攀登帕达尔岛山顶',
+      ZH: '攀登帕达尔岛山顶俯瞰全景',
     },
     desc: {
-      EN: 'Trek ~818 stairs to summit for iconic photo shoot with 3-color bay backdrop (white, pink, black sand)',
-      ID: 'Trekking ~818 anak tangga ke puncak untuk foto ikonik dengan latar 3 teluk (pasir putih, pink, hitam)',
-      ZH: '攀登约 818 级石阶登顶，打卡三色海湾（白沙、粉沙、黑沙）绝美全景',
+      EN: 'Soft trek up ~818 wooden stairs to the iconic Padar Island summit. Capture world-famous photos overlooking three natural crescent bays with white, pink, and black volcanic sand.',
+      ID: 'Trekking ~818 anak tangga kayu menuju puncak Pulau Padar. Foto pemandangan spektakuler 3 teluk berkontras warna pasir alami (pasir putih, pink, dan pasir vulkanik hitam).',
+      ZH: '攀登约 818 级石阶登上山顶。俯瞰世界级名胜奇观——融合白沙、粉红沙与黑色火山沙的三色海湾美景。',
     },
   },
   {
@@ -148,12 +148,12 @@ const ITINERARY_FULLDAY = [
     title: {
       EN: 'Pink Beach Relaxation & Swim',
       ID: 'Bersantai & Berenang di Pink Beach',
-      ZH: '粉红沙滩畅游与打卡',
+      ZH: '粉红沙滩畅游与拍照打卡',
     },
     desc: {
-      EN: '15 min cruise to Pink Beach. Relax, swim, take aesthetic photos on soft pink coral sand',
-      ID: 'Pelayaran 15 menit ke Pink Beach. Bersantai, berenang, dan foto di atas pasir pink alami',
-      ZH: '15 分钟航程抵达粉红沙滩，在浪漫粉红珊瑚沙滩上放松、游泳并拍摄唯美照片',
+      EN: '15-min cruise to Pink Beach. Walk on soft natural pink coral sand, swim in calm turquoise waters, or take aesthetic photos along the vibrant coastline.',
+      ID: 'Pelayaran 15 menit ke Pink Beach. Bersantai di atas pasir berwarna pink alami dari serpihan karang merah, berenang di air jernih, dan berfoto estetik di tepi pantai.',
+      ZH: '15分钟航程抵达浪漫粉红沙滩。漫步于细软的天然粉色珊瑚沙滩上，在清澈的碧蓝海水中游泳并拍照打卡。',
     },
   },
   {
@@ -161,12 +161,12 @@ const ITINERARY_FULLDAY = [
     title: {
       EN: 'Komodo Dragon Trekking & Lunch',
       ID: 'Trekking Naga Komodo & Makan Siang',
-      ZH: '科莫多巨蜥徒步与午餐',
+      ZH: '科莫多巨蜥徒步与精美午餐',
     },
     desc: {
-      EN: 'Guided soft trekking with Park Ranger to meet ancient Komodo dragons up close, followed by lunch box',
-      ID: 'Trekking santai didampingi Ranger untuk melihat Naga Komodo purba, dilanjutkan makan siang',
-      ZH: '在国家公园护林员带领下徒步观赏古老科莫多巨蜥，随后享用精美午餐',
+      EN: 'Guided ranger trek on Komodo Island to spot the legendary dragon up close in its natural wild habitat. Followed by a fresh gourmet lunch box served onboard or on the island.',
+      ID: 'Trekking didampingi Ranger resmi Taman Nasional Komodo untuk melihat Naga Komodo purba secara dekat, dilanjutkan makan siang lezat (lunch box) segar.',
+      ZH: '在科莫多国家公园护林员的专业带领下，近距离寻找并观赏野生科莫多巨蜥，随后享用丰盛定制午餐餐盒。',
     },
   },
   {
@@ -177,9 +177,9 @@ const ITINERARY_FULLDAY = [
       ZH: 'Taka Makassar 弯月白沙洲',
     },
     desc: {
-      EN: 'Swim, snorkel & take drone photos on a crescent sandbank floating in crystal turquoise water',
-      ID: 'Berenang, snorkeling & foto drone di bukit pasir putih yang mengapung di air laut jernih',
-      ZH: '在蒂芙尼蓝海央的弯月形白沙洲游泳、浮潜并拍摄大片',
+      EN: 'Step onto a dreamlike crescent white sandbank surrounded by crystal-clear shallow turquoise ocean. Perfect spot for drone footage, swimming, and soft reef snorkeling.',
+      ID: 'Singgah di pulau pasir putih berbentuk bulan sabit yang mengapung di tengah laut jernih. Lokasi terbaik untuk foto drone, berenang, dan snorkeling karang dangkal.',
+      ZH: '登上浮现于蒂芙尼蓝海央的月牙形白沙洲。这里是拍摄航拍无人机大片、游泳与浅水浮潜的绝佳胜地。',
     },
   },
   {
@@ -187,25 +187,25 @@ const ITINERARY_FULLDAY = [
     title: {
       EN: 'Manta Point Snorkeling Drift',
       ID: 'Snorkeling Drift Manta Point',
-      ZH: 'Manta Point 漂流浮潜',
+      ZH: 'Manta Point 顺流浮潜同游',
     },
     desc: {
-      EN: 'Drift snorkel in open ocean alongside giant wild Manta Rays feeding gracefully in current',
-      ID: 'Snorkeling drift di laut lepas berenang bersama Ikan Manta Pari raksasa di arus laut',
-      ZH: '在开阔海域顺流浮潜，近距离与优雅觅食的巨型野生魔鬼鱼（Manta）共游',
+      EN: 'Drift-snorkeling in open waters with wild Manta Rays. Swimmers can glide alongside giant, friendly mantas with up to 3–4 meter wingspans as they feed gracefully in currents.',
+      ID: 'Snorkeling drift di laut lepas bersama Manta Ray (Pari Raksasa) liar. Pengalaman tak terlupakan berenang berdampingan dengan Manta bersayap hingga 3-4 meter.',
+      ZH: '在开阔海域体验顺流浮潜，与展翅达 3-4 米的巨型野生魔鬼鱼（Manta）在清澈海水中优雅同游。',
     },
   },
   {
     time: '15:15 – 16:15',
     title: {
-      EN: 'Kanawa Island Coral & Nemo Fish',
+      EN: 'Kanawa Island Coral Garden & Nemo',
       ID: 'Taman Karang & Ikan Nemo Pulau Kanawa',
       ZH: '卡纳瓦岛珊瑚花园与小丑鱼',
     },
     desc: {
-      EN: 'Snorkel shallow vibrant coral reefs, feed hungry Clownfish (Nemo) & relax at iconic wooden pier',
-      ID: 'Snorkeling di taman karang dangkal, beri makan Ikan Nemo & bersantai di dermaga kayu',
-      ZH: '在绚丽浅水珊瑚礁浮潜喂食小丑鱼（Nemo），在经典木质码头度过悠闲时光',
+      EN: 'Snorkel vibrant shallow reef gardens teeming with colorful tropical fish and clownfish (Nemo). Relax with cold drinks at the iconic wooden pier before heading home.',
+      ID: 'Snorkeling di taman karang dangkal penuh warna yang dihuni ikan tropis & Ikan Nemo. Bersantai menikmati kelapa muda atau minuman segar di dermaga kayu ikonik.',
+      ZH: '在色彩斑斓的浅海珊瑚花园浮潜，同小丑鱼（Nemo）近距离互动，并在经典木质码头享受悠闲时光。',
     },
   },
   {
@@ -213,12 +213,12 @@ const ITINERARY_FULLDAY = [
     title: {
       EN: 'Return Cruise & Hotel Drop-Off',
       ID: 'Pelayaran Pulang & Pengantaran Hotel',
-      ZH: '返航与专车送回酒店',
+      ZH: '返航与专车送回酒店/机场',
     },
     desc: {
-      EN: 'Scenic return boat ride back to Labuan Bajo main pier and private drop-off back to hotel/resort',
-      ID: 'Perjalanan kapal kembali ke dermaga utama Labuan Bajo dan diantar privat kembali ke hotel',
-      ZH: '乘船返回拉布安巴佐主码头，由专车安全接送您返回酒店或机场',
+      EN: 'Smooth return cruise back to Labuan Bajo harbor while enjoying afternoon sea breezes. Private vehicle awaits at the pier to transport you safely back to your hotel or airport.',
+      ID: 'Pelayaran santai kembali ke dermaga Labuan Bajo menikmati angin sore. Mobil jemputan privat telah bersiap di dermaga untuk mengantar Anda kembali ke hotel.',
+      ZH: '乘快艇舒适返航至主码头。专属专车已在码头恭候，安全送您返回酒店、度假村或科莫多机场。',
     },
   },
 ];
@@ -227,66 +227,66 @@ const ITINERARY_SUNSET = [
   {
     time: '12:00 – 13:30',
     title: {
-      EN: 'Hotel Pick-Up',
-      ID: 'Penjemputan Hotel',
-      ZH: '酒店专车接送',
+      EN: 'Hotel Pick-Up & Pier Briefing',
+      ID: 'Penjemputan Hotel & Briefing Dermaga',
+      ZH: '酒店专车接送与行前讲解',
     },
     desc: {
-      EN: 'Pick up hotel to harbor pier and safety briefing',
-      ID: 'Penjemputan dari hotel menuju dermaga & briefing keselamatan',
-      ZH: '专车从酒店接您前往码头，并进行安全提示',
+      EN: 'Afternoon pickup from your hotel or resort directly to the harbor. Receive a safety orientation, fit your snorkel gear, and board your private speedboat.',
+      ID: 'Penjemputan siang hari dari hotel menuju dermaga utama. Fitting alat snorkeling, briefing singkat keselamatan, dan persiapan naik ke atas speedboat.',
+      ZH: '午后专车从酒店接送至码头。试穿浮潜装备、听取安全讲解，并登上专属快艇。',
     },
   },
   {
     time: '13:30 – 14:30',
     title: {
-      EN: 'Kelor Island',
-      ID: 'Pulau Kelor',
-      ZH: '克洛尔岛 (Kelor Island)',
+      EN: 'Kelor Island Hike & Beach',
+      ID: 'Pulau Kelor: Hike & Bersantai Pantai',
+      ZH: '克洛尔岛 (Kelor Island) 徒步与海滩',
     },
     desc: {
-      EN: 'Short hiking to viewpoint, swimming & beach relaxation',
-      ID: 'Trekking singkat ke puncak bukit, berenang & bersantai di pantai',
-      ZH: '短途徒步登顶俯瞰海景，海滩游泳与休闲',
+      EN: 'Scenic 15-min trek up Kelor Hill for sweeping 360-degree views of surrounding islands. Enjoy soft white sand beaches, clear swimming waters, and stunning photo ops.',
+      ID: 'Trekking 15 menit ke puncak Bukit Kelor untuk pemandangan panorama 360 derajat. Berenang dan bersantai di pantai pasir putih nan lembut.',
+      ZH: '徒步 15 分钟登顶克洛尔山，俯瞰 360 度海景与周边岛屿。在白沙滩上自由游泳与休闲拍摄。',
     },
   },
   {
     time: '14:45 – 15:45',
     title: {
-      EN: 'Manjarite Island',
-      ID: 'Pulau Manjarite',
-      ZH: '曼加里特岛 (Manjarite Island)',
+      EN: 'Manjarite Island Calm Snorkeling',
+      ID: 'Pulau Manjarite: Snorkeling Laut Tenang',
+      ZH: '曼加里特岛 (Manjarite Island) 平静浮潜',
     },
     desc: {
-      EN: 'Snorkeling in calm crystal blue waters and coral reef exploration',
-      ID: 'Snorkeling di laut tenang jernih dan jelajah taman terumbu karang',
-      ZH: '在平静如镜的晶莹蓝海中浮潜，探索水下珊瑚世界',
+      EN: 'Snorkel in super calm, crystal-clear shallow waters ideal for beginners and families. Discover lush coral reefs, sea turtles, and colorful tropical marine life along the quiet bay.',
+      ID: 'Snorkeling di laut tenang dan super jernih, sangat aman untuk pemula & keluarga. Jelajahi terumbu karang subur dan keanekaragaman ikan tropis.',
+      ZH: '在极其平静透明的浅海中体验浮潜，非常适合初学者与家庭。探索茂盛的珊瑚礁与丰富的海水热带鱼群。',
     },
   },
   {
     time: '17:15 – 18:30',
     title: {
-      EN: 'Kalong Island Sunset',
-      ID: 'Sunset Pulau Kalong',
-      ZH: '卡隆岛蝙蝠日落奇观',
+      EN: 'Kalong Island Sunset & Flying Foxes',
+      ID: 'Sunset Pulau Kalong & Migrasi Kelelawar',
+      ZH: '卡隆岛蝙蝠日落奇观 (Kalong Island)',
     },
     desc: {
-      EN: 'Watch thousands of flying foxes bat migration at golden sunset sky',
-      ID: 'Menyaksikan ribuan kelelawar kalong terbang berimigrasi di langit sunset emas',
-      ZH: '在金色晚霞下，观赏数以万计的果蝠出巢漫天飞舞的绝美奇观',
+      EN: 'Anchor near mangrove-covered Kalong Island during golden hour. Witness millions of giant flying fox bats emerge from mangroves and fly into the glowing orange sunset sky.',
+      ID: 'Bersandar di perairan Pulau Kalong saat golden hour sunset. Saksikan jutaan kelelawar kalong raksasa terbang keluar dari hutan bakau menutupi langit senja.',
+      ZH: '傍晚快艇停泊于卡隆岛红树林旁。在金色晚霞下，亲眼目睹数以百万计的果蝠出巢翱翔天际的震撼天象。',
     },
   },
   {
     time: '18:30 – 20:00',
     title: {
-      EN: 'Return & Hotel Drop',
-      ID: 'Perjalanan Pulang & Pengantaran Hotel',
-      ZH: '返航并送回酒店',
+      EN: 'Starlight Return Cruise & Drop-Off',
+      ID: 'Pelayaran Malam & Pengantaran Hotel',
+      ZH: '夜航返航与专车送回酒店',
     },
     desc: {
-      EN: 'Back to harbor pier and drop off back to hotel',
-      ID: 'Kembali ke dermaga dan diantar kembali ke hotel',
-      ZH: '返回码头，专车安全送回酒店',
+      EN: 'Relax on the peaceful night cruise back to Labuan Bajo under star-filled skies. Private driver welcomes you at the pier for a comfortable drop-off at your hotel or seafood restaurant.',
+      ID: 'Pelayaran malam santai kembali ke dermaga Labuan Bajo di bawah langit berbintang. Driver privat mengantar Anda kembali ke hotel atau restoran pilihan.',
+      ZH: '乘船夜航返回拉布安巴佐，享受夜色与星空。码头专车将您安全送回酒店或指定海鲜餐厅。',
     },
   },
 ];
@@ -966,10 +966,10 @@ export const BoatsPage: React.FC<BoatsPageProps> = ({ lang }) => {
             </div>
 
             {/* Itinerary Tab Selector */}
-            <div className="inline-flex bg-slate-100 p-1 rounded-2xl border border-slate-200/80">
+            <div className="w-full sm:w-auto flex bg-slate-100 p-1 rounded-2xl border border-slate-200/80">
               <button
                 onClick={() => setActiveItineraryTab('fullday')}
-                className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all cursor-pointer ${
+                className={`flex-1 sm:flex-initial px-3 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all cursor-pointer text-center ${
                   activeItineraryTab === 'fullday'
                     ? 'bg-teal-600 text-white shadow-sm'
                     : 'text-slate-600 hover:text-slate-900'
@@ -983,7 +983,7 @@ export const BoatsPage: React.FC<BoatsPageProps> = ({ lang }) => {
               </button>
               <button
                 onClick={() => setActiveItineraryTab('sunset')}
-                className={`px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all cursor-pointer ${
+                className={`flex-1 sm:flex-initial px-3 sm:px-4 py-2.5 rounded-xl text-xs sm:text-sm font-extrabold transition-all cursor-pointer text-center ${
                   activeItineraryTab === 'sunset'
                     ? 'bg-teal-600 text-white shadow-sm'
                     : 'text-slate-600 hover:text-slate-900'
@@ -998,22 +998,30 @@ export const BoatsPage: React.FC<BoatsPageProps> = ({ lang }) => {
             </div>
           </div>
 
-          {/* Schedule Grid (Concise Layout) */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {/* Schedule Grid (Clean, Responsive Card Layout) */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
             {(activeItineraryTab === 'fullday' ? ITINERARY_FULLDAY : ITINERARY_SUNSET).map((item, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-2xl bg-stone-50/90 border border-stone-200/80 flex items-start gap-3 hover:border-teal-300 transition-all"
+                className="p-4 sm:p-5 rounded-2xl bg-stone-50/90 border border-stone-200/80 hover:border-teal-400 hover:bg-white hover:shadow-md transition-all duration-200 flex flex-col justify-between space-y-2.5"
               >
-                <div className="bg-teal-50 border border-teal-200 text-teal-700 text-xs font-black px-3 py-1.5 rounded-xl whitespace-nowrap shrink-0 flex items-center gap-1">
-                  <Clock className="w-3.5 h-3.5 text-teal-600" />
-                  <span>{item.time}</span>
+                {/* Header Row: Time Badge & Stop Indicator */}
+                <div className="flex items-center justify-between gap-2 border-b border-stone-200/60 pb-2.5">
+                  <div className="bg-teal-50 border border-teal-200/80 text-teal-800 text-xs font-black px-3 py-1 rounded-xl flex items-center gap-1.5 shadow-2xs">
+                    <Clock className="w-3.5 h-3.5 text-teal-600 shrink-0" />
+                    <span>{item.time}</span>
+                  </div>
+                  <span className="text-[10px] sm:text-xs font-extrabold uppercase tracking-wider text-teal-700 bg-teal-50/70 border border-teal-100 px-2.5 py-0.5 rounded-md">
+                    {lang === 'EN' ? `Stop #${idx + 1}` : lang === 'ZH' ? `第 ${idx + 1} 站` : `Spot #${idx + 1}`}
+                  </span>
                 </div>
-                <div className="space-y-0.5">
-                  <h4 className="text-sm font-extrabold text-slate-900 leading-snug">
+
+                {/* Content: Full width title & enriched description */}
+                <div className="space-y-1">
+                  <h4 className="text-sm sm:text-base font-extrabold text-slate-900 leading-snug">
                     {item.title[lang]}
                   </h4>
-                  <p className="text-xs text-slate-600 font-medium leading-relaxed">
+                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
                     {item.desc[lang]}
                   </p>
                 </div>

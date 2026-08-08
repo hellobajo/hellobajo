@@ -80,7 +80,6 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: 'August 7, 2026',
     readTime: '7 min read',
     coverImage: BLOG_IMAGES.firstTimerGuide.cover,
-    galleryImages: BLOG_IMAGES.firstTimerGuide.gallery,
     tags: ['Labuan Bajo', 'Komodo National Park', 'Travel Guide', 'Padar Island', 'Pink Beach', 'Gua Rangko', 'Scooter Rental', 'First-Timers'],
     isFeatured: true,
     microCta: {
@@ -513,7 +512,6 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: 'August 7, 2026',
     readTime: '5 min read',
     coverImage: BLOG_IMAGES.airportScooter.cover,
-    galleryImages: BLOG_IMAGES.airportScooter.gallery,
     tags: ['Komodo Airport', 'Scooter Rental', 'LBJ Airport', 'Labuan Bajo', 'Airport Pickup', 'Travel Tips'],
     isFeatured: true,
     microCta: {
@@ -565,8 +563,6 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. How Pre-Booked Airport Scooter Delivery Works',
             intro:
               'Arranging an airport pickup is surprisingly fast and stress-free. Here is the step-by-step process when you book ahead:',
-            image: SCOOTER_IMAGES.nmax,
-            imageCaption: 'Clean and Well-Maintained Automatic Scooters Delivered Right to You',
             items: [
               {
                 subtitle: '1. Reserve via WhatsApp Before You Fly',
@@ -613,7 +609,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '4. Choosing the Right Scooter for Your Trip',
             intro:
               'Selecting the right bike depends on your luggage situation and where you plan to ride around Flores:',
-            image: SCOOTER_IMAGES.scoopy,
+            image: BLOG_IMAGES.canyourent3.cover,
             imageCaption: 'Choose between nimble 110cc city scooters or spacious 155cc maxi scooters',
             items: [
               {
@@ -682,8 +678,6 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Cara Kerja Layanan Antar Motor Bandara Komodo',
             intro:
               'Proses serah terima motor di bandara sangat cepat dan bebas stres. Berikut tahapan langkah saat Anda memesan terlebih dahulu:',
-            image: SCOOTER_IMAGES.nmax,
-            imageCaption: 'Unit Motor Matic Prima Siap Diantar Langsung ke Bandara',
             items: [
               {
                 subtitle: '1. Pesan via WhatsApp Sebelum Terbang',
@@ -799,8 +793,6 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. 科莫多机场预订送车服务流程',
             intro:
               '安排机场接机送车非常快速省心，提前预订流程如下：',
-            image: SCOOTER_IMAGES.nmax,
-            imageCaption: '专人清洁保养的踏板车直接送达机场到达口',
             items: [
               {
                 subtitle: '1. 出发前通过 WhatsApp 预订',
@@ -1270,7 +1262,6 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: 'August 5, 2026',
     readTime: '6 min read',
     coverImage: BLOG_IMAGES.culinarySeafood.cover,
-    galleryImages: BLOG_IMAGES.culinarySeafood.gallery,
     tags: ['Seafood', 'Kampung Ujung', 'Pondok Mai Cenggo', 'Made Banana Flour', 'Atlantis On The Rock', 'Scooter Rental'],
     isFeatured: true,
     title: {
@@ -2477,7 +2468,6 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: 'August 6, 2026',
     readTime: '6 min read',
     coverImage: BLOG_IMAGES.carCharter.cover,
-    galleryImages: BLOG_IMAGES.carCharter.gallery,
     tags: ['Car Charter', 'Private Driver', 'Toyota Rush', 'Toyota Calya', 'Toyota HiAce', 'Family Travel', 'Batu Cermin'],
     title: {
       EN: 'Private Car Charter in Labuan Bajo: Complete Family & Group Travel Guide',
@@ -2820,7 +2810,6 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: 'August 1, 2026',
     readTime: '6 min read',
     coverImage: BLOG_IMAGES.safetyGuide.cover,
-    galleryImages: BLOG_IMAGES.safetyGuide.gallery,
     tags: ['Scooter Rental', 'Labuan Bajo', 'Airport Pickup', 'No Deposit'],
     title: {
       EN: 'Scooter Rental in Labuan Bajo: Essential Guide to Fleet, Airport Delivery & Routes',
@@ -3729,7 +3718,6 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: 'August 6, 2026',
     readTime: '6 min read',
     coverImage: BLOG_IMAGES.sunsetSpots.cover,
-    galleryImages: BLOG_IMAGES.sunsetSpots.gallery,
     tags: ['Hidden Beaches', 'Waecicu Beach', 'Pantai Pede', 'Silvia Hill', 'Snorkeling', 'Scooter Rental', 'Labuan Bajo'],
     microCta: {
       label: {
@@ -4437,7 +4425,6 @@ export const BLOG_POSTS: BlogPost[] = [
     publishDate: 'August 6, 2026',
     readTime: '6 min read',
     coverImage: BLOG_IMAGES.gettingAround.cover,
-    galleryImages: BLOG_IMAGES.gettingAround.gallery,
     tags: ['Labuan Bajo Transport', 'Scooter Rental', 'Private Car Charter', 'Travel Tips', 'Flores Road Trip'],
     isFeatured: true,
     microCta: {

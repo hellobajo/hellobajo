@@ -307,9 +307,9 @@ const FAQS = [
       ZH: '预订需要支付定金吗？',
     },
     a: {
-      EN: 'To lock in your driver and private car for your date, a low commitment deposit of Rp 200.000 (~$13 USD) per car is required. The remaining balance of Rp 1.100.000 (~$70 USD) can be paid in cash, local bank transfer, or Wise after tour completion.',
-      ID: 'Untuk mengunci jadwal driver & mobil, diperlukan deposit Rp 200.000 / mobil. Sisa pelunasan Rp 1.100.000 (~$70 USD) dapat dibayarkan tunai, transfer bank lokal, atau Wise setelah tur selesai.',
-      ZH: '为了锁定司机与车辆，预订时仅需支付 Rp 200.000 (约 $13 USD) 定金。余款 Rp 1.100.000 (约 $70 USD) 可在行程结束后通过现金、印尼本地银行转账或 Wise 支付。',
+      EN: 'To lock in your driver and private car for your date, a low commitment deposit of Rp 200.000 (~$11 USD) per car is required. The remaining balance of Rp 1.300.000 (~$72 USD) can be paid in cash, local bank transfer, or Wise after tour completion.',
+      ID: 'Untuk mengunci jadwal driver & mobil, diperlukan deposit Rp 200.000 / mobil. Sisa pelunasan Rp 1.300.000 (~$72 USD) dapat dibayarkan tunai, transfer bank lokal, atau Wise setelah tur selesai.',
+      ZH: '为了锁定司机与车辆，预订时仅需支付 Rp 200.000 (约 $11 USD) 定金。余款 Rp 1.300.000 (约 $72 USD) 可在行程结束后通过现金、印尼本地银行转账或 Wise 支付。',
     },
   },
   {
@@ -338,14 +338,14 @@ const FAQS = [
   },
   {
     q: {
-      EN: 'Are entrance tickets included in Rp 1.300.000 (~$82 USD)?',
-      ID: 'Apakah tiket masuk wisata sudah termasuk dalam Rp 1.300.000?',
-      ZH: 'Rp 1.300.000 费用中是否包含景点门票？',
+      EN: 'Are entrance tickets included in Rp 1.500.000 (~$83 USD)?',
+      ID: 'Apakah tiket masuk wisata sudah termasuk dalam Rp 1.500.000?',
+      ZH: 'Rp 1.500.000 费用中是否包含景点门票？',
     },
     a: {
-      EN: 'The Rp 1.300.000 rate covers the vehicle, full fuel (BBM), professional driver, mineral water, and all-day transfers up to 20:00 PM. Attraction entrance tickets (e.g. Gua Batu Cermin ~Rp 50.000/pax) and meals are paid directly by you at the venue.',
-      ID: 'Harga Rp 1.300.000 sudah mencakup mobil ber-AC, BBM penuh, driver profesional, air mineral, & operasional hingga jam 20:00. Tiket masuk lokasi (seperti Gua Batu Cermin ~Rp 50.000/orang) & makan bayar langsung di lokasi.',
-      ZH: 'Rp 1.300.000 价格已包含冷气专车、全程汽油 (BBM)、专业本地司机、矿泉水及全天使用（最迟至 20:00）。景点门票（例如镜石洞约 Rp 50.000/人）及餐食费用由您在现场自行支付。',
+      EN: 'The Rp 1.500.000 rate covers the vehicle, full fuel (BBM), professional driver, mineral water, and all-day transfers up to 20:00 PM. Attraction entrance tickets (e.g. Gua Batu Cermin ~Rp 50.000/pax) and meals are paid directly by you at the venue.',
+      ID: 'Harga Rp 1.500.000 sudah mencakup mobil ber-AC, BBM penuh, driver profesional, air mineral, & operasional hingga jam 20:00. Tiket masuk lokasi (seperti Gua Batu Cermin ~Rp 50.000/orang) & makan bayar langsung di lokasi.',
+      ZH: 'Rp 1.500.000 价格已包含冷气专车、全程汽油 (BBM)、专业本地司机、矿泉水及全天使用（最迟至 20:00）。景点门票（例如镜石洞约 Rp 50.000/人）及餐食费用由您在现场自行支付。',
     },
   },
   {
@@ -381,7 +381,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [passengerCount, setPassengerCount] = useState('5 - 6 Passengers (Standard MPV - Rp 1.300.000)');
+  const [passengerCount, setPassengerCount] = useState('5 - 6 Passengers (Standard MPV - Rp 1.500.000)');
   const [tourDate, setTourDate] = useState(() => {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
@@ -403,10 +403,10 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
     e.preventDefault();
     const msg =
       lang === 'EN'
-        ? `Hi HelloBajo! I want to book a Private Car Charter & City Tour:\n• Name: ${fullName}\n• Phone: ${phone}\n• Email: ${email || '-'}\n• Passengers: ${passengerCount}\n• Tour Date: ${tourDate}\n• Pickup Time: ${pickupTime}\n• Pickup Location: ${pickupLocation}\n• Special Requests: ${specialRequests || 'None'}\n• Price: Rp 1.300.000 (Deposit Rp 200.000)`
+        ? `Hi HelloBajo! I want to book a Private Car Charter & City Tour:\n• Name: ${fullName}\n• Phone: ${phone}\n• Email: ${email || '-'}\n• Passengers: ${passengerCount}\n• Tour Date: ${tourDate}\n• Pickup Time: ${pickupTime}\n• Pickup Location: ${pickupLocation}\n• Special Requests: ${specialRequests || 'None'}\n• Price: Rp 1.500.000 (Deposit Rp 200.000)`
         : lang === 'ZH'
-        ? `你好 HelloBajo！我想预订包车一日游/城市游：\n• 姓名: ${fullName}\n• 电话/微信: ${phone}\n• 邮箱: ${email || '-'}\n• 乘车人数: ${passengerCount}\n• 用车日期: ${tourDate}\n• 接送时间: ${pickupTime}\n• 接送地点: ${pickupLocation}\n• 额外需求: ${specialRequests || '无'}\n• 包车价格: Rp 1.300.000 (定金 Rp 200.000)`
-        : `Halo HelloBajo! Saya mau pesan Private Car Charter & City Tour:\n• Nama: ${fullName}\n• No WA: ${phone}\n• Email: ${email || '-'}\n• Jml Penumpang: ${passengerCount}\n• Tanggal: ${tourDate}\n• Jam Penjemputan: ${pickupTime}\n• Lokasi Antar/Jemput: ${pickupLocation}\n• Catatan Tambahan: ${specialRequests || 'Tidak ada'}\n• Harga: Rp 1.300.000 (Deposit Rp 200.000)`;
+        ? `你好 HelloBajo！我想预订包车一日游/城市游：\n• 姓名: ${fullName}\n• 电话/微信: ${phone}\n• 邮箱: ${email || '-'}\n• 乘车人数: ${passengerCount}\n• 用车日期: ${tourDate}\n• 接送时间: ${pickupTime}\n• 接送地点: ${pickupLocation}\n• 额外需求: ${specialRequests || '无'}\n• 包车价格: Rp 1.500.000 (定金 Rp 200.000)`
+        : `Halo HelloBajo! Saya mau pesan Private Car Charter & City Tour:\n• Nama: ${fullName}\n• No WA: ${phone}\n• Email: ${email || '-'}\n• Jml Penumpang: ${passengerCount}\n• Tanggal: ${tourDate}\n• Jam Penjemputan: ${pickupTime}\n• Lokasi Antar/Jemput: ${pickupLocation}\n• Catatan Tambahan: ${specialRequests || 'Tidak ada'}\n• Harga: Rp 1.500.000 (Deposit Rp 200.000)`;
 
     window.open(`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
   };
@@ -432,10 +432,10 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
 
   const pageDescription =
     lang === 'EN'
-      ? "Labuan Bajo's premier private car charter & city tour service. Fixed Rp 1.300.000 rate, clean 7-seater AC car with driver, full fuel, and flexible route."
+      ? "Labuan Bajo's premier private car charter & city tour service. Fixed Rp 1.500.000 rate, clean 7-seater AC car with driver, full fuel, and flexible route."
       : lang === 'ZH'
-      ? '拉布安巴佐首选私人包车与城市游服务。固定价格 Rp 1.300.000/车，双重冷气 7 座 MPV/SUV，专业本地司机含全程汽油，行程 100% 自由定制。'
-      : 'Layanan sewa mobil & private city tour terbaik di Labuan Bajo. Tarif tetap Rp 1.300.000/hari, mobil AC bersih 7-seater, driver ramah & BBM penuh.';
+      ? '拉布安巴佐首选私人包车与城市游服务。固定价格 Rp 1.500.000/车，双重冷气 7 座 MPV/SUV，专业本地司机含全程汽油，行程 100% 自由定制。'
+      : 'Layanan sewa mobil & private city tour terbaik di Labuan Bajo. Tarif tetap Rp 1.500.000/hari, mobil AC bersih 7-seater, driver ramah & BBM penuh.';
 
   const activeStep = ITINERARY_STEPS[activeStepIndex];
 
@@ -502,18 +502,18 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
             <div className="lg:col-span-6 flex justify-center order-1">
               <div className="relative w-full max-w-md sm:max-w-lg aspect-square p-3 sm:p-4 bg-white border border-stone-200/90 rounded-3xl shadow-xl flex flex-col justify-between overflow-hidden group">
 
-                {/* Top-Left Casual Floating Badge */}
-                <div className="absolute top-5 left-5 z-30 -rotate-2 transition-transform duration-300 group-hover:rotate-0 group-hover:scale-105 pointer-events-none">
+                {/* Top-Left Casual Floating Badge (Hidden on mobile to prevent overlapping with price badge) */}
+                <div className="hidden sm:block absolute top-5 left-5 z-30 -rotate-2 transition-transform duration-300 group-hover:rotate-0 group-hover:scale-105 pointer-events-none">
                   <div className="bg-amber-500 text-slate-950 font-black text-xs sm:text-sm px-4 py-2 rounded-2xl shadow-md border border-amber-300/80 uppercase tracking-wider flex items-center gap-1.5">
                     <Sparkles className="w-4 h-4 text-slate-950 fill-slate-950 animate-pulse" />
-                    <span>{lang === 'EN' ? 'LABUAN BAJO • EST. 2022' : lang === 'ZH' ? '拉布安巴佐 • 本地口碑' : 'LABUAN BAJO • EST. 2022'}</span>
+                    <span>{lang === 'EN' ? 'PRIVATE CITY TOUR' : lang === 'ZH' ? '包车一日游' : 'PRIVATE CITY TOUR'}</span>
                   </div>
                 </div>
 
                 {/* Top-Right Price Floating Badge */}
                 <div className="absolute top-5 right-5 z-30 pointer-events-none">
                   <span className="bg-white/95 text-teal-800 border border-teal-300 text-[11px] sm:text-xs font-black px-3.5 py-1.5 rounded-full shadow-md backdrop-blur-md">
-                    Rp 1.300.000 / Car
+                    Rp 1.500.000 / Car
                   </span>
                 </div>
 
@@ -637,7 +637,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                     <span className="block text-[10px] text-slate-500 uppercase font-extrabold">
                       {lang === 'EN' ? 'Fixed Daily Rate' : lang === 'ZH' ? '全天一口价' : 'Tarif Tetap / Hari'}
                     </span>
-                    <strong className="text-xs sm:text-sm text-slate-900 font-black">Rp 1.300.000 / Car</strong>
+                    <strong className="text-xs sm:text-sm text-slate-900 font-black">Rp 1.500.000 / Car</strong>
                   </div>
                 </div>
 
@@ -689,10 +689,10 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                 <a
                   href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
                     lang === 'EN'
-                      ? 'Hi HelloBajo! I want to book the Private City Tour & Car Charter (Rp 1,300,000).'
+                      ? 'Hi HelloBajo! I want to book the Private City Tour & Car Charter (Rp 1,500,000).'
                       : lang === 'ZH'
-                      ? '你好 HelloBajo！我想预订拉布安巴佐私人包车与城市一日游（Rp 1,300,000）。'
-                      : 'Halo HelloBajo! Saya mau pesan Private City Tour & Car Charter (Rp 1.300.000).'
+                      ? '你好 HelloBajo！我想预订拉布安巴佐私人包车与城市一日游（Rp 1,500,000）。'
+                      : 'Halo HelloBajo! Saya mau pesan Private City Tour & Car Charter (Rp 1.500.000).'
                   )}`}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -742,7 +742,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
             All-Inclusive Private Car Charter
           </h2>
           <p className="mt-2 text-slate-600 text-xs sm:text-sm leading-relaxed">
-            Fixed daily rate per vehicle. No per-person markup. Approx. ~$82 USD (€76 EUR). Ideal for families, couples, and small groups.
+            Fixed daily rate per vehicle. No per-person markup. Approx. ~$83 USD (€73 EUR). Ideal for families, couples, and small groups.
           </p>
         </div>
 
@@ -757,13 +757,13 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
 
               <div>
                 <div className="text-3xl sm:text-4xl font-black text-white">
-                  Rp 1.300.000
+                  Rp 1.500.000
                 </div>
                 <div className="text-teal-400 text-xs sm:text-sm font-bold mt-0.5">
-                  (~$82 USD)
+                  (~$83 USD / €73 EUR)
                 </div>
                 <div className="text-slate-400 text-xs mt-1 font-medium">
-                  / car / day (~$82 USD)
+                  / car / day (~$83 USD / €73 EUR)
                 </div>
               </div>
 
@@ -797,10 +797,10 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
             <a
               href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
                 lang === 'EN'
-                  ? 'Hi HelloBajo! I want to book the Private Car Charter (Rp 1.300.000).'
+                  ? 'Hi HelloBajo! I want to book the Private Car Charter (Rp 1.500.000).'
                   : lang === 'ZH'
-                  ? '你好 HelloBajo！我想预订拉布安巴佐私人包车 (Rp 1.300.000)。'
-                  : 'Halo HelloBajo! Saya mau pesan Private Car Charter (Rp 1.300.000).'
+                  ? '你好 HelloBajo！我想预订拉布安巴佐私人包车 (Rp 1.500.000)。'
+                  : 'Halo HelloBajo! Saya mau pesan Private Car Charter (Rp 1.500.000).'
               )}`}
               target="_blank"
               rel="noopener noreferrer"
@@ -883,9 +883,9 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
               <ShieldCheck className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
               <div className="text-xs text-slate-700 leading-relaxed">
                 <strong className="block text-teal-900 font-bold mb-0.5">
-                  Low Commitment Deposit (Rp 200.000 / ~$13 USD)
+                  Low Commitment Deposit (Rp 200.000 / ~$11 USD)
                 </strong>
-                To secure your private driver and vehicle for your selected date, a low deposit of Rp 200.000 / car is required upon booking. The remaining balance of Rp 1.100.000 (~$70 USD) can be paid in cash, local bank transfer, or Wise after tour completion.
+                To secure your private driver and vehicle for your selected date, a low deposit of Rp 200.000 / car is required upon booking. The remaining balance of Rp 1.300.000 (~$72 USD) can be paid in cash, local bank transfer, or Wise after tour completion.
               </div>
             </div>
           </div>
@@ -1490,8 +1490,8 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                   onChange={(e) => setPassengerCount(e.target.value)}
                   className="w-full bg-slate-50 border border-stone-200/90 rounded-xl px-3.5 py-3 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
                 >
-                  <option value="1 - 4 Passengers (Standard MPV - Rp 1.300.000)">1 - 4 Passengers (Standard MPV - Rp 1.300.000)</option>
-                  <option value="5 - 6 Passengers (Standard MPV - Rp 1.300.000)">5 - 6 Passengers (Standard MPV - Rp 1.300.000)</option>
+                  <option value="1 - 4 Passengers (Standard MPV - Rp 1.500.000)">1 - 4 Passengers (Standard MPV - Rp 1.500.000)</option>
+                  <option value="5 - 6 Passengers (Standard MPV - Rp 1.500.000)">5 - 6 Passengers (Standard MPV - Rp 1.500.000)</option>
                   <option value="7 - 14 Passengers (HiAce Commuter - Consult Rate)">7 - 14 Passengers (HiAce Commuter - Consult Rate)</option>
                 </select>
               </div>
@@ -1576,7 +1576,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                 <strong className="block text-teal-900 font-bold mb-0.5">
                   Booking Deposit Policy
                 </strong>
-                Rp 200.000 (~$13 USD) deposit / car to lock your driver & vehicle. Remaining Rp 1.100.000 (~$70 USD) payable upon tour completion.
+                Rp 200.000 (~$11 USD) deposit / car to lock your driver & vehicle. Remaining Rp 1.300.000 (~$72 USD) payable upon tour completion.
               </div>
             </div>
 
@@ -1589,7 +1589,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
             </button>
 
             <p className="text-[11px] text-slate-500 text-center">
-              Booking via WhatsApp is instant & simple. Rp 200.000 (~$13 USD) deposit locks your driver; remaining balance paid after the tour.
+              Booking via WhatsApp is instant & simple. Rp 200.000 (~$11 USD) deposit locks your driver; remaining balance paid after the tour.
             </p>
           </form>
 
