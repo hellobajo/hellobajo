@@ -1663,7 +1663,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Top Scuba Dive Sites: Batu Bolong, Manta Point & Castle Rock',
             intro:
               'If you are visiting Flores specifically for scuba diving, these iconic world-class dive sites should be right at the top of your bucket list:',
-            image: BLOG_IMAGES.divingturtle.cover,
+            image: BLOG_IMAGES.turtle.cover,
             imageCaption: 'Vibrant Coral Reefs & Marine Life at Batu Bolong, Komodo',
             items: [
               {
@@ -1777,7 +1777,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Spot Scuba Diving Kelas Dunia: Batu Bolong, Manta Point & Castle Rock',
             intro:
               'Jika Anda mengunjungi Flores khusus untuk scuba diving, spot menyelam kelas dunia ini wajib ada di daftar teratas Anda:',
-            image: BLOG_IMAGES.divingturtle.cover,
+            image: BLOG_IMAGES.turtle.cover,
             imageCaption: 'Terumbu Karang Warna-Warni di Spot Diving Batu Bolong',
             items: [
               {
@@ -1891,7 +1891,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. 顶级水肺潜点拆解：Batu Bolong、Manta Point 与 Castle Rock',
             intro:
               '如果您专程前往弗洛雷斯体验水肺潜水，以下这几个世界级潜点绝对应该列在您的首选清单上：',
-            image: BLOG_IMAGES.divingturtle.cover,
+            image: BLOG_IMAGES.turtle.cover,
             imageCaption: '科莫多 Batu Bolong 珊瑚与海洋生物',
             items: [
               {
