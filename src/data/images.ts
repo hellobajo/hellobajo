@@ -177,7 +177,7 @@ import art13_g4 from '../assets/images/art13_gallery4.jpg';
 // GALLERY BLOG ARTICLES (COVER & SELECTED HIGHLIGHT PHOTOS)
 import artCanyourent3Img from '../assets/images/art-canyourent3.jpg';
 import kelimutulakeImg from '../assets/images/kelimutulake.jpg';
-import roadkelimutuImg from '../assets/images/kelimutulake.jpg';
+import roadkelimutuImg from '../assets/images/roadkelimutu.jpg';
 
 export const BLOG_IMAGES = {
   firstTimerGuide: { cover: art1_cover },
