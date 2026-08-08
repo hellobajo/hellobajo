@@ -175,12 +175,14 @@ import art12_g3 from '../assets/images/art12_gallery3.jpg';
 import art13_g4 from '../assets/images/art13_gallery4.jpg';
 
 // GALLERY BLOG ARTICLES (COVER & SELECTED HIGHLIGHT PHOTOS)
+import kampungujungImg from '../assets/images/kampungujung.jpg';
 import artCanyourent3Img from '../assets/images/art-canyourent3.jpg';
 import kelimutulakeImg from '../assets/images/kelimutulake.jpg';
 import roadkelimutuImg from '../assets/images/roadkelimutu.jpg';
 
 export const BLOG_IMAGES = {
   firstTimerGuide: { cover: art1_cover },
+  kampungujung: { cover: kampungujungImg },
   airportScooter: { cover: airportImg },
   canyourent3: { cover: artCanyourent3Img },
   kelimutuLakes: { cover: art3_cover, gallery: [art3_g1, art3_g2, art3_g3] },
