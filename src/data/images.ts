@@ -161,6 +161,11 @@ import art3_g2 from '../assets/images/art3_gallery2.jpg';
 import art3_g3 from '../assets/images/art3_gallery3.jpg';
 
 import art4_cover from '../assets/images/art4_cover.jpg';
+import handayani from '../assets/images/handayani.jpg';
+import seafood from '../assets/images/seafood.jpg';
+import lejong from '../assets/images/lejong.jpg';
+import atlantis from '../assets/images/atlantis.jpg';
+
 import art5_cover from '../assets/images/art5_diving_manta_cover.jpg';
 
 import art10_cover from '../assets/images/art10_cover.jpg';
@@ -188,7 +193,13 @@ export const BLOG_IMAGES = {
   kelimutuLakes: { cover: art3_cover, gallery: [art3_g1, art3_g2, art3_g3] },
   kelimutu3warna: { cover: kelimutulakeImg },
   roadkelimutu: { cover: roadkelimutuImg },
+  
   culinarySeafood: { cover: art4_cover },
+  culinaryhandayani: { cover: handayani },
+  seafood: { cover: seafood },
+  culinarylejong: { cover: lejong },
+  culinaryatlantis: { cover: atlantis },
+
   divingManta: { cover: art5_cover, gallery: [art5_cover, speedboatMantaPoint, speedboatTakaMakassar] },
   packingSailing: { cover: boatPhinisi, gallery: [boatAthena, boatShining, boatArsiva] },
   carCharter: { cover: tourCarImg },
