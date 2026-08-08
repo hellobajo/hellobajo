@@ -928,7 +928,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. The Wonder of Kelimutu: Why the Lakes Change Colors',
             intro:
               'Mount Kelimutu stands at 1,639 meters above sea level in the Ende regency of Flores. Local Lio villagers hold deeply spiritual beliefs about the lakes, believing them to be the final resting place for departed souls:',
-            image: BLOG_IMAGES.kelimutu3warna.cover',
+            image: BLOG_IMAGES.kelimutu3warna.cover,
             imageCaption: 'Mount Kelimutu Volcanic Tri-Color Crater Lakes Sunrise in Central Flores',
             items: [
               {
