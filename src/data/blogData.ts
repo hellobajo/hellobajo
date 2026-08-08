@@ -1334,7 +1334,7 @@ export const BLOG_POSTS: BlogPost[] = [
             intro:
               'Labuan Bajo offers unique artisanal bakery creations rooted in indigenous Flores ingredients.',
             image: BLOG_IMAGES.culinarylejong.cover,
-            imageCaption: 'Gluten-Free Banana Flour Bakes & Bajawa Coffee at Made’s Bakery',
+            imageCaption: 'Discover the Taste of Flores at Kompiang Lejong, Labuan Bajo',
             items: [
               {
                 subtitle: 'Made’s Banana Flour Bakery',
@@ -1444,7 +1444,7 @@ export const BLOG_POSTS: BlogPost[] = [
             intro:
               'Labuan Bajo juga memiliki kreasi bakery dan camilan tradisional berbasis bahan lokal Flores yang sangat unik.',
             image: BLOG_IMAGES.culinarylejong.cover,
-            imageCaption: 'Olahan Tepung Pisang Bebas Gluten & Kopi Bajawa di Made’s Bakery',
+            imageCaption: 'Nikmati Cita Rasa Flores di Kompiang Lejong, Labuan Bajo',
             items: [
               {
                 subtitle: 'Made’s Banana Flour Bakery',
@@ -1554,7 +1554,7 @@ export const BLOG_POSTS: BlogPost[] = [
             intro:
               '拉布安巴佐拥有利用弗洛雷斯当地天然食材制作的独特烘焙小吃。',
             image: BLOG_IMAGES.culinarylejong.cover,
-            imageCaption: 'Made’s Bakery 香蕉粉无麸质烘焙与 Bajawa 高山咖啡',
+            imageCaption: '在拉布安巴霍品尝弗洛勒斯岛的传统美味 —— Kompiang Lejong',
             items: [
               {
                 subtitle: 'Made’s Banana Flour Bakery',
