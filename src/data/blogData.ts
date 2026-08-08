@@ -1663,7 +1663,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Top Scuba Dive Sites: Batu Bolong, Manta Point & Castle Rock',
             intro:
               'If you are visiting Flores specifically for scuba diving, these iconic world-class dive sites should be right at the top of your bucket list:',
-            image: 'https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.divingturtle.cover,
             imageCaption: 'Vibrant Coral Reefs & Marine Life at Batu Bolong, Komodo',
             items: [
               {
@@ -1684,7 +1684,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '3. Best Shallow Snorkeling Spots for Non-Divers (Pink Beach & Kanawa)',
             intro:
               "You don't need a scuba tank to experience the magic of Komodo's aquatic life. For casual swimmers, families, and non-divers, the park offers calm, shallow bays with crystal-clear waters:",
-            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.snorkeling.cover,
             imageCaption: 'Crystal-clear Shallow Turquoise Waters at Pink Beach Komodo',
             items: [
               {
@@ -1777,7 +1777,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Spot Scuba Diving Kelas Dunia: Batu Bolong, Manta Point & Castle Rock',
             intro:
               'Jika Anda mengunjungi Flores khusus untuk scuba diving, spot menyelam kelas dunia ini wajib ada di daftar teratas Anda:',
-            image: 'https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.divingturtle.cover,
             imageCaption: 'Terumbu Karang Warna-Warni di Spot Diving Batu Bolong',
             items: [
               {
@@ -1798,7 +1798,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '3. Spot Snorkeling Dangkal Terbaik untuk Pemula (Pink Beach & Kanawa)',
             intro:
               'Anda tidak membutuhkan tabung scuba untuk menikmati keajaiban bawah laut Komodo. Bagi perenang santai, keluarga, dan non-diver, Komodo menawarkan teluk dangkal yang tenang:',
-            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.snorkeling.cover,
             imageCaption: 'Air Laut Pirus Jernih di Pink Beach Komodo',
             items: [
               {
@@ -1891,7 +1891,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. 顶级水肺潜点拆解：Batu Bolong、Manta Point 与 Castle Rock',
             intro:
               '如果您专程前往弗洛雷斯体验水肺潜水，以下这几个世界级潜点绝对应该列在您的首选清单上：',
-            image: 'https://images.unsplash.com/photo-1582967788606-a171c1080cb0?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.divingturtle.cover,
             imageCaption: '科莫多 Batu Bolong 珊瑚与海洋生物',
             items: [
               {
@@ -1912,7 +1912,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '3. 适合非潜水员的浅滩浮潜胜地（粉红沙滩与 Kanawa 岛）',
             intro:
               '您无需背负气瓶即可领略科莫多水下世界的魅力。对于休闲游泳者、家庭游客与非潜水员，公园提供了平静而清澈的浅水海湾：',
-            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.snorkeling.cover,
             imageCaption: '科莫多粉红沙滩晶莹剔透的水域',
             items: [
               {
