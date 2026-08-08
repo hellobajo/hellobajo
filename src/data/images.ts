@@ -176,13 +176,14 @@ import art13_g4 from '../assets/images/art13_gallery4.jpg';
 
 // GALLERY BLOG ARTICLES (COVER & SELECTED HIGHLIGHT PHOTOS)
 import artCanyourent3Img from '../assets/images/art-canyourent3.jpg';
-
+import kelimutulakeImg from '../assets/images/kelimutulake.jpg';
 
 export const BLOG_IMAGES = {
   firstTimerGuide: { cover: art1_cover },
   airportScooter: { cover: airportImg },
   canyourent3: { cover: artCanyourent3Img },
   kelimutuLakes: { cover: art3_cover, gallery: [art3_g1, art3_g2, art3_g3] },
+  kelimutu3warna: { cover: kelimutulakeImg },
   culinarySeafood: { cover: art4_cover },
   divingManta: { cover: art5_cover, gallery: [art5_cover, speedboatMantaPoint, speedboatTakaMakassar] },
   packingSailing: { cover: boatPhinisi, gallery: [boatAthena, boatShining, boatArsiva] },
