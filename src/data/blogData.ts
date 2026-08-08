@@ -1291,7 +1291,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. Kampung Ujung Night Seafood Market, Taman Laut Handayani & Kelan Seafood',
             intro:
               'When the sun goes down, the harbor embankment of Kampung Ujung transforms into Labuan Bajo’s most famous open-air seafood feast.',
-            image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.culinaryhandayani.cover,
             imageCaption: 'Fresh Daily Catch & Coconut Charcoal Grilled Seafood at Kampung Ujung Night Market',
             items: [
               {
@@ -1312,7 +1312,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Authentic Local Eats: Pondok Mai Cenggo & Warung Makan Pak Puji',
             intro:
               'Beyond fresh seafood, traditional Flores cuisine features rich, tangy soups and aromatic smoked meats that every visitor must try.',
-            image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.seafood.cover,
             imageCaption: 'Authentic Flores Ikan Kuah Asam & Local Delicacies at Pondok Mai Cenggo',
             items: [
               {
@@ -1333,7 +1333,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '3. Unique Local Bakes: Made’s Banana Flour Bakery & Kompiang Lejong',
             intro:
               'Labuan Bajo offers unique artisanal bakery creations rooted in indigenous Flores ingredients.',
-            image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.culinarylejong.cover,
             imageCaption: 'Gluten-Free Banana Flour Bakes & Bajawa Coffee at Made’s Bakery',
             items: [
               {
@@ -1354,7 +1354,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '4. Luxury Sunset Waterfront Lounges: Atlantis On The Rock, Le Bajo & Escape Bajo',
             intro:
               'For a memorable sunset dinner overlooking the Phinisi fleet and coastal islands, head to these top waterfront venues.',
-            image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.culinaryatlantis.cover,
             imageCaption: 'Sunset Waterfront Lounge & Ocean Deck Dining at Atlantis On The Rock & Le Bajo',
             items: [
               {
@@ -1401,7 +1401,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. Pasar Malam Kampung Ujung, Taman Laut Handayani & Kelan Seafood',
             intro:
               'Saat matahari terbenam, kawasan tanggul pelabuhan Kampung Ujung berubah menjadi pusat pesta kuliner seafood bakar ruang terbuka paling ikonik di Labuan Bajo.',
-            image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.culinaryhandayani.cover,
             imageCaption: 'Seafood Tangkapan Segar & Ikan Bakar Bumbu Rica di Pasar Malam Kampung Ujung',
             items: [
               {
@@ -1422,7 +1422,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Warung Khas Lokal: Pondok Mai Cenggo & Warung Makan Pak Puji',
             intro:
               'Selain seafood bakar segar, masakan tradisional Flores menyajikan kuah segar khas dan cita rasa daging asap aromatik yang wajib Anda coba.',
-            image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.seafood.cover,
             imageCaption: 'Ikan Kuah Asam Khas Flores & Kuliner Tradisional di Pondok Mai Cenggo',
             items: [
               {
@@ -1443,7 +1443,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '3. Kuliner Unik: Made’s Banana Flour Bakery & Kompiang Lejong',
             intro:
               'Labuan Bajo juga memiliki kreasi bakery dan camilan tradisional berbasis bahan lokal Flores yang sangat unik.',
-            image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.culinarylejong.cover,
             imageCaption: 'Olahan Tepung Pisang Bebas Gluten & Kopi Bajawa di Made’s Bakery',
             items: [
               {
@@ -1464,7 +1464,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '4. Resto Sunset Waterfront: Atlantis On The Rock, Le Bajo & Escape Bajo',
             intro:
               'Untuk pengalaman makan malam sunset yang mewah dan romantis menghadap deretan kapal Phinisi, kunjungi tempat-tempat waterfront terbaik ini.',
-            image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.culinaryatlantis.cover,
             imageCaption: 'Lounge Sunset Waterfront di Atlantis On The Rock & Le Bajo Flores',
             items: [
               {
@@ -1511,7 +1511,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. Kampung Ujung 海鲜夜市、Taman Laut Handayani 与 Kelan Seafood',
             intro:
               '夕阳西下时，Kampung Ujung 海港路段便化身为拉布安巴佐最闻名的露天海鲜大排档。',
-            image: 'https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.culinaryhandayani.cover,
             imageCaption: 'Kampung Ujung 海鲜夜市现挑选现烤红鲷鱼与巨型斑节虾',
             items: [
               {
@@ -1532,7 +1532,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. 地道餐馆：Pondok Mai Cenggo 与 Warung Makan Pak Puji',
             intro:
               '除了海鲜，弗洛雷斯当地特色酸汤鱼与烟熏牛肉同样不容错过。',
-            image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.seafood.cover,
             imageCaption: 'Mai Cenggo 地道弗洛雷斯酸汤鱼与传统木瓜花炒树薯叶',
             items: [
               {
@@ -1553,7 +1553,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '3. 特色烘焙：Made’s Banana Flour Bakery 与 Kompiang Lejong',
             intro:
               '拉布安巴佐拥有利用弗洛雷斯当地天然食材制作的独特烘焙小吃。',
-            image: 'https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.culinarylejong.cover,
             imageCaption: 'Made’s Bakery 香蕉粉无麸质烘焙与 Bajawa 高山咖啡',
             items: [
               {
@@ -1574,7 +1574,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '4. 奢华落日海景餐厅：Atlantis On The Rock、Le Bajo 与 Escape Bajo',
             intro:
               '想要在落日余晖中俯瞰帆船与海岛，这几家落日 Lounge 是理想选择。',
-            image: 'https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.culinaryatlantis.cover,
             imageCaption: 'Atlantis On The Rock 与 Le Bajo 海景落日酒吧与海鲜餐',
             items: [
               {
