@@ -204,7 +204,7 @@ export const BLOG_IMAGES = {
   culinaryatlantis: { cover: atlantis },
 
   divingManta: { cover: art5_cover, gallery: [art5_g1, speedboatMantaPoint, speedboatTakaMakassar] },
-  divingturtle: { cover: turtleImg },
+  turtle: { cover: turtleImg },
   snorkeling: { cover: snorkelingImg },
 
 
