@@ -205,7 +205,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '6. Catch Sunset & Eat Fresh Catch at Kampung Ujung',
             intro:
               'After a long day of hiking or snorkeling, head down to the main harbor area as the sun begins to dip.',
-            image: DESTINATION_IMAGES.seafoodMarket,
+            image: BLOG_IMAGES.kampungujung,
             imageCaption: 'Fresh Seafood Night Market at Kampung Ujung Harbor',
             items: [
               {
@@ -338,7 +338,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '6. Nikmati Sunset & Wisata Kuliner Seafood Kampung Ujung',
             intro:
               'Setelah seharian berpetualang, nikmati suasana sore di sekitar pelabuhan utama.',
-            image: DESTINATION_IMAGES.seafoodMarket,
+            image: BLOG_IMAGES.kampungujung,
             imageCaption: 'Pusat Kuliner Seafood Segar Kampung Ujung Labuan Bajo',
             items: [
               {
@@ -471,7 +471,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '6. 在 Ujung 夜市品尝现烤海鲜与欣赏日落',
             intro:
               '结束一天的浮潜或徒步后，傍晚前往主码头区感受巴佐的烟火气。',
-            image: DESTINATION_IMAGES.seafoodMarket,
+            image: BLOG_IMAGES.kampungujung,
             imageCaption: 'Kampung Ujung 现烤海鲜夜市',
             items: [
               {
