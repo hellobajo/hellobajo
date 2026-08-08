@@ -949,7 +949,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. How to Get to Kelimutu: Transport Options across Flores',
             intro:
               'Kelimutu is located near the mountain village of Moni, which serves as the base camp for sunrise visitors. To reach Moni and Kelimutu from Labuan Bajo, travelers have two main travel options:',
-            image: CAR_CHARTER_BANNER,
+            image: BLOG_IMAGES.roadkelimutu.cover,
             imageCaption: 'HelloBajo Private Overland Car Charter (Toyota Rush / HiAce) across Flores',
             items: [
               {
@@ -1063,7 +1063,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Cara Menuju Kelimutu: Opsi Transportasi Lintas Flores',
             intro:
               'Kelimutu terletak di dekat desa pegunungan Moni, yang menjadi basecamp bagi para pemburu sunrise. Untuk menuju Moni dan Kelimutu dari Labuan Bajo, wisatawan memiliki dua opsi utama:',
-            image: CAR_CHARTER_BANNER,
+            image: BLOG_IMAGES.roadkelimutu.cover,
             imageCaption: 'Sewa Mobil Private Overland HelloBajo Lintas Flores',
             items: [
               {
@@ -1177,7 +1177,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. 如何前往克里穆图：全岛交通与线路选择',
             intro:
               '克里穆图火山紧邻高山小镇莫尼（Moni），这里是观看日出游客的大本营。从拉布安巴佐前往莫尼与克里穆图，主要有两种交通方式：',
-            image: CAR_CHARTER_BANNER,
+            image: BLOG_IMAGES.roadkelimutu.cover,
             imageCaption: 'HelloBajo 弗洛雷斯陆路包车 (Toyota Rush / HiAce)',
             items: [
               {
