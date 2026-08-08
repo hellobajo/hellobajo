@@ -2032,7 +2032,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. Essential Ocean & Beach Wear (Sun Protection)',
             intro:
               'The tropical sun reflection on open water in Komodo National Park is remarkably intense. Spending long hours on the top deck of a Phinisi yacht or riding on an open speedboat exposes your skin to high UV levels, even on cloudy days.',
-            image: SPEEDBOAT_BANNER,
+            image: BLOG_IMAGES.boatgear.cover,
             imageCaption: 'Day Boat Gear for Komodo Island Hopping & Snorkeling',
             items: [
               {
@@ -2057,7 +2057,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Footwear: Trekking Shoes for Padar Summit vs Reef Shoes',
             intro:
               'Packing the wrong shoes is one of the most common mistakes travelers make when visiting Labuan Bajo. The terrain in Komodo varies drastically, from steep, dusty volcanic staircases to slippery coral shores and rocky shallow bays.',
-            image: RIDING_DESTINATIONS.goloMori,
+            image: BLOG_IMAGES.packinglist.cover,
             imageCaption: 'Essential Riding Gear & Breathable Clothing for Flores Scenic Routes',
             items: [
               {
@@ -2179,7 +2179,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. Pakaian Pantai & Perlindungan Sinar Matahari',
             intro:
               'Pantulan sinar matahari tropis di laut Komodo sangat terik. Berada di dek atas kapal Phinisi atau speedboat terekspos sinar UV tinggi sepanjang hari.',
-            image: SPEEDBOAT_BANNER,
+            image: BLOG_IMAGES.boatgear.cover,
             imageCaption: 'Perlengkapan Outing Laut untuk Tur Speedboat Komodo',
             items: [
               {
@@ -2204,7 +2204,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Alas Kaki: Sepatu Trekking Puncak Padar vs Sepatu Karang',
             intro:
               'Membawa sepatu yang salah adalah kesalahan umum wisatawan. Medan di Komodo sangat bervariasi dari tangga batu terjal, jalur berdebu, hingga pantai karang licin.',
-            image: RIDING_DESTINATIONS.goloMori,
+            image: BLOG_IMAGES.packinglist.cover,
             imageCaption: 'Pakaian & Perlengkapan Nyaman untuk Berkendara di Flores',
             items: [
               {
@@ -2326,7 +2326,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. 防晒海滩服饰与水母衣',
             intro:
               '科莫多国家公园开阔海域的热带阳光反射极为强烈。长时间在 Phinisi 帆船顶层甲板或敞篷快艇上晒太阳，皮肤极易受到强紫外线伤害。',
-            image: SPEEDBOAT_BANNER,
+            image: BLOG_IMAGES.boatgear.cover,
             imageCaption: '科莫多快艇一日游与浮潜跳岛装备',
             items: [
               {
@@ -2351,7 +2351,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. 鞋履建议：帕达尔山徒步鞋与防滑溪流鞋',
             intro:
               '带错鞋子是许多游客最容易踩坑的地方。科莫多的地形十分复杂，从陡峭干燥的石阶到滑溜的珊瑚浅滩应有尽有。',
-            image: RIDING_DESTINATIONS.goloMori,
+            image: BLOG_IMAGES.packinglist.cover,
             imageCaption: '弗洛雷斯骑行与户外探索透气装备',
             items: [
               {
