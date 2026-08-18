@@ -219,6 +219,12 @@ import kampungujungImg from '../assets/images/kampungujung.jpg';
 import artCanyourent3Img from '../assets/images/art-canyourent3.jpg';
 import kelimutulakeImg from '../assets/images/kelimutulake.jpg';
 import roadkelimutuImg from '../assets/images/roadkelimutu.jpg';
+import handover1 from '../assets/images/hand1.jpg';
+import handover2 from '../assets/images/hand2.jpg';
+import handover3 from '../assets/images/hand3.jpg';
+import handover4 from '../assets/images/hand4.jpg';
+import handover5 from '../assets/images/hand5.jpg';
+import handover6 from '../assets/images/hand6.jpg';
 
 export const BLOG_IMAGES = {
   firstTimerGuide: { cover: art1_cover },
@@ -255,13 +261,13 @@ export const BLOG_IMAGES = {
 };
 
 // 12. HANDOVER GALLERY PHOTOS (6 REAL HANDOVER / DELIVERY PHOTOS)
-export const HANDOVER_GALLERY_IMAGES: string[] = [
-  'https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1525160354320-d8e92641c563?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=800&auto=format&fit=crop',
+export const HANDOVER_GALLERY_IMAGES = [
+    handover1,
+    handover2,
+    handover3,
+    handover4,
+    handover5,
+    handover6,
 ];
 
 
