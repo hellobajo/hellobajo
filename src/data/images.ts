@@ -11,7 +11,11 @@ import heroBgLocal from '../assets/images/scooter_hero_1785763110302.jpg';
 import scooterHeroAlt from '../assets/images/scooter_hero_1785763110302-alt.jpg';
 import beatImg from '../assets/images/scooter_beat_1785763028729.jpg';
 import scoopyImg from '../assets/images/scooter_scoopy_1785763049796.jpg';
+import fazzioImg from '../assets/images/FAZZIO.jpg';
 import nmaxImg from '../assets/images/scooter_nmax_1785763064245.jpg';
+import pcxImg from '../assets/images/PCX150.jpg';
+import vario150Img from '../assets/images/VARIO150.jpg';
+import vario160Img from '../assets/images/VARIO160.jpg';
 
 export const HERO_IMAGE = heroBgLocal;
 
@@ -30,15 +34,15 @@ export const SCOOTER_IMAGES = {
   // 1. KATEGORI COMPACT / ECONOMY (110cc - 125cc)
   beat: beatImg,          // Honda Beat (110cc EFI)
   scoopy: scoopyImg,      // Honda Scoopy (110cc SmartKey)
-  fazzio: scooterHeroAlt, // Yamaha Fazzio (125cc Hybrid)
+  fazzio: fazzioImg, // Yamaha Fazzio (125cc Hybrid)
 
   // 2. KATEGORI MEDIUM / SPORT HILL POWER (150cc - 160cc)
-  vario150: beatImg,      // Honda Vario 150 (150cc eSP)
-  vario160: heroBgLocal,  // Honda Vario 160 (160cc eSP+)
+  vario150: vario150Img,      // Honda Vario 150 (150cc eSP)
+  vario160: vario160Img,  // Honda Vario 160 (160cc eSP+)
 
   // 3. KATEGORI MAXI SCOOTER (155cc VVA / eSP+)
   nmax: nmaxImg,          // Yamaha NMAX 155 (155cc VVA)
-  pcx: scooterHeroAlt,    // Honda PCX 155 (155cc eSP+)
+  pcx: pcxImg,    // Honda PCX 155 (155cc eSP+)
 };
 
 // 3. PRIVATE CITY TOUR HERO & BANNERS
