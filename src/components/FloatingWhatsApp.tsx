@@ -1,23 +1,19 @@
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import { Language } from '../data/translations';
 import { MessageCircle } from 'lucide-react';
-import { SITE_CONFIG } from '../data/siteConfig';
+import { getContextualWhatsAppUrl } from '../utils/whatsapp';
 
 interface FloatingWhatsAppProps {
   lang: Language;
 }
 
 export const FloatingWhatsApp: React.FC<FloatingWhatsAppProps> = ({ lang }) => {
-  const whatsappUrl = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
-    lang === 'EN'
-      ? 'Hi HelloBajo! I am interested in renting a scooter in Labuan Bajo.'
-      : lang === 'ZH'
-      ? '你好 HelloBajo！我想咨询在拉布安巴佐租摩托车。'
-      : 'Halo HelloBajo! Saya mau tanya booking sewa motor di Labuan Bajo.'
-  )}`;
+  const location = useLocation();
+  const whatsappUrl = getContextualWhatsAppUrl(location.pathname, lang);
 
   return (
-    <div className="fixed bottom-6 right-6 z-50 flex items-center gap-3">
+    <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-40 flex items-center gap-3">
       {/* Floating Tooltip Card */}
       <div className="hidden sm:flex items-center gap-2 bg-slate-900 text-white text-xs font-semibold py-2 px-3.5 rounded-full shadow-xl border border-slate-700 animate-in fade-in slide-in-from-right-2 duration-300">
         <span className="relative flex h-2 w-2">

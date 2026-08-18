@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Language, TranslationContent } from '../data/translations';
 import { SEOHead } from '../components/SEOHead';
 import { Hero } from '../components/Hero';
 import { ItineraryTimeline } from '../components/ItineraryTimeline';
 import { PricingCard } from '../components/PricingCard';
 import { WhyChooseUs } from '../components/WhyChooseUs';
-import { ReserveForm } from '../components/ReserveForm';
-import { InstantBookWidget } from '../components/InstantBookWidget';
+import { HandoverGallery } from '../components/HandoverGallery';
 import { AlternativeDestinations } from '../components/AlternativeDestinations';
 import { FaqAccordion } from '../components/FaqAccordion';
+import { ScooterBookingModal } from '../components/ScooterBookingModal';
 import { Bike } from 'lucide-react';
 
 interface HomePageProps {
@@ -17,7 +17,8 @@ interface HomePageProps {
 }
 
 export const HomePage: React.FC<HomePageProps> = ({ lang, t }) => {
-  const [selectedBikeId, setSelectedBikeId] = React.useState<string>('');
+  const [selectedBikeId, setSelectedBikeId] = useState<string>('');
+  const [isScooterModalOpen, setIsScooterModalOpen] = useState<boolean>(false);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,10 +26,7 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, t }) => {
 
   const handleSelectScooter = (bikeId: string) => {
     setSelectedBikeId(bikeId);
-    const reserveElement = document.getElementById('reserve');
-    if (reserveElement) {
-      reserveElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    setIsScooterModalOpen(true);
   };
 
   // Schema.org Structured Data for Local Business / Auto Rental
@@ -119,11 +117,20 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, t }) => {
             {lang === 'EN' ? 'Why Us' : lang === 'ZH' ? '为什么选择我们' : 'Why Us'}
           </a>
           <a
-            href="#reserve"
-            className="text-teal-600 hover:text-teal-700 font-extrabold transition-colors whitespace-nowrap py-1"
+            href="#handover-gallery"
+            className="hover:text-teal-600 transition-colors whitespace-nowrap py-1"
+          >
+            {lang === 'EN' ? 'Gallery' : lang === 'ZH' ? '实拍图库' : 'Galeri'}
+          </a>
+          <button
+            onClick={() => {
+              setSelectedBikeId('');
+              setIsScooterModalOpen(true);
+            }}
+            className="text-teal-600 hover:text-teal-700 font-extrabold transition-colors whitespace-nowrap py-1 cursor-pointer"
           >
             {lang === 'EN' ? 'Book a Scooter' : lang === 'ZH' ? '预订摩托车' : 'Pesan Motor'}
-          </a>
+          </button>
           <a
             href="#faq"
             className="hover:text-teal-600 transition-colors whitespace-nowrap py-1"
@@ -145,14 +152,22 @@ export const HomePage: React.FC<HomePageProps> = ({ lang, t }) => {
       {/* Why Choose Us */}
       <WhyChooseUs t={t} />
 
-      {/* WhatsApp Reservation Form */}
-      <ReserveForm t={t} lang={lang} selectedBikeId={selectedBikeId} />
+      {/* Social Proof & Handover Gallery */}
+      <HandoverGallery lang={lang} />
 
       {/* Cross Promotion: Cars & Speedboats */}
       <AlternativeDestinations t={t} lang={lang} />
 
       {/* FAQ Accordion */}
       <FaqAccordion t={t} />
+
+      {/* Scooter Booking Pop-up Modal */}
+      <ScooterBookingModal
+        isOpen={isScooterModalOpen}
+        onClose={() => setIsScooterModalOpen(false)}
+        lang={lang}
+        initialBikeId={selectedBikeId}
+      />
     </div>
   );
 };

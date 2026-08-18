@@ -38,13 +38,16 @@ export const SEOHead: React.FC<SEOHeadProps> = ({
       element.setAttribute(attr, value);
     };
 
+    // Format image URL to ensure absolute path for social media crawlers
+    const fullImageUrl = ogImage.startsWith('http') ? ogImage : `https://hellobajo.com${ogImage.startsWith('/') ? '' : '/'}${ogImage}`;
+
     setMeta("meta[name='description']", 'content', description);
     setMeta("meta[name='keywords']", 'content', keywords);
 
     // OpenGraph
     setMeta("meta[property='og:title']", 'content', title);
     setMeta("meta[property='og:description']", 'content', description);
-    setMeta("meta[property='og:image']", 'content', ogImage);
+    setMeta("meta[property='og:image']", 'content', fullImageUrl);
     setMeta("meta[property='og:type']", 'content', ogType);
 
     // Canonical link

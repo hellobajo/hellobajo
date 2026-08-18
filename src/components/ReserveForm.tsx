@@ -24,9 +24,16 @@ const HOURLY_TIMES = [
 ];
 
 const BIKES = [
-  { id: 'nmax', name: 'Yamaha NMAX (or similar)', rate: 175000, labelEN: 'Yamaha NMAX (Maxi Scooter - Most Popular) – Rp 175k/day', labelZH: 'Yamaha NMAX (豪华踏板 - 最受欢迎) – Rp 175k/天', labelID: 'Yamaha NMAX (Maxi Scooter - Paling Populer) – Rp 175rb/hari' },
-  { id: 'scoopy', name: 'Honda Scoopy (or similar)', rate: 120000, labelEN: 'Honda Scoopy (Classic Style Scooter) – Rp 120k/day', labelZH: 'Honda Scoopy (复古风踏板) – Rp 120k/天', labelID: 'Honda Scoopy (Classic Style Scooter) – Rp 120rb/hari' },
-  { id: 'beat', name: 'Honda Beat (or similar)', rate: 100000, labelEN: 'Honda Beat (Standard / Compact Scooter) – Rp 100k/day', labelZH: 'Honda Beat (标准经济型踏板) – Rp 100k/天', labelID: 'Honda Beat (Standard / Compact Scooter) – Rp 100rb/hari' },
+  { id: 'beat', name: 'Honda Beat (or similar)', rate: 100000, labelEN: 'Honda Beat (Compact / Economy) – Rp 100k/day', labelZH: 'Honda Beat (标准经济型) – Rp 100k/天', labelID: 'Honda Beat (Compact / Economy) – Rp 100rb/hari' },
+  { id: 'scoopy', name: 'Honda Scoopy (or similar)', rate: 100000, labelEN: 'Honda Scoopy (Compact / Economy) – Rp 100k/day', labelZH: 'Honda Scoopy (复古风踏板) – Rp 100k/天', labelID: 'Honda Scoopy (Compact / Economy) – Rp 100rb/hari' },
+  { id: 'fazzio', name: 'Yamaha Fazzio (or similar)', rate: 100000, labelEN: 'Yamaha Fazzio (Compact Hybrid) – Rp 100k/day', labelZH: 'Yamaha Fazzio (时尚混动) – Rp 100k/天', labelID: 'Yamaha Fazzio (Compact Hybrid) – Rp 100rb/hari' },
+  { id: 'compact', name: 'Compact / Economy (Beat / Scoopy / Fazzio)', rate: 100000, labelEN: 'Compact / Economy (Beat / Scoopy / Fazzio) – Rp 100k/day', labelZH: '标准经济型 (Beat / Scoopy / Fazzio) – Rp 100k/天', labelID: 'Compact / Economy (Beat / Scoopy / Fazzio) – Rp 100rb/hari' },
+  { id: 'vario150', name: 'Honda Vario 150 (or similar)', rate: 130000, labelEN: 'Honda Vario 150 (Medium / Sport) – Rp 130k/day', labelZH: 'Honda Vario 150 (运动型踏板) – Rp 130k/天', labelID: 'Honda Vario 150 (Medium / Sport) – Rp 130rb/hari' },
+  { id: 'vario160', name: 'Honda Vario 160 (or similar)', rate: 140000, labelEN: 'Honda Vario 160 (Medium / Sport) – Rp 140k/day', labelZH: 'Honda Vario 160 (高功率运动型) – Rp 140k/天', labelID: 'Honda Vario 160 (Medium / Sport) – Rp 140rb/hari' },
+  { id: 'medium', name: 'Medium / Sport (Vario 150 / 160)', rate: 130000, labelEN: 'Medium / Sport (Vario 150 / Vario 160) – Rp 130k–140k/day', labelZH: '运动升级型 (Vario 150 / Vario 160) – Rp 130k–140k/天', labelID: 'Medium / Sport (Vario 150 / Vario 160) – Rp 130rb–140rb/hari' },
+  { id: 'nmax', name: 'Yamaha NMAX 155 (or similar)', rate: 160000, labelEN: 'Yamaha NMAX 155 (Maxi Scooter - Most Popular) – Rp 160k/day', labelZH: 'Yamaha NMAX 155 (豪华大踏板 - 最受欢迎) – Rp 160k/天', labelID: 'Yamaha NMAX 155 (Maxi Scooter - Paling Populer) – Rp 160rb/hari' },
+  { id: 'pcx', name: 'Honda PCX 155 (or similar)', rate: 160000, labelEN: 'Honda PCX 155 (Maxi Cruiser) – Rp 160k/day', labelZH: 'Honda PCX 155 (豪华巡航踏板) – Rp 160k/天', labelID: 'Honda PCX 155 (Maxi Cruiser) – Rp 160rb/hari' },
+  { id: 'maxi', name: 'Maxi Scooter (NMAX 155 / PCX 155)', rate: 160000, labelEN: 'Maxi Scooter (Yamaha NMAX 155 / Honda PCX 155) – Rp 160k/day', labelZH: '豪华大踏板 (NMAX 155 / PCX 155) – Rp 160k/天', labelID: 'Maxi Scooter (NMAX 155 / PCX 155) – Rp 160rb/hari' },
 ];
 
 const LOCATION_OPTIONS_EN = [

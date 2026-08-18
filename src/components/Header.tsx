@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Language, TranslationContent } from '../data/translations';
-import { MessageCircle, Menu, X, Bike, Car, Ship, BookOpen } from 'lucide-react';
+import { MessageCircle, Menu, X, Bike, Car, Ship, BookOpen, ChevronDown, Check } from 'lucide-react';
 import { SITE_CONFIG } from '../data/siteConfig';
+import { getContextualWhatsAppUrl } from '../utils/whatsapp';
 
 interface HeaderProps {
   lang: Language;
@@ -12,15 +13,10 @@ interface HeaderProps {
 
 export const Header: React.FC<HeaderProps> = ({ lang, onLanguageChange, t }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLangOpen, setIsLangOpen] = useState(false);
   const location = useLocation();
 
-  const whatsappUrl = `https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
-    lang === 'EN'
-      ? 'Hi HelloBajo! I am interested in renting a scooter in Labuan Bajo.'
-      : lang === 'ZH'
-      ? '你好 HelloBajo！我想咨询在拉布安巴佐租摩托车。'
-      : 'Halo HelloBajo! Saya mau tanya sewa motor di Labuan Bajo.'
-  )}`;
+  const whatsappUrl = getContextualWhatsAppUrl(location.pathname, lang);
 
   const commercialNavItems = [
     {
@@ -46,6 +42,14 @@ export const Header: React.FC<HeaderProps> = ({ lang, onLanguageChange, t }) => 
     icon: BookOpen,
   };
 
+  const allNavItems = [...commercialNavItems, guideNavItem];
+
+  const LANG_OPTIONS: { code: Language; label: string; flag: string }[] = [
+    { code: 'EN', label: 'English', flag: '🇬🇧' },
+    { code: 'ID', label: 'Bahasa Indonesia', flag: '🇮🇩' },
+    { code: 'ZH', label: '中文 (Chinese)', flag: '🇨🇳' },
+  ];
+
   const isActive = (path: string) => {
     if (path === '/') return location.pathname === '/';
     return location.pathname.startsWith(path);
@@ -53,12 +57,12 @@ export const Header: React.FC<HeaderProps> = ({ lang, onLanguageChange, t }) => 
 
   return (
     <header className="fixed top-0 inset-x-0 z-50 bg-white/95 backdrop-blur-md border-b border-stone-200/80 shadow-sm transition-all duration-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20">
+      <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between h-16 sm:h-20 gap-2">
           
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group" aria-label="HelloBajo Home">
-            <div className="relative flex items-center justify-center h-10 sm:h-12">
+          <Link to="/blog" className="flex items-center gap-2 shrink-0 group" aria-label="HelloBajo Travel Guides">
+            <div className="relative flex items-center justify-center h-8 sm:h-12">
               <img 
                 src={SITE_CONFIG.logo} 
                 alt={SITE_CONFIG.name} 
@@ -66,10 +70,33 @@ export const Header: React.FC<HeaderProps> = ({ lang, onLanguageChange, t }) => 
                 decoding="async"
                 width="160"
                 height="48"
-                className="h-10 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
+                className="h-8 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105" 
               />
             </div>
           </Link>
+
+          {/* Mobile Quick Business Icons Bar (🛵 🚗 🚤 📖) */}
+          <div className="flex md:hidden items-center gap-1 bg-stone-100/90 p-1 rounded-2xl border border-stone-200/80 shadow-2xs">
+            {allNavItems.map((item) => {
+              const Icon = item.icon;
+              const active = isActive(item.path);
+              return (
+                <Link
+                  key={item.path}
+                  to={item.path}
+                  title={item.label}
+                  aria-label={item.label}
+                  className={`relative flex items-center justify-center w-8 h-8 rounded-xl transition-all duration-200 cursor-pointer ${
+                    active
+                      ? 'bg-teal-600 text-white shadow-xs font-bold scale-105'
+                      : 'text-slate-600 hover:text-teal-700 hover:bg-stone-200/80'
+                  }`}
+                >
+                  <Icon className="w-4 h-4" />
+                </Link>
+              );
+            })}
+          </div>
 
           {/* Desktop Navigation Links */}
           <nav className="hidden md:flex items-center space-x-1 lg:space-x-2 text-sm font-medium">
@@ -119,10 +146,10 @@ export const Header: React.FC<HeaderProps> = ({ lang, onLanguageChange, t }) => 
           </nav>
 
           {/* Right Action Controls (Lang Toggle & WhatsApp CTA) */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center gap-2">
             
-            {/* Language Selector Pill Capsule */}
-            <div className="flex items-center bg-slate-100 p-1 rounded-full text-xs font-semibold border border-slate-200/60">
+            {/* Desktop Language Selector Pill Capsule */}
+            <div className="hidden md:flex items-center bg-slate-100 p-1 rounded-full text-xs font-semibold border border-slate-200/60">
               <button
                 onClick={() => onLanguageChange('EN')}
                 className={`px-2.5 py-1 rounded-full transition-all duration-200 cursor-pointer ${
@@ -155,6 +182,45 @@ export const Header: React.FC<HeaderProps> = ({ lang, onLanguageChange, t }) => 
               </button>
             </div>
 
+            {/* Mobile Compact Language Dropdown Toggle */}
+            <div className="relative md:hidden">
+              <button
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className="flex items-center gap-1 px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-extrabold rounded-full border border-slate-200/80 cursor-pointer transition-colors"
+                aria-label="Select Language"
+              >
+                <span>{lang === 'ZH' ? '中文' : lang}</span>
+                <ChevronDown className={`w-3.5 h-3.5 text-slate-500 transition-transform ${isLangOpen ? 'rotate-180' : ''}`} />
+              </button>
+
+              {/* Floating Language Options Dropdown */}
+              {isLangOpen && (
+                <>
+                  <div className="fixed inset-0 z-40" onClick={() => setIsLangOpen(false)} />
+                  <div className="absolute right-0 top-full mt-2 w-40 bg-white rounded-2xl shadow-xl border border-stone-200/90 py-1.5 z-50 animate-in fade-in zoom-in-95 duration-150">
+                    {LANG_OPTIONS.map((item) => (
+                      <button
+                        key={item.code}
+                        onClick={() => {
+                          onLanguageChange(item.code);
+                          setIsLangOpen(false);
+                        }}
+                        className={`w-full flex items-center justify-between px-3.5 py-2 text-xs font-semibold text-left transition-colors cursor-pointer ${
+                          lang === item.code ? 'bg-teal-50 text-teal-700 font-extrabold' : 'text-slate-700 hover:bg-stone-100'
+                        }`}
+                      >
+                        <span className="flex items-center gap-2">
+                          <span>{item.flag}</span>
+                          <span>{item.label}</span>
+                        </span>
+                        {lang === item.code && <Check className="w-3.5 h-3.5 text-teal-600" />}
+                      </button>
+                    ))}
+                  </div>
+                </>
+              )}
+            </div>
+
             {/* Direct WhatsApp Pill CTA */}
             <a
               href={whatsappUrl}
@@ -169,7 +235,7 @@ export const Header: React.FC<HeaderProps> = ({ lang, onLanguageChange, t }) => 
             {/* Mobile Hamburger Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2 text-slate-600 hover:text-slate-900 focus:outline-none cursor-pointer"
+              className="md:hidden p-1.5 text-slate-600 hover:text-slate-900 focus:outline-none cursor-pointer"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

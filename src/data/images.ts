@@ -15,10 +15,30 @@ import nmaxImg from '../assets/images/scooter_nmax_1785763064245.jpg';
 
 export const HERO_IMAGE = heroBgLocal;
 
+/**
+ * ============================================================================
+ * FOTO & GAMBAR UNIT MOTOR (SCOOTER FLEET MEDIA ASSETS)
+ * ----------------------------------------------------------------------------
+ * VARIABEL DI BAWAH INI SIAP DI-UPDATE / DIGANTI DENGAN LINK URL JPEG/PNG ANDA.
+ * 
+ * Petunjuk Pengantian:
+ * Anda dapat mengganti nilai variabel dengan link URL langsung (misal: 'https://...')
+ * atau mengimpor file lokal baru dan memasukkannya di sini.
+ * ============================================================================
+ */
 export const SCOOTER_IMAGES = {
-  beat: beatImg,
-  scoopy: scoopyImg,
-  nmax: nmaxImg,
+  // 1. KATEGORI COMPACT / ECONOMY (110cc - 125cc)
+  beat: beatImg,          // Honda Beat (110cc EFI)
+  scoopy: scoopyImg,      // Honda Scoopy (110cc SmartKey)
+  fazzio: scooterHeroAlt, // Yamaha Fazzio (125cc Hybrid)
+
+  // 2. KATEGORI MEDIUM / SPORT HILL POWER (150cc - 160cc)
+  vario150: beatImg,      // Honda Vario 150 (150cc eSP)
+  vario160: heroBgLocal,  // Honda Vario 160 (160cc eSP+)
+
+  // 3. KATEGORI MAXI SCOOTER (155cc VVA / eSP+)
+  nmax: nmaxImg,          // Yamaha NMAX 155 (155cc VVA)
+  pcx: scooterHeroAlt,    // Honda PCX 155 (155cc eSP+)
 };
 
 // 3. PRIVATE CITY TOUR HERO & BANNERS
@@ -51,11 +71,13 @@ export const CITY_TOUR_ITINERARY_IMAGES = {
 import cityOptGoloMori from '../assets/images/city_opt_golomori.jpg';
 import cityOptGuaRangko from '../assets/images/city_opt_guarangko.jpg';
 import cityOptDesaMelo from '../assets/images/city_opt_desamelo.jpg';
+import cityOptCuncaWatu from '../assets/images/art3_cover.jpg';
 
 export const CITY_TOUR_OPTIONAL_IMAGES = {
   goloMori: cityOptGoloMori,
   guaRangko: cityOptGuaRangko,
   desaMelo: cityOptDesaMelo,
+  cuncaWatu: cityOptCuncaWatu,
 };
 
 // 6. SPEEDBOAT HERO & BANNERS
@@ -172,7 +194,7 @@ import turtle from '../assets/images/turtle.jpg';
 import snorkeling from '../assets/images/snorkeling.jpg';
 
 import art10_cover from '../assets/images/art10_cover.jpg';
-import art10_g1 from '../assets/images/art10_gallery1.jpg';
+import art10_g1 from '../assets/images/art10_gallery2.jpg';
 import art10_g2 from '../assets/images/art10_gallery2.jpg';
 import art10_g3 from '../assets/images/art10_gallery3.jpg';
 
@@ -227,5 +249,16 @@ export const BLOG_IMAGES = {
   waeRebo: { cover: art12_cover, gallery: [art12_g1, art12_g2, art12_g3] },
   gettingAround: { cover: art13_g4 },
 };
+
+// 12. HANDOVER GALLERY PHOTOS (6 REAL HANDOVER / DELIVERY PHOTOS)
+export const HANDOVER_GALLERY_IMAGES: string[] = [
+  'https://images.unsplash.com/photo-1558981806-ec527fa84c39?q=80&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?q=80&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1525160354320-d8e92641c563?q=80&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1511919884226-fd3cad34687c?q=80&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?q=80&w=800&auto=format&fit=crop',
+  'https://images.unsplash.com/photo-1502877338535-766e1452684a?q=80&w=800&auto=format&fit=crop',
+];
+
 
 

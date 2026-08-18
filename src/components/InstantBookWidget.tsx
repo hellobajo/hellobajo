@@ -10,7 +10,7 @@ interface InstantBookWidgetProps {
 }
 
 const SCOOTER_UNITS = [
-  { id: 'nmax', name: 'Yamaha NMAX (or similar)', rate: 175000, labelEN: 'Yamaha NMAX (Maxi Scooter - Most Popular) – Rp 175k/day', labelZH: 'Yamaha NMAX (豪华踏板 - 最受欢迎) – Rp 175k/天', labelID: 'Yamaha NMAX (Maxi Scooter - Paling Populer) – Rp 175rb/hari' },
+  { id: 'nmax', name: 'Yamaha NMAX (or similar)', rate: 160000, labelEN: 'Yamaha NMAX (Maxi Scooter - Most Popular) – Rp 160k/day', labelZH: 'Yamaha NMAX (豪华踏板 - 最受欢迎) – Rp 160k/天', labelID: 'Yamaha NMAX (Maxi Scooter - Paling Populer) – Rp 160rb/hari' },
   { id: 'scoopy', name: 'Honda Scoopy (or similar)', rate: 120000, labelEN: 'Honda Scoopy (Classic Style Scooter) – Rp 120k/day', labelZH: 'Honda Scoopy (复古风踏板) – Rp 120k/天', labelID: 'Honda Scoopy (Classic Style Scooter) – Rp 120rb/hari' },
   { id: 'beat', name: 'Honda Beat (or similar)', rate: 100000, labelEN: 'Honda Beat (Standard / Compact Scooter) – Rp 100k/day', labelZH: 'Honda Beat (标准经济型踏板) – Rp 100k/天', labelID: 'Honda Beat (Standard / Compact Scooter) – Rp 100rb/hari' },
 ];
@@ -65,10 +65,11 @@ export const InstantBookWidget: React.FC<InstantBookWidgetProps> = ({ lang }) =>
 
   // Form State
   const [unitType, setUnitType] = useState<string>('nmax');
+  const [durationDays, setDurationDays] = useState<number>(1);
   const [pickupDate, setPickupDate] = useState<string>(todayISO);
   const [pickupTime, setPickupTime] = useState<string>('9:00 AM');
   const [amount, setAmount] = useState<number>(1);
-  const [pickupMethod, setPickupMethod] = useState<'hotel' | 'airport' | 'store'>('hotel');
+  const [pickupMethod, setPickupMethod] = useState<'hotel' | 'airport'>('hotel');
   const [hotelLocation, setHotelLocation] = useState<string>('');
 
   // Calculate available time slots for the selected date
@@ -96,7 +97,7 @@ export const InstantBookWidget: React.FC<InstantBookWidgetProps> = ({ lang }) =>
   // Calculator logic - Rp 20,000 per unit for initial delivery/pickup fee
   const calculation = useMemo(() => {
     const selectedBike = SCOOTER_UNITS.find(b => b.id === unitType) || SCOOTER_UNITS[0];
-    const basePrice = amount * selectedBike.rate;
+    const basePrice = amount * selectedBike.rate * durationDays;
     
     // Delivery fee: Rp 20,000 per unit for hotel/airport, Rp 0 for store pick-up
     const isDelivery = pickupMethod === 'hotel' || pickupMethod === 'airport';
@@ -110,22 +111,23 @@ export const InstantBookWidget: React.FC<InstantBookWidgetProps> = ({ lang }) =>
       totalEstimate,
       isDelivery,
     };
-  }, [unitType, amount, pickupMethod]);
+  }, [unitType, amount, durationDays, pickupMethod]);
 
   // Handle WhatsApp Instant Booking
   const handleInstantBook = (e: React.FormEvent) => {
     e.preventDefault();
 
     const bikeName = calculation.selectedBike.name;
+    const durationText = durationDays === 1 
+      ? `1 Day (24-Hour Rental)` 
+      : `${durationDays} Days (${durationDays * 24} Hours)`;
     
     let methodText = '';
     if (pickupMethod === 'hotel') {
       const locationDetail = hotelLocation.trim() ? `: ${hotelLocation.trim()}` : '';
       methodText = lang === 'EN' ? `Deliver to Hotel / Villa${locationDetail}` : lang === 'ZH' ? `送车至酒店/度假村${locationDetail}` : `Antar ke Hotel / Villa${locationDetail}`;
-    } else if (pickupMethod === 'airport') {
-      methodText = lang === 'EN' ? 'Deliver to Komodo International Airport (LBJ)' : lang === 'ZH' ? '送车至科莫多国际机场 (LBJ)' : 'Antar ke Bandara Komodo (LBJ)';
     } else {
-      methodText = lang === 'EN' ? 'Pick-up at Store / Garage (Free)' : lang === 'ZH' ? '门店自提 (免费)' : 'Ambil di Toko / Garasi (Gratis)';
+      methodText = lang === 'EN' ? 'Deliver to Komodo International Airport (LBJ)' : lang === 'ZH' ? '送车至科莫多国际机场 (LBJ)' : 'Antar ke Bandara Komodo (LBJ)';
     }
 
     const formattedTotal = new Intl.NumberFormat('id-ID').format(calculation.totalEstimate);
@@ -135,6 +137,7 @@ export const InstantBookWidget: React.FC<InstantBookWidgetProps> = ({ lang }) =>
       message = `⚡ *INSTANT SCOOTER BOOKING* ⚡\n\n` +
         `• *Model:* ${bikeName}\n` +
         `• *Quantity:* ${amount} Scooter${amount > 1 ? 's' : ''}\n` +
+        `• *Duration:* ${durationText}\n` +
         `• *Pick-up Date & Time:* ${pickupDate} @ ${pickupTime}\n` +
         `• *Method / Location:* ${methodText}\n` +
         `• *Total Price:* Rp ${formattedTotal} (🔒 Zero Cash Deposit, Pay on Delivery)\n\n` +
@@ -143,6 +146,7 @@ export const InstantBookWidget: React.FC<InstantBookWidgetProps> = ({ lang }) =>
       message = `⚡ *即时摩托车预订* ⚡\n\n` +
         `• *车型:* ${bikeName}\n` +
         `• *数量:* ${amount} 辆\n` +
+        `• *时长:* ${durationText}\n` +
         `• *取车时间:* ${pickupDate} @ ${pickupTime}\n` +
         `• *取车地点/方式:* ${methodText}\n` +
         `• *预估金额:* Rp ${formattedTotal} (🔒 免现金押金，取车交付时支付)\n\n` +
@@ -151,6 +155,7 @@ export const InstantBookWidget: React.FC<InstantBookWidgetProps> = ({ lang }) =>
       message = `⚡ *INSTANT BOOKING MOTOR* ⚡\n\n` +
         `• *Tipe Motor:* ${bikeName}\n` +
         `• *Jumlah:* ${amount} Unit Motor\n` +
+        `• *Durasi:* ${durationText}\n` +
         `• *Tgl & Jam Ambil:* ${pickupDate} @ ${pickupTime}\n` +
         `• *Metode / Lokasi:* ${methodText}\n` +
         `• *Total Estimasi:* Rp ${formattedTotal} (🔒 Bebas Deposit Tunai, Bayar Saat Diantar)\n\n` +
@@ -233,9 +238,35 @@ export const InstantBookWidget: React.FC<InstantBookWidgetProps> = ({ lang }) =>
 
           </div>
 
-          {/* Row 2: Date & Time */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {/* Row 2: Duration, Date & Time */}
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
             
+            {/* Duration Days */}
+            <div className="space-y-1">
+              <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
+                <Clock className="w-3.5 h-3.5 text-teal-600" />
+                <span>{lang === 'EN' ? 'Duration' : lang === 'ZH' ? '租车时长' : 'Durasi'} *</span>
+              </label>
+              <select
+                value={durationDays}
+                onChange={(e) => setDurationDays(Number(e.target.value))}
+                className="w-full bg-stone-50 border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-slate-900 transition-all cursor-pointer outline-hidden"
+              >
+                <option value={1}>1 Day</option>
+                <option value={2}>2 Days</option>
+                <option value={3}>3 Days</option>
+                <option value={4}>4 Days</option>
+                <option value={5}>5 Days</option>
+                <option value={6}>6 Days</option>
+                <option value={7}>7 Days (1 Week)</option>
+                <option value={10}>10 Days</option>
+                <option value={14}>14 Days</option>
+              </select>
+              <p className="text-[11px] font-bold text-teal-700 tracking-tight pt-0.5">
+                (1 day = 24-Hour Rental)
+              </p>
+            </div>
+
             {/* Pick-up Date */}
             <div className="space-y-1">
               <label className="block text-xs font-bold text-slate-700 uppercase tracking-wider flex items-center gap-1.5">
@@ -284,7 +315,7 @@ export const InstantBookWidget: React.FC<InstantBookWidgetProps> = ({ lang }) =>
                 </label>
                 <select
                   value={pickupMethod}
-                  onChange={(e) => setPickupMethod(e.target.value as 'hotel' | 'airport' | 'store')}
+                  onChange={(e) => setPickupMethod(e.target.value as 'hotel' | 'airport')}
                   className="w-full bg-stone-50 border border-stone-200 focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20 rounded-xl px-3 py-2 text-xs sm:text-sm font-semibold text-slate-900 transition-all cursor-pointer outline-hidden"
                 >
                   <option value="hotel">
@@ -292,9 +323,6 @@ export const InstantBookWidget: React.FC<InstantBookWidgetProps> = ({ lang }) =>
                   </option>
                   <option value="airport">
                     ✈️ {lang === 'EN' ? 'Komodo International Airport (LBJ) (+Rp 20k/unit)' : lang === 'ZH' ? '科莫多国际机场 LBJ (+Rp 20k/辆)' : 'Bandara Komodo LBJ (+Rp 20rb/unit)'}
-                  </option>
-                  <option value="store">
-                    🏬 {lang === 'EN' ? 'Pick-up at Store / Garage (Free - location sent)' : lang === 'ZH' ? '门店自提 (免费 - 地址通过 WA 发送)' : 'Pick-up at Store / Garage (Gratis)'}
                   </option>
                 </select>
               </div>

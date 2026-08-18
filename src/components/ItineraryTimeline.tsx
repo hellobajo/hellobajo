@@ -1,6 +1,6 @@
 import React from 'react';
 import { TranslationContent, Language } from '../data/translations';
-import { Compass, MessageCircle, ShieldCheck, Key, CheckCircle } from 'lucide-react';
+import { Compass, MessageCircle, ShieldCheck, Key, CheckCircle, MapPin } from 'lucide-react';
 
 interface HowItWorksProps {
   t: TranslationContent;
@@ -63,6 +63,24 @@ export const ItineraryTimeline: React.FC<HowItWorksProps> = ({ t, lang }) => {
           <p className="text-slate-800 font-semibold">
             {t.howItWorks.alertBanner}
           </p>
+        </div>
+
+        {/* Riding Area Policy Banner with Pulse Animation */}
+        <div className="mt-4 p-4 sm:p-5 rounded-2xl bg-gradient-to-r from-amber-50/90 via-amber-50/60 to-yellow-50/90 border border-amber-300/80 text-slate-900 text-xs sm:text-sm leading-relaxed flex items-start gap-3.5 shadow-sm max-w-4xl mx-auto relative overflow-hidden">
+          <div className="relative flex items-center justify-center shrink-0 mt-0.5">
+            <span className="absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75 animate-ping" />
+            <span className="relative inline-flex items-center justify-center w-7 h-7 rounded-full bg-amber-500 text-white font-bold text-xs shadow-xs">
+              <MapPin className="w-4 h-4" />
+            </span>
+          </div>
+          <div>
+            <p className="text-amber-950 font-medium">
+              <span className="font-extrabold text-amber-900 mr-1 uppercase tracking-wide">
+                {lang === 'EN' ? '📍 Riding Area Policy:' : lang === 'ZH' ? '📍 骑行区域政策:' : '📍 Riding Area Policy:'}
+              </span>
+              {t.howItWorks.ridingAreaBanner}
+            </p>
+          </div>
         </div>
 
       </div>

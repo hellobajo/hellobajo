@@ -23,6 +23,26 @@ export interface ScooterFleetItem {
   minDaysLabel?: string;
 }
 
+export interface ScooterSlideItem {
+  id: string;
+  name: string;
+  subtitle: string;
+  price: string;
+  imageKey: 'beat' | 'scoopy' | 'fazzio' | 'vario150' | 'vario160' | 'nmax' | 'pcx';
+}
+
+export interface ScooterCategoryItem {
+  id: string;
+  name: string;
+  priceFormatted: string;
+  pricePeriod: string;
+  badge?: string;
+  badgeColor?: string;
+  description: string;
+  specs: string[];
+  slides: ScooterSlideItem[];
+}
+
 export interface HowItWorksStep {
   stepNumber: string;
   title: string;
@@ -63,12 +83,14 @@ export interface TranslationContent {
     title: string;
     steps: HowItWorksStep[];
     alertBanner: string;
+    ridingAreaBanner: string;
   };
   fleet: {
     tag: string;
     title: string;
     subtitle: string;
     items: ScooterFleetItem[];
+    categories?: ScooterCategoryItem[];
     bookBtn: string;
   };
   whyUs: {
@@ -173,12 +195,13 @@ export const translations: Record<Language, TranslationContent> = {
         },
       ],
       alertBanner: 'No commitment until you\'re ready. Messaging us is just a conversation — no payment upfront. Pay cash or transfer on delivery. No deposit required.',
+      ridingAreaBanner: 'Scooter rentals are strictly valid for Labuan Bajo & West Manggarai area only (Town center, Airport, Rangko Cave, Waecicu, Melo Village, Cunca Wulang). Long-distance overland riding across Flores (e.g., Ruteng, Bajawa, Kelimutu) is strictly prohibited for safety reasons and is currently not available.',
     },
     fleet: {
       tag: 'OUR FLEET',
-      title: 'Choose your ride',
-      subtitle: 'Clean helmets, phone holder, and initial fuel included with every bike. Delivery by staff (Rp 20k/trip). Photos are examples — exact color may vary.',
-      bookBtn: 'Book This',
+      title: 'Select Your Scooter Category',
+      subtitle: 'All rentals include 2 clean helmets, phone holder, initial fuel, & hassle-free staff delivery across Labuan Bajo town (Rp 20k/trip). No security deposit needed.',
+      bookBtn: 'Book Now',
       items: [
         {
           id: 'beat',
@@ -210,8 +233,95 @@ export const translations: Record<Language, TranslationContent> = {
           badgeColor: 'teal',
           description: 'Big under-seat storage & powerful engine. The most comfortable ride for exploring Labuan Bajo. Highway-ready for trips.',
           specs: ['Automatic', '155cc', 'ABS'],
-          price: 175000,
-          priceFormatted: 'Rp 175k',
+          price: 160000,
+          priceFormatted: 'Rp 160k',
+        },
+      ],
+      categories: [
+        {
+          id: 'compact',
+          name: 'Compact / Economy',
+          priceFormatted: 'Rp 100.000',
+          pricePeriod: '/ day',
+          badge: 'Best Value Choice',
+          badgeColor: 'teal',
+          description: 'Compact, fuel-efficient, and highly agile. Ideal for solo riders and couples cruising town streets, cafes, and beach roads.',
+          specs: ['Automatic', '110cc – 125cc', 'EFI / Hybrid'],
+          slides: [
+            {
+              id: 'beat',
+              name: 'Honda Beat',
+              subtitle: '110cc EFI • Light & Fuel-Efficient',
+              price: 'Rp 100.000 / day',
+              imageKey: 'beat',
+            },
+            {
+              id: 'scoopy',
+              name: 'Honda Scoopy',
+              subtitle: '110cc Smart Key • Retro Chic Style',
+              price: 'Rp 100.000 / day',
+              imageKey: 'scoopy',
+            },
+            {
+              id: 'fazzio',
+              name: 'Yamaha Fazzio',
+              subtitle: '125cc Hybrid • Modern Chic',
+              price: 'Rp 100.000 / day',
+              imageKey: 'fazzio',
+            },
+          ],
+        },
+        {
+          id: 'medium',
+          name: 'Medium / Sport',
+          priceFormatted: 'Rp 130.000+',
+          pricePeriod: '/ day',
+          badge: 'Hill Climbing Power',
+          badgeColor: 'amber',
+          description: 'Stronger horsepower & sharp acceleration for effortlessly navigating steep Labuan Bajo hill climbs, scenic viewpoints, and longer island rides.',
+          specs: ['Automatic', '150cc – 160cc', 'Liquid Cooled'],
+          slides: [
+            {
+              id: 'vario150',
+              name: 'Honda Vario 150',
+              subtitle: '150cc eSP Engine • Sporty Acceleration',
+              price: 'Rp 130.000 / day',
+              imageKey: 'vario150',
+            },
+            {
+              id: 'vario160',
+              name: 'Honda Vario 160',
+              subtitle: '160cc eSP+ 4-Valve • Smart Key & Power',
+              price: 'Rp 140.000 / day',
+              imageKey: 'vario160',
+            },
+          ],
+        },
+        {
+          id: 'maxi',
+          name: 'Maxi Scooter',
+          priceFormatted: 'Rp 160.000',
+          pricePeriod: '/ day',
+          badge: 'Most Popular & Comfortable',
+          badgeColor: 'teal',
+          description: 'Ultimate comfort & highway stability. Features generous under-seat storage for backpacks, wide plush double seat, and powerful 155cc engine.',
+          specs: ['Automatic', '155cc VVA', 'ABS / Disc Brake'],
+          slides: [
+            {
+              id: 'nmax',
+              name: 'Yamaha NMAX 155',
+              subtitle: '155cc VVA Engine • Big Storage & Plush Seat',
+              price: 'Rp 160.000 / day',
+              imageKey: 'nmax',
+            },
+            {
+              id: 'pcx',
+              name: 'Honda PCX 155',
+              subtitle: '155cc eSP+ • Luxury Comfort Cruiser',
+              price: 'Rp 160.000 / day',
+              imageKey: 'pcx',
+            },
+          ],
         },
       ],
     },
@@ -308,6 +418,10 @@ export const translations: Record<Language, TranslationContent> = {
           q: 'What happens if the scooter gets damaged or breaks down?',
           a: 'Please take photos or a video of the scooter during handover to protect both parties. Any accidental damage (e.g., flat tires, scratches) is the guest\'s financial responsibility. However, if the scooter breaks down due to an internal mechanical failure not caused by misuse, we will swap it immediately at no extra cost.',
         },
+        {
+          q: 'What is the Riding Area Policy for rented scooters?',
+          a: 'Scooters are rented strictly for the Labuan Bajo & West Manggarai area (town center, airport, Waecicu, Rangko Cave, Batu Cermin, Melo Village, Cunca Wulang). Riding scooters overland outside West Manggarai across Flores (such as to Ruteng, Bajawa, or Kelimutu) is strictly prohibited for safety and emergency roadside support reasons, and long-distance overland service is currently not available.',
+        },
       ],
     },
     footer: {
@@ -365,12 +479,13 @@ export const translations: Record<Language, TranslationContent> = {
         },
       ],
       alertBanner: 'Tanpa komitmen sebelum Anda yakin. Kirim pesan hanya konsultasi — tanpa bayar di awal. Bayar tunai atau transfer saat motor diantar. Tanpa uang deposit.',
+      ridingAreaBanner: 'Sewa motor berlaku khusus untuk Area Labuan Bajo & Manggarai Barat (Pusat Kota, Bandara, Gua Rangko, Waecicu, Desa Melo, Cunca Wulang). Touring overland jarak jauh keluar Manggarai Barat (ke Ruteng, Bajawa, Kelimutu) dilarang keras demi alasan keselamatan & saat ini tidak tersedia.',
     },
     fleet: {
       tag: 'PILIHAN MOTOR',
-      title: 'Pilih Motor Favorit Anda',
-      subtitle: 'Sudah termasuk helm bersih, phone holder, dan bensin awal. Antar jemput via petugas (Rp 20rb/antar) untuk semua motor. Warna menyesuaikan ketersediaan.',
-      bookBtn: 'Pesan Motor Ini',
+      title: 'Pilih Kategori Motor Anda',
+      subtitle: 'Semua sewa sudah termasuk 2 helm SNI bersih, phone holder, bensin awal, & pengantaran petugas area kota Labuan Bajo (Rp 20rb/antar). Tanpa uang deposit.',
+      bookBtn: 'Pesan Sekarang',
       items: [
         {
           id: 'beat',
@@ -402,8 +517,95 @@ export const translations: Record<Language, TranslationContent> = {
           badgeColor: 'teal',
           description: 'Bagasi luas & mesin bertenaga. Sangat nyaman untuk perjalanan jauh keliling Labuan Bajo.',
           specs: ['Matic', '155cc', 'ABS'],
-          price: 175000,
-          priceFormatted: 'Rp 175rb',
+          price: 160000,
+          priceFormatted: 'Rp 160rb',
+        },
+      ],
+      categories: [
+        {
+          id: 'compact',
+          name: 'Compact / Economy',
+          priceFormatted: 'Rp 100.000',
+          pricePeriod: '/ hari',
+          badge: 'Pilihan Paling Hemat',
+          badgeColor: 'teal',
+          description: 'Ramping, sangat irit bensin, dan lincah. Pilihan tepat untuk solo traveler atau pasangan keliling kota & jalanan pantai.',
+          specs: ['Matic', '110cc – 125cc', 'EFI / Hybrid'],
+          slides: [
+            {
+              id: 'beat',
+              name: 'Honda Beat',
+              subtitle: '110cc EFI • Ringan & Sangat Irit',
+              price: 'Rp 100.000 / hari',
+              imageKey: 'beat',
+            },
+            {
+              id: 'scoopy',
+              name: 'Honda Scoopy',
+              subtitle: '110cc Smart Key • Gaya Retro Modern',
+              price: 'Rp 100.000 / hari',
+              imageKey: 'scoopy',
+            },
+            {
+              id: 'fazzio',
+              name: 'Yamaha Fazzio',
+              subtitle: '125cc Hybrid • Desain Kekinian',
+              price: 'Rp 100.000 / hari',
+              imageKey: 'fazzio',
+            },
+          ],
+        },
+        {
+          id: 'medium',
+          name: 'Medium / Sport',
+          priceFormatted: 'Rp 130.000+',
+          pricePeriod: '/ hari',
+          badge: 'Tangguh Tanjakan Bukit',
+          badgeColor: 'amber',
+          description: 'Mesin lebih bertenaga & akselerasi responsif untuk melibas tanjakan terjal bukit Labuan Bajo dan perjalanan jauh.',
+          specs: ['Matic', '150cc – 160cc', 'Liquid Cooled'],
+          slides: [
+            {
+              id: 'vario150',
+              name: 'Honda Vario 150',
+              subtitle: '150cc eSP Engine • Sporty & Lincah',
+              price: 'Rp 130.000 / hari',
+              imageKey: 'vario150',
+            },
+            {
+              id: 'vario160',
+              name: 'Honda Vario 160',
+              subtitle: '160cc eSP+ 4-Valve • Smart Key & Bertenaga',
+              price: 'Rp 140.000 / hari',
+              imageKey: 'vario160',
+            },
+          ],
+        },
+        {
+          id: 'maxi',
+          name: 'Maxi Scooter',
+          priceFormatted: 'Rp 160.000',
+          pricePeriod: '/ hari',
+          badge: 'Paling Nyaman & Populer',
+          badgeColor: 'teal',
+          description: 'Kenyamanan ekstra & kestabilan maksimal. Dilengkapi bagasi besar untuk ransel, jok empuk lebar, dan mesin 155cc bertenaga.',
+          specs: ['Matic', '155cc VVA', 'ABS / Disc Brake'],
+          slides: [
+            {
+              id: 'nmax',
+              name: 'Yamaha NMAX 155',
+              subtitle: '155cc VVA • Bagasi Luas & Jok Empuk',
+              price: 'Rp 160.000 / hari',
+              imageKey: 'nmax',
+            },
+            {
+              id: 'pcx',
+              name: 'Honda PCX 155',
+              subtitle: '155cc eSP+ • Jelajah Mewah & Nyaman',
+              price: 'Rp 160.000 / hari',
+              imageKey: 'pcx',
+            },
+          ],
         },
       ],
     },
@@ -500,6 +702,10 @@ export const translations: Record<Language, TranslationContent> = {
           q: 'Bagaimana jika motor mengalami lecet, kerusakan, atau mogok?',
           a: 'Harap ambil foto/video motor saat serah terima untuk kebaikan bersama. Kerusakan insidental akibat pemakaian merupakan tanggung jawab penyewa. Namun jika motor mogok karena masalah teknis mesin, kami akan langsung menukarnya tanpa biaya tambahan.',
         },
+        {
+          q: 'Bagaimana aturan dan kebijakan area berkendara (Riding Area Policy)?',
+          a: 'Sewa motor berlaku khusus untuk Area Labuan Bajo & Manggarai Barat (Pusat Kota, Bandara, Waecicu, Gua Rangko, Batu Cermin, Desa Melo, Cunca Wulang). Motor dilarang keras dibawa touring overland keluar wilayah Manggarai Barat (seperti ke Ruteng, Bajawa, atau Kelimutu) demi alasan keselamatan & keterbatasan bantuan darurat, dan layanan overland jarak jauh saat ini tidak tersedia.',
+        },
       ],
     },
     footer: {
@@ -557,12 +763,13 @@ export const translations: Record<Language, TranslationContent> = {
         },
       ],
       alertBanner: '在您准备好之前无需承诺。发信息只是咨询——无需预付款。送车时现金或转账支付。无需押金。',
+      ridingAreaBanner: '摩托车租赁仅限拉布安巴佐及西芒加莱县区域内（市区、机场、Rangko 溶洞、Waecicu、Melo 村、Cunca Wulang 瀑布）。出于安全及紧急救援考量，严禁骑车跨区前往 Ruteng、Bajawa、克里穆图等长途地点，且目前暂不提供跨区长途行程服务。',
     },
     fleet: {
       tag: '车型选择',
-      title: '挑选您的专属坐骑',
-      subtitle: '所有车型均免费包含洁净头盔、手机支架及初始燃油。专人送车服务 (Rp 20k/次)。图片仅供参考，具体颜色以实车为准。',
-      bookBtn: '预订此款',
+      title: '选择您的摩托车类型',
+      subtitle: '所有租车均免费包含 2 顶清洁头盔、手机支架、初始燃油及专人送车服务 (Rp 20k/次)。无需押金。',
+      bookBtn: '立即预订',
       items: [
         {
           id: 'beat',
@@ -594,8 +801,95 @@ export const translations: Record<Language, TranslationContent> = {
           badgeColor: 'teal',
           description: '座桶空间大，动力强劲。探索拉布安巴佐最舒适的骑行选择，适合远途游览。',
           specs: ['自动挡', '155cc', 'ABS防抱死'],
-          price: 175000,
-          priceFormatted: 'Rp 175k',
+          price: 160000,
+          priceFormatted: 'Rp 160k',
+        },
+      ],
+      categories: [
+        {
+          id: 'compact',
+          name: 'Compact / Economy',
+          priceFormatted: 'Rp 100.000',
+          pricePeriod: '/ 天',
+          badge: '高性价比之选',
+          badgeColor: 'teal',
+          description: '车身轻便、极其省油且操控轻盈。非常适合单人或情侣探索拉布安巴佐市区、咖啡馆与沿海公路。',
+          specs: ['自动挡', '110cc – 125cc', '电喷 / 混动 Engine'],
+          slides: [
+            {
+              id: 'beat',
+              name: 'Honda Beat',
+              subtitle: '110cc 电喷 • 轻巧超省油',
+              price: 'Rp 100.000 / 天',
+              imageKey: 'beat',
+            },
+            {
+              id: 'scoopy',
+              name: 'Honda Scoopy',
+              subtitle: '110cc 智能钥匙 • 经典复古造型',
+              price: 'Rp 100.000 / 天',
+              imageKey: 'scoopy',
+            },
+            {
+              id: 'fazzio',
+              name: 'Yamaha Fazzio',
+              subtitle: '125cc 混合动力 • 时尚轻便',
+              price: 'Rp 100.000 / 天',
+              imageKey: 'fazzio',
+            },
+          ],
+        },
+        {
+          id: 'medium',
+          name: 'Medium / Sport',
+          priceFormatted: 'Rp 130.000+',
+          pricePeriod: '/ 天',
+          badge: '强劲爬坡动力',
+          badgeColor: 'amber',
+          description: '强劲马力与灵敏加速，轻松攀登拉布安巴佐陡峭山丘、观景台及更远环岛骑行路线。',
+          specs: ['自动挡', '150cc – 160cc', '水冷 Engine'],
+          slides: [
+            {
+              id: 'vario150',
+              name: 'Honda Vario 150',
+              subtitle: '150cc eSP 引擎 • 运动感提速',
+              price: 'Rp 130.000 / 天',
+              imageKey: 'vario150',
+            },
+            {
+              id: 'vario160',
+              name: 'Honda Vario 160',
+              subtitle: '160cc 4气门 • 智能钥匙与强劲动力',
+              price: 'Rp 140.000 / 天',
+              imageKey: 'vario160',
+            },
+          ],
+        },
+        {
+          id: 'maxi',
+          name: 'Maxi Scooter',
+          priceFormatted: 'Rp 160.000',
+          pricePeriod: '/ 天',
+          badge: '最受欢迎 & 最舒适',
+          badgeColor: 'teal',
+          description: '极致舒适与巡航稳定性。超大座桶可存放双肩背包，宽大双人柔软座椅，搭配 155cc 强劲引擎。',
+          specs: ['自动挡', '155cc VVA', 'ABS / 盘式制动'],
+          slides: [
+            {
+              id: 'nmax',
+              name: 'Yamaha NMAX 155',
+              subtitle: '155cc VVA 引擎 • 超大储物与宽大软座',
+              price: 'Rp 160.000 / 天',
+              imageKey: 'nmax',
+            },
+            {
+              id: 'pcx',
+              name: 'Honda PCX 155',
+              subtitle: '155cc eSP+ • 奢华巡航骑行',
+              price: 'Rp 160.000 / 天',
+              imageKey: 'pcx',
+            },
+          ],
         },
       ],
     },
@@ -691,6 +985,10 @@ export const translations: Record<Language, TranslationContent> = {
         {
           q: '如果摩托车受损或故障怎么办？',
           a: '交接车辆时请拍摄照片或视频，以保障双方权益。因使用意外造成的损失（如爆胎、划痕）由租客承担。若因非人为因素的内部机械故障导致车辆无法骑行，我们将免费为您更换车辆。',
+        },
+        {
+          q: '摩托车骑行区域政策 (Riding Area Policy) 有何规定？',
+          a: '租用摩托车仅限在拉布安巴佐及西芒加莱县区域内骑行（市区、机场、Waecicu、Rangko 溶洞、Batu Cermin、Melo 村、Cunca Wulang 瀑布）。出于安全及紧急救援保障考量，严禁将摩托车骑出西芒加莱县进行长途跨区旅行（如前往 Ruteng、Bajawa、克里穆图等），目前暂不提供长途跨区线路。',
         },
       ],
     },

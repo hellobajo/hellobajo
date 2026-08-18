@@ -30,7 +30,9 @@ import {
   Compass,
   ArrowRight,
   ChevronRight,
-  Info
+  Info,
+  X,
+  Star
 } from 'lucide-react';
 
 interface CarsPageProps {
@@ -50,9 +52,9 @@ const ITINERARY_STEPS = [
       ZH: '酒店或科莫多机场 (LBJ) 专人接送',
     },
     description: {
-      EN: 'Your private driver picks you up directly from your hotel lobby or Komodo Airport (LBJ) in a clean, air-conditioned vehicle.',
-      ID: 'Driver pribadi Anda akan menjemput langsung dari lobi hotel atau Bandara Komodo (LBJ) dengan mobil bersih ber-AC.',
-      ZH: '您的私人司机将在酒店大堂或科莫多机场 (LBJ) 出口准时等候，为您开启舒适出行。',
+      EN: 'Your private driver picks you up directly from your hotel lobby or Komodo Airport (LBJ) in a clean, air-conditioned vehicle with free pick-up across Labuan Bajo town.',
+      ID: 'Driver pribadi Anda menjemput langsung dari lobi hotel atau Bandara Komodo (LBJ) dengan mobil bersih ber-AC secara gratis di seluruh area kota.',
+      ZH: '专职私人司机前往酒店大堂或科莫多机场 (LBJ) 准时接您，在拉布安巴佐市区范围提供免费接送。',
     },
     highlight: {
       EN: 'Free pick-up across Labuan Bajo town area',
@@ -68,18 +70,18 @@ const ITINERARY_STEPS = [
     duration: { EN: '1.5 Hours', ID: '1.5 Jam', ZH: '1.5 小时' },
     title: {
       EN: 'Gua Batu Cermin (Mirror Stone Cave)',
-      ID: 'Gua Batu Cermin',
+      ID: 'Gua Batu Cermin (Mirror Stone Cave)',
       ZH: '镜石洞 (Gua Batu Cermin)',
     },
     description: {
-      EN: 'Morning visit to the natural limestone cave when temperatures are cool. Experience sunlight refracting off rock walls and ancient sea fossils.',
-      ID: 'Kunjungan pagi ke gua batu kapur saat udara masih sejuk. Saksikan pantulan sinar matahari di dinding batu dan fosil laut purba.',
-      ZH: '早晨游览天然石灰岩溶洞，气温宜人。欣赏阳光穿透岩隙的折射奇景与古老海洋生物化石。',
+      EN: 'Explore the natural limestone cave in the cool morning atmosphere. Witness sunlight refracting off rock walls and ancient sea fossils preserved inside.',
+      ID: 'Eksplorasi gua batu kapur alami saat udara pagi sejuk. Saksikan pantulan sinar matahari di dinding batu dan fosil laut purba.',
+      ZH: '晨间探秘天然石灰岩溶洞，气温清凉宜人。欣赏阳光穿透岩隙的折射奇景与古老海洋生物化石。',
     },
     highlight: {
-      EN: 'Best morning light & cool cave atmosphere',
-      ID: 'Sinar matahari pagi terbaik & suasana gua yang sejuk',
-      ZH: '晨光折射最佳拍摄时刻，清凉惬意',
+      EN: 'Ancient sea fossils & cool limestone atmosphere',
+      ID: 'Fosil laut purba & suasana gua kapur sejuk',
+      ZH: '远古海洋化石与清凉溶洞奇观',
     },
     image: CITY_TOUR_ITINERARY_IMAGES.step2BatuCermin,
   },
@@ -94,21 +96,21 @@ const ITINERARY_STEPS = [
       ZH: '爱之丘与西尔维亚山观景台 (Bukit Cinta & Sylvia Hill)',
     },
     description: {
-      EN: "Enjoy sweeping 360-degree hilltop views of Labuan Bajo's islands and turquoise bays before peak midday heat.",
+      EN: 'Enjoy sweeping 360-degree hilltop views of Labuan Bajo’s rolling islands and turquoise bays before midday heat.',
       ID: 'Nikmati pemandangan 360 derajat gugusan pulau dan teluk biru Labuan Bajo dari puncak bukit sebelum terik siang.',
-      ZH: '登高远眺拉布安巴佐 360 度海景与群岛风光，绿宝石般的海湾尽收眼底。',
+      ZH: '登高远眺拉布安巴佐 360 度海景与连绵群岛，绿宝石般的海湾尽收眼底。',
     },
     highlight: {
-      EN: 'Premier 360° panoramic photo lookout',
-      ID: 'Spot foto panorama 360° spektakuler',
-      ZH: '360° 绝美海岛全景摄影打卡点',
+      EN: '360-degree island & turquoise bay views',
+      ID: 'Spot foto panorama 360° pulau & teluk biru',
+      ZH: '360° 绝美海岛与蓝色海湾全景打卡点',
     },
     image: CITY_TOUR_ITINERARY_IMAGES.step3BukitCinta,
   },
   {
     step: '04',
     time: '12:30 PM – 14:00 PM',
-    category: { EN: 'MIDDAY DINING', ID: 'MANTAP KULINER SIANG', ZH: '海景特色午餐' },
+    category: { EN: 'MIDDAY DINING', ID: 'KULINER PESISIR SIANG', ZH: '海景特色午餐' },
     duration: { EN: '1.5 Hours', ID: '1.5 Jam', ZH: '1.5 小时' },
     title: {
       EN: 'Lunch & Coastal Culinary Experience',
@@ -116,79 +118,101 @@ const ITINERARY_STEPS = [
       ZH: '海边餐厅午餐与地方美食体验',
     },
     description: {
-      EN: 'Relaxed lunch stop at a seaside seafood venue or local café right in the middle of your trip. Your driver will gladly recommend local gems.',
-      ID: 'Istirahat makan siang santai di restoran seafood tepi pantai atau kafe lokal. Driver siap merekomendasikan kuliner favorit lokal.',
-      ZH: '在海边海鲜餐厅或特色咖啡馆享用美味午餐，司机为您推荐地道特色美食。',
+      EN: 'Midday dining break at a seaside seafood venue or cozy local café. Your driver will gladly recommend authentic culinary spots.',
+      ID: 'Istirahat makan siang di restoran seafood tepi pantai atau kafe lokal nyaman. Driver siap merekomendasikan kuliner khas terbaik.',
+      ZH: '在海边海鲜餐厅或舒适咖啡馆享用美味午餐，司机为您推荐最棒的地道特色美食。',
     },
     highlight: {
-      EN: 'Fresh local seafood & comfortable dining break',
-      ID: 'Seafood segar lokal & tempat makan ber-AC nyaman',
-      ZH: '新鲜海鲜与舒适用餐休整体验',
+      EN: 'Fresh seafood & relaxed seaside dining',
+      ID: 'Seafood segar lokal & istirahat makan siang nyaman',
+      ZH: '新鲜海鲜与舒适海边用餐体验',
     },
     image: CITY_TOUR_ITINERARY_IMAGES.step4Lunch,
   },
   {
     step: '05',
-    time: '14:15 PM – 15:45 PM',
-    category: { EN: 'LOCAL SHOPPING & CULTURE', ID: 'WISATA BELANJA & BUDAYA', ZH: '手工艺品与文化采买' },
-    duration: { EN: '1.5 Hours', ID: '1.5 Jam', ZH: '1.5 小时' },
+    time: '14:15 PM – 15:15 PM',
+    category: { EN: 'LOCAL SHOPPING & CULTURE', ID: 'WISATA BELANJA & BUDAYA', ZH: '特产与手工艺品' },
+    duration: { EN: '1 Hour', ID: '1 Jam', ZH: '1 小时' },
     title: {
-      EN: 'Flores Souvenir & Cultural Craft Center',
+      EN: 'Flores Souvenir & Craft Center',
       ID: 'Pusat Oleh-Oleh & Kerajinan Khas Flores',
       ZH: '弗洛雷斯特产与手工艺品中心',
     },
     description: {
-      EN: 'Browse authentic handwoven Tenun Ikat fabrics, famous Manggarai coffee, and hand-crafted Flores souvenirs at local artisan shops.',
-      ID: 'Berbelanja kain Tenun Ikat asli, kopi Manggarai terkenal, dan kerajinan tangan khas Flores di galeri UMKM lokal.',
+      EN: 'Browse authentic handwoven Tenun Ikat fabrics, aromatic Manggarai coffee, and hand-crafted Flores souvenirs at local artisan galleries.',
+      ID: 'Berbelanja kain Tenun Ikat asli, kopi Manggarai beraroma harum, dan kerajinan tangan khas Flores di galeri UMKM lokal.',
       ZH: '选购手工编织的特努织锦 (Tenun Ikat)、闻名遐迩的芒加莱咖啡以及精致的本地纪念品。',
     },
     highlight: {
-      EN: 'Authentic local gifts & handwoven textiles',
-      ID: 'Oleh-oleh autentik & kain tenun buatan tangan',
-      ZH: '地道手工艺品与传统手工编织织锦',
+      EN: 'Handwoven Tenun Ikat fabrics & Manggarai coffee',
+      ID: 'Kain Tenun Ikat buatan tangan & kopi Manggarai',
+      ZH: '手工特努织锦与芒加莱高山咖啡',
     },
     image: CITY_TOUR_ITINERARY_IMAGES.step5Souvenir,
   },
   {
     step: '06',
-    time: '16:00 PM – 18:00 PM',
+    time: '15:30 PM – 16:30 PM',
+    category: { EN: 'CULTURE & HIGHLAND', ID: 'WISATA BUDAYA & PEGUNUNGAN', ZH: '传统文化村与高山体验' },
+    duration: { EN: '1 Hour', ID: '1 Jam', ZH: '1 小时' },
+    title: {
+      EN: 'Desa Melo Cultural Village',
+      ID: 'Desa Adat Melo',
+      ZH: '梅洛传统文化村 (Desa Melo)',
+    },
+    description: {
+      EN: 'Ascend into the cool Flores highlands to experience traditional Manggarai village heritage, scenic mountain vistas, and fresh upland air.',
+      ID: 'Perjalanan ke pegunungan Flores yang sejuk untuk merasakan warisan suku Manggarai, pemandangan bukit, dan udara segar.',
+      ZH: '前往凉爽的弗洛雷斯高山，体验芒加莱部落传统文化，呼吸清新山地空气与观赏辽阔山景。',
+    },
+    highlight: {
+      EN: 'Traditional village heritage & scenic mountain air',
+      ID: 'Warisan desa adat Manggarai & udara pegunungan sejuk',
+      ZH: '传统部落文化遗存与高山清爽空气',
+    },
+    image: CITY_TOUR_OPTIONAL_IMAGES.desaMelo,
+  },
+  {
+    step: '07',
+    time: '16:45 PM – 17:45 PM',
     category: { EN: 'GOLDEN HOUR SUNSET', ID: 'MOMEN SUNSET EMAS', ZH: '日落观景台' },
-    duration: { EN: '2 Hours', ID: '2 Jam', ZH: '2 小时' },
+    duration: { EN: '1 Hour', ID: '1 Jam', ZH: '1 小时' },
     title: {
       EN: 'Puncak Waringin Sunset Lookout',
       ID: 'Puncak Waringin Sunset Lookout',
       ZH: '瓦林金顶 (Puncak Waringin) 傍晚日落',
     },
     description: {
-      EN: 'Arrive at Labuan Bajo’s top sunset terrace right on time for golden hour, looking out over Phinisi schooners gently swaying in the harbor.',
-      ID: 'Tiba di teras pemandangan Puncak Waringin tepat saat golden hour, menyaksikan kapa-kapal Phinisi bersandar di pelabuhan.',
-      ZH: '在黄金时段抵达拉布安巴佐顶级日落观景台，俯瞰港湾中摇曳的帆船与壮丽晚霞。',
+      EN: 'Arrive at Labuan Bajo’s premier sunset terrace during golden hour to admire traditional Phinisi schooners anchored in the glowing bay.',
+      ID: 'Tiba di teras pemandangan Puncak Waringin tepat saat golden hour, menyaksikan kapal Phinisi bersandar di pelabuhan.',
+      ZH: '在黄金时段抵达拉布安巴佐顶尖日落观景台，俯瞰港湾中停泊的菲尼斯 (Phinisi) 帆船与壮丽晚霞。',
     },
     highlight: {
-      EN: 'Unrivaled sunset panorama over the bay',
-      ID: 'Panorama sunset pelabuhan paling ikonik',
+      EN: 'Golden hour sunset over Phinisi schooners in harbor',
+      ID: 'Sunset emas dengan latar kapal Phinisi di pelabuhan',
       ZH: '港湾帆船落日绝美晚霞全景',
     },
     image: CITY_TOUR_ITINERARY_IMAGES.step6Sunset,
   },
   {
-    step: '07',
-    time: '18:00 PM – 20:00 PM',
+    step: '08',
+    time: '18:00 PM – Max 20:00 PM',
     category: { EN: 'DINNER & RETURN TRANSFER', ID: 'MAKAN MALAM & ANTAR HOTEL', ZH: '晚餐与送回酒店' },
     duration: { EN: 'Max 20:00 PM', ID: 'Maks 20:00 WITA', ZH: '截止晚 20:00' },
     title: {
-      EN: 'Dinner Stop & Return Transfer (Up to 20:00 PM)',
+      EN: 'Dinner Stop & Return Transfer',
       ID: 'Makan Malam & Pengantaran Kembali ke Hotel',
       ZH: '晚餐休息与送回酒店',
     },
     description: {
-      EN: 'Conclude your day tour with a relaxing dinner stop at your chosen restaurant or local market, followed by a comfortable drop-off back to your hotel.',
-      ID: 'Selesaikan tur harian dengan makan malam santai di restoran pilihan atau kuliner malam, dilanjutkan pengantaran kembali ke hotel.',
-      ZH: '在您指定的餐厅或美食夜市享受晚餐，随后由专车将您安全送回酒店，结束愉快一天。',
+      EN: 'Conclude your tour with a relaxing dinner stop at a restaurant or seafood night market of your choice, followed by hotel drop-off.',
+      ID: 'Selesaikan tur harian dengan makan malam di restoran pilihan atau wisata kuliner malam, dilanjutkan pengantaran kembali ke hotel.',
+      ZH: '在您指定的餐厅或美食夜市享受晚餐休整，随后由专车将您安全送回酒店，圆满结束一日游。',
     },
     highlight: {
-      EN: 'Includes dinner stop & return transfer up to 20:00 PM',
-      ID: 'Termasuk stop makan malam & pengantaran hingga 20:00 WITA',
+      EN: 'Relaxing dinner stop & hotel drop-off up to 20:00 PM',
+      ID: 'Stop makan malam & pengantaran hotel hingga 20:00 WITA',
       ZH: '包含晚餐途经与最迟 20:00 前的酒店送回服务',
     },
     image: CITY_TOUR_ITINERARY_IMAGES.step7Dinner,
@@ -199,42 +223,42 @@ const ITINERARY_STEPS = [
 const OPTIONAL_SPOTS = [
   {
     id: 'golo-mori',
-    tag: { EN: 'SCENIC ROADTRIP & BAY VIEW', ID: 'JALANAN PESISIR INDAH', ZH: '绝美沿海公路与海湾' },
+    tag: { EN: 'SCENIC COASTAL ROAD TRIP', ID: 'JALAN PESISIR INDAH', ZH: '绝美沿海公路' },
     timeCost: { EN: '+45 mins drive from town', ID: '+45 menit dari kota', ZH: '距离市区 +45 分钟车程' },
     title: { EN: 'Golo Mori Coastal Highway', ID: 'Jalan Pesisir Golo Mori', ZH: '戈洛莫里 (Golo Mori) 沿海公路' },
     desc: {
-      EN: 'Drive through the sleek new Golo Mori scenic highway featuring dramatic coastal curves, pristine ocean vistas, and modern international venue grounds.',
-      ID: 'Berkendara melalui jalan baru Golo Mori dengan tikungan pesisir menawan, pemandangan laut biru lepas, dan venue internasional.',
-      ZH: '沿全新的戈洛莫里沿海景观公路驰骋，途经壮观的海岸线曲线、蔚蓝海景与现代化场馆。',
+      EN: 'Scenic road trip through dramatic coastal curves, pristine ocean vistas, and modern international venue grounds for custom route requests.',
+      ID: 'Perjalanan road trip menyusuri jalanan pesisir Golo Mori dengan tikungan indah, pemandangan laut biru lepas, dan area venue modern.',
+      ZH: '沿戈洛莫里沿海景观公路驰骋，途经壮观的海岸线曲线、蔚蓝海景与现代化场馆。',
     },
-    badge: { EN: 'Spectacular coastal driving experience', ID: 'Pengalaman berkendara pesisir spektakuler', ZH: '壮丽的沿海驾驶与风光体验' },
+    badge: { EN: 'Scenic road trip for custom route requests', ID: 'Rute road trip pesisir spektakuler', ZH: '壮丽的沿海驾驶与风光体验' },
     image: CITY_TOUR_OPTIONAL_IMAGES.goloMori,
   },
   {
     id: 'gua-rangko',
-    tag: { EN: 'NATURAL SWIMMING CAVE', ID: 'GUA KOLAM ALAM SAKRAL', ZH: '天然岩洞海水游泳池' },
+    tag: { EN: 'NATURAL CAVERN POOL', ID: 'GUA KOLAM ALAM AIR ASIN', ZH: '天然岩洞海水池' },
     timeCost: { EN: '+1 Hour (Requires short wooden boat ride)', ID: '+1 Jam (Perlu perahu kayu pendek)', ZH: '+1 小时 (需搭乘短途木船)' },
     title: { EN: 'Gua Rangko (Natural Cave Pool)', ID: 'Gua Rangko (Kolam Air Asin)', ZH: '朗科洞 (Gua Rangko) 蓝洞游泳池' },
     desc: {
-      EN: 'A hidden saltwater cave where you can swim in crystal-clear blue water illuminated by afternoon sunbeams filtering through the cave roof.',
-      ID: 'Gua air asin tersembunyi untuk berenang di air biru jernih yang tersinari cahaya matahari siang dari langit-langit gua.',
+      EN: 'Natural subterranean saltwater pool with crystal-clear blue water illuminated by afternoon sunbeams filtering through the cave roof.',
+      ID: 'Kolam air asin alami dalam gua dengan air biru jernih kristal yang tersinari cahaya matahari dari langit-langit gua.',
       ZH: '隐秘的咸水岩洞，正午阳光透过洞顶洒入，在晶莹剔透的蓝色洞穴泳池中惬意畅游。',
     },
-    badge: { EN: 'Unique subterranean saltwater pool', ID: 'Kolam renang alam gua air asin unik', ZH: '独特的地下洞穴海水畅游' },
+    badge: { EN: 'Natural subterranean saltwater pool with crystal-clear water', ID: 'Kolam renang gua air asin biru kristal', ZH: '独特的地下洞穴海水畅游' },
     image: CITY_TOUR_OPTIONAL_IMAGES.guaRangko,
   },
   {
-    id: 'desa-melo',
-    tag: { EN: 'CULTURE & CACI DANCE', ID: 'BUDAYA MANGGARAI & TARI CACI', ZH: '芒加莱部落文化与鞭舞' },
-    timeCost: { EN: '+45 mins drive into Flores highlands', ID: '+45 menit ke pegunungan Flores', ZH: '向海拔高地行驶 +45 分钟' },
-    title: { EN: 'Desa Melo (Manggarai Cultural Village)', ID: 'Desa Adat Melo', ZH: '梅洛传统文化村 (Desa Melo)' },
+    id: 'cunca-watu',
+    tag: { EN: 'HIGHLAND JUNGLE WATERFALL', ID: 'AIR TERJUN PEGUNUNGAN', ZH: '高山热带雨林瀑布' },
+    timeCost: { EN: '+1 Hour drive into Flores highlands', ID: '+1 Jam ke pegunungan Flores', ZH: '向高山行驶 +1 小时' },
+    title: { EN: 'Cunca Watu Waterfall', ID: 'Air Terjun Cunca Watu', ZH: '昆卡瓦图 (Cunca Watu) 瀑布' },
     desc: {
-      EN: 'Experience authentic Manggarai tribal heritage, enjoy traditional Flores coffee, and witness the thrilling Caci whip dance performed by local villagers.',
-      ID: 'Rasakan warisan suku Manggarai autentik, nikmati kopi Flores tradisional, dan saksikan pertunjukan Tari Caci yang menegangkan.',
-      ZH: '体验地道的芒加莱部落文化，品尝弗洛雷斯传统高山咖啡，观赏村民表演的卡西 (Caci) 鞭舞。',
+      EN: 'Refreshing jungle waterfall adventure in the Flores highlands featuring cool natural plunge pools and lush tropical greenery.',
+      ID: 'Petualangan air terjun segar di pegunungan Flores dengan kolam renang alami yang sejuk dan pemandangan hijau asri.',
+      ZH: '在弗洛雷斯高山探索清凉的热带雨林瀑布，在天然清澈的水潭中畅享畅快淋漓。',
     },
-    badge: { EN: 'Authentic traditional Flores culture micro-experience', ID: 'Pengalaman budaya adat Manggarai autentik', ZH: '体验地道芒加莱传统文化' },
-    image: CITY_TOUR_OPTIONAL_IMAGES.desaMelo,
+    badge: { EN: 'Refreshing jungle waterfall adventure in Flores highlands', ID: 'Petualangan air terjun pegunungan yang segar', ZH: '高山雨林清凉瀑布打卡' },
+    image: CITY_TOUR_OPTIONAL_IMAGES.cuncaWatu,
   },
 ];
 
@@ -307,9 +331,9 @@ const FAQS = [
       ZH: '预订需要支付定金吗？',
     },
     a: {
-      EN: 'To lock in your driver and private car for your date, a low commitment deposit of Rp 200.000 (~$11 USD) per car is required. The remaining balance of Rp 1.300.000 (~$72 USD) can be paid in cash, local bank transfer, or Wise after tour completion.',
-      ID: 'Untuk mengunci jadwal driver & mobil, diperlukan deposit Rp 200.000 / mobil. Sisa pelunasan Rp 1.300.000 (~$72 USD) dapat dibayarkan tunai, transfer bank lokal, atau Wise setelah tur selesai.',
-      ZH: '为了锁定司机与车辆，预订时仅需支付 Rp 200.000 (约 $11 USD) 定金。余款 Rp 1.300.000 (约 $72 USD) 可在行程结束后通过现金、印尼本地银行转账或 Wise 支付。',
+      EN: 'Is a deposit required? No deposit required! We secure your private driver and vehicle based on your flight details or hotel confirmation. Payment is settled in cash or transfer directly upon tour completion.',
+      ID: 'Apakah ada deposit untuk memesan? Tanpa deposit sama sekali! Kami mengamankan driver dan unit mobil Anda berdasarkan info nomor penerbangan atau nama konfirmasi hotel Anda. Pelunasan dilakukan secara tunai atau transfer setelah tur selesai.',
+      ZH: '预订需要支付定金吗？无需任何定金！我们根据您的航班号或酒店确认信息为您锁定专属司机与车辆。行程结束后直接以现金或转账结清。',
     },
   },
   {
@@ -338,14 +362,14 @@ const FAQS = [
   },
   {
     q: {
-      EN: 'Are entrance tickets included in Rp 1.500.000 (~$83 USD)?',
-      ID: 'Apakah tiket masuk wisata sudah termasuk dalam Rp 1.500.000?',
-      ZH: 'Rp 1.500.000 费用中是否包含景点门票？',
+      EN: 'Are entrance tickets included in Rp 1.200.000 (~$75 USD)?',
+      ID: 'Apakah tiket masuk wisata sudah termasuk dalam Rp 1.200.000?',
+      ZH: 'Rp 1.200.000 费用中是否包含景点门票？',
     },
     a: {
-      EN: 'The Rp 1.500.000 rate covers the vehicle, full fuel (BBM), professional driver, mineral water, and all-day transfers up to 20:00 PM. Attraction entrance tickets (e.g. Gua Batu Cermin ~Rp 50.000/pax) and meals are paid directly by you at the venue.',
-      ID: 'Harga Rp 1.500.000 sudah mencakup mobil ber-AC, BBM penuh, driver profesional, air mineral, & operasional hingga jam 20:00. Tiket masuk lokasi (seperti Gua Batu Cermin ~Rp 50.000/orang) & makan bayar langsung di lokasi.',
-      ZH: 'Rp 1.500.000 价格已包含冷气专车、全程汽油 (BBM)、专业本地司机、矿泉水及全天使用（最迟至 20:00）。景点门票（例如镜石洞约 Rp 50.000/人）及餐食费用由您在现场自行支付。',
+      EN: 'The Rp 1.200.000 rate covers the vehicle, full fuel (BBM), professional driver, mineral water, and all-day transfers up to 20:00 PM. Attraction entrance tickets (e.g. Gua Batu Cermin ~Rp 50.000/pax) and meals are paid directly by you at the venue.',
+      ID: 'Harga Rp 1.200.000 sudah mencakup mobil ber-AC, BBM penuh, driver profesional, air mineral, & operasional hingga jam 20:00. Tiket masuk lokasi (seperti Gua Batu Cermin ~Rp 50.000/orang) & makan bayar langsung di lokasi.',
+      ZH: 'Rp 1.200.000 价格已包含冷气专车、全程汽油 (BBM)、专业本地司机、矿泉水及全天使用（最迟至 20:00）。景点门票（例如镜石洞约 Rp 50.000/人）及餐食费用由您在现场自行支付。',
     },
   },
   {
@@ -368,20 +392,12 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
   const [showOptionalSpots, setShowOptionalSpots] = useState(true);
   const [activeFaqIndex, setActiveFaqIndex] = useState<number | null>(0);
 
-  // Form State
-  const minTourDate = useMemo(() => {
-    const tomorrow = new Date();
-    tomorrow.setDate(tomorrow.getDate() + 1);
-    const year = tomorrow.getFullYear();
-    const month = String(tomorrow.getMonth() + 1).padStart(2, '0');
-    const day = String(tomorrow.getDate()).padStart(2, '0');
-    return `${year}-${month}-${day}`;
-  }, []);
-
+  // Modal State
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [vehiclePackage, setVehiclePackage] = useState(''); // Default state: starts unselected
   const [fullName, setFullName] = useState('');
   const [phone, setPhone] = useState('');
   const [email, setEmail] = useState('');
-  const [passengerCount, setPassengerCount] = useState('5 - 6 Passengers (Standard MPV - Rp 1.500.000)');
   const [tourDate, setTourDate] = useState(() => {
     const tomorrow = new Date();
     tomorrow.setDate(tomorrow.getDate() + 1);
@@ -392,23 +408,69 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
   });
   const [pickupTime, setPickupTime] = useState('08:30 AM');
   const [pickupLocation, setPickupLocation] = useState('');
+  const [verificationInfo, setVerificationInfo] = useState(''); // Mandatory Verification Field
   const [specialRequests, setSpecialRequests] = useState('');
   const [customOverlandQuery, setCustomOverlandQuery] = useState('');
+
+  // Mandatory fields validation
+  const isFormValid = useMemo(() => {
+    return (
+      vehiclePackage.trim() !== '' &&
+      fullName.trim() !== '' &&
+      phone.trim() !== '' &&
+      tourDate.trim() !== '' &&
+      pickupTime.trim() !== '' &&
+      pickupLocation.trim() !== '' &&
+      verificationInfo.trim() !== ''
+    );
+  }, [vehiclePackage, fullName, phone, tourDate, pickupTime, pickupLocation, verificationInfo]);
+
+  const handleOpenModal = (preselectedVehicle?: string) => {
+    if (preselectedVehicle) {
+      setVehiclePackage(preselectedVehicle);
+    }
+    setIsModalOpen(true);
+    try {
+      window.history.pushState({ modalOpen: true }, '');
+    } catch (e) {
+      // ignore history errors
+    }
+  };
+
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+    if (window.history.state?.modalOpen) {
+      window.history.back();
+    }
+  };
+
+  // Mobile browser history trap: pressing phone Back button closes modal
+  useEffect(() => {
+    const handlePopState = () => {
+      setIsModalOpen(false);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  const handleBookingSubmit = (e: React.FormEvent) => {
+  const handleModalSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!isFormValid) return;
+
     const msg =
       lang === 'EN'
-        ? `Hi HelloBajo! I want to book a Private Car Charter & City Tour:\n• Name: ${fullName}\n• Phone: ${phone}\n• Email: ${email || '-'}\n• Passengers: ${passengerCount}\n• Tour Date: ${tourDate}\n• Pickup Time: ${pickupTime}\n• Pickup Location: ${pickupLocation}\n• Special Requests: ${specialRequests || 'None'}\n• Price: Rp 1.500.000 (Deposit Rp 200.000)`
+        ? `Hi HelloBajo! I want to book a Private Car Charter (Zero Deposit Required):\n• Selected Vehicle/Package: ${vehiclePackage}\n• Full Name: ${fullName}\n• Phone/WhatsApp: ${phone}\n• Email: ${email || '-'}\n• Tour Date: ${tourDate}\n• Pickup Time: ${pickupTime}\n• Pickup Location: ${pickupLocation}\n• Verification (Flight / Hotel Name): ${verificationInfo}\n• Special Requests: ${specialRequests || 'None'}\n• Price: Rp 1.200.000 / Car (Zero Upfront Deposit - Pay on completion)`
         : lang === 'ZH'
-        ? `你好 HelloBajo！我想预订包车一日游/城市游：\n• 姓名: ${fullName}\n• 电话/微信: ${phone}\n• 邮箱: ${email || '-'}\n• 乘车人数: ${passengerCount}\n• 用车日期: ${tourDate}\n• 接送时间: ${pickupTime}\n• 接送地点: ${pickupLocation}\n• 额外需求: ${specialRequests || '无'}\n• 包车价格: Rp 1.500.000 (定金 Rp 200.000)`
-        : `Halo HelloBajo! Saya mau pesan Private Car Charter & City Tour:\n• Nama: ${fullName}\n• No WA: ${phone}\n• Email: ${email || '-'}\n• Jml Penumpang: ${passengerCount}\n• Tanggal: ${tourDate}\n• Jam Penjemputan: ${pickupTime}\n• Lokasi Antar/Jemput: ${pickupLocation}\n• Catatan Tambahan: ${specialRequests || 'Tidak ada'}\n• Harga: Rp 1.500.000 (Deposit Rp 200.000)`;
+        ? `你好 HelloBajo！我想预订拉布安巴佐私人包车（免定金服务）：\n• 预订车型/方案: ${vehiclePackage}\n• 姓名: ${fullName}\n• 电话/微信: ${phone}\n• 邮箱: ${email || '-'}\n• 用车日期: ${tourDate}\n• 接送时间: ${pickupTime}\n• 接送地点: ${pickupLocation}\n• 验证信息 (航班号/酒店预订姓名): ${verificationInfo}\n• 额外需求: ${specialRequests || '无'}\n• 价格: Rp 1.200.000/车 (全程无需定金，行程结束付款)`
+        : `Halo HelloBajo! Saya mau pesan Private Car Charter (Bebas Deposit / Tanpa DP):\n• Armada/Paket: ${vehiclePackage}\n• Nama Lengkap: ${fullName}\n• No WA/Telepon: ${phone}\n• Email: ${email || '-'}\n• Tanggal Tour: ${tourDate}\n• Jam Penjemputan: ${pickupTime}\n• Lokasi Antar/Jemput: ${pickupLocation}\n• Info Verifikasi (No Penerbangan / Nama Hotel): ${verificationInfo}\n• Catatan Tambahan: ${specialRequests || 'Tidak ada'}\n• Harga: Rp 1.200.000 (Tanpa Deposit - Pelunasan setelah tour selesai)`;
 
     window.open(`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(msg)}`, '_blank');
+    setIsModalOpen(false);
   };
 
   const handleOverlandConsult = () => {
@@ -432,10 +494,10 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
 
   const pageDescription =
     lang === 'EN'
-      ? "Labuan Bajo's premier private car charter & city tour service. Fixed Rp 1.500.000 rate, clean 7-seater AC car with driver, full fuel, and flexible route."
+      ? "Labuan Bajo's premier private car charter & city tour service. Fixed Rp 1.200.000 rate, clean 7-seater AC car with driver, full fuel, and flexible route."
       : lang === 'ZH'
-      ? '拉布安巴佐首选私人包车与城市游服务。固定价格 Rp 1.500.000/车，双重冷气 7 座 MPV/SUV，专业本地司机含全程汽油，行程 100% 自由定制。'
-      : 'Layanan sewa mobil & private city tour terbaik di Labuan Bajo. Tarif tetap Rp 1.500.000/hari, mobil AC bersih 7-seater, driver ramah & BBM penuh.';
+      ? '拉布安巴佐首选私人包车与城市游服务。固定价格 Rp 1.200.000/车，双重冷气 7 座 MPV/SUV，专业本地司机含全程汽油，行程 100% 自由定制。'
+      : 'Layanan sewa mobil & private city tour terbaik di Labuan Bajo. Tarif tetap Rp 1.200.000/hari, mobil AC bersih 7-seater, driver ramah & BBM penuh.';
 
   const activeStep = ITINERARY_STEPS[activeStepIndex];
 
@@ -513,7 +575,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                 {/* Top-Right Price Floating Badge */}
                 <div className="absolute top-5 right-5 z-30 pointer-events-none">
                   <span className="bg-white/95 text-teal-800 border border-teal-300 text-[11px] sm:text-xs font-black px-3.5 py-1.5 rounded-full shadow-md backdrop-blur-md">
-                    Rp 1.500.000 / Car
+                    Rp 1.200.000 / Car
                   </span>
                 </div>
 
@@ -584,9 +646,9 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
 
                 {/* Bottom Footer Overlay Bar */}
                 <div className="pt-2 flex items-center justify-between text-[11px] font-extrabold text-slate-600 border-t border-stone-100 relative z-10">
-                  <span className="text-teal-700 flex items-center gap-1">
+                  <span className="text-teal-700 flex items-center gap-1 font-extrabold">
                     <ShieldCheck className="w-3.5 h-3.5 text-teal-600" />
-                    {lang === 'EN' ? 'Low Deposit Rp 200k' : lang === 'ZH' ? '仅需 Rp 200k 定金' : 'Deposit Rp 200rb'}
+                    {lang === 'EN' ? 'Zero Deposit Required' : lang === 'ZH' ? '免定金预订' : 'Bebas Deposit / Tanpa DP'}
                   </span>
                   <span className="text-slate-500">
                     {lang === 'EN' ? 'Flexibility Up to 20:00' : lang === 'ZH' ? '全天服务至晚 20:00' : 'Operasional s/d 20:00 WITA'}
@@ -637,26 +699,26 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                     <span className="block text-[10px] text-slate-500 uppercase font-extrabold">
                       {lang === 'EN' ? 'Fixed Daily Rate' : lang === 'ZH' ? '全天一口价' : 'Tarif Tetap / Hari'}
                     </span>
-                    <strong className="text-xs sm:text-sm text-slate-900 font-black">Rp 1.500.000 / Car</strong>
-                  </div>
-                </div>
-
-                <div className="bg-white border border-stone-200/90 shadow-xs p-3.5 rounded-2xl flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-amber-500/15 flex items-center justify-center text-amber-700 shrink-0">
-                    <ShieldCheck className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="block text-[10px] text-slate-500 uppercase font-extrabold">
-                      {lang === 'EN' ? 'Lock Booking' : lang === 'ZH' ? '定金锁定' : 'Garansi Deposit'}
-                    </span>
-                    <strong className="text-xs sm:text-sm text-amber-700 font-black">
-                      {lang === 'EN' ? 'Deposit Rp 200k' : lang === 'ZH' ? '定金仅 Rp 200k' : 'Deposit Rp 200rb'}
-                    </strong>
+                    <strong className="text-xs sm:text-sm text-slate-900 font-black">Rp 1.200.000 / Car</strong>
                   </div>
                 </div>
 
                 <div className="bg-white border border-stone-200/90 shadow-xs p-3.5 rounded-2xl flex items-center gap-2.5">
                   <div className="w-8 h-8 rounded-xl bg-emerald-500/15 flex items-center justify-center text-emerald-700 shrink-0">
+                    <ShieldCheck className="w-4 h-4" />
+                  </div>
+                  <div>
+                    <span className="block text-[10px] text-slate-500 uppercase font-extrabold">
+                      {lang === 'EN' ? 'Payment Policy' : lang === 'ZH' ? '付款政策' : 'Kebijakan Bayar'}
+                    </span>
+                    <strong className="text-xs sm:text-sm text-emerald-700 font-black">
+                      {lang === 'EN' ? 'Zero Deposit Required' : lang === 'ZH' ? '无需预付定金' : 'Tanpa Uang Muka'}
+                    </strong>
+                  </div>
+                </div>
+
+                <div className="bg-white border border-stone-200/90 shadow-xs p-3.5 rounded-2xl flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-xl bg-amber-500/15 flex items-center justify-center text-amber-700 shrink-0">
                     <Fuel className="w-4 h-4" />
                   </div>
                   <div>
@@ -686,21 +748,13 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
 
               {/* Call-to-Action Buttons */}
               <div className="pt-3 flex flex-wrap items-center gap-3">
-                <a
-                  href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
-                    lang === 'EN'
-                      ? 'Hi HelloBajo! I want to book the Private City Tour & Car Charter (Rp 1,500,000).'
-                      : lang === 'ZH'
-                      ? '你好 HelloBajo！我想预订拉布安巴佐私人包车与城市一日游（Rp 1,500,000）。'
-                      : 'Halo HelloBajo! Saya mau pesan Private City Tour & Car Charter (Rp 1.500.000).'
-                  )}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-7 py-3.5 rounded-2xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-black text-xs sm:text-sm shadow-lg shadow-amber-500/20 transition-all duration-200 flex items-center gap-2 cursor-pointer"
+                <button
+                  onClick={() => handleOpenModal('Standard 7-Seater MPV (Toyota Rush / Calya / Avanza) — Rp 1.200.000')}
+                  className="px-7 py-3.5 rounded-2xl bg-teal-600 hover:bg-teal-500 text-white font-black text-xs sm:text-sm shadow-lg shadow-teal-600/20 transition-all duration-200 flex items-center gap-2 cursor-pointer"
                 >
-                  <MessageCircle className="w-4 h-4 fill-slate-950 text-amber-500" />
-                  <span>{lang === 'EN' ? 'Book via WhatsApp' : lang === 'ZH' ? '通过 WhatsApp 预订' : 'Pesan via WhatsApp'}</span>
-                </a>
+                  <MessageCircle className="w-4 h-4 fill-white text-teal-600" />
+                  <span>{lang === 'EN' ? 'Book Private Car Now' : lang === 'ZH' ? '立即预订专属包车' : 'Pesan Mobil Private Sekarang'}</span>
+                </button>
 
                 <a
                   href="#city-tour-itinerary"
@@ -736,13 +790,21 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
       <section id="pricing" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-20 scroll-mt-20 sm:scroll-mt-24">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="inline-block px-3 py-1 rounded-full bg-teal-50 text-teal-700 font-extrabold text-xs uppercase tracking-widest border border-teal-200">
-            PRICING
+            {lang === 'EN' ? 'TRANSPARENT PRICING' : lang === 'ZH' ? '透明包车价格' : 'HARGA TRANSPARAN'}
           </span>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">
-            All-Inclusive Private Car Charter
+            {lang === 'EN'
+              ? 'All-Inclusive Private Car Charter'
+              : lang === 'ZH'
+              ? '全包式私人包车一日游'
+              : 'Sewa Mobil Private All-Inclusive'}
           </h2>
           <p className="mt-2 text-slate-600 text-xs sm:text-sm leading-relaxed">
-            Fixed daily rate per vehicle. No per-person markup. Approx. ~$83 USD (€73 EUR). Ideal for families, couples, and small groups.
+            {lang === 'EN'
+              ? 'Fixed daily rate per vehicle. No per-person markup. Approx. ~$75 USD (€68 EUR). Ideal for families, couples, and small groups (1–6 pax).'
+              : lang === 'ZH'
+              ? '每车固定日租价格，无单人附加费。约合 ~$75 美元 (€68 欧元)。非常适合家庭、情侣及 1-6 人小团队。'
+              : 'Harga tetap harian per mobil. Tanpa biaya per orang. Sekitar ~$75 USD (€68 EUR). Cocok untuk keluarga, pasangan, & rombongan (1–6 orang).'}
           </p>
         </div>
 
@@ -752,18 +814,28 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
             <div className="space-y-4">
               <div className="inline-flex items-center gap-1.5 bg-teal-500/20 text-teal-300 px-3 py-1 rounded-full text-xs font-extrabold border border-teal-500/30">
                 <Sparkles className="w-3.5 h-3.5 text-teal-400" />
-                <span>Best Value for Groups</span>
+                <span>
+                  {lang === 'EN'
+                    ? 'Best Value for 1–6 Pax'
+                    : lang === 'ZH'
+                    ? '1–6 人高性价比首选'
+                    : 'Paling Hemat untuk 1–6 Orang'}
+                </span>
               </div>
 
               <div>
                 <div className="text-3xl sm:text-4xl font-black text-white">
-                  Rp 1.500.000
+                  Rp 1.200.000
                 </div>
                 <div className="text-teal-400 text-xs sm:text-sm font-bold mt-0.5">
-                  (~$83 USD / €73 EUR)
+                  (~$75 USD / €68 EUR)
                 </div>
                 <div className="text-slate-400 text-xs mt-1 font-medium">
-                  / car / day (~$83 USD / €73 EUR)
+                  {lang === 'EN'
+                    ? '/ car / day (Fixed All-Inclusive)'
+                    : lang === 'ZH'
+                    ? '/ 车 / 天 (全包一口价)'
+                    : '/ mobil / hari (Harga Pas All-In)'}
                 </div>
               </div>
 
@@ -771,39 +843,67 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                 <div className="flex items-start gap-2.5">
                   <Users className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-white font-bold">1–6 Pax (Standard 7-Seater) / Max 14 Pax (HiAce)</strong>
-                    <span className="text-slate-300">Clean Toyota Rush / Calya / Avanza / HiAce with AC & Driver</span>
+                    <strong className="block text-white font-bold">
+                      {lang === 'EN'
+                        ? '1–6 Passengers Capacity'
+                        : lang === 'ZH'
+                        ? '1–6 位乘客载客量'
+                        : 'Kapasitas 1–6 Penumpang'}
+                    </strong>
+                    <span className="text-slate-300">
+                      {lang === 'EN'
+                        ? 'Clean Toyota Rush / Calya / Avanza 7-Seater MPV'
+                        : lang === 'ZH'
+                        ? '舒适干净的 Toyota Rush / Calya / Avanza 7 座 MPV/SUV'
+                        : 'Unit Toyota Rush / Calya / Avanza 7-seater bersih & terawat'}
+                    </span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-2.5">
                   <Car className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-white font-bold">Rush / Calya / HiAce Fleet</strong>
-                    <span className="text-slate-300">Clean & modern MPV/SUV & Minibus (Maks 14 orang) with AC & Driver</span>
+                    <strong className="block text-white font-bold">
+                      {lang === 'EN'
+                        ? '7-Seater SUV / MPV Fleet'
+                        : lang === 'ZH'
+                        ? '7 座 SUV / MPV 车队'
+                        : 'Armada SUV / MPV 7-Seater'}
+                    </strong>
+                    <span className="text-slate-300">
+                      {lang === 'EN'
+                        ? 'Clean & modern 7-seater vehicle with Double Blower AC & Driver'
+                        : lang === 'ZH'
+                        ? '干净现代的 7 座车辆，配置双重冷气与专业本地司机'
+                        : 'Mobil 7-seater bersih & modern ber-AC Double Blower & Driver'}
+                    </span>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-2.5">
                   <Clock className="w-4 h-4 text-teal-400 shrink-0 mt-0.5" />
                   <div>
-                    <strong className="block text-white font-bold">Charter Hours (Full Day)</strong>
-                    <span className="text-slate-300">Start: 08:30 AM → End: After Dinner (Max 20:00 PM)</span>
+                    <strong className="block text-white font-bold">
+                      {lang === 'EN'
+                        ? 'Full Day Charter Hours'
+                        : lang === 'ZH'
+                        ? '全天包车服务时长'
+                        : 'Jam Sewa Full Day'}
+                    </strong>
+                    <span className="text-slate-300">
+                      {lang === 'EN'
+                        ? 'Start: 08:30 AM → End: After Dinner (Max 20:00 PM)'
+                        : lang === 'ZH'
+                        ? '出发: 08:30 AM → 结束: 晚餐后（最晚 20:00 PM）'
+                        : 'Mulai: 08:30 WITA → Selesai: Setelah Makan Malam (Maks 20:00 WITA)'}
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
 
-            <a
-              href={`https://wa.me/${SITE_CONFIG.whatsappNumber}?text=${encodeURIComponent(
-                lang === 'EN'
-                  ? 'Hi HelloBajo! I want to book the Private Car Charter (Rp 1.500.000).'
-                  : lang === 'ZH'
-                  ? '你好 HelloBajo！我想预订拉布安巴佐私人包车 (Rp 1.500.000)。'
-                  : 'Halo HelloBajo! Saya mau pesan Private Car Charter (Rp 1.500.000).'
-              )}`}
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              onClick={() => handleOpenModal('Standard 7-Seater MPV (Toyota Rush / Calya / Avanza) — Rp 1.200.000')}
               className="w-full py-3.5 bg-teal-600 hover:bg-teal-500 text-white text-xs sm:text-sm font-black rounded-xl shadow-md transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
               <MessageCircle className="w-4 h-4 fill-white text-teal-600" />
@@ -814,7 +914,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                   ? '通过 WhatsApp 预订包车'
                   : 'Pesan Private Car Charter via WhatsApp'}
               </span>
-            </a>
+            </button>
           </div>
 
           {/* Right Light Inclusions Card */}
@@ -823,32 +923,68 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
               <div>
                 <h3 className="text-sm font-extrabold text-slate-900 uppercase tracking-wider mb-3 flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-teal-600" />
-                  Package Inclusions
+                  {lang === 'EN' ? 'PACKAGE INCLUSIONS' : lang === 'ZH' ? '包含服务项目' : 'FASILITAS TERMASUK (ALL-IN)'}
                 </h3>
                 <ul className="space-y-2 text-xs sm:text-sm text-slate-700 font-medium">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
-                    <span>Clean modern vehicle (Toyota Rush / Calya / Avanza / HiAce)</span>
+                    <span>
+                      {lang === 'EN'
+                        ? 'Clean modern 7-seater vehicle (Toyota Rush / Calya / Avanza)'
+                        : lang === 'ZH'
+                        ? '干净现代的 7 座舒适车辆（Toyota Rush / Calya / Avanza）'
+                        : 'Mobil 7-seater bersih & modern (Toyota Rush / Calya / Avanza)'}
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
-                    <span>Full Fuel (BBM) included for all city & mainland routes</span>
+                    <span>
+                      {lang === 'EN'
+                        ? 'Full Fuel (BBM) included for all city & mainland routes'
+                        : lang === 'ZH'
+                        ? '包含全程汽油（BBM，覆盖所有市区与陆地观光线路）'
+                        : 'BBM Penuh (Bahan Bakar) untuk seluruh rute city tour'}
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
-                    <span>Friendly English & Indonesian speaking local driver</span>
+                    <span>
+                      {lang === 'EN'
+                        ? 'Friendly English & Indonesian speaking local driver'
+                        : lang === 'ZH'
+                        ? '专业熟路本地司机（精通基础英文与印尼语）'
+                        : 'Driver lokal ramah berbahasa Indonesia & Inggris'}
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
-                    <span>Door-to-door Pick-up & Drop-off anywhere in Labuan Bajo (Hotel/Resort/LBJ Airport)</span>
+                    <span>
+                      {lang === 'EN'
+                        ? 'Door-to-door Pick-up & Drop-off anywhere in Labuan Bajo (Hotel/Resort/LBJ Airport)'
+                        : lang === 'ZH'
+                        ? '门到门免费接送（拉布安巴佐市区酒店/度假村/科莫多机场）'
+                        : 'Bebas Antar-Jemput Door-to-Door (Hotel/Resort/Bandara Komodo LBJ)'}
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
-                    <span>Flexible schedule (Start 08:30 AM – End after Dinner max 20:00 PM)</span>
+                    <span>
+                      {lang === 'EN'
+                        ? 'Flexible schedule (Start 08:30 AM – End after Dinner max 20:00 PM)'
+                        : lang === 'ZH'
+                        ? '100% 自由行程（08:30 出发 – 晚餐后最晚 20:00 结束）'
+                        : 'Jadwal fleksibel (Mulai 08:30 – Selesai setelah Makan Malam maks 20:00 WITA)'}
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
-                    <span>Chilled bottled mineral water for all passengers</span>
+                    <span>
+                      {lang === 'EN'
+                        ? 'Chilled bottled mineral water for all passengers'
+                        : lang === 'ZH'
+                        ? '为全车乘客免费提供冰镇瓶装矿泉水'
+                        : 'Air mineral botol dingin untuk seluruh penumpang'}
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -856,24 +992,44 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
               <div className="pt-4 border-t border-stone-200/80">
                 <h3 className="text-xs font-bold text-rose-700 uppercase tracking-wider mb-2.5 flex items-center gap-1.5">
                   <XCircle className="w-4 h-4 text-rose-600" />
-                  NOT INCLUDED (PAID DIRECTLY)
+                  {lang === 'EN' ? 'NOT INCLUDED (PAID DIRECTLY)' : lang === 'ZH' ? '不包含费用 (现场自理)' : 'TIDAK TERMASUK (BAYAR DI LOKASI)'}
                 </h3>
                 <ul className="space-y-1.5 text-xs text-slate-600 font-medium">
                   <li className="flex items-center gap-2 text-slate-500">
                     <XCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" />
-                    <span>Attraction entrance tickets (e.g., Gua Batu Cermin ~Rp 50.000/person)</span>
+                    <span>
+                      {lang === 'EN'
+                        ? 'Attraction entrance tickets (e.g., Gua Batu Cermin ~Rp 50.000/person)'
+                        : lang === 'ZH'
+                        ? '景点门票（如镜石洞 Gua Batu Cermin 约 Rp 50.000/人）'
+                        : 'Tiket masuk objek wisata (contoh: Gua Batu Cermin ~Rp 50.000/orang)'}
+                    </span>
                   </li>
                   <li className="flex items-center gap-2 text-slate-500">
                     <XCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" />
-                    <span>Personal meals, snacks, and drinks during lunch/dinner</span>
+                    <span>
+                      {lang === 'EN'
+                        ? 'Personal meals, snacks, and drinks during lunch/dinner'
+                        : lang === 'ZH'
+                        ? '个人午餐、晚餐及个人餐饮消费'
+                        : 'Makan siang, makan malam, & konsumsi pribadi'}
+                    </span>
                   </li>
                   <li className="flex items-center gap-2 text-slate-500">
                     <XCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" />
-                    <span>Driver tipping (voluntary & at your discretion based on service)</span>
+                    <span>
+                      {lang === 'EN'
+                        ? 'Driver tipping (voluntary & at your discretion based on service)'
+                        : lang === 'ZH'
+                        ? '司机小费（非强制，根据服务满意度自愿支付）'
+                        : 'Tip driver (sukarela sesuai kepuasan pelayanan)'}
+                    </span>
                   </li>
                   <li className="flex items-center gap-2 text-slate-500">
                     <XCircle className="w-3.5 h-3.5 text-rose-500 shrink-0" />
-                    <span>Personal travel insurance</span>
+                    <span>
+                      {lang === 'EN' ? 'Personal travel insurance' : lang === 'ZH' ? '个人旅游保险' : 'Asuransi perjalanan pribadi'}
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -883,9 +1039,17 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
               <ShieldCheck className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
               <div className="text-xs text-slate-700 leading-relaxed">
                 <strong className="block text-teal-900 font-bold mb-0.5">
-                  Low Commitment Deposit (Rp 200.000 / ~$11 USD)
+                  {lang === 'EN'
+                    ? 'Zero Upfront Deposit Required'
+                    : lang === 'ZH'
+                    ? '无需预付定金保障'
+                    : 'Bebas Deposit / Tanpa Uang Muka'}
                 </strong>
-                To secure your private driver and vehicle for your selected date, a low deposit of Rp 200.000 / car is required upon booking. The remaining balance of Rp 1.300.000 (~$72 USD) can be paid in cash, local bank transfer, or Wise after tour completion.
+                {lang === 'EN'
+                  ? 'We secure your private driver and vehicle based on your flight details or hotel confirmation. Payment is settled in cash or transfer directly upon tour completion.'
+                  : lang === 'ZH'
+                  ? '我们根据您的航班号或酒店确认信息为您锁定专属司机与车辆。行程结束后直接以现金或转账结清。'
+                  : 'Kami mengamankan driver dan unit mobil Anda berdasarkan info nomor penerbangan atau nama konfirmasi hotel Anda. Pelunasan dilakukan secara tunai atau transfer setelah tur selesai.'}
               </div>
             </div>
           </div>
@@ -929,7 +1093,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
             <div className="lg:col-span-6 relative rounded-3xl overflow-hidden bg-slate-900 border border-stone-200/90 shadow-md min-h-[260px] sm:min-h-[320px] flex flex-col justify-between group">
               <img
                 src={CAR_CHARTER_BANNER}
-                alt="Toyota Rush / Calya / Avanza / HiAce"
+                alt="Toyota Rush / Calya / Avanza Fleet"
                 loading="lazy"
                 decoding="async"
                 className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
@@ -944,7 +1108,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
 
               <div className="relative z-10 p-5 sm:p-6 text-white space-y-1">
                 <strong className="block text-base sm:text-lg font-black text-white leading-snug">
-                  Toyota Rush / Calya / HiAce Fleet
+                  Toyota Rush / Calya / Avanza Fleet
                 </strong>
                 <p className="text-xs sm:text-sm text-slate-200 font-semibold">
                   {lang === 'EN'
@@ -1122,7 +1286,7 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                         {item.duration[lang]}
                       </span>
                       <ChevronRight
-                        className={`w-5 h-5 transition-transform duration-300 ${
+                        className={`hidden lg:block w-5 h-5 transition-transform duration-300 ${
                           isActive ? 'text-teal-600 translate-x-1' : 'text-slate-400'
                         }`}
                       />
@@ -1145,33 +1309,31 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
                     <span>{item.highlight[lang]}</span>
                   </div>
 
-                  {/* Mobile Accordion Inline View (`lg:hidden`) */}
-                  {isActive && (
-                    <div className="lg:hidden mt-4 pt-4 border-t border-stone-200 space-y-3">
-                      <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-900">
-                        <img
-                          src={item.image}
-                          alt={item.title[lang]}
-                          loading="lazy"
-                          decoding="async"
-                          className="w-full h-full object-cover"
-                        />
-                        <div className="absolute top-2 left-2 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-md text-xs font-bold text-white">
-                          {item.time}
-                        </div>
-                      </div>
-
-                      <div className="bg-teal-50 border border-teal-200 rounded-xl p-3.5 text-xs sm:text-sm text-teal-950 flex items-start gap-2.5 font-semibold">
-                        <Camera className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
-                        <div>
-                          <strong className="block text-teal-900 font-black mb-0.5 uppercase tracking-wider text-[11px]">
-                            TOUR HIGHLIGHT
-                          </strong>
-                          {item.highlight[lang]}
-                        </div>
+                  {/* Mobile Inline Detailed View - Always Expanded by Default */}
+                  <div className="lg:hidden mt-4 pt-4 border-t border-stone-200 space-y-3">
+                    <div className="relative aspect-[16/10] rounded-xl overflow-hidden bg-slate-900">
+                      <img
+                        src={item.image}
+                        alt={item.title[lang]}
+                        loading="lazy"
+                        decoding="async"
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute top-2 left-2 bg-slate-900/80 backdrop-blur-md px-3 py-1 rounded-md text-xs font-bold text-white">
+                        {item.time}
                       </div>
                     </div>
-                  )}
+
+                    <div className="bg-teal-50 border border-teal-200 rounded-xl p-3.5 text-xs sm:text-sm text-teal-950 flex items-start gap-2.5 font-semibold">
+                      <Camera className="w-4 h-4 text-teal-600 shrink-0 mt-0.5" />
+                      <div>
+                        <strong className="block text-teal-900 font-black mb-0.5 uppercase tracking-wider text-[11px]">
+                          TOUR HIGHLIGHT
+                        </strong>
+                        {item.highlight[lang]}
+                      </div>
+                    </div>
+                  </div>
                 </div>
               );
             })}
@@ -1269,10 +1431,10 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm max-w-xl mx-auto font-medium leading-relaxed">
               {lang === 'EN'
-                ? 'Want to visit Golo Mori Coastal Highway, Gua Rangko, or Melo Cultural Village? You can freely adjust your route on tour day with your private driver.'
+                ? 'Want to visit Golo Mori Coastal Highway, Gua Rangko, or Cunca Watu Waterfall? You can freely adjust your route on tour day with your private driver.'
                 : lang === 'ZH'
-                ? '想去 Golo Mori 沿海公路、Gua Rangko 蓝洞或 Melo 文化村？行程当天均可与您的专属司机灵活调整。'
-                : 'Mau tukar atau tambah destinasi ke Golo Mori, Gua Rangko, atau Desa Melo? Bebas diskusikan dengan supir kami saat penjemputan.'}
+                ? '想去 Golo Mori 沿海公路、Gua Rangko 蓝洞或 Cunca Watu 瀑布？行程当天均可与您的专属司机灵活调整。'
+                : 'Mau tukar atau tambah destinasi ke Golo Mori, Gua Rangko, atau Air Terjun Cunca Watu? Bebas diskusikan dengan supir kami saat penjemputan.'}
             </p>
           </div>
 
@@ -1421,207 +1583,60 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
         </div>
       </section>
 
-      {/* 7. RESERVATION FORM SECTION */}
+      {/* 7. SECURE BOOKING CTA SECTION */}
       <section id="reserve-now" className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 scroll-mt-20 sm:scroll-mt-24">
-        <div className="text-center max-w-xl mx-auto mb-8">
-          <span className="inline-block px-3 py-1 rounded-full bg-teal-50 text-teal-700 font-extrabold text-xs uppercase tracking-widest border border-teal-200">
-            RESERVE NOW
-          </span>
-          <h2 className="text-3xl font-black text-slate-900 mt-2">
-            Book Your Private Car Charter & City Tour
+        <div className="bg-gradient-to-br from-slate-900 via-slate-900 to-teal-950 rounded-3xl p-8 sm:p-12 text-white shadow-2xl relative overflow-hidden text-center space-y-6 border border-slate-800">
+          <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-3xl pointer-events-none" />
+          
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-black uppercase tracking-wider">
+            <ShieldCheck className="w-4 h-4 text-emerald-400" />
+            <span>{lang === 'EN' ? 'ZERO DEPOSIT REQUIRED' : lang === 'ZH' ? '无需任何预付款' : 'TANPA DEPOSIT / TANPA DP'}</span>
+          </div>
+
+          <h2 className="text-2xl sm:text-4xl font-black tracking-tight text-white max-w-2xl mx-auto leading-tight">
+            {lang === 'EN'
+              ? 'Book Your Private Car Charter in Seconds'
+              : lang === 'ZH'
+              ? '几秒内锁住您的专属司机与车辆'
+              : 'Pesan Private Car Charter Anda Dalam Hitungan Detik'}
           </h2>
-          <p className="text-slate-600 text-xs sm:text-sm mt-1">
-            Fill in the details below to generate your instant WhatsApp booking details.
+
+          <p className="text-slate-300 text-xs sm:text-base max-w-xl mx-auto leading-relaxed font-medium">
+            {lang === 'EN'
+              ? 'No upfront payment or credit card deposit required! Simply verify with your flight number or hotel booking name, and pay upon tour completion.'
+              : lang === 'ZH'
+              ? '无需预付定金或信用卡！只需填写您的航班号或酒店预订姓名完成验证，行程结束后直接付款。'
+              : 'Tanpa DP dan tanpa kartu kredit! Cukup verifikasi dengan nomor penerbangan atau nama hotel Anda, dan bayar setelah tour selesai.'}
           </p>
-        </div>
 
-        <div className="bg-white p-6 sm:p-10 rounded-3xl border border-stone-200/90 shadow-xl space-y-6">
-          <form onSubmit={handleBookingSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
-                  FULL NAME * *
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                  placeholder="e.g., Sarah Johnson"
-                  className="w-full bg-slate-50 border border-stone-200/90 rounded-xl px-3.5 py-3 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
-                  WHATSAPP / PHONE NUMBER * *
-                </label>
-                <input
-                  type="text"
-                  required
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                  placeholder="+62 / +1 / +61 xxx xxx xxx"
-                  className="w-full bg-slate-50 border border-stone-200/90 rounded-xl px-3.5 py-3 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                />
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
-                  EMAIL ADDRESS
-                </label>
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="your@email.com"
-                  className="w-full bg-slate-50 border border-stone-200/90 rounded-xl px-3.5 py-3 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
-                  NUMBER OF PASSENGERS *
-                </label>
-                <select
-                  value={passengerCount}
-                  onChange={(e) => setPassengerCount(e.target.value)}
-                  className="w-full bg-slate-50 border border-stone-200/90 rounded-xl px-3.5 py-3 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                >
-                  <option value="1 - 4 Passengers (Standard MPV - Rp 1.500.000)">1 - 4 Passengers (Standard MPV - Rp 1.500.000)</option>
-                  <option value="5 - 6 Passengers (Standard MPV - Rp 1.500.000)">5 - 6 Passengers (Standard MPV - Rp 1.500.000)</option>
-                  <option value="7 - 14 Passengers (HiAce Commuter - Consult Rate)">7 - 14 Passengers (HiAce Commuter - Consult Rate)</option>
-                </select>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <div>
-                <div className="flex items-center justify-between mb-1">
-                  <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider">
-                    TOUR DATE *
-                  </label>
-                  <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded-md border border-amber-200/80">
-                    {lang === 'EN' ? 'Min. H+1 (Tomorrow)' : lang === 'ZH' ? '最早 H+1 (明天)' : 'Min. H+1 (Mulai Besok)'}
-                  </span>
-                </div>
-                <input
-                  type="date"
-                  required
-                  min={minTourDate}
-                  value={tourDate}
-                  onChange={(e) => {
-                    const selected = e.target.value;
-                    if (selected && selected < minTourDate) {
-                      setTourDate(minTourDate);
-                    } else {
-                      setTourDate(selected);
-                    }
-                  }}
-                  className="w-full bg-slate-50 border border-stone-200/90 rounded-xl px-3.5 py-3 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500 cursor-pointer"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
-                  PICK-UP TIME *
-                </label>
-                <select
-                  value={pickupTime}
-                  onChange={(e) => setPickupTime(e.target.value)}
-                  className="w-full bg-slate-50 border border-stone-200/90 rounded-xl px-3.5 py-3 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
-                >
-                  <option value="08:00 AM">08:00 AM</option>
-                  <option value="08:30 AM (Recommended)">08:30 AM (Recommended)</option>
-                  <option value="09:00 AM">09:00 AM</option>
-                  <option value="10:00 AM">10:00 AM</option>
-                  <option value="Custom Time (Flight Arrival)">Custom Time (Flight Arrival)</option>
-                </select>
-              </div>
-            </div>
-
-            <div>
-              <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
-                PICK-UP LOCATION / HOTEL / AIRPORT * *
-              </label>
-              <input
-                type="text"
-                required
-                value={pickupLocation}
-                onChange={(e) => setPickupLocation(e.target.value)}
-                placeholder="e.g., Ayana Komodo Resort / LBJ Airport"
-                className="w-full bg-slate-50 border border-stone-200/90 rounded-xl px-3.5 py-3 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
-            </div>
-
-            <div>
-              <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
-                SPECIAL REQUESTS / CUSTOM DESTINATIONS (OPTIONAL)
-              </label>
-              <textarea
-                rows={2}
-                value={specialRequests}
-                onChange={(e) => setSpecialRequests(e.target.value)}
-                placeholder="e.g., Want to visit Gua Rangko, need child seat, or specific restaurant stop..."
-                className="w-full bg-slate-50 border border-stone-200/90 rounded-xl px-3.5 py-3 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
-              />
-            </div>
-
-            {/* Deposit Policy Box */}
-            <div className="bg-teal-50/80 border border-teal-200 rounded-2xl p-4 flex items-start gap-3">
-              <ShieldCheck className="w-5 h-5 text-teal-600 shrink-0 mt-0.5" />
-              <div className="text-xs text-slate-700 leading-relaxed font-medium">
-                <strong className="block text-teal-900 font-bold mb-0.5">
-                  Booking Deposit Policy
-                </strong>
-                Rp 200.000 (~$11 USD) deposit / car to lock your driver & vehicle. Remaining Rp 1.300.000 (~$72 USD) payable upon tour completion.
-              </div>
-            </div>
-
+          <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
             <button
-              type="submit"
-              className="w-full py-4 bg-teal-600 hover:bg-teal-500 text-white font-black text-sm rounded-2xl shadow-lg shadow-teal-600/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
+              onClick={() => handleOpenModal()}
+              className="w-full sm:w-auto px-8 py-4 bg-teal-500 hover:bg-teal-400 text-slate-950 font-black text-sm rounded-2xl shadow-xl shadow-teal-500/20 transition-all flex items-center justify-center gap-2 cursor-pointer"
             >
-              <MessageCircle className="w-5 h-5 fill-white text-teal-600" />
-              <span>Send Booking on WhatsApp</span>
+              <MessageCircle className="w-5 h-5 fill-slate-950 text-teal-500" />
+              <span>{lang === 'EN' ? 'Book Private Car Now' : lang === 'ZH' ? '立即预订专属包车' : 'Pesan Mobil Private Sekarang'}</span>
             </button>
-
-            <p className="text-[11px] text-slate-500 text-center">
-              Booking via WhatsApp is instant & simple. Rp 200.000 (~$11 USD) deposit locks your driver; remaining balance paid after the tour.
-            </p>
-          </form>
+          </div>
 
           {/* Payment Badges */}
-          <div className="pt-6 border-t border-stone-100">
-            <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider text-center mb-3">
-              ACCEPTED PAYMENT METHODS
+          <div className="pt-6 border-t border-slate-800/80">
+            <p className="text-[11px] font-extrabold text-slate-400 uppercase tracking-wider mb-3">
+              {lang === 'EN' ? 'PAYMENT UPON TOUR COMPLETION VIA' : lang === 'ZH' ? '行程结束后付款方式' : 'PELUNASAN SETELAH TOUR SELESAI VIA'}
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
-              <div className="p-3 bg-slate-50 rounded-xl border border-stone-200/80 text-slate-700 flex items-center gap-2 font-medium">
-                <span className="w-2 h-2 rounded-full bg-teal-500"></span>
-                <div>
-                  <strong className="block text-slate-900">Wise</strong>
-                  <span className="text-[10px] text-slate-500">USD, EUR, AUD, SGD & Global</span>
-                </div>
-              </div>
-
-              <div className="p-3 bg-slate-50 rounded-xl border border-stone-200/80 text-slate-700 flex items-center gap-2 font-medium">
-                <span className="w-2 h-2 rounded-full bg-teal-500"></span>
-                <div>
-                  <strong className="block text-slate-900">Bank Transfer</strong>
-                  <span className="text-[10px] text-slate-500">BCA, Mandiri, BRI, BNI</span>
-                </div>
-              </div>
-
-              <div className="p-3 bg-slate-50 rounded-xl border border-stone-200/80 text-slate-700 flex items-center gap-2 font-medium">
-                <span className="w-2 h-2 rounded-full bg-teal-500"></span>
-                <div>
-                  <strong className="block text-slate-900">Cash & QRIS</strong>
-                  <span className="text-[10px] text-slate-500">IDR Cash or QRIS after tour</span>
-                </div>
-              </div>
+            <div className="flex flex-wrap items-center justify-center gap-4 text-xs text-slate-300 font-semibold">
+              <span className="flex items-center gap-1.5">
+                <CheckCircle className="w-4 h-4 text-emerald-400" />
+                IDR Cash
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle className="w-4 h-4 text-emerald-400" />
+                Local Bank Transfer (BCA/Mandiri/BRI)
+              </span>
+              <span className="flex items-center gap-1.5">
+                <CheckCircle className="w-4 h-4 text-emerald-400" />
+                Wise / QRIS
+              </span>
             </div>
           </div>
         </div>
@@ -1675,6 +1690,272 @@ export const CarsPage: React.FC<CarsPageProps> = ({ lang }) => {
           })}
         </div>
       </section>
+
+      {/* STICKY MOBILE BOTTOM BAR */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-stone-200 p-3 shadow-2xl flex items-center justify-between gap-3">
+        <div>
+          <span className="block text-[10px] uppercase font-black text-slate-400 tracking-wider">
+            {lang === 'EN' ? 'Zero Deposit Required' : lang === 'ZH' ? '免定金预订' : 'Bebas Deposit'}
+          </span>
+          <div className="text-sm font-black text-slate-900 flex items-center gap-1">
+            <span>Rp 1.200.000</span>
+            <span className="text-[10px] text-slate-500 font-semibold">/ car</span>
+          </div>
+        </div>
+
+        <button
+          onClick={() => handleOpenModal()}
+          className="px-5 py-3 rounded-xl bg-teal-600 hover:bg-teal-500 text-white font-black text-xs shadow-lg shadow-teal-600/20 transition-all flex items-center gap-2 cursor-pointer shrink-0"
+        >
+          <MessageCircle className="w-4 h-4 fill-white text-teal-600" />
+          <span>{lang === 'EN' ? 'Book Private Car Now' : lang === 'ZH' ? '立即预订' : 'Pesan Sekarang'}</span>
+        </button>
+      </div>
+
+      {/* POP-UP MODAL BOOKING FLOW */}
+      {isModalOpen && (
+        <div
+          onClick={handleCloseModal}
+          className="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4 overflow-y-auto"
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className="bg-white w-full max-w-lg rounded-3xl border border-stone-200 shadow-2xl overflow-hidden my-auto animate-in fade-in zoom-in-95 duration-200"
+          >
+            {/* Modal Header */}
+            <div className="bg-slate-900 text-white p-5 sm:p-6 flex items-start justify-between gap-4 border-b border-slate-800">
+              <div>
+                <div className="inline-flex items-center gap-1.5 bg-emerald-500/20 text-emerald-300 px-2.5 py-0.5 rounded-full text-[10px] font-black uppercase tracking-wider border border-emerald-500/30 mb-2">
+                  <ShieldCheck className="w-3 h-3 text-emerald-400" />
+                  <span>{lang === 'EN' ? 'Zero Deposit Required' : lang === 'ZH' ? '免定金预订' : 'Bebas Deposit / Tanpa DP'}</span>
+                </div>
+                <h3 className="text-lg sm:text-xl font-black text-white leading-tight">
+                  {lang === 'EN'
+                    ? 'Secure Your Private Car Charter'
+                    : lang === 'ZH'
+                    ? '预订拉布安巴佐专属包车'
+                    : 'Pesan Private Car Charter'}
+                </h3>
+                <p className="text-slate-400 text-xs mt-1 font-medium">
+                  {lang === 'EN'
+                    ? 'Fill in the fields below to lock your car & driver instantly.'
+                    : lang === 'ZH'
+                    ? '请填写下方信息即可立即锁定车辆与司机。'
+                    : 'Lengkapi formulir di bawah ini untuk mengamankan unit mobil.'}
+                </p>
+              </div>
+
+              <button
+                onClick={handleCloseModal}
+                className="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white flex items-center justify-center transition-colors shrink-0 cursor-pointer"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Modal Body / Form */}
+            <form onSubmit={handleModalSubmit} className="p-5 sm:p-6 space-y-4 max-h-[75vh] overflow-y-auto">
+              {/* Vehicle Selection - Unselected by Default */}
+              <div>
+                <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
+                  {lang === 'EN' ? 'SELECT VEHICLE / PACKAGE *' : lang === 'ZH' ? '选择包车方案 *' : 'PILIH ARMADA / PAKET *'}
+                </label>
+                <select
+                  required
+                  value={vehiclePackage}
+                  onChange={(e) => setVehiclePackage(e.target.value)}
+                  className={`w-full bg-slate-50 border rounded-xl px-3.5 py-3 text-xs sm:text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-teal-500 ${
+                    vehiclePackage ? 'text-slate-900 border-teal-500/50 bg-teal-50/20' : 'text-slate-400 border-stone-200'
+                  }`}
+                >
+                  <option value="" disabled>
+                    {lang === 'EN' ? '-- Select Vehicle / Package --' : lang === 'ZH' ? '-- 请选择车型方案 --' : '-- Pilih Armada / Paket --'}
+                  </option>
+                  <option value="Standard 7-Seater MPV (Toyota Rush / Calya / Avanza) — Rp 1.200.000">
+                    Standard 7-Seater MPV (Toyota Rush / Calya / Avanza) — Rp 1.200.000 / day
+                  </option>
+                  <option value="Toyota HiAce Commuter (Up to 14 Pax) — Custom Rate">
+                    Toyota HiAce Commuter (Up to 14 Pax) — Custom Overland Rate
+                  </option>
+                </select>
+              </div>
+
+              {/* Name & Phone */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div>
+                  <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
+                    {lang === 'EN' ? 'FULL NAME *' : lang === 'ZH' ? '姓名 *' : 'NAMA LENGKAP *'}
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                    placeholder="e.g. Sarah Johnson"
+                    className="w-full bg-slate-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
+                    {lang === 'EN' ? 'WHATSAPP / PHONE *' : lang === 'ZH' ? '电话 / 微信 *' : 'NO WA / TELEPON *'}
+                  </label>
+                  <input
+                    type="text"
+                    required
+                    value={phone}
+                    onChange={(e) => setPhone(e.target.value)}
+                    placeholder="+62 / +1 / +61 xxx xxx"
+                    className="w-full bg-slate-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  />
+                </div>
+              </div>
+
+              {/* Email (Optional) */}
+              <div>
+                <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
+                  {lang === 'EN' ? 'EMAIL ADDRESS (OPTIONAL)' : lang === 'ZH' ? '电子邮箱 (选填)' : 'EMAIL (OPSIONAL)'}
+                </label>
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="your@email.com"
+                  className="w-full bg-slate-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                />
+              </div>
+
+              {/* Tour Date & Pick-up Time */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                <div>
+                  <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
+                    {lang === 'EN' ? 'TOUR DATE *' : lang === 'ZH' ? '用车日期 *' : 'TANGGAL TOUR *'}
+                  </label>
+                  <input
+                    type="date"
+                    required
+                    value={tourDate}
+                    onChange={(e) => setTourDate(e.target.value)}
+                    className="w-full bg-slate-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  />
+                </div>
+
+                <div>
+                  <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
+                    {lang === 'EN' ? 'PICK-UP TIME *' : lang === 'ZH' ? '接送时间 *' : 'JAM PENJEMPUTAN *'}
+                  </label>
+                  <select
+                    value={pickupTime}
+                    onChange={(e) => setPickupTime(e.target.value)}
+                    className="w-full bg-slate-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                  >
+                    <option value="08:00 AM">08:00 AM</option>
+                    <option value="08:30 AM (Recommended)">08:30 AM (Recommended)</option>
+                    <option value="09:00 AM">09:00 AM</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="Custom Time (Flight Arrival)">Custom Time (Flight Arrival)</option>
+                  </select>
+                </div>
+              </div>
+
+              {/* Pick-up Location */}
+              <div>
+                <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
+                  {lang === 'EN' ? 'PICK-UP LOCATION *' : lang === 'ZH' ? '接送地点 *' : 'LOKASI PENJEMPUTAN *'}
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={pickupLocation}
+                  onChange={(e) => setPickupLocation(e.target.value)}
+                  placeholder="e.g., Ayana Komodo Resort or LBJ Airport"
+                  className="w-full bg-slate-50 border border-stone-200 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                />
+              </div>
+
+              {/* MANDATORY VERIFICATION FIELD: Flight Number or Hotel Confirmation Name */}
+              <div className="bg-amber-50/70 border border-amber-200 rounded-2xl p-3.5 space-y-1.5">
+                <label className="block text-[11px] font-black text-amber-950 uppercase tracking-wider flex items-center gap-1.5">
+                  <ShieldCheck className="w-4 h-4 text-amber-700" />
+                  <span>
+                    {lang === 'EN'
+                      ? 'FLIGHT NUMBER OR HOTEL CONFIRMATION NAME *'
+                      : lang === 'ZH'
+                      ? '航班号或酒店预订姓名 (用于免定金验证) *'
+                      : 'NO. PENERBANGAN ATAU NAMA HOTEL *'}
+                  </span>
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={verificationInfo}
+                  onChange={(e) => setVerificationInfo(e.target.value)}
+                  placeholder={
+                    lang === 'EN'
+                      ? 'e.g., Batik Air ID 6522 OR Ayana Resort booking under Sarah'
+                      : lang === 'ZH'
+                      ? '例：Batik Air ID 6522 或 阿雅娜酒店预订人 Sarah'
+                      : 'contoh: Batik Air ID 6522 / Booking Hotel Ayana a.n. Sarah'
+                  }
+                  className="w-full bg-white border border-amber-300 rounded-xl px-3.5 py-2.5 text-xs sm:text-sm font-semibold text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                />
+                <p className="text-[10px] text-amber-800/90 font-medium leading-normal">
+                  {lang === 'EN'
+                    ? '💡 Used solely to verify your trip details and hold your private vehicle without requiring a cash deposit.'
+                    : lang === 'ZH'
+                    ? '💡 仅用于核实您的行程并锁定车辆，无需预付任何押金。'
+                    : '💡 Digunakan untuk verifikasi jadwal kedatangan & mengunci armada tanpa perlu mentransfer DP.'}
+                </p>
+              </div>
+
+              {/* Special Requests */}
+              <div>
+                <label className="block text-[11px] font-black text-slate-700 uppercase tracking-wider mb-1">
+                  {lang === 'EN' ? 'SPECIAL REQUESTS (OPTIONAL)' : lang === 'ZH' ? '额外需求 (选填)' : 'CATATAN TAMBAHAN (OPSIONAL)'}
+                </label>
+                <textarea
+                  rows={2}
+                  value={specialRequests}
+                  onChange={(e) => setSpecialRequests(e.target.value)}
+                  placeholder="e.g., Want to add Gua Rangko stop, child seat needed..."
+                  className="w-full bg-slate-50 border border-stone-200 rounded-xl px-3.5 py-2 text-xs sm:text-sm font-semibold text-slate-800 focus:outline-none focus:ring-2 focus:ring-teal-500"
+                />
+              </div>
+
+              {/* Submit Button */}
+              <div className="pt-2">
+                <button
+                  type="submit"
+                  disabled={!isFormValid}
+                  className={`w-full py-4 rounded-2xl font-black text-xs sm:text-sm transition-all duration-200 flex items-center justify-center gap-2 ${
+                    isFormValid
+                      ? 'bg-teal-600 hover:bg-teal-500 text-white shadow-lg shadow-teal-600/25 cursor-pointer'
+                      : 'bg-slate-200 text-slate-400 cursor-not-allowed border border-slate-300/80'
+                  }`}
+                >
+                  <MessageCircle className={`w-4 h-4 ${isFormValid ? 'fill-white text-teal-600' : 'text-slate-400'}`} />
+                  <span>
+                    {lang === 'EN'
+                      ? 'Secure Your Car Now via WhatsApp'
+                      : lang === 'ZH'
+                      ? '通过 WhatsApp 确认包车'
+                      : 'Pesan Mobil Private Sekarang via WA'}
+                  </span>
+                </button>
+                {!isFormValid && (
+                  <p className="text-[10px] text-amber-700 text-center font-semibold mt-2">
+                    {lang === 'EN'
+                      ? 'Please complete all required fields (*), including vehicle & flight/hotel verification info.'
+                      : lang === 'ZH'
+                      ? '请填写所有必填项 (*)，包括车型方案与航班/酒店验证信息。'
+                      : 'Mohon lengkapi semua kolom wajib (*), termasuk pilihan armada & verifikasi penerbangan/hotel.'}
+                  </p>
+                )}
+              </div>
+            </form>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

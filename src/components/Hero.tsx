@@ -3,7 +3,6 @@ import { TranslationContent, Language } from '../data/translations';
 import { MessageCircle, Check, ShieldCheck, Truck, Clock, Key } from 'lucide-react';
 import { HERO_IMAGE, SCOOTER_IMAGES } from '../data/images';
 import { SITE_CONFIG } from '../data/siteConfig';
-import { InstantBookWidget } from './InstantBookWidget';
 
 interface HeroProps {
   t: TranslationContent;
@@ -148,21 +147,16 @@ export const Hero: React.FC<HeroProps> = ({ t, lang, onSelectScooter }) => {
                 <span>{lang === 'EN' ? 'Explore Scooter Fleet' : lang === 'ZH' ? '查看所有车型' : 'Lihat Pilihan Motor'}</span>
               </a>
 
-              <a
-                href="#reserve"
+              <button
+                onClick={() => onSelectScooter && onSelectScooter('')}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-white hover:bg-stone-100 text-slate-800 font-extrabold text-sm rounded-full border border-stone-300 shadow-xs transition-all transform hover:-translate-y-0.5 active:scale-95 cursor-pointer"
               >
                 <span>⚡</span>
                 <span>{lang === 'EN' ? 'Reserve Now' : lang === 'ZH' ? '立即预订' : 'Pesan Sekarang'}</span>
-              </a>
+              </button>
             </div>
           </div>
 
-        </div>
-
-        {/* Integrated Instant Scooter Booking Widget - Unified with Hero Background */}
-        <div id="instant-booking" className="mt-10 lg:mt-12 pt-6 scroll-mt-24">
-          <InstantBookWidget t={t} lang={lang} onSelectScooter={onSelectScooter} />
         </div>
 
       </div>

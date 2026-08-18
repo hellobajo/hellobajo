@@ -70,9 +70,9 @@ export const Footer: React.FC<FooterProps> = ({ t, lang }) => {
           
           {/* Col 1 & 2: Brand & About */}
           <div className="lg:col-span-2 space-y-4">
-            <div className="inline-block cursor-default">
+            <Link to="/blog" className="inline-block cursor-pointer hover:opacity-85 transition-opacity" aria-label="HelloBajo Travel Guides">
               <img src={SITE_CONFIG.logo} alt={SITE_CONFIG.name} loading="lazy" decoding="async" className="h-10 w-auto brightness-200" />
-            </div>
+            </Link>
             <p className="text-slate-400 text-xs sm:text-sm leading-relaxed max-w-sm">
               {t.footer.tagline}
             </p>

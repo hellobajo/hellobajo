@@ -3,3 +3,19 @@
 html {
   scroll-behavior: smooth;
 }
+
+@keyframes marqueeInfinite {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee-infinite {
+  display: flex;
+  width: max-content;
+  animation: marqueeInfinite 35s linear infinite !important;
+  pointer-events: auto;
+}
