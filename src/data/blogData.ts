@@ -2809,7 +2809,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'August 1, 2026',
     readTime: '6 min read',
-    coverImage: BLOG_IMAGES.safetyGuide.cover,
+    coverImage: BLOG_IMAGES.basicscooter.cover,
     tags: ['Scooter Rental', 'Labuan Bajo', 'Airport Pickup', 'No Deposit'],
     title: {
       EN: 'Scooter Rental in Labuan Bajo: Essential Guide to Fleet, Airport Delivery & Routes',
@@ -2836,7 +2836,7 @@ export const BLOG_POSTS: BlogPost[] = [
         sections: [
           {
             heading: '1. Why Renting a Scooter in Labuan Bajo is the Best Choice',
-            image: HERO_IMAGE,
+            image: BLOG_IMAGES.whyrenting.cover,
             imageCaption: 'HelloBajo Automatic Scooter Fleet Prepared for Airport Delivery',
             paragraphs: [
               'Navigating Labuan Bajo on two wheels offers unmatched flexibility. Unlike rigid tour schedules or expensive private car hires, a scooter lets you beat the traffic, easily find parking near popular harbor spots, and spontaneously chase sunsets at Bukit Cinta or Wae Cicu beach.',
@@ -2846,7 +2846,7 @@ export const BLOG_POSTS: BlogPost[] = [
           {
             heading: '2. Scooter Fleet Breakdown: Honda Beat vs Scoopy vs NMAX',
             intro: 'Choosing the right bike depends entirely on your travel plans and riding style:',
-            image: RIDING_DESTINATIONS.goloMori,
+            image: BLOG_IMAGES.hondavsyamaha.cover,
             imageCaption: 'Riding Scenic Coastal Highways on a Yamaha NMAX / Honda Scoopy',
             items: [
               {
@@ -2927,7 +2927,7 @@ export const BLOG_POSTS: BlogPost[] = [
         sections: [
           {
             heading: '1. Mengapa Sewa Motor adalah Pilihan Terbaik di Labuan Bajo',
-            image: HERO_IMAGE,
+            image: BLOG_IMAGES.whyrenting.cover,
             imageCaption: 'Armada Motor Matic HelloBajo Siap Antar di Bandara Komodo',
             paragraphs: [
               'Menjelajahi Labuan Bajo dengan roda dua memberikan fleksibilitas tanpa tanding. Bebas macet, mudah parkir di dekat pelabuhan, dan bisa kapan saja menikmati sunset di Bukit Cinta atau Pantai Waecicu.',
@@ -2937,7 +2937,7 @@ export const BLOG_POSTS: BlogPost[] = [
           {
             heading: '2. Pilihan Armada Motor: Honda Beat vs Scoopy vs NMAX',
             intro: 'Memilih motor yang tepat tergantung pada rencana perjalanan dan gaya berkendara Anda:',
-            image: RIDING_DESTINATIONS.goloMori,
+            image: BLOG_IMAGES.hondavsyamaha.cover,
             imageCaption: 'Riding Jalan Pesisir Golo Mori Menggunakan Yamaha NMAX / Honda Scoopy',
             items: [
               {
@@ -3018,7 +3018,7 @@ export const BLOG_POSTS: BlogPost[] = [
         sections: [
           {
             heading: '1. 为什么租摩托车是探索拉布安巴佐的最佳选择',
-            image: HERO_IMAGE,
+            image: BLOG_IMAGES.whyrenting.cover,
             imageCaption: 'HelloBajo 自动挡踏板车车队 (机场免费送车)',
             paragraphs: [
               '骑行两轮摩托车能带来极致灵活性。避开拥堵，轻松在码头或爱心山 (Bukit Cinta) 停放车辆，随时随地追赶最美海岛落日。',
@@ -3028,7 +3028,7 @@ export const BLOG_POSTS: BlogPost[] = [
           {
             heading: '2. 热门车型对比：Honda Beat vs Scoopy vs NMAX',
             intro: '选择合适的车型取决于您的出行计划与骑行习惯：',
-            image: RIDING_DESTINATIONS.goloMori,
+            image: BLOG_IMAGES.hondavsyamaha.cover,
             imageCaption: '骑行 Yamaha NMAX / Honda Scoopy 沿海公路探索',
             items: [
               {
