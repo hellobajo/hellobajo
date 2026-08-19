@@ -213,6 +213,9 @@ import packinglistImg from '../assets/images/packinglist.jpg';
 import snore1 from '../assets/images/snore1.jpg';
 import snore2 from '../assets/images/snore2.jpg';
 import snore3 from '../assets/images/snore3.jpg';
+import fortunerImg from '../assets/images/fortuner.jpg';
+import caroptionImg from '../assets/images/caroption.jpg';
+import idealcarImg from '../assets/images/idealcar.jpg';
 
 // GALLERY BLOG ARTICLES (COVER & SELECTED HIGHLIGHT PHOTOS)
 import kampungujungImg from '../assets/images/kampungujung.jpg';
@@ -252,6 +255,9 @@ export const BLOG_IMAGES = {
   boatgear: { cover: boatgearImg },
   packinglist: { cover: packinglistImg },
   carCharter: { cover: tourCarImg },
+  fortunercar: { cover: fortunerImg },
+  caroption: { cover: caroptionImg },
+  idealcar: { cover: idealcarImg },
   safetyGuide: { cover: heroBgLocal },
   guaRangko: { cover: cityOptGuaRangko, gallery: [cityOptGuaRangko, cityOptGoloMori, bukitCintaImg] },
   goloMori: { cover: art10_cover, gallery: [art10_g1, art10_g2, art10_g3] },
