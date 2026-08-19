@@ -2467,7 +2467,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'August 6, 2026',
     readTime: '6 min read',
-    coverImage: BLOG_IMAGES.carCharter.cover,
+    coverImage: BLOG_IMAGES.fortunercar.cover,
     tags: ['Car Charter', 'Private Driver', 'Toyota Rush', 'Toyota Calya', 'Toyota HiAce', 'Family Travel', 'Batu Cermin'],
     title: {
       EN: 'Private Car Charter in Labuan Bajo: Complete Family & Group Travel Guide',
@@ -2504,7 +2504,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. Why Private Car Charter is Ideal for Families & Groups',
             intro:
               'Navigating the hilly landscape of Labuan Bajo in large groups or with heavy luggage can be challenging. While solo travelers often prefer a quick scooter rental in Labuan Bajo for solo rides, families and group travelers benefit significantly from private car charters:',
-            image: RIDING_DESTINATIONS.goloMori,
+            image: BLOG_IMAGES.idealcar.cover,
             imageCaption: 'Scenic Coastal Highways & Overland Road Trips across Flores',
             items: [
               {
@@ -2529,7 +2529,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Vehicle Options: Toyota Rush, Calya & HiAce Commuter (Max 14 Pax)',
             intro:
               'Selecting the right vehicle depends on your group size, luggage volume, and travel style. At HelloBajo, our private car fleet features well-maintained MPVs, SUVs, and group vans:',
-            image: CAR_CHARTER_BANNER,
+            image: BLOG_IMAGES.caroption.cover,
             imageCaption: 'HelloBajo Private Toyota Zenix / Rush Charter with Local Driver',
             items: [
               {
@@ -2607,7 +2607,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. Mengapa Sewa Mobil Private Sangat Ideal untuk Keluarga & Rombongan',
             intro:
               'Menjelajahi kontur berbukit di Labuan Bajo bersama rombongan atau membawa koper besar bisa cukup menantang. Liburan keluarga dan grup sangat terbantu dengan sewa mobil private:',
-            image: RIDING_DESTINATIONS.goloMori,
+            image: BLOG_IMAGES.idealcar.cover,
             imageCaption: 'Jalan Pesisir Indah Golo Mori & Perjalanan Overland Flores',
             items: [
               {
@@ -2632,7 +2632,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Pilihan Kendaraan: Toyota Rush, Calya & HiAce Commuter (Maks 14 Orang)',
             intro:
               'Memilih kendaraan yang tepat tergantung jumlah rombongan dan gaya perjalanan. Di HelloBajo, armada mobil private kami terdiri dari unit MPV, SUV, dan minibus terawat:',
-            image: CAR_CHARTER_BANNER,
+            image: BLOG_IMAGES.caroption.cover,
             imageCaption: 'Sewa Mobil Private Toyota Zenix / Rush HelloBajo Lengkap Driver',
             items: [
               {
@@ -2710,7 +2710,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. 为什么私人包车是家庭与团队出行拉布安巴佐的最佳选择',
             intro:
               '在拉布安巴佐连绵起伏的山路中携带大量行李或带老人小孩出行充满挑战。家庭与团队出行选择私人包车收益显著：',
-            image: RIDING_DESTINATIONS.goloMori,
+            image: BLOG_IMAGES.idealcar.cover,
             imageCaption: '弗洛雷斯 Golo Mori 沿海公路与环岛公路自驾线',
             items: [
               {
@@ -2735,7 +2735,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. 车型推荐：Toyota Rush、Calya 与 HiAce 商务车 (最多 14 人)',
             intro:
               '选择合适的车辆取决于您的团队人数、行李数量与偏好的舒适度。在 HelloBajo，我们的私人包车车队均由保养良好的现代 SUV、MPV 与 14 座商务车组成：',
-            image: CAR_CHARTER_BANNER,
+            image: BLOG_IMAGES.caroption.cover,
             imageCaption: 'HelloBajo 丰田 Zenix / Rush 私人包车含专职司机',
             items: [
               {
