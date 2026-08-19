@@ -216,6 +216,9 @@ import snore3 from '../assets/images/snore3.jpg';
 import fortunerImg from '../assets/images/fortuner.jpg';
 import caroptionImg from '../assets/images/caroption.jpg';
 import idealcarImg from '../assets/images/idealcar.jpg';
+import hondavsyamahaImg from '../assets/images/hondavsyamaha.jpg';
+import whyrentingImg from '../assets/images/whyrenting.jpg';
+import basicscooterImg from '../assets/images/basicscooter.jpg';
 
 // GALLERY BLOG ARTICLES (COVER & SELECTED HIGHLIGHT PHOTOS)
 import kampungujungImg from '../assets/images/kampungujung.jpg';
@@ -237,6 +240,13 @@ export const BLOG_IMAGES = {
   kelimutuLakes: { cover: art3_cover, gallery: [art3_g1, art3_g2, art3_g3] },
   kelimutu3warna: { cover: kelimutulakeImg },
   roadkelimutu: { cover: roadkelimutuImg },
+  
+  hondavsyamaha: { cover: hondavsyamahaImg },
+  whyrenting: { cover: whyrentingImg },
+  basicscooter: { cover: basicscooterImg },
+
+
+  
   
   
   culinarySeafood: { cover: art4_cover },
