@@ -3392,8 +3392,8 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'July 20, 2026',
     readTime: '7 min read',
-    coverImage: BLOG_IMAGES.goloMori.cover,
-    galleryImages: BLOG_IMAGES.goloMori.gallery,
+    coverImage: BLOG_IMAGES.finishi.cover,
+    galleryImages: BLOG_IMAGES.phinisi.gallery,
     tags: ['Sailing Komodo', 'Speedboat Day Trip', 'Phinisi Liveaboard', 'Komodo Boat Tour', 'Scooter Rental'],
     title: {
       EN: 'Speedboat Day Trip vs. Phinisi Liveaboard: Which Komodo Boat Tour Should You Choose?',
@@ -3422,7 +3422,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. Option A: Speedboat Day Trip (Best for Travelers with Limited Time)',
             intro:
               'If you have a tight schedule or prefer sleeping in a land-based hotel room every night, a high-speed day trip is your best option. Powered by multiple outboard engines, modern speedboats zip across the ocean at high velocity, allowing you to cover vast distances in a fraction of the time required by traditional wooden vessels.',
-            image: SPEEDBOAT_BANNER,
+            image: BLOG_IMAGES.spitbut.cover,
             imageCaption: 'HelloBajo High-Speed Dayboat for 1-Day Komodo Island Hopping',
             items: [
               {
@@ -3443,7 +3443,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Option B: Phinisi Liveaboard Yacht (Best for Luxury & Relaxed Sailing)',
             intro:
               'For travelers seeking a quintessential, romantic Indonesian voyage, staying aboard a handcrafted wooden Phinisi boat is an unforgettable experience. These majestic schooners blend traditional maritime craftsmanship with modern luxury amenities.',
-            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.phinisideck.cover,
             imageCaption: 'Handcrafted Wooden Phinisi Liveaboard Sailing in Komodo National Park',
             items: [
               {
@@ -3522,7 +3522,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. Pilihan A: Speedboat Day Trip (Ideal untuk Waktu Terbatas)',
             intro:
               'Jika Anda memiliki jadwal yang ketat atau lebih suka tidur di kamar hotel di darat setiap malam, day trip dengan speedboat berkecepatan tinggi adalah pilihan terbaik.',
-            image: SPEEDBOAT_BANNER,
+            image: BLOG_IMAGES.spitbut.cover,
             imageCaption: 'Speedboat Harian HelloBajo untuk Tur Island Hopping Komodo',
             items: [
               {
@@ -3543,7 +3543,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '2. Pilihan B: Kapal Phinisi Liveaboard (Pengalaman Mewah & Santai)',
             intro:
               'Bagi wisatawan yang menginginkan pelayaran impian yang romantis, bermalam di atas kapal kayu Phinisi tradisional adalah pengalaman yang tak terlupakan.',
-            image: 'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80',
+            image: BLOG_IMAGES.phinisideck.cover,
             imageCaption: 'Kapal Phinisi Kayu Mewah Menginap di Taman Nasional Komodo',
             items: [
               {
