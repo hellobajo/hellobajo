@@ -3717,7 +3717,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'August 6, 2026',
     readTime: '6 min read',
-    coverImage: BLOG_IMAGES.sunsetSpots.cover,
+    coverImage: BLOG_IMAGES.pedebeach.cover,
     tags: ['Hidden Beaches', 'Waecicu Beach', 'Pantai Pede', 'Silvia Hill', 'Snorkeling', 'Scooter Rental', 'Labuan Bajo'],
     microCta: {
       label: {
@@ -3755,7 +3755,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. Waecicu Beach: Soft Sand, Calm Waters & Shore Snorkeling',
             intro:
               'Located just a 15-minute drive north of the town center, Waecicu Beach is widely considered one of the most picturesque shoreline stretches in Labuan Bajo. Nestled in a protected bay, this beach features fine soft sand, calm wave conditions, and clear shallow waters.',
-            image: RIDING_DESTINATIONS.waecicu,
+            image: BLOG_IMAGES.waecicu.cover,
             imageCaption: 'Calm Soft Sands & Shoreline Snorkeling at Waecicu Beach',
             items: [
               {
@@ -3795,7 +3795,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '3. Silvia Hill Cove: Crystal Turquoise Waters & Off-Grid Snorkeling',
             intro:
               'For travelers seeking a more secluded, wild coastal experience, the hidden coves nestled beneath Silvia Hill (Bukit Sylvia) offer dramatic rolling green hills and crystal-turquoise waters.',
-            image: RIDING_DESTINATIONS.bukitSilvia,
+            image: BLOG_IMAGES.silvia.cover,
             imageCaption: '360-Degree Panoramic View & Secluded Cove beneath Silvia Hill',
             items: [
               {
@@ -3870,7 +3870,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. Pantai Waecicu: Pasir Halus, Air Tenang & Snorkeling Tepi Pantai',
             intro:
               'Berjarak hanya 15 menit berkendara ke utara dari pusat kota, Pantai Waecicu dikenal sebagai salah satu pantai terindah di Labuan Bajo. Terletak di teluk yang terlindung, pantai ini memiliki pasir halus, gelombang tenang, dan air dangkal yang jernih.',
-            image: RIDING_DESTINATIONS.waecicu,
+            image: BLOG_IMAGES.waecicu.cover,
             imageCaption: 'Pantai Waecicu Pasir Putih Halus & Spot Snorkeling Tepi Pantai',
             items: [
               {
@@ -3910,7 +3910,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '3. Teluk Bukit Silvia: Air Turkuai Jernih & Spot Snorkeling Alami',
             intro:
               'Bagi Anda yang menyukai pantai yang lebih alami dan sepi, teluk tersembunyi di bawah Bukit Silvia (Bukit Sylvia) menawarkan pemandangan bukit hijau yang megah dan air laut turkuai yang sangat jernih.',
-            image: RIDING_DESTINATIONS.bukitSilvia,
+            image: BLOG_IMAGES.silvia.cover,
             imageCaption: 'Pemandangan Bukit Silvia 360 Derajat & Teluk Pesisir Indah',
             items: [
               {
@@ -3985,7 +3985,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '1. Waecicu 海滩：细腻白沙、平静水域与岸边浮潜',
             intro:
               'Waecicu 海滩距离镇中心以北仅 15 分钟车程，被公认为拉布安巴佐最风光旖旎的海岸线之一。海滩隐匿于避风湾内，拥有细软白沙、平缓水流与清澈见底的浅水。',
-            image: RIDING_DESTINATIONS.waecicu,
+            image: BLOG_IMAGES.waecicu.cover,
             imageCaption: 'Waecicu 浅湾细白沙滩与近岸浮潜点',
             items: [
               {
@@ -4025,7 +4025,7 @@ export const BLOG_POSTS: BlogPost[] = [
             heading: '3. Silvia Hill 浅湾：晶莹蒂芙尼蓝与私密浮潜宝地',
             intro:
               '对于追求更加私密、原始海岸体验的游客，Silvia 山 (Bukit Sylvia) 脚下的隐秘浅湾拥有令人惊叹的连绵绿丘与晶莹的蒂芙尼蓝海水。',
-            image: RIDING_DESTINATIONS.bukitSilvia,
+            image: BLOG_IMAGES.silvia.cover,
             imageCaption: 'Silvia 丘陵全景视角与隐秘浅湾',
             items: [
               {
@@ -4424,7 +4424,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: 'By HelloBajo Team',
     publishDate: 'August 6, 2026',
     readTime: '6 min read',
-    coverImage: BLOG_IMAGES.gettingAround.cover,
+    coverImage: BLOG_IMAGES.bikevscar.cover,
     tags: ['Labuan Bajo Transport', 'Scooter Rental', 'Private Car Charter', 'Travel Tips', 'Flores Road Trip'],
     isFeatured: true,
     microCta: {
