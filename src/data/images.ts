@@ -223,6 +223,12 @@ import bikevscarImg from '../assets/images/bikevscar.jpg';
 import waecicuImg from '../assets/images/waecicu.jpg';
 import pedebeachImg from '../assets/images/pedebeach.jpg';
 import silviaImg from '../assets/images/silvia.jpg';
+import finishiImg from '../assets/images/finishi.jpg';
+import spitbutImg from '../assets/images/spitbut.jpg';
+import phinisideckImg from '../assets/images/phinisideck.jpg';
+import art20_cover from '../assets/images/finishi.jpg';
+import art20_g1 from '../assets/images/snore2.jpg';
+import art20_g2 from '../assets/images/snore3.jpg';
 
 // GALLERY BLOG ARTICLES (COVER & SELECTED HIGHLIGHT PHOTOS)
 import kampungujungImg from '../assets/images/kampungujung.jpg';
@@ -248,7 +254,10 @@ export const BLOG_IMAGES = {
   waecicu: { cover: waecicuImg },
   pedebeach: { cover: pedebeachImg },
   silvia: { cover: silviaImg },
-
+  finishi: { cover: finishiImg },
+  spitbut: { cover: spitbutImg },
+  phinisideck: { cover: phinisideckImg },
+  phinisi: { cover: art20_cover, gallery: [art20_g1, art20_g2] },
   
   
   hondavsyamaha: { cover: hondavsyamahaImg },
